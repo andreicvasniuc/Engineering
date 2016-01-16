@@ -1,11 +1,0 @@
-{:uriI"’file://app/assets/javascripts/modules/ishop/templates/home.html?type=text/html&id=30db0894e8a42a285664e58fc9fb18a87e429e2ff976402dc8d32060e61f36ef:ET:load_pathI"app/assets/javascripts;T:filenameI"=app/assets/javascripts/modules/ishop/templates/home.html;T:	nameI"!modules/ishop/templates/home;T:logical_pathI"&modules/ishop/templates/home.html;T:content_typeI"text/html;T:sourceI"<div>
-    {{model.title}}
-
-    <button ng-click="model.show()">Show in console</button>
-    <a href="#/products">Products</a>
-
-    <counter></counter>
-</div>;T:metadata{	:dependencieso:Set:
-@hash{	I"environment-version;TTI"environment-paths;TTI"2processors:type=text/html&file_type=text/html;TTI"Kfile-digest://app/assets/javascripts/modules/ishop/templates/home.html;TT:charsetI"
-utf-8;F:digest"%f–ÊM¼ğ®oï9uy4¶²ÃïfšjnÍãµäl²{Çı·:lengthi:dependencies_digest"%>-8S@’áÃ í&«Ùƒ’‰M¦ÍŠ*qáaé)0x:idI"E30db0894e8a42a285664e58fc9fb18a87e429e2ff976402dc8d32060e61f36ef;F:
-mtimel+Îj‚V
