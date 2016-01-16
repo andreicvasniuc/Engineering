@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "private": true,
+  "license": "None",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {
+    "browserify": "^10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "babelify": "^7.2.0",
+    "babel-preset-es2015": "^6.1.18"
+  }
+}

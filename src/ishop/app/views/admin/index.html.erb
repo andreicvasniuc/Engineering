@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adminIshop">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Ishop</title>
+    <!-- link href="public/favicon.ico" rel="shortcut icon" type="image/x-icon" / -->
+    <meta name="viewport" content="width=device-width" />
+
+    <%= stylesheet_link_tag    'admin', media: 'all' %>
+    <%= javascript_include_tag 'admin' %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div ng-view>admin view</div>
+
+    <%= render partial: 'api_urls' %>
+</body>
+</html>

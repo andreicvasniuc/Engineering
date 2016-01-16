@@ -1,0 +1,12 @@
+{:uriI"›file://app/assets/javascripts/modules/ishop/templates/product/index.html?type=text/html&id=eef36f1ff6f856d9793bd9521606d4d8063532072750f5eecc9956630a3b81df:ET:load_pathI"app/assets/javascripts;T:filenameI"Fapp/assets/javascripts/modules/ishop/templates/product/index.html;T:	nameI"*modules/ishop/templates/product/index;T:logical_pathI"/modules/ishop/templates/product/index.html;T:content_typeI"text/html;T:sourceI"’<div>
+    {{model.title}}
+
+    <a href="#/home">Home</a>
+
+    <div ng-repeat="product in model.products">
+      {{product.name}}
+    </div>
+</div>;T:metadata{	:dependencieso:Set:
+@hash{	I"environment-version;TTI"environment-paths;TTI"2processors:type=text/html&file_type=text/html;TTI"Tfile-digest://app/assets/javascripts/modules/ishop/templates/product/index.html;TT:charsetI"
+utf-8;F:digest"%v¾tÿö¥t{Â^]?úŸuY´s™«&ñ_ú.!:lengthi’:dependencies_digest"%ÔÜøÓìB“ÚaI#!eâ|&M¾ªj<H:idI"Eeef36f1ff6f856d9793bd9521606d4d8063532072750f5eecc9956630a3b81df;F:
+mtimel+×•V
