@@ -1,6 +1,7 @@
 class ProductController {
-  constructor() {
-    console.log('product controller');
+  constructor(productService) {
+    console.log('product controller', productService);
+    this.productList = productService.productList;
   }
 }
 

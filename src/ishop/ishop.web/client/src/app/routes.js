@@ -1,13 +1,7 @@
 import homeTemplate from 'controllers/home/template.html';
 import productTemplate from 'controllers/product/template.html';
 
-let routeUrls = {
-    index: '/',
-    home: '/home',
-    products: '/products'
-};
-
-export default function ($routeProvider) {
+export default ($routeProvider, routeUrls) => {
   let routes = {
     home: {
       templateUrl: homeTemplate,

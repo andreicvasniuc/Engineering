@@ -14,15 +14,17 @@ console.log(pathApp);
 module.exports = {
   //context: pathApp(),
   entry: {
-    app:  pathApp('index.js')//,
-    //admin: pathAdmin('index.js')
+    app:  pathApp('index.js'),
+    admin: pathAdmin('index.js')
   },
   output: {
     path: '../public/javascripts',
-    filename: '[name].js',
+    //path: pathApp(),
+    filename: '[name].js', // Template based on keys in entry above
     publicPath: '/'
   },
   resolve: {
+      // you can now require('file') instead of require('file.js')
       extensions: [ '', '.js' ],
       alias: {
           //app sub aliases
@@ -39,11 +41,15 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/, 
-        loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015'] }
+        loader: 'babel', query: { presets: ['es2015'] }, exclude: /node_modules/
       },
       {
         test: /\.html$/, 
-        loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html'
+        loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html', exclude: /node_modules/
+      },
+      {
+        test: /\.styl$/, 
+        loader: 'style!css!stylus', exclude: /node_modules/
       }
     ]
   }
