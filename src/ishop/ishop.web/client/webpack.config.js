@@ -14,8 +14,8 @@ console.log(pathApp);
 module.exports = {
   //context: pathApp(),
   entry: {
-    app:  pathApp('index.js'),
-    admin: pathAdmin('index.js')
+    admin: pathAdmin('index.jsx'),
+    app:  pathApp('index.jsx')
   },
   output: {
     path: '../public/javascripts',
@@ -25,7 +25,7 @@ module.exports = {
   },
   resolve: {
       // you can now require('file') instead of require('file.js')
-      extensions: [ '', '.js' ],
+      extensions: [ '', '.js', '.jsx' ],
       alias: {
           //app sub aliases
           //app: pathApp( 'index.js' ),
@@ -40,12 +40,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/, 
+        test: /\.jsx$/, 
         loader: 'babel', query: { presets: ['es2015'] }, exclude: /node_modules/
       },
       {
         test: /\.html$/, 
-        loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src/app')) + '/!html', exclude: /node_modules/
+        loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src')) + '/!html', exclude: /node_modules/
       },
       {
         test: /\.styl$/, 

@@ -6,13 +6,9 @@ class ProductGridController {
     console.log('ProductGridController');
   }
 
-  select(product) {
+  toggle(product) {
     console.log('product', product);
-    product.isSelected = true;
-  }
-
-  unselect(product) {
-    product.isSelected = false;
+    product.isSelected = !product.isSelected;
   }
 }
 

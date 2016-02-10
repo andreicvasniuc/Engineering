@@ -1,8 +1,8 @@
 import angular from 'angular';
 
-import productGrid from './product-grid';
+import productView from './product-view';
 
 export default angular
     .module('app.components', [])
-    .component('productGrid', productGrid)
+    .component('productView', productView)
     .name;

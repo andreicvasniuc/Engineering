@@ -11,7 +11,7 @@ import services from './services';
 import constants from './constants';
 
 export default angular
-    .module('app', [
+    .module('admin', [
       ngRoute,
       controllers,
       components,
@@ -19,12 +19,3 @@ export default angular
       constants
     ])
     .config(routes);
-
-
-
-// ishopModule.component('helloWorld', {
-//     template: `<h2>{{helloWorld.text}}</h2>`,
-//     controller: function () {
-//       this.text = 'hello world11';
-//     }
-// });
