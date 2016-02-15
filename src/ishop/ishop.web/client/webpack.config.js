@@ -48,8 +48,28 @@ module.exports = {
         loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src')) + '/!html', exclude: /node_modules/
       },
       {
+        test: /\.css$/, 
+        loader: 'style!css'
+      },
+      {
         test: /\.styl$/, 
         loader: 'style!css!stylus', exclude: /node_modules/
+      },
+      { 
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'file' 
+      },
+      { 
+        test: /\.(woff|woff2)$/, 
+        loader:'url?prefix=font/&limit=5000' 
+      },
+      { 
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'url?limit=10000&mimetype=application/octet-stream' 
+      },
+      { 
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'url?limit=10000&mimetype=image/svg+xml' 
       }
     ]
   }

@@ -1,7 +1,10 @@
 'use strict'
 
+import bootstrapcss from 'bootstrap/dist/css/bootstrap.css';
+
 import angular from 'angular';
 import ngRoute from 'angular-route';
+//import angular from 'angular';
 
 import routes from './routes';
 
