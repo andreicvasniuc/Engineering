@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import categoryGrid from './categorygrid';
+import categoryGrid from './category-grid';
 import productGrid from './product-grid';
 
 export default angular

@@ -6,12 +6,12 @@ export default ($routeProvider, routeUrls) => {
     home: {
       templateUrl: homeTemplate,
       controller: 'HomeController',
-      controllerAs: 'model'
+      controllerAs: '$ctrl'
     },
     products: {
       templateUrl: productTemplate,
       controller: 'ProductController',
-      controllerAs: 'model'
+      controllerAs: '$ctrl'
     }
   };
 

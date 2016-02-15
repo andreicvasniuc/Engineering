@@ -1,5 +1,5 @@
-<div class="product-grid" ng-repeat="product in productGrid.data">
+<div class="product-grid" ng-repeat="product in $ctrl.data">
   <span>{{$index}} - {{product.name}}</span>
-  <button type="button" ng-show="product.isSelected" ng-click="productGrid.toggle(product)">Unselect</button>
-  <button type="button" ng-hide="product.isSelected" ng-click="productGrid.toggle(product)">Select</button>
+  <button type="button" ng-show="product.isSelected" ng-click="$ctrl.toggle(product)">Unselect</button>
+  <button type="button" ng-hide="product.isSelected" ng-click="$ctrl.toggle(product)">Select</button>
 </div>
