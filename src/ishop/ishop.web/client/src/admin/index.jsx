@@ -1,6 +1,7 @@
 'use strict'
 
 import bootstrapcss from 'bootstrap/dist/css/bootstrap.css';
+import admincss from 'assets/admin.styl';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';

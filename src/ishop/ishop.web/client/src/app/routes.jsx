@@ -1,5 +1,5 @@
-import homeTemplate from 'controllers/home/template.html';
-import productTemplate from 'controllers/product/template.html';
+import homeTemplate from './controllers/home/template.html';
+import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls) => {
   let routes = {

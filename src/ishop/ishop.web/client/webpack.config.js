@@ -29,9 +29,9 @@ module.exports = {
       alias: {
           //app sub aliases
           //app: pathApp( 'index.js' ),
-          controllers: pathApp( 'controllers' ),
-          components: pathApp( 'components' ),
-          services: pathApp( 'services' ),
+          // controllers: pathApp( 'controllers' ),
+          // components: pathApp( 'components' ),
+          // services: pathApp( 'services' ),
 
           //assets sub aliases
           assets: pathTo( 'assets' )
