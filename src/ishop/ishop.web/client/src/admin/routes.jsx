@@ -1,11 +1,11 @@
-import homeTemplate from './controllers/home/template.html';
+import dashboardTemplate from './controllers/dashboard/template.html';
 import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls) => {
   let routes = {
-    home: {
-      templateUrl: homeTemplate,
-      controller: 'HomeController',
+    dashboard: {
+      templateUrl: dashboardTemplate,
+      controller: 'DashboardController',
       controllerAs: '$ctrl'
     },
     products: {
@@ -18,10 +18,10 @@ export default ($routeProvider, routeUrls) => {
   $routeProvider
     .when(
         routeUrls.index,
-        routes.home)
+        routes.dashboard)
     .when(
-        routeUrls.home,
-        routes.home)
+        routeUrls.dashboard,
+        routes.dashboard)
     .when(
         routeUrls.products,
         routes.products)

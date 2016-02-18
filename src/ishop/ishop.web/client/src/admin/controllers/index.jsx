@@ -1,10 +1,10 @@
 import angular from 'angular';
 
-import HomeController from './home';
+import DashboardController from './dashboard';
 import ProductController from './product';
 
 export default angular
     .module('admin.controllers', [])
-    .controller('HomeController', HomeController)
+    .controller('DashboardController', DashboardController)
     .controller('ProductController', ProductController)
     .name;
