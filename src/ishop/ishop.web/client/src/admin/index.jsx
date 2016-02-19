@@ -1,11 +1,12 @@
 'use strict'
 
-import bootstrapcss from 'bootstrap/dist/css/bootstrap.css';
-import admincss from 'assets/admin.styl';
+import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
+import adminCss from 'assets/css/admin.css';
+import fontAwesomeCss from 'assets/css/font-awesome.css';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
-//import angular from 'angular';
+//import bootstrap from 'bootstrap';
 
 import routes from './routes';
 

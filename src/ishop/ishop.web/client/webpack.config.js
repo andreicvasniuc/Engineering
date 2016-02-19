@@ -14,8 +14,8 @@ console.log(pathApp);
 module.exports = {
   //context: pathApp(),
   entry: {
-    admin: pathAdmin('index.jsx'),
-    app:  pathApp('index.jsx')
+    admin: pathAdmin('index.jsx')//,
+    //app:  pathApp('index.jsx')
   },
   output: {
     path: '../public/javascripts',
@@ -60,7 +60,7 @@ module.exports = {
         loader: 'file' 
       },
       { 
-        test: /\.(woff|woff2)$/, 
+        test: /\.(woff|woff2)($|\?)/, 
         loader:'url?prefix=font/&limit=5000' 
       },
       { 
