@@ -1,6 +1,13 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-        <li>
+
+    <li ng-repeat="item in $ctrl.navItems">
+        <a ng-click="$ctrl.goTo(item.url)" class="pointer">
+            <i class="fa fa-fw fa-{{item.cssClass}}"></i> {{item.title}}
+        </a>
+    </li>
+
+        <!-- <li>
             <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
@@ -34,6 +41,6 @@
         </li>
         <li>
             <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-        </li>
+        </li> -->
     </ul>
 </div>
