@@ -9,8 +9,6 @@ var pathTo = function() {
 var pathApp = _.partial( pathTo, 'app' );
 var pathAdmin = _.partial( pathTo, 'admin' );
 
-console.log(pathApp);
-
 module.exports = {
   //context: pathApp(),
   entry: {

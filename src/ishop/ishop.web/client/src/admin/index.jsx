@@ -6,6 +6,7 @@ import fontAwesomeCss from 'assets/css/font-awesome.css';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import _ from 'lodash';
 //import bootstrap from 'bootstrap';
 
 import routes from './routes';

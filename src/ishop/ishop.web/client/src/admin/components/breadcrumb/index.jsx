@@ -1,8 +1,8 @@
 import template from './template.html';
 
 class BreadcrumbController {
-  constructor() {
-    console.log('BreadcrumbController');
+  constructor(navigator) {
+    this.currentNavigationItem = navigator.getCurrentNavigationItem();
   }
 }
 

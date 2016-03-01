@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
 
-    <li ng-repeat="item in $ctrl.navItems">
+    <li ng-repeat="item in $ctrl.navigationItems" ng-class="{'active': $ctrl.isActive(item.url)}">
         <a ng-click="$ctrl.goTo(item.url)" class="pointer">
             <i class="fa fa-fw fa-{{item.cssClass}}"></i> {{item.title}}
         </a>

@@ -2,7 +2,7 @@ import template from './template.html';
 
 class MainHeaderController {
   constructor() {
-    console.log('MainHeaderController');
+    //console.log('MainHeaderController');
   }
 }
 

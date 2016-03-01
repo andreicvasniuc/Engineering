@@ -1,22 +1,18 @@
 import template from './template.html';
 
 class SidebarController {
-  constructor(router, routeUrls) {
+  constructor(router, navigator) {
     this.router = router;
-    this.routeUrls = routeUrls;
 
-    this.createNavigationItems();
-  }
-
-  createNavigationItems() {
-    this.navItems = [
-      {title: 'Dashboard', url: this.routeUrls.dashboard, cssClass: 'dashboard' },
-      {title: 'Products', url: this.routeUrls.products, cssClass: 'table' }
-    ];
+    this.navigationItems = navigator.navigationItems;
   }
 
   goTo(url) {
     this.router.goTo(url);
+  }
+
+  isActive(url) {
+    return url == this.router.getCurrentUrl();
   }
 }
 

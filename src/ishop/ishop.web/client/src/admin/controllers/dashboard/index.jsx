@@ -1,6 +1,6 @@
 class DashboardController {
   constructor() {
-    console.log('DashboardController controller');
+    //console.log('DashboardController controller');
   }
 }
 

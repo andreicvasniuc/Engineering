@@ -2,7 +2,7 @@ import template from './template.html';
 
 class PanelController {
   constructor() {
-    console.log('PanelController');
+    //console.log('PanelController');
   }
 }
 

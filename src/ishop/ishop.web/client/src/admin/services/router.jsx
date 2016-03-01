@@ -6,6 +6,10 @@ class RouterService {
   goTo(url) {
     this.location.url(url);
   }
+
+  getCurrentUrl() {
+    return this.location.url();
+  }
 }
 
 export default RouterService
