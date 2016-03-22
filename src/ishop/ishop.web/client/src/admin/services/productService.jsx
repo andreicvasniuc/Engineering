@@ -11,7 +11,7 @@ class ProductService {
     ];
   }
 
-  getProducts(){
+  getList(){
     //console.log('get products in service');
     return this.productList;
   }
