@@ -6,6 +6,7 @@ import fontAwesomeCss from 'assets/css/font-awesome.css';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import uiGrid from 'angular-ui-grid/ui-grid';
 import _ from 'lodash';
 //import bootstrap from 'bootstrap';
 
@@ -22,6 +23,7 @@ export default angular
       controllers,
       components,
       services,
-      constants
+      constants,
+      'ui.grid'
     ])
     .config(routes);
