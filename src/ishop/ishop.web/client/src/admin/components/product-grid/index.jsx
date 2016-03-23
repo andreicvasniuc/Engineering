@@ -3,12 +3,20 @@ import style from './style.styl';
 
 class ProductGridController {
   constructor() {
-    console.log('ProductGridController');
+    this.createColumnDefinitions();
   }
 
-  toggle(product) {
-    console.log('product', product);
-    product.isSelected = !product.isSelected;
+  createColumnDefinitions() {
+    this.columnDefinitions = [
+      {
+          field: 'id',
+          displayName: 'Id'
+      },
+      {
+          field: 'name',
+          displayName: 'Name'
+      }
+    ];
   }
 }
 
@@ -29,7 +37,9 @@ class ProductGridController {
 // }
 
 let productGrid = {
-  bindings: { data: '=' },
+  bindings: { 
+    gridData: '='
+  },
   controller: ProductGridController,
   //template: ($element, $attrs) => new ProductGridView($element, $attrs).template,
   templateUrl: template

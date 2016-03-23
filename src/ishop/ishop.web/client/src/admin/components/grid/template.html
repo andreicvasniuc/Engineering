@@ -1,0 +1,8 @@
+<div>
+    <div>
+        <span ng-show="$ctrl.totalCount">{{$ctrl.totalCount}} items</span>
+        <span ng-hide="$ctrl.totalCount">&nbsp;</span>
+    </div>
+    <div id="{{$ctrl.gridId}}" class="gridStyle" ui-grid="$ctrl.gridOptions" ui-grid-infinite-scroll ui-grid-auto-resize>
+    </div>
+</div>

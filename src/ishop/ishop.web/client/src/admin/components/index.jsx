@@ -9,6 +9,7 @@ import topMenu from './top-menu';
 import pageHeading from './page-heading';
 import breadcrumb from './breadcrumb';
 import panel from './panel';
+import grid from './grid';
 
 export default angular
     .module('admin.components', [])
@@ -21,4 +22,5 @@ export default angular
     .component('pageHeading', pageHeading)
     .component('breadcrumb', breadcrumb)
     .component('panel', panel)
+    .component('grid', grid)
     .name;

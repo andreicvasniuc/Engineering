@@ -1,6 +1,7 @@
 'use strict'
 
 import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
+import uiGridCss from 'angular-ui-grid/ui-grid.css';
 import adminCss from 'assets/css/admin.css';
 import fontAwesomeCss from 'assets/css/font-awesome.css';
 
@@ -24,6 +25,6 @@ export default angular
       components,
       services,
       constants,
-      'ui.grid'
+      'ui.grid', 'ui.grid.infiniteScroll', 'ui.grid.autoResize'
     ])
     .config(routes);
