@@ -22,6 +22,7 @@ gem 'rails-api'
 
 # Mongoid
 gem 'mongoid', '~> 5.0.0'
+gem 'bson_ext'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
