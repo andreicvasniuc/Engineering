@@ -2,11 +2,12 @@
 
   <page-heading></page-heading>
 
-  <div>
-    <a href="#/dashboard">Dashboard</a>
-  </div>
+  <button-default label="Add product" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
+  <div class="clearfix"></div>
 
   <product-grid grid-data="$ctrl.productList">
   </product-grid>
+
+  <product-editor-popup></product-editor-popup>
 
 </main-layout>

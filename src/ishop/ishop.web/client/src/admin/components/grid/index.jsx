@@ -35,7 +35,7 @@ class GridController {
   }
 
   setGridOptions() {
-    console.log(this.createColumnDefs(), this.gridData);
+    //console.log(this.createColumnDefs(), this.gridData);
     this.gridOptions = {
         data: this.gridData,
         useExternalSorting: true,

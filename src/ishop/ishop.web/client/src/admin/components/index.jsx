@@ -10,6 +10,9 @@ import pageHeading from './page-heading';
 import breadcrumb from './breadcrumb';
 import panel from './panel';
 import grid from './grid';
+import icon from './icon';
+import buttonSpinner from './button-spinner';
+import buttonDefault from './button-default';
 
 export default angular
     .module('admin.components', [])
@@ -23,4 +26,7 @@ export default angular
     .component('breadcrumb', breadcrumb)
     .component('panel', panel)
     .component('grid', grid)
+    .component('icon', icon)
+    .component('buttonSpinner', buttonSpinner)
+    .component('buttonDefault', buttonDefault)
     .name;
