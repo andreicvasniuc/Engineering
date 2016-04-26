@@ -1,11 +1,12 @@
 class ProductController {
-  constructor(productService) {
+  constructor($rootScope, productService) {
     //console.log('product controller', productService);
+    this.$rootScope = $rootScope;
     this.productList = productService.getList();
   }
 
   addProduct(){
-    console.log('add product');
+    this.$rootScope.$broadcast('openProductEditorPopup');
   }
 }
 

@@ -9,6 +9,7 @@ import angular from 'angular';
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
 import uiGrid from 'angular-ui-grid/ui-grid';
+import angularUIBootstrap from 'angular-ui-bootstrap';
 import _ from 'lodash';
 //import bootstrap from 'bootstrap';
 
@@ -27,6 +28,7 @@ export default angular
       components,
       services,
       constants,
+      angularUIBootstrap,
       'ui.grid', 
       'ui.grid.infiniteScroll', 
       'ui.grid.autoResize'

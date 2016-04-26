@@ -13,6 +13,7 @@ import grid from './grid';
 import icon from './icon';
 import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
+import productEditorPopup from './product-editor-popup';
 
 export default angular
     .module('admin.components', [])
@@ -29,4 +30,5 @@ export default angular
     .component('icon', icon)
     .component('buttonSpinner', buttonSpinner)
     .component('buttonDefault', buttonDefault)
+    .component('productEditorPopup', productEditorPopup)
     .name;

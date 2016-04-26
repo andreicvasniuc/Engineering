@@ -1,14 +1,37 @@
 import template from './template.html';
 
 class ProductEditorPopupController {
-  constructor() {
+  constructor($scope, $uibModal) {
+    this.$scope = $scope;
+    this.$$uibModal = $uibModal;
+    this.addOpenEventListener();
+  }
+
+  addOpenEventListener() {
+    this.$scope.$on('openProductEditorPopup', () => {
+        console.log('this', this, template);
+        let modal = this.$uibModal.open({
+            templateUrl: template,
+            scope: this.$scope,
+            controller: ($uibModalInstance) => {
+                // scope.cancel = function () {
+                //     $uibModalInstance.dismiss('cancel');
+                // };
+            },
+            windowClass: 'app-modal-window'
+        });
+    });
+  }
+
+  ok(){
+    console.log('ok');
   }
 }
 
 let productEditorPopup = {
   bindings: {},
-  controller: ProductEditorPopupController,
-  templateUrl: template
+  controller: ProductEditorPopupController//,
+  //templateUrl: template
 };
 
 export default productEditorPopup
