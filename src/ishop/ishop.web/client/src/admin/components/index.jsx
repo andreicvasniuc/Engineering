@@ -14,6 +14,7 @@ import icon from './icon';
 import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
 import productEditorPopup from './product-editor-popup';
+import labeledInput from './labeled-input';
 
 export default angular
     .module('admin.components', [])
@@ -31,4 +32,5 @@ export default angular
     .component('buttonSpinner', buttonSpinner)
     .component('buttonDefault', buttonDefault)
     .component('productEditorPopup', productEditorPopup)
+    .component('labeledInput', labeledInput)
     .name;

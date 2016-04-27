@@ -1,18 +1,25 @@
 <div class="modal-header">
     <div class="modal-title">
-        Calendar Product
+        Create Product
     </div>
 </div>
 
 <div class="modal-body role-modal-body">
     <form name="$ctrl.form" novalidate>
 
-    form here
+      <p>
+          <labeled-input label="Product name" 
+                         field-id="product-name"
+                         value="$ctrl.product.name"
+                         is-required="true"
+                         placeholder="Enter product name...">
+          </labeled-input>
+      </p>
 
     </form>
 </div>
 
 <div class="modal-footer">
     <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
-    <button-spinner label="Ok" click-callback="$ctrl.ok()"></button-spinner>
+    <button-spinner label="Ok" click-callback="$ctrl.ok()" is-disabled="$ctrl.form.$invalid"></button-spinner>
 </div>
