@@ -1,4 +1,7 @@
 class Product
   include Mongoid::Document
-  field :name, type: String
+  include Mongoid::Timestamps
+  
+  field :code, type: String
+  # field :_id, type: String, default: -> { code }
 end
