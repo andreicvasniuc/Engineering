@@ -221,3 +221,7 @@ ul.alert-dropdown {
 .pointer {
     cursor: pointer;
 }
+
+.btn {
+    border: 1px solid #ccc;
+}
