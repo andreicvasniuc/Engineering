@@ -5,7 +5,12 @@
   <button-default label="Add product" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
   <div class="clearfix"></div>
 
-  <product-grid grid-data="$ctrl.productList">
+{{$ctrl.isLoadingSpinner}}
+
+  <product-grid grid-data="$ctrl.productList"
+                show-empty-message="No records found"
+                is-empty="$ctrl.productList.length == 0" 
+                loading-spinner="$ctrl.isLoadingSpinner">
   </product-grid>
 
   <product-editor-popup></product-editor-popup>

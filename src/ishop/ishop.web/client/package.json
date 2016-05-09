@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/.bin/webpack-dev-server --content-base src/admin",
-    "start_server": "cd .. && bundle exec unicorn -p 3000",
+    "start": "npm run start-backend & npm run start-dev-server",
+    "start-backend": "cd .. && bundle exec unicorn -p 3000",
+    "start-dev-server": "webpack-dev-server --content-base src/admin",
+    "start-old": "node node_modules/.bin/webpack-dev-server --content-base src/admin",
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp src/admin/index.html dist/index.html"
   },
   "author": "Andrei Cvasniuc",

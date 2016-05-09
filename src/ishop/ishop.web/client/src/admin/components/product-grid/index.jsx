@@ -13,8 +13,8 @@ class ProductGridController {
           displayName: 'Id'
       },
       {
-          field: 'name',
-          displayName: 'Name'
+          field: 'code',
+          displayName: 'Code'
       }
     ];
   }

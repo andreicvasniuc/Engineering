@@ -17,6 +17,7 @@ import routes from './routes';
 
 import controllers from './controllers';
 import components from './components';
+import directives from './directives';
 import services from './services';
 import constants from './constants';
 
@@ -26,6 +27,7 @@ export default angular
       ngResource,
       controllers,
       components,
+      directives,
       services,
       constants,
       angularUIBootstrap,
