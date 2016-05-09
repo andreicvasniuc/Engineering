@@ -23,4 +23,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => 'http://localhost:8080',
+      'Access-Control-Request-Method' => %w{GET POST PUT DELETE}.join(",")
+  }
 end

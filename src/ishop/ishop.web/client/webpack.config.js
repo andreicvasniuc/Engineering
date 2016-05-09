@@ -35,6 +35,9 @@ module.exports = {
           assets: pathTo( 'assets' )
       }
   },
+  devServer: {
+    headers: {"Access-Control-Allow-Origin": "http://localhost:3000"}
+  },
   module: {
     loaders: [
       {
