@@ -8,13 +8,14 @@ class ProductController {
   }
 
   loadProductList(){
-    this.productList = [];
-    return;
-    
     this.isLoadingSpinner = true;
-    this.productList = this.productService.query(() => {
+    this.productList = this.productService.query(
+      () => {
        this.isLoadingSpinner = false;
-    });
+      }, 
+      () => {
+        console.log('error');
+      });
   }
 
   addProduct(){
