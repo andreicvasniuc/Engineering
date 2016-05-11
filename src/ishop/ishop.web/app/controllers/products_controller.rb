@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    sleep 1.5
+    #sleep 1.5
     @products = Product.all
 
     render json: @products
