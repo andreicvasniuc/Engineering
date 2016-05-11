@@ -9,12 +9,14 @@ class ProductGridController {
   createColumnDefinitions() {
     this.columnDefinitions = [
       {
-          field: 'id',
-          displayName: 'Id'
-      },
-      {
           field: 'code',
           displayName: 'Code'
+      },
+      {
+          field: 'updated_at',
+          displayName: 'Edit Date',
+          cellFilter: 'date:"longDate"',
+          width: 200
       }
     ];
   }
