@@ -225,3 +225,21 @@ ul.alert-dropdown {
 .btn {
     border: 1px solid #ccc;
 }
+
+.ui-grid-no-results {
+    padding: 6px 8px;
+    position: static;
+    width: auto !important;
+    border-bottom: 1px solid #d4d4d4;
+    height: auto !important;
+    cursor:default;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.ui-grid-viewport .loading-spinner {
+    text-align: center;
+    vertical-align: middle;
+}
