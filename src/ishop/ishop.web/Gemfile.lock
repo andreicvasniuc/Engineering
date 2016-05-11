@@ -54,6 +54,12 @@ GEM
       multi_json (~> 1.2)
     json (1.8.3)
     kgio (2.10.0)
+    little-plugger (1.1.4)
+    logging (2.1.0)
+      little-plugger (~> 1.1)
+      multi_json (~> 1.10)
+    logging-rails (0.5.0)
+      logging (>= 1.8)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -138,6 +144,8 @@ DEPENDENCIES
   bson_ext
   byebug
   jbuilder (~> 2.0)
+  logging
+  logging-rails
   mongoid (~> 5.0.0)
   rails (= 4.2.4)
   rails-api

@@ -24,6 +24,10 @@ gem 'rails-api'
 gem 'mongoid', '~> 5.0.0'
 gem 'bson_ext'
 
+# logging
+gem 'logging'
+gem 'logging-rails', :require => 'logging/rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

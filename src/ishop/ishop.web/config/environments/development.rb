@@ -28,4 +28,10 @@ Rails.application.configure do
       'Access-Control-Allow-Origin' => 'http://localhost:8080',
       'Access-Control-Request-Method' => %w{GET POST PUT DELETE}.join(",")
   }
+
+  # Set the logging destination(s)
+  config.log_to = %w[stdout file]
+
+  # Show the logging configuration on STDOUT
+  config.show_log_configuration = true
 end
