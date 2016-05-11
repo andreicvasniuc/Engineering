@@ -1,6 +1,6 @@
 class ProductService {
   constructor($resource) {
-    return $resource('http://localhost:3000/api/admin/products/:id', { id: '@id' }, {
+    return $resource('http://localhost:3000/admin/products/:id', { id: '@id' }, {
         update: { method: 'PUT' }//,
         //synchronize: { method: 'POST', url: '/api/values/synchronize' }
     });

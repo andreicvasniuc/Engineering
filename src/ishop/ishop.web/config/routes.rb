@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :products, except: [:new, :edit]
+  end
 
-    namespace :admin do
-      resources :products, except: [:new, :edit]
-    end
+  namespace :admin do
+    resources :products, except: [:new, :edit]
   end
 
   # Example of regular route:
