@@ -2,14 +2,21 @@
 
   <page-heading></page-heading>
 
-  <button-default label="Add product" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
-  <div class="clearfix"></div>
+  <div class="row">
+      <div class="col-lg-12">
+        <button-default label="Add product" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
+      </div>
+  </div>
 
-  <product-grid grid-data="$ctrl.productList"
-                show-empty-message="No records found"
-                is-empty="$ctrl.productList.length == 0 && !$ctrl.isLoadingSpinner" 
-                loading-spinner="$ctrl.isLoadingSpinner">
-  </product-grid>
+  <div class="row">
+    <div class="col-lg-12">
+      <product-grid grid-data="$ctrl.productList"
+                    show-empty-message="No records found"
+                    is-empty="$ctrl.productList.length == 0 && !$ctrl.isLoadingSpinner" 
+                    loading-spinner="$ctrl.isLoadingSpinner">
+      </product-grid>
+    </div>
+  </div>
 
   <product-editor-popup></product-editor-popup>
 
