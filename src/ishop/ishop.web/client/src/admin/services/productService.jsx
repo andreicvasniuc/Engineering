@@ -6,10 +6,10 @@ class ProductService {
     });
   }
 
-  getList(){
-    //console.log('get products in service');
-    return this.productList;
-  }
+  // getList(){
+  //   //console.log('get products in service');
+  //   return this.productList;
+  // }
 }
 
 export default ProductService

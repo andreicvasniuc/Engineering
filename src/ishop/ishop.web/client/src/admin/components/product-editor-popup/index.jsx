@@ -1,8 +1,9 @@
 import template from './template.html';
 
 class ProductEditorPopupController {
-  constructor($scope, $uibModal) {
+  constructor($scope, $uibModal, productService) {
     this.$uibModal = $uibModal;
+    this.productService = productService;
     
     $scope.$on('openProductEditorPopup', () => {
       this.product = null;
@@ -18,7 +19,8 @@ class ProductEditorPopupController {
   }
 
   ok(){
-    console.log('ok');
+    console.log('ok', this.productService);
+    this.productService.save({ product: this.product });
   }
 
   cancel(){
