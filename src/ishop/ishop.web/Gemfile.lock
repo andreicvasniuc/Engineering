@@ -79,6 +79,7 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     origin (2.1.1)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -147,6 +148,7 @@ DEPENDENCIES
   logging
   logging-rails
   mongoid (~> 5.0.0)
+  rack-cors
   rails (= 4.2.4)
   rails-api
   sdoc (~> 0.4.0)
