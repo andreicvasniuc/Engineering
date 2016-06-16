@@ -57,6 +57,6 @@ class Admin::ProductsController < ApplicationController
     end
 
     def product_params
-      params[:product]
+      params.require(:product).permit(:code)
     end
 end
