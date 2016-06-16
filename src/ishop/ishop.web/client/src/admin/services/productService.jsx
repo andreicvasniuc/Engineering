@@ -1,15 +1,15 @@
 class ProductService {
-  constructor($resource) {
-    return $resource('http://localhost:3000/admin/products/:id', { id: '@id' }, {
-        update: { method: 'PUT' }//,
-        //synchronize: { method: 'POST', url: '/api/values/synchronize' }
-    });
+  constructor(productResource) {
+    this.productResource = productResource;
   }
 
-  // getList(){
-  //   //console.log('get products in service');
-  //   return this.productList;
-  // }
+  getList(successCallback, errorCallback){
+    return this.productResource.query(successCallback, errorCallback);
+  }
+
+  save(product){
+    this.productResource.save({ product: product });
+  }
 }
 
 export default ProductService

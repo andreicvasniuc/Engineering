@@ -380,3 +380,12 @@ table.dataTable thead .sorting:after {
     text-align: center;
     vertical-align: middle;
 }
+
+.rightm10 {
+    margin-right: 10px;
+}
+
+.red-asterisk:after {
+    content: '*';
+    color: #ff0000;
+}

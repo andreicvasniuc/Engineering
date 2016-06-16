@@ -20,7 +20,7 @@ class ProductEditorPopupController {
 
   ok(){
     console.log('ok', this.productService);
-    this.productService.save({ product: this.product });
+    this.productService.save(this.product);
   }
 
   cancel(){

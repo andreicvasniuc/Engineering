@@ -9,7 +9,7 @@ class ProductController {
 
   loadProductList(){
     this.isLoadingSpinner = true;
-    this.productList = this.productService.query(
+    this.productList = this.productService.getList(
       () => {
        this.isLoadingSpinner = false;
       }, 
