@@ -1,11 +1,11 @@
-<div>
+<div class="form-group">
 
     <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }"></label>
 
     <input id="{{$ctrl.fieldId}}" 
         name="{{$ctrl.fieldName}}" 
         type="{{$ctrl.type || 'text'}}" 
-        class="rightm10 {{$ctrl.inputClass}}" 
+        class="rightm10 form-control {{$ctrl.inputClass}}" 
         ng-disabled="$ctrl.isDisabled" 
         ng-model="$ctrl.value" 
         ng-required="$ctrl.isRequired" 

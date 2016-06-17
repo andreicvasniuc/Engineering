@@ -385,7 +385,7 @@ table.dataTable thead .sorting:after {
     margin-right: 10px;
 }
 
-.red-asterisk:after {
-    content: '*';
-    color: #ff0000;
+.form-control {
+    display: inline;
+    width: auto;
 }
