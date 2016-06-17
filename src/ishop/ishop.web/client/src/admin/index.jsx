@@ -2,6 +2,7 @@
 
 import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
 import uiGridCss from 'angular-ui-grid/ui-grid.css';
+import toastrCss from 'angular-toastr/dist/angular-toastr.css';
 import adminCss from 'assets/css/admin.css';
 import fontAwesomeCss from 'assets/css/font-awesome.css';
 
@@ -10,6 +11,7 @@ import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
 import uiGrid from 'angular-ui-grid/ui-grid';
 import angularUIBootstrap from 'angular-ui-bootstrap';
+import angularToastr from 'angular-toastr';
 import _ from 'lodash';
 //import bootstrap from 'bootstrap';
 
@@ -31,6 +33,7 @@ export default angular
       services,
       constants,
       angularUIBootstrap,
+      angularToastr,
       'ui.grid', 
       'ui.grid.infiniteScroll', 
       'ui.grid.autoResize'
