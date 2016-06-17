@@ -1,8 +1,14 @@
 import template from './template.html';
+import gridActionCell from './gridActionCell.html';
+
 import style from './style.styl';
+
+import editIcon from 'assets/images/edit.png';
 
 class ProductGridController {
   constructor() {
+    this.editIcon = editIcon;
+
     this.createColumnDefinitions();
   }
 
@@ -17,6 +23,12 @@ class ProductGridController {
           displayName: 'Edit Date',
           cellFilter: 'date:"longDate"',
           width: 200
+      },
+      {
+          field: 'action',
+          displayName: '',
+          cellTemplate: gridActionCell,
+          width: 100
       }
     ];
   }
