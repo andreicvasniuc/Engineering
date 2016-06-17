@@ -1,11 +1,13 @@
 import template from './template.html';
 
 class ProductEditorPopupController {
-  constructor($scope, $uibModal, productService) {
+  constructor($scope, $uibModal, productService, productNotifier) {
+    this.$scope = $scope;
     this.$uibModal = $uibModal;
     this.productService = productService;
+    this.productNotifier = productNotifier;
     
-    $scope.$on('openProductEditorPopup', () => {
+    this.$scope.$on('openProductEditorPopup', () => {
       this.product = null;
       this.openProductEditorPopup($scope); 
     });
@@ -14,16 +16,22 @@ class ProductEditorPopupController {
   openProductEditorPopup(scope) {
     this.modal = this.$uibModal.open({
       templateUrl: template,
-      scope: scope
+      scope: scope,
+      backdrop  : 'static',
+      keyboard  : false
     });
   }
 
-  ok(){
-    console.log('ok', this.productService);
-    this.productService.save(this.product);
+  ok() {
+    this.productService.save(this.product, (response) => {
+      this.$scope.$emit('reloadGrid');
+      this.productNotifier.showSuccessSaveMessage();
+      this.cancel();
+    });
+    //, (error) => {});
   }
 
-  cancel(){
+  cancel() {
     this.modal.dismiss('cancel');
   }
 }

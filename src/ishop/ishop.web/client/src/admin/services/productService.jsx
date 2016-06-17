@@ -7,8 +7,8 @@ class ProductService {
     return this.productResource.query(successCallback, errorCallback);
   }
 
-  save(product){
-    this.productResource.save({ product: product });
+  save(product, successCallback, errorCallback){
+    this.productResource.save({ product: product }, successCallback, errorCallback);
   }
 }
 

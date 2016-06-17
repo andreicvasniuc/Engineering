@@ -37,7 +37,7 @@ class GridController {
   setGridOptions() {
     //console.log(this.createColumnDefs(), this.gridData);
     this.gridOptions = {
-        data: this.gridData,
+        data: '$ctrl.gridData',
         useExternalSorting: true,
         enableHorizontalScrollbar: this.uiGridConstants.scrollbars.NEVER,
         enableVerticalScrollbar: this.uiGridConstants.scrollbars.WHEN_NEEDED,
