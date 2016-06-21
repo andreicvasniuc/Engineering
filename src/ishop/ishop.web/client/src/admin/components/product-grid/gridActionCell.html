@@ -1,14 +1,5 @@
-<div class="ui-grid-cell-contents ui-grid-cell-action ngCellTextRight pad-right-20">
-    <!-- <a title="Edit" class="pointer no-decoration" ng-click="editCallback({entity: entity})" ng-if="!isEditIconDisabled">
-        <icon alt="Edit" source="edit.png" />
-    </a>
-    <icon title="Edit is disabled" alt="Edit" source="edit.png" ng-if="isEditIconDisabled" /> -->
-
-    edit-icon: {{$ctrl.editIcon}}
-    <icon alt="Edit" source="{{$ctrl.editIcon}}" class="pointer" />
-
-    <!-- <a title="Delete" class="pointer no-decoration" ng-click="deleteCallback({entity: entity, event: $event})" ng-if="!isDeleteIconDisabled">
-        <icon alt="Delete" source="delete.png" />
-    </a>
-    <icon title="Delete is disabled" alt="Delete" source="delete.png" ng-if="isDeleteIconDisabled" /> -->
+<div class="ui-grid-cell-contents ui-grid-cell-action">
+    <grid-action-cell entity="row.entity"
+                      edit-callback="grid.appScope.$ctrl.callbacks.edit(entity, event)"
+                      delete-callback="grid.appScope.$ctrl.callbacks.delete(entity, event)"/>
 </div>

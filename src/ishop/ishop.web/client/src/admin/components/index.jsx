@@ -2,6 +2,7 @@ import angular from 'angular';
 
 import categoryGrid from './category-grid';
 import productGrid from './product-grid';
+import gridActionCell from './grid-action-cell';
 import mainLayout from './main-layout';
 import mainHeader from './main-header';
 import sidebar from './sidebar';
@@ -33,4 +34,5 @@ export default angular
     .component('buttonDefault', buttonDefault)
     .component('productEditorPopup', productEditorPopup)
     .component('labeledInput', labeledInput)
+    .component('gridActionCell', gridActionCell)
     .name;

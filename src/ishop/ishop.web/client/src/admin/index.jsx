@@ -3,8 +3,10 @@
 import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
 import uiGridCss from 'angular-ui-grid/ui-grid.css';
 import toastrCss from 'angular-toastr/dist/angular-toastr.css';
-import adminCss from 'assets/css/admin.css';
+import sbAdminCss from 'assets/css/sb-admin.css';
 import fontAwesomeCss from 'assets/css/font-awesome.css';
+
+import adminStyl from 'assets/css/admin.styl';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';

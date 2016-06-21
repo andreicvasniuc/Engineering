@@ -3,13 +3,10 @@ import gridActionCell from './gridActionCell.html';
 
 import style from './style.styl';
 
-import editIcon from 'assets/images/edit.png';
-
 class ProductGridController {
   constructor() {
-    this.editIcon = editIcon;
-
     this.createColumnDefinitions();
+    this.createCallbacks();
   }
 
   createColumnDefinitions() {
@@ -31,6 +28,21 @@ class ProductGridController {
           width: 100
       }
     ];
+  }
+
+  createCallbacks(){
+    this.callbacks = {
+      edit: this.edit,
+      delete: this.delete 
+    };
+  }
+
+  edit(entity, event) {
+    console.log('edit', entity, event);
+  }
+
+  delete(entity, event) {
+    console.log('delete', entity, event);
   }
 }
 

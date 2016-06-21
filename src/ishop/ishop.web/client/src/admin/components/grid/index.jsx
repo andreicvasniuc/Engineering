@@ -53,7 +53,8 @@ let grid = {
     totalCount: '=',
     sortByEnum: '=',
     sortBy: '=',
-    sortByDirection: '='
+    sortByDirection: '=',
+    callbacks: '='
   },
   controller: GridController,
   templateUrl: template
