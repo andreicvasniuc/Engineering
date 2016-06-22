@@ -1,4 +1,4 @@
-<button class="btn" type="button" ng-disabled="i$ctrl.sLoadingSpinner || $ctrl.isDisabled" ng-click="$ctrl.clickCallback({ event: $event })">
+<button class="btn btn-default" type="button" ng-disabled="$ctrl.isLoadingSpinner || $ctrl.isDisabled" ng-click="$ctrl.clickCallback({ event: $event })">
     {{$ctrl.label}}
     <icon ng-show="$ctrl.isLoadingSpinner" ng-if="!$ctrl.isSpinnerHidden" alt="Loading Spinner" source="{{$ctrl.loadingIcon}}" />
 </button>

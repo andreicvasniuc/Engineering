@@ -1,4 +1,5 @@
 import template from './template.html';
+import gridRow from './gridRow.html';
 
 class GridController {
   constructor(uiGridConstants) {
@@ -41,6 +42,7 @@ class GridController {
         useExternalSorting: true,
         enableHorizontalScrollbar: this.uiGridConstants.scrollbars.NEVER,
         enableVerticalScrollbar: this.uiGridConstants.scrollbars.WHEN_NEEDED,
+        rowTemplate: gridRow,
         columnDefs: this.createColumnDefs()
     };
   }

@@ -25,7 +25,7 @@ class ProductGridController {
           field: 'action',
           displayName: '',
           cellTemplate: gridActionCell,
-          width: 100
+          width: 50
       }
     ];
   }
@@ -33,7 +33,8 @@ class ProductGridController {
   createCallbacks(){
     this.callbacks = {
       edit: this.edit,
-      delete: this.delete 
+      clickOnRow: this.edit,
+      delete: this.delete
     };
   }
 

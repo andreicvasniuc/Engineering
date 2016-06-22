@@ -1,6 +1,7 @@
 import angular from 'angular';
 import $ from 'jquery';
-// import loadingIcon from 'assets/images/loading.gif';
+
+import style from './style.styl';
 
 export default ($compile, $timeout) => { 
   return {
