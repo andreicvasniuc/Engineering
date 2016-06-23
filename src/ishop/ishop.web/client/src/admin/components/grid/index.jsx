@@ -1,6 +1,8 @@
 import template from './template.html';
 import gridRow from './gridRow.html';
 
+import style from './style.styl';
+
 class GridController {
   constructor(uiGridConstants) {
     this.uiGridConstants = uiGridConstants;

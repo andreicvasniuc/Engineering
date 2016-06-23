@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  before_action :set_admin_product, only: [:show, :update, :destroy]
+  before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /admin/products
   # GET /admin/products.json
@@ -52,7 +52,8 @@ class Admin::ProductsController < ApplicationController
 
   private
 
-    def set_admin_product
+    def set_product
+      iputs params[:id]
       @product = Admin::Product.find(params[:id])
     end
 

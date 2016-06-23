@@ -10,6 +10,10 @@ class ProductService {
   save(product, successCallback, errorCallback){
     this.productResource.save({ product: product }, successCallback, errorCallback);
   }
+
+  get(id, successCallback, errorCallback) {
+    this.productResource.get({ id: id }, successCallback, errorCallback);
+  }
 }
 
 export default ProductService

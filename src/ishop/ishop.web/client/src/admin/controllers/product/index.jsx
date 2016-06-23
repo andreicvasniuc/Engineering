@@ -14,8 +14,6 @@ class ProductController {
       () => { console.log('error'); });
   }
 
-
-
   addProduct(){
     this.$rootScope.$broadcast('openProductEditorPopup');
   }

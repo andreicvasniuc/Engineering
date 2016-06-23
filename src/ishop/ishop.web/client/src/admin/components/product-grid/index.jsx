@@ -4,7 +4,11 @@ import gridActionCell from './gridActionCell.html';
 import style from './style.styl';
 
 class ProductGridController {
-  constructor() {
+  constructor($rootScope, productService) {
+    self = this;
+    this.$rootScope = $rootScope;
+    this.productService = productService;
+
     this.createColumnDefinitions();
     this.createCallbacks();
   }
@@ -25,6 +29,7 @@ class ProductGridController {
           field: 'action',
           displayName: '',
           cellTemplate: gridActionCell,
+          clickable: false,
           width: 50
       }
     ];
@@ -33,17 +38,24 @@ class ProductGridController {
   createCallbacks(){
     this.callbacks = {
       edit: this.edit,
-      clickOnRow: this.edit,
-      delete: this.delete
+      delete: this.delete,
+      clickOnRow: this.clickOnRow
     };
   }
 
   edit(entity, event) {
-    console.log('edit', entity, event);
+    self.productService.get(entity._id.$oid, (response) => {
+      self.$rootScope.$broadcast('openProductEditorPopup', response);
+    });
   }
 
   delete(entity, event) {
     console.log('delete', entity, event);
+  }
+
+  clickOnRow(entity, event, col, row) {
+    if(col.colDef.clickable === false) return;
+    this.edit(entity, event);
   }
 }
 

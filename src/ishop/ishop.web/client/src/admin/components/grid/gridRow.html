@@ -4,5 +4,5 @@
      ng-class="{ 'ui-grid-row-header-cell': col.isRowHeader }" 
      role="{{col.isRowHeader ? 'rowheader' : 'gridcell'}}" 
      ui-grid-cell
-     ng-click="grid.appScope.$ctrl.callbacks.clickOnRow(row.entity, col, row)">
+     ng-click="grid.appScope.$ctrl.callbacks.clickOnRow(row.entity, $event, col, row)">
  </div>

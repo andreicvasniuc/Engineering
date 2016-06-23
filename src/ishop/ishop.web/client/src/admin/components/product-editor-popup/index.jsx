@@ -7,8 +7,9 @@ class ProductEditorPopupController {
     this.productService = productService;
     this.productNotifier = productNotifier;
     
-    this.$scope.$on('openProductEditorPopup', () => {
-      this.product = null;
+    this.$scope.$on('openProductEditorPopup', (event, product) => {
+      this.product = product;
+      this.isEdit = !!product;
       this.openProductEditorPopup($scope); 
     });
   }
