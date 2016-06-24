@@ -33,10 +33,8 @@ class Admin::ProductsController < ApplicationController
   # PATCH/PUT /admin/products/1
   # PATCH/PUT /admin/products/1.json
   def update
-    @product = Admin::Product.find(params[:id])
-
     if @product.update(product_params)
-      head :no_content
+      render json: @product, status: :ok, location: @product
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -47,7 +45,7 @@ class Admin::ProductsController < ApplicationController
   def destroy
     @product.destroy
 
-    head :no_content
+    render json: @product, status: :ok, location: @product
   end
 
   private

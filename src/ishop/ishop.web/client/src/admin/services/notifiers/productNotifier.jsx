@@ -6,6 +6,18 @@ class ProductNotifierService {
   showSuccessSaveMessage() {
     this.notifier.success('The product was saved successfully.');
   }
+
+  showSuccessCreateMessage() {
+    this.notifier.success('The product was created successfully.');
+  }
+
+  showSuccessUpdateMessage() {
+    this.notifier.success('The product was updated successfully.');
+  }
+
+  showSuccessDeleteMessage() {
+    this.notifier.success('The product was deleted successfully.');
+  }
 }
 
 export default ProductNotifierService

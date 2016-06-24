@@ -10,23 +10,32 @@ class ProductEditorPopupController {
     this.$scope.$on('openProductEditorPopup', (event, product) => {
       this.product = product;
       this.isEdit = !!product;
-      this.openProductEditorPopup($scope); 
+      this.openProductEditorPopup(); 
     });
   }
 
-  openProductEditorPopup(scope) {
+  openProductEditorPopup() {
     this.modal = this.$uibModal.open({
       templateUrl: template,
-      scope: scope,
-      backdrop  : 'static',
-      keyboard  : false
+      scope: this.$scope,
+      backdrop: 'static',
+      keyboard: false
     });
   }
 
-  ok() {
-    this.productService.save(this.product, (response) => {
+  add() {
+    this.productService.add(this.product, (response) => {
       this.$scope.$emit('reloadGrid');
-      this.productNotifier.showSuccessSaveMessage();
+      this.productNotifier.showSuccessCreateMessage();
+      this.cancel();
+    });
+    //, (error) => {});
+  }
+
+  edit() {
+    this.productService.edit(this.product, (response) => {
+      this.$scope.$emit('reloadGrid');
+      this.productNotifier.showSuccessUpdateMessage();
       this.cancel();
     });
     //, (error) => {});

@@ -23,5 +23,6 @@
 
 <div class="modal-footer">
     <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
-    <button-spinner label="Ok" click-callback="$ctrl.ok()" is-disabled="$ctrl.form.$invalid"></button-spinner>
+    <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" ng-if="!$ctrl.isEdit"></button-spinner>
+    <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" ng-if="$ctrl.isEdit"></button-spinner>
 </div>

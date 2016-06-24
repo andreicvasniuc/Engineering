@@ -1,0 +1,11 @@
+<div class="modal-body role-modal-body">
+    <div class="pad15">
+        <div class="{{$ctrl.config.messageCssClass}}">{{$ctrl.config.message}}</div>
+        <div class="{{$ctrl.config.listCssClass}}" ng-repeat="item in $ctrl.config.list">{{item}}</div>
+    </div>
+
+    <div class="text-right">
+        <button-default label="{{$ctrl.config.buttons[0].label}}" click-callback="$ctrl.config.buttons[0].scopeCallback()" ng-if="$ctrl.config.buttons.length >= 1" tab-index="1"></button-default>
+        <button-default label="{{$ctrl.config.buttons[1].label}}" click-callback="$ctrl.config.buttons[1].scopeCallback()" ng-if="$ctrl.config.buttons.length >= 2" tab-index="2"></button-default>
+    </div>
+</div>

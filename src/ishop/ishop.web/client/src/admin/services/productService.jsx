@@ -7,12 +7,20 @@ class ProductService {
     return this.productResource.query(successCallback, errorCallback);
   }
 
-  save(product, successCallback, errorCallback){
+  get(product, successCallback, errorCallback) {
+    this.productResource.get({ id: product._id.$oid }, successCallback, errorCallback);
+  }
+
+  add(product, successCallback, errorCallback){
     this.productResource.save({ product: product }, successCallback, errorCallback);
   }
 
-  get(id, successCallback, errorCallback) {
-    this.productResource.get({ id: id }, successCallback, errorCallback);
+  edit(product, successCallback, errorCallback){
+    this.productResource.update({ id: product._id.$oid, product: product }, successCallback, errorCallback);
+  }
+
+  delete(product, successCallback, errorCallback){
+    this.productResource.remove({ id: product._id.$oid }, successCallback, errorCallback);
   }
 }
 

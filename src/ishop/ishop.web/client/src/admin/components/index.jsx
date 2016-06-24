@@ -16,6 +16,7 @@ import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
 import productEditorPopup from './product-editor-popup';
 import labeledInput from './labeled-input';
+import modalAlert from './modal-alert';
 
 export default angular
     .module('admin.components', [])
@@ -35,4 +36,5 @@ export default angular
     .component('productEditorPopup', productEditorPopup)
     .component('labeledInput', labeledInput)
     .component('gridActionCell', gridActionCell)
+    .component('modalAlert', modalAlert)
     .name;
