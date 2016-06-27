@@ -1,5 +1,6 @@
 import template from './template.html';
-import gridActionCell from './gridActionCell.html';
+import gridActionCell from './grid-action-cell.html';
+import gridPublishedCell from './grid-published-cell.html';
 import style from './style.styl';
 
 class ProductGridController {
@@ -28,6 +29,13 @@ class ProductGridController {
           width: 200
       },
       {
+          field: 'published',
+          displayName: '',
+          cellTemplate: gridPublishedCell,
+          clickable: false,
+          width: 30
+      },
+      {
           field: 'action',
           displayName: '',
           cellTemplate: gridActionCell,
@@ -41,7 +49,8 @@ class ProductGridController {
     this.callbacks = {
       edit: this.edit,
       delete: this.delete,
-      clickOnRow: this.clickOnRow
+      clickOnRow: this.clickOnRow,
+      publish: this.publish
     };
   }
 
@@ -68,6 +77,14 @@ class ProductGridController {
   clickOnRow(entity, event, col, row) {
     if(col.colDef.clickable === false) return;
     this.edit(entity, event);
+  }
+
+  publish(entity, published, callback) {
+    entity.published = published;
+    self.productService.edit(entity, (response) => {
+      self.productNotifier.showSuccessPublishedMessage(published);
+      if(callback) callback();
+    });
   }
 }
 

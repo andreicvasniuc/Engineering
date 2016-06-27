@@ -18,6 +18,10 @@ class ProductNotifierService {
   showSuccessDeleteMessage() {
     this.notifier.success('The product was deleted successfully.');
   }
+
+  showSuccessPublishedMessage(published) {
+    this.notifier.success(`The product was ${published ? "" : "un"}published successfully.`); 
+  }
 }
 
 export default ProductNotifierService

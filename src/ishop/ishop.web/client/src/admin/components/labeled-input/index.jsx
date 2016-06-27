@@ -15,10 +15,12 @@ let labeledInput = {
     value: '=',
     isDisabled: '=',
     isRequired: '=',
+    cssClass: '@',
     labelClass: '@',
     inputClass: '@',
     placeholder: '@',
-    maxlength: '@'
+    maxlength: '@',
+    displayAfter: '='
   },
   controller: LabeledInputController,
   templateUrl: template

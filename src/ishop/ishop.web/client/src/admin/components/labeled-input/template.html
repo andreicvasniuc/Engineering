@@ -1,6 +1,6 @@
-<div class="form-group">
+<div class="{{$ctrl.cssClass}}">
 
-    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }"></label>
+    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }" ng-if="!$ctrl.displayAfter"></label>
 
     <input id="{{$ctrl.fieldId}}" 
         name="{{$ctrl.fieldName}}" 
@@ -11,5 +11,7 @@
         ng-required="$ctrl.isRequired" 
         placeholder="{{$ctrl.placeholder}}" 
         maxlength="{{$ctrl.maxlength}}"/>
+
+    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }" ng-if="$ctrl.displayAfter"></label>
 
 </div>

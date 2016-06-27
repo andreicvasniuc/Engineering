@@ -9,20 +9,31 @@
 <div class="modal-body role-modal-body">
     <form name="$ctrl.form" novalidate>
 
-      <p>
+      <div class="form-group">
           <labeled-input label="Code" 
-                         field-id="product-code"
+                         field-id="code"
                          value="$ctrl.product.code"
                          is-required="true"
-                         placeholder="Enter product code...">
+                         placeholder="Enter product code..."
+                         label-class="width50">
           </labeled-input>
-      </p>
+      </div>
+
+      <div class="form-group">
+          <labeled-input label="Published" 
+                         field-id="is-published"
+                         value="$ctrl.product.published"
+                         type="checkbox"
+                         css-class="checkbox"
+                         display-after="true">
+          </labeled-input>
+      </div>
 
     </form>
 </div>
 
 <div class="modal-footer">
     <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
-    <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" ng-if="!$ctrl.isEdit"></button-spinner>
-    <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" ng-if="$ctrl.isEdit"></button-spinner>
+    <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
+    <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
 </div>

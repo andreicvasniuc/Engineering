@@ -1,9 +1,7 @@
 import template from './template.html';
-import loadingIcon from 'assets/images/loading.gif';
 
 class ButtonSpinnerController {
   constructor() {
-    this.loadingIcon = loadingIcon;
   }
 }
 

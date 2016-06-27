@@ -1,5 +1,5 @@
 import template from './template.html';
-import gridRow from './gridRow.html';
+import gridRow from './grid-row.html';
 
 import style from './style.styl';
 

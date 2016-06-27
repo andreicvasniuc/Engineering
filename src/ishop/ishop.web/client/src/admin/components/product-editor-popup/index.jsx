@@ -1,4 +1,5 @@
 import template from './template.html';
+import style from './style.styl';
 
 class ProductEditorPopupController {
   constructor($scope, $uibModal, productService, productNotifier) {
@@ -23,19 +24,26 @@ class ProductEditorPopupController {
     });
   }
 
+  startSavingSpinner() { this.isSavingSpinner = true; }
+  stopSavingSpinner() { this.isSavingSpinner = false; }
+
   add() {
+    this.startSavingSpinner();
     this.productService.add(this.product, (response) => {
       this.$scope.$emit('reloadGrid');
       this.productNotifier.showSuccessCreateMessage();
+      this.stopSavingSpinner();
       this.cancel();
     });
     //, (error) => {});
   }
 
   edit() {
+    this.startSavingSpinner();
     this.productService.edit(this.product, (response) => {
       this.$scope.$emit('reloadGrid');
       this.productNotifier.showSuccessUpdateMessage();
+      this.stopSavingSpinner();
       this.cancel();
     });
     //, (error) => {});
