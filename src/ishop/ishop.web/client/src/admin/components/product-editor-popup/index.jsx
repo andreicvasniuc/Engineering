@@ -11,6 +11,7 @@ class ProductEditorPopupController {
     this.$scope.$on('openProductEditorPopup', (event, product) => {
       this.product = product;
       this.isEdit = !!product;
+      this.stopSavingSpinner();
       this.openProductEditorPopup(); 
     });
   }
