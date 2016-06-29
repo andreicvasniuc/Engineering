@@ -15,6 +15,7 @@ import uiGrid from 'angular-ui-grid/ui-grid';
 import angularUIBootstrap from 'angular-ui-bootstrap';
 import angularToastr from 'angular-toastr';
 import _ from 'lodash';
+import ngFlow from 'ng-flow/dist/ng-flow';
 //import bootstrap from 'bootstrap';
 
 import routes from './routes';
@@ -38,6 +39,7 @@ export default angular
       angularToastr,
       'ui.grid', 
       'ui.grid.infiniteScroll', 
-      'ui.grid.autoResize'
+      'ui.grid.autoResize',
+      'flow'
     ])
     .config(routes);
