@@ -1,7 +1,8 @@
+import './style.styl';
+
 import template from './template.html';
 import gridActionCell from './grid-action-cell.html';
 import gridPublishedCell from './grid-published-cell.html';
-import style from './style.styl';
 
 class ProductGridController {
   constructor($scope, $rootScope, productService, productNotifier, modalAlert) {

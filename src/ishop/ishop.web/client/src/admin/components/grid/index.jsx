@@ -1,7 +1,7 @@
+import './style.styl';
+
 import template from './template.html';
 import gridRow from './grid-row.html';
-
-import style from './style.styl';
 
 class GridController {
   constructor(uiGridConstants) {

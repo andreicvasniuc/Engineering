@@ -1,6 +1,7 @@
+import './style.styl';
+
 import angular from 'angular';
 import $ from 'jquery';
-import style from './style.styl';
 
 export default ($compile, $timeout) => { 
   return {

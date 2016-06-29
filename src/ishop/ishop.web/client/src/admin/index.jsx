@@ -6,7 +6,7 @@ import 'angular-toastr/dist/angular-toastr.css';
 import 'assets/css/sb-admin.css';
 import 'assets/css/font-awesome.css';
 
-import adminStyl from 'assets/css/admin.styl';
+import 'assets/css/admin.styl';
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
