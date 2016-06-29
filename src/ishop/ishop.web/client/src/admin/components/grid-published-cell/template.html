@@ -1,4 +1,4 @@
-<img alt="Published" ng-src="{{$ctrl.publishedIcon}}" class="clickable" ng-click="$ctrl.unpublish()" ng-if="!$ctrl.isSavingSpinner && $ctrl.published" />
-<img alt="Unpublished" ng-src="{{$ctrl.unpublishedIcon}}" class="clickable" ng-click="$ctrl.publish()" ng-if="!$ctrl.isSavingSpinner && !$ctrl.published" />
+<img alt="Published" title="Unpublish" ng-src="{{$ctrl.publishedIcon}}" class="clickable" ng-click="$ctrl.unpublish()" ng-if="!$ctrl.isSavingSpinner && $ctrl.published" />
+<img alt="Unpublished" title="Publish" ng-src="{{$ctrl.unpublishedIcon}}" class="clickable" ng-click="$ctrl.publish()" ng-if="!$ctrl.isSavingSpinner && !$ctrl.published" />
 
 <loading-icon ng-if="$ctrl.isSavingSpinner" />
