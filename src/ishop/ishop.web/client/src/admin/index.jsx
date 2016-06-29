@@ -1,10 +1,10 @@
 'use strict'
 
-import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
-import uiGridCss from 'angular-ui-grid/ui-grid.css';
-import toastrCss from 'angular-toastr/dist/angular-toastr.css';
-import sbAdminCss from 'assets/css/sb-admin.css';
-import fontAwesomeCss from 'assets/css/font-awesome.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'angular-ui-grid/ui-grid.css';
+import 'angular-toastr/dist/angular-toastr.css';
+import 'assets/css/sb-admin.css';
+import 'assets/css/font-awesome.css';
 
 import adminStyl from 'assets/css/admin.styl';
 
