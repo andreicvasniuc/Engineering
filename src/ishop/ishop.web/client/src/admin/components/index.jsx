@@ -16,9 +16,9 @@ import icon from './icon';
 import loadingIcon from './loading-icon';
 import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
-import productEditorPopup from './product-editor-popup';
 import labeledInput from './labeled-input';
 import modalAlert from './modal-alert';
+import productEditorPopup from './product-editor-popup';
 
 export default angular
     .module('admin.components', [])
@@ -36,9 +36,9 @@ export default angular
     .component('loadingIcon', loadingIcon)
     .component('buttonSpinner', buttonSpinner)
     .component('buttonDefault', buttonDefault)
-    .component('productEditorPopup', productEditorPopup)
     .component('labeledInput', labeledInput)
     .component('gridActionCell', gridActionCell)
     .component('gridPublishedCell', gridPublishedCell)
     .component('modalAlert', modalAlert)
+    .component('productEditorPopup', productEditorPopup)
     .name;

@@ -1,20 +1,37 @@
 import './style.styl';
 
 import template from './template.html';
+import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $uibModal, productService, productNotifier) {
+  constructor($scope, $uibModal, $timeout, productService, productNotifier) {
     this.$scope = $scope;
     this.$uibModal = $uibModal;
+    this.$timeout = $timeout;
     this.productService = productService;
     this.productNotifier = productNotifier;
-    
+    this.closeIcon = closeIcon;
+
+    this.tabs = {
+      basicInformation: 0,
+      imageUploading: 1
+    };
+    this.activeTab = this.tabs.basicInformation;
+
+    this.createOpenPopupEvent();
+  }
+
+  createOpenPopupEvent() {
     this.$scope.$on('openProductEditorPopup', (event, product) => {
-      this.product = product;
-      this.isEdit = !!product;
+      this.initialize(product);
       this.stopSavingSpinner();
       this.openProductEditorPopup(); 
     });
+  }
+
+  initialize(product) {
+    this.product = product;
+    this.isEdit = !!product;
   }
 
   openProductEditorPopup() {
@@ -32,10 +49,15 @@ class ProductEditorPopupController {
   add() {
     this.startSavingSpinner();
     this.productService.add(this.product, (response) => {
+      this.initialize(response);
       this.$scope.$emit('reloadGrid');
       this.productNotifier.showSuccessCreateMessage();
       this.stopSavingSpinner();
-      this.cancel();
+
+      this.$timeout(() => {
+        this.activeTab = this.tabs.imageUploading;
+        console.log('this.activeTab', this.activeTab);
+      }, 5000);
     });
     //, (error) => {});
   }

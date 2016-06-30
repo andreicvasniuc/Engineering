@@ -1,33 +1,54 @@
 <div class="modal-header">
-    <div class="modal-title">
+    <h4 class="modal-title">
         <span ng-if="!$ctrl.isEdit">Create</span> 
         <span ng-if="$ctrl.isEdit">Edit</span> 
         Product
-    </div>
+
+        <img alt="Close icon" ng-src="{{$ctrl.closeIcon}}" ng-click="$ctrl.cancel()" class="clickable pull-right">
+        <div class="clearfix"></div>
+    </h4>
 </div>
 
 <div class="modal-body role-modal-body">
     <form name="$ctrl.form" novalidate>
 
-      <div class="form-group">
-          <labeled-input label="Code" 
-                         field-id="code"
-                         value="$ctrl.product.code"
-                         is-required="true"
-                         placeholder="Enter product code..."
-                         label-class="width50">
-          </labeled-input>
-      </div>
+    {{$ctrl.activeTab}}
+    {{$ctrl.tabs.basicInformation}}
+    {{$ctrl.tabs.imageUploading}}
 
-      <div class="form-group">
-          <labeled-input label="Published" 
-                         field-id="is-published"
-                         value="$ctrl.product.published"
-                         type="checkbox"
-                         css-class="checkbox"
-                         display-after="true">
-          </labeled-input>
-      </div>
+    <button-default label="Select second tab" click-callback="$ctrl.activeTab = $ctrl.tabs.imageUploading"></button-default>
+
+        <uib-tabset active="$ctrl.activeTab" justified="true">
+            <uib-tab index="$ctrl.tabs.basicInformation" heading="Basic">
+
+                <div class="pad15">
+                    <div class="form-group">
+                        <labeled-input label="Code" 
+                                       field-id="code"
+                                       value="$ctrl.product.code"
+                                       is-required="true"
+                                       placeholder="Enter product code..."
+                                       label-class="width50">
+                        </labeled-input>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-input label="Published" 
+                                       field-id="is-published"
+                                       value="$ctrl.product.published"
+                                       type="checkbox"
+                                       css-class="checkbox"
+                                       display-after="true">
+                        </labeled-input>
+                    </div>
+                </div>
+
+            </uib-tab>
+
+            <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit">
+                Image uploading content
+            </uib-tab>
+        </uib-tabset>
 
     </form>
 </div>
