@@ -11,11 +11,11 @@ import 'assets/css/admin.styl';
 import angular from 'angular';
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
+import ngFlow from 'ng-flow/dist/ng-flow-standalone';
 import uiGrid from 'angular-ui-grid/ui-grid';
 import angularUIBootstrap from 'angular-ui-bootstrap';
 import angularToastr from 'angular-toastr';
 import _ from 'lodash';
-import ngFlow from 'ng-flow/dist/ng-flow';
 //import bootstrap from 'bootstrap';
 
 import routes from './routes';

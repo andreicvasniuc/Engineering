@@ -4,10 +4,9 @@ import template from './template.html';
 import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $uibModal, $timeout, productService, productNotifier) {
+  constructor($scope, $uibModal, productService, productNotifier) {
     this.$scope = $scope;
     this.$uibModal = $uibModal;
-    this.$timeout = $timeout;
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.closeIcon = closeIcon;
@@ -16,7 +15,6 @@ class ProductEditorPopupController {
       basicInformation: 0,
       imageUploading: 1
     };
-    this.activeTab = this.tabs.basicInformation;
 
     this.createOpenPopupEvent();
   }
@@ -32,6 +30,9 @@ class ProductEditorPopupController {
   initialize(product) {
     this.product = product;
     this.isEdit = !!product;
+    this.activeTab = this.tabs.basicInformation;
+    // this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/upload/`;
+    this.uploadUrl = `http://localhost:3000/admin/products/upload/`;
   }
 
   openProductEditorPopup() {
@@ -53,11 +54,7 @@ class ProductEditorPopupController {
       this.$scope.$emit('reloadGrid');
       this.productNotifier.showSuccessCreateMessage();
       this.stopSavingSpinner();
-
-      this.$timeout(() => {
-        this.activeTab = this.tabs.imageUploading;
-        console.log('this.activeTab', this.activeTab);
-      }, 5000);
+      this.activeTab = this.tabs.imageUploading;
     });
     //, (error) => {});
   }
@@ -75,6 +72,30 @@ class ProductEditorPopupController {
 
   cancel() {
     this.modal.dismiss('cancel');
+  }
+
+  /* flow methods */
+
+  flowFileSuccess(message) {
+    console.log('flowFileSuccess', message);
+  }
+
+  flowComplete() {
+    console.log('flowComplete');
+  }
+
+  flowError(file, message, files) {
+    console.log('flowError', file, message, files); 
+  }
+
+  flowFileAdded(file, event) {
+    console.log('flowFileAdded', file, event); 
+  }
+
+  startUpload(flow) {
+    console.log('startUpload', flow);
+    flow.opts.query = { id: this.product._id.$oid };
+    flow.upload();
   }
 }
 

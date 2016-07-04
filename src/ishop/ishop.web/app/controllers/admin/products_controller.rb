@@ -48,6 +48,12 @@ class Admin::ProductsController < ApplicationController
     render json: @product, status: :ok, location: @product
   end
 
+  # POST /admin/products/upload
+  # POST /admin/products/upload.json
+  def upload
+    iputs params
+  end
+
   private
 
     def set_product

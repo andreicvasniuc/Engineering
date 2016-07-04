@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :products, except: [:new, :edit]
+    resources :products, except: [:new, :edit] do
+      post :upload, on: :collection
+    end
   end
 
   # Example of regular route:

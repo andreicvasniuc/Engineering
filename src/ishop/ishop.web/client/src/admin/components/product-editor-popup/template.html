@@ -12,12 +12,6 @@
 <div class="modal-body role-modal-body">
     <form name="$ctrl.form" novalidate>
 
-    {{$ctrl.activeTab}}
-    {{$ctrl.tabs.basicInformation}}
-    {{$ctrl.tabs.imageUploading}}
-
-    <button-default label="Select second tab" click-callback="$ctrl.activeTab = $ctrl.tabs.imageUploading"></button-default>
-
         <uib-tabset active="$ctrl.activeTab" justified="true">
             <uib-tab index="$ctrl.tabs.basicInformation" heading="Basic">
 
@@ -46,7 +40,32 @@
             </uib-tab>
 
             <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit">
-                Image uploading content
+              <div class="pad15">
+                
+                <div flow-init="{target: $ctrl.uploadUrl, testChunks: false }" 
+                     flow-file-success="$ctrl.flowFileSuccess($message)" 
+                     flow-complete="$ctrl.flowComplete()" 
+                     flow-error="$ctrl.flowError($file, $message, $flow.files)" 
+                     flow-file-added="$ctrl.flowFileAdded($file, $event)">
+                        
+                    <div class="clear margin15" flow-drop flow-drag-enter="style={border:'2px dashed green'}" flow-drag-leave="style={}" ng-style="style">
+                        <span flow-btn class="btn btn-default">Upload File</span>
+                        <span>
+                            <b>OR</b>
+                            Drag And Drop your file here
+                        </span>
+
+                        <button type="button" class="btn btn-default float-right topm2" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button>
+                    </div>
+
+                    <!-- <files-grid grid-data="$flow.files" 
+                                total-server-items="$flow.files.length" 
+                                show-empty-message="There are no files to display - try uploading one." 
+                                is-empty="$flow.files.length == 0">
+                    </files-grid> -->
+                </div>
+
+              </div>
             </uib-tab>
         </uib-tabset>
 
