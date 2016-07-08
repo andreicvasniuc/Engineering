@@ -36,6 +36,7 @@
     "angular-ui-bootstrap": "^1.1.2",
     "angular-ui-grid": "^3.2.1",
     "bootstrap": "^3.3.6",
+    "flow.js": "^0.2.6",
     "jquery": "^2.2.3",
     "lodash": "^4.0.0",
     "ng-flow": "^2.1.4"
