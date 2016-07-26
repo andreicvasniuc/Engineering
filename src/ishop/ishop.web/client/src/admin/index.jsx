@@ -11,8 +11,7 @@ import 'assets/css/admin.styl';
 import angular from 'angular';
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
-import flow from 'flow.js/lib/flow';
-import ngFlow from 'ng-flow/dist/ng-flow';
+import Flow from 'ng-flow/dist/ng-flow-standalone';
 import uiGrid from 'angular-ui-grid/ui-grid';
 import angularUIBootstrap from 'angular-ui-bootstrap';
 import angularToastr from 'angular-toastr';
@@ -26,6 +25,8 @@ import components from './components';
 import directives from './directives';
 import services from './services';
 import constants from './constants';
+
+window.Flow = Flow;
 
 export default angular
     .module('admin', [

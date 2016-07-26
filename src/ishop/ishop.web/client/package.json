@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start-backend & npm run start-dev-server",
+    "start": "npm run start-backend & npm run start-frontend",
     "start-backend": "cd .. && bundle exec unicorn -p 3000",
-    "start-dev-server": "webpack-dev-server --content-base src/admin",
+    "start-frontend": "webpack-dev-server --content-base src/admin",
     "start-old": "node node_modules/.bin/webpack-dev-server --content-base src/admin",
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp src/admin/index.html dist/index.html"
   },
@@ -36,7 +36,6 @@
     "angular-ui-bootstrap": "^1.1.2",
     "angular-ui-grid": "^3.2.1",
     "bootstrap": "^3.3.6",
-    "flow.js": "^0.2.6",
     "jquery": "^2.2.3",
     "lodash": "^4.0.0",
     "ng-flow": "^2.1.4"
