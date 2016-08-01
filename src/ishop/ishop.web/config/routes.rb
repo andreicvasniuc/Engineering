@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :products, except: [:new, :edit] do
+    resources :products, except: [:new, :edit]
+
+    resources :product_images, only: [] do
       post :upload, on: :collection
     end
   end
