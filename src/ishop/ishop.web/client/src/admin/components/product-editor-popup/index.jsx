@@ -88,8 +88,9 @@ class ProductEditorPopupController {
     console.log('flowError', file, message, files); 
   }
 
-  flowFileAdded(file, event) {
+  flowFileAdded(flow, file, event) {
     console.log('flowFileAdded', file, event); 
+    this.startUpload(flow);
   }
 
   startUpload(flow) {

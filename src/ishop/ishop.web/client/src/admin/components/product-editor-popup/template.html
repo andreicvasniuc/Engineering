@@ -46,13 +46,13 @@
                      flow-file-success="$ctrl.flowFileSuccess($message)" 
                      flow-complete="$ctrl.flowComplete()" 
                      flow-error="$ctrl.flowError($file, $message, $flow.files)" 
-                     flow-file-added="$ctrl.flowFileAdded($file, $event)">
+                     flow-file-added="$ctrl.flowFileAdded($flow, $file, $event)">
                         
-                    <div class="clear margin15" flow-drop flow-drag-enter="style={border:'2px dashed green'}" flow-drag-leave="style={}" ng-style="style">
-                        <span flow-btn class="btn btn-default">Upload File</span>
+                    <div class="clear pad15" flow-drop flow-drag-enter="style={border:'2px dashed green'}" flow-drag-leave="style={}" ng-style="style">
+                        <span flow-btn class="btn btn-default">Upload Images</span>
                         <span>
                             <b>OR</b>
-                            Drag And Drop your file here
+                            Drag And Drop your images here
                         </span>
 
                         <button type="button" class="btn btn-default float-right topm2" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button>
@@ -63,6 +63,29 @@
                                 show-empty-message="There are no files to display - try uploading one." 
                                 is-empty="$flow.files.length == 0">
                     </files-grid> -->
+
+                    <div class="gallery-box" ng-repeat="file in $flow.files">
+                        <span class="title">{{file.name}}</span>
+                        <div ng-show="$flow.files.length" class="thumbnail">
+                            <img flow-img="file" />
+                        </div>
+
+                        <uib-progressbar class="progress-striped" value="file.sizeUploaded() * 100/file.size" type="info">
+                            {{file.sizeUploaded() * 100/file.size}}%
+                        </uib-progressbar>
+
+                        <!-- <div ng-class="{active: file.isUploading()}" class="progress progress-striped">
+                            <div ng-style="{width: (file.progress() * 100) + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class="progress-bar" style="width: 100%;">
+                                <span class="sr-only">1% Complete</span>
+                            </div>
+                        </div> -->
+
+                        <div class="btn-group">
+                            <a ng-click="file.cancel()" class="btn btn-xs btn-danger">Remove</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
                 </div>
 
               </div>
