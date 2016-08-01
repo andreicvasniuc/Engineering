@@ -32,7 +32,7 @@ class ProductEditorPopupController {
     this.isEdit = !!product;
     this.activeTab = this.tabs.basicInformation;
     // this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/upload/`;
-    this.uploadUrl = `http://localhost:3000/admin/products/upload/`;
+    this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
   }
 
   openProductEditorPopup() {
