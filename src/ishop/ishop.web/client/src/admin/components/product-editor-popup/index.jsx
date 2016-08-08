@@ -89,13 +89,13 @@ class ProductEditorPopupController {
   }
 
   flowFileAdded(flow, file, event) {
-    console.log('flowFileAdded', file, event); 
+    // console.log('flowFileAdded', file, event); 
     this.startUpload(flow);
   }
 
   startUpload(flow) {
-    console.log('startUpload', flow);
-    flow.opts.query = { id: this.product._id.$oid };
+    // console.log('startUpload', flow);
+    flow.opts.query = { product_id: this.product._id.$oid };
     flow.upload();
   }
 }

@@ -3,7 +3,10 @@ class Admin::ProductImagesController < ApplicationController
   # POST /admin/product_images/upload
   # POST /admin/product_images/upload.json
   def upload
-    # iputs uploaded_file.tempfile.methods.sort
+    # save_file()
+
+    flowFile = FlowFile.new(params)
+    iputs flowFile
 
 # {"flowChunkNumber"=>"1", 
 # "flowChunkSize"=>"1048576", 
@@ -24,7 +27,31 @@ class Admin::ProductImagesController < ApplicationController
   private
 
   def uploaded_file
-    params[:file]
+    params[:file].tempfile
+  end
+
+  def uploaded_file_name
+    params[:flowFilename]
+  end
+
+  def uploaded_file_folder
+    params[:product_id]
+  end
+
+  def create_uploaded_images_path
+    uploaded_images_path = "#{Rails.root.join('public', 'uploaded_images').to_s}/#{uploaded_file_folder}"
+    
+    Dir.mkdir(uploaded_images_path) unless File.directory?(uploaded_images_path)
+    
+    "#{uploaded_images_path}/#{uploaded_file_name}"
+  end
+
+  def save_file
+    uploaded_images_path = create_uploaded_images_path()
+
+    File.open(uploaded_images_path, "w+b") do |f| 
+      f.write(uploaded_file.read)
+    end
   end
 
 end

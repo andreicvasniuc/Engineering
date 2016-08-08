@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
-  require "#{Rails.root}/lib/iputs" if Rails.env.development?
+  require Rails.root.join('lib', 'iputs').to_s if Rails.env.development?
 end
