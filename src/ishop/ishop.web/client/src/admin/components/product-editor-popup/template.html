@@ -13,7 +13,7 @@
     <form name="$ctrl.form" novalidate>
 
         <uib-tabset active="$ctrl.activeTab" justified="true">
-            <uib-tab index="$ctrl.tabs.basicInformation" heading="Basic">
+            <uib-tab index="$ctrl.tabs.basicInformation" heading="Basic" select="$ctrl.selectTab($ctrl.tabs.basicInformation)">
 
                 <div class="pad15">
                     <div class="form-group">
@@ -39,7 +39,7 @@
 
             </uib-tab>
 
-            <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit">
+            <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
               <div class="pad15">
                 
                 <div flow-init="{target: $ctrl.uploadUrl, testChunks: false }" 
@@ -55,7 +55,7 @@
                             Drag And Drop your images here
                         </span>
 
-                        <button type="button" class="btn btn-default float-right topm2" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button>
+                        <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button>
                     </div>
 
                     <!-- <files-grid grid-data="$flow.files" 
@@ -64,9 +64,12 @@
                                 is-empty="$flow.files.length == 0">
                     </files-grid> -->
 
-                    <div class="gallery-box" ng-repeat="file in $flow.files">
-                        <span class="title">{{file.name}}</span>
-                        <div ng-show="$flow.files.length" class="thumbnail">
+                    <div class="gallery-box" ng-repeat="file in $flow.files" title="{{file.name}}">
+                        <span class="title">
+                            <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageIdentifier" ng-value="file.uniqueIdentifier" />
+                            <label for="image-{{$index}}">{{file.name}}</label>
+                        </span>
+                        <div ng-show="$flow.files.length" class="thumbnail" ng-click="$ctrl.coverImageIdentifier = file.uniqueIdentifier">
                             <img flow-img="file" />
                         </div>
 
@@ -96,7 +99,11 @@
 </div>
 
 <div class="modal-footer">
-    <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
-    <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
-    <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
+    <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10" ng-class="{'rightm110': $ctrl.isCurrentTab($ctrl.tabs.imageUploading)}"></button-default>
+
+    <span ng-show="$ctrl.isCurrentTab($ctrl.tabs.basicInformation)">
+        <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
+
+        <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
+    </span>
 </div>

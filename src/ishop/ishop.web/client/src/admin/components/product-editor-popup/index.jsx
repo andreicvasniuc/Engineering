@@ -31,8 +31,8 @@ class ProductEditorPopupController {
     this.product = product;
     this.isEdit = !!product;
     this.activeTab = this.tabs.basicInformation;
-    // this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/upload/`;
-    this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
+    this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/images/upload/`;
+    //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
   }
 
   openProductEditorPopup() {
@@ -74,6 +74,14 @@ class ProductEditorPopupController {
     this.modal.dismiss('cancel');
   }
 
+  selectTab(tab) {
+    this.activeTab = tab;
+  }
+
+  isCurrentTab(tab) {
+    return this.activeTab == tab;
+  }
+
   /* flow methods */
 
   flowFileSuccess(message) {
@@ -90,12 +98,12 @@ class ProductEditorPopupController {
 
   flowFileAdded(flow, file, event) {
     // console.log('flowFileAdded', file, event); 
-    this.startUpload(flow);
+    //this.startUpload(flow);
   }
 
   startUpload(flow) {
-    // console.log('startUpload', flow);
-    flow.opts.query = { product_id: this.product._id.$oid };
+    console.log('startUpload', this.coverImageIdentifier, flow);
+    flow.opts.query = { coverImageIdentifier: this.coverImageIdentifier };
     flow.upload();
   }
 }

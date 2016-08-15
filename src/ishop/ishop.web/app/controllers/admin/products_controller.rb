@@ -5,8 +5,8 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products.json
   def index
     # sleep 1.5
-    @products = Admin::Product.all
-    iputs @products.first
+    @products = Admin::Product.only(:code, :published, :updated_at).all
+    # iputs @products.first
 
     render json: @products
   end
@@ -14,13 +14,14 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
+    iputs @product
     render json: @product
   end
 
   # POST /admin/products
   # POST /admin/products.json
   def create
-    iputs product_params
+    # iputs product_params
     @product = Admin::Product.new(product_params)
 
     if @product.save
