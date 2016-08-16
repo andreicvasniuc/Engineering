@@ -4,8 +4,9 @@ import template from './template.html';
 import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $uibModal, productService, productNotifier) {
+  constructor($scope, $timeout, $uibModal, productService, productNotifier) {
     this.$scope = $scope;
+    this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.productService = productService;
     this.productNotifier = productNotifier;
@@ -84,11 +85,18 @@ class ProductEditorPopupController {
 
   /* flow methods */
 
-  flowFileSuccess(message) {
-    console.log('flowFileSuccess', message);
+  flowFileSuccess(file, response) {
+    console.log('flowFileSuccess');
+    console.log(JSON.parse(response));
+    // console.log(flow.files.length);
+    // flow.files = _.reject(flow.files, { uniqueIdentifier: file.uniqueIdentifier });
+    // console.log(flow.files.length);
+
+    file.cancel(); // delete the file from flow.files
+    this.product = JSON.parse(response);
   }
 
-  flowComplete() {
+  flowComplete(flow) {
     console.log('flowComplete');
   }
 
@@ -97,13 +105,15 @@ class ProductEditorPopupController {
   }
 
   flowFileAdded(flow, file, event) {
-    // console.log('flowFileAdded', file, event); 
-    //this.startUpload(flow);
+    console.log('flowFileAdded', file, event); 
+    this.$timeout(() => {
+      this.startUpload(flow);
+    });
   }
 
   startUpload(flow) {
     console.log('startUpload', this.coverImageIdentifier, flow);
-    flow.opts.query = { coverImageIdentifier: this.coverImageIdentifier };
+    // flow.opts.query = { coverImageIdentifier: this.coverImageIdentifier };
     flow.upload();
   }
 }

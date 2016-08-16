@@ -70,7 +70,7 @@ class ProductGridController {
 
   delete(entity, event) {
     self.modalAlert.open({
-      message: 'Are you sure you want to delete this product?',
+      message: 'Deleting this product you will delete all uploaded images for this product. Are you sure you want to delete this product?',
       buttons: [{ label: 'No' }, { label: 'Yes', callback: () => { self.deleteProduct(entity); } }]
     });
   }

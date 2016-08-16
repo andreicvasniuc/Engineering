@@ -43,8 +43,8 @@
               <div class="pad15">
                 
                 <div flow-init="{target: $ctrl.uploadUrl, testChunks: false }" 
-                     flow-file-success="$ctrl.flowFileSuccess($message)" 
-                     flow-complete="$ctrl.flowComplete()" 
+                     flow-file-success="$ctrl.flowFileSuccess($file, $message)" 
+                     flow-complete="$ctrl.flowComplete($flow)" 
                      flow-error="$ctrl.flowError($file, $message, $flow.files)" 
                      flow-file-added="$ctrl.flowFileAdded($flow, $file, $event)">
                         
@@ -55,37 +55,33 @@
                             Drag And Drop your images here
                         </span>
 
-                        <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button>
+                        <!-- <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button> -->
                     </div>
 
-                    <!-- <files-grid grid-data="$flow.files" 
-                                total-server-items="$flow.files.length" 
-                                show-empty-message="There are no files to display - try uploading one." 
-                                is-empty="$flow.files.length == 0">
-                    </files-grid> -->
+                    <div class="gallery-box" ng-repeat="image in $ctrl.product.images">
+                        <span class="title">
+                            <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageIdentifier" ng-value="image._id.$oid" />
+                            <label for="image-{{$index}}">{{image._id.$oid}}.{{image.extension}}</label>
+                        </span>
+                        <div class="thumbnail" ng-click="$ctrl.coverImageIdentifier = image._id.$oid">
+                            <img ng-src="http://localhost:3000/uploaded_images/{{$ctrl.product._id.$oid}}/{{image._id.$oid}}.{{image.extension}}" />
+                        </div>
+
+                        <div class="btn-group">
+                            <a ng-click="$ctrl.removeImage()" class="btn btn-xs btn-danger">Remove</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
 
                     <div class="gallery-box" ng-repeat="file in $flow.files" title="{{file.name}}">
-                        <span class="title">
-                            <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageIdentifier" ng-value="file.uniqueIdentifier" />
-                            <label for="image-{{$index}}">{{file.name}}</label>
-                        </span>
-                        <div ng-show="$flow.files.length" class="thumbnail" ng-click="$ctrl.coverImageIdentifier = file.uniqueIdentifier">
+                        <span class="title">{{file.name}}</span>
+                        <div ng-show="$flow.files.length" class="thumbnail">
                             <img flow-img="file" />
                         </div>
 
                         <uib-progressbar class="progress-striped" value="file.sizeUploaded() * 100/file.size" type="info">
                             {{file.sizeUploaded() * 100/file.size}}%
                         </uib-progressbar>
-
-                        <!-- <div ng-class="{active: file.isUploading()}" class="progress progress-striped">
-                            <div ng-style="{width: (file.progress() * 100) + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class="progress-bar" style="width: 100%;">
-                                <span class="sr-only">1% Complete</span>
-                            </div>
-                        </div> -->
-
-                        <div class="btn-group">
-                            <a ng-click="file.cancel()" class="btn btn-xs btn-danger">Remove</a>
-                        </div>
                     </div>
                     <div class="clearfix"></div>
 
@@ -99,7 +95,7 @@
 </div>
 
 <div class="modal-footer">
-    <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10" ng-class="{'rightm110': $ctrl.isCurrentTab($ctrl.tabs.imageUploading)}"></button-default>
+    <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
 
     <span ng-show="$ctrl.isCurrentTab($ctrl.tabs.basicInformation)">
         <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
