@@ -7,6 +7,7 @@ import RouterService from './router';
 import NavigatorService from './navigator';
 import NotifierService from './notifier';
 import ProductService from './productService';
+import ImageService from './imageService';
 import ModalAlert from './modalAlert';
 
 export default angular
@@ -15,5 +16,6 @@ export default angular
     .service('navigator', NavigatorService)
     .service('notifier', NotifierService)
     .service('productService', ProductService)
+    .service('imageService', ImageService)
     .service('modalAlert', ModalAlert)
     .name;

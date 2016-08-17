@@ -8,8 +8,12 @@ class Admin::Product
   after_destroy :delete_folder_with_images
 
   def delete_folder_with_images
-    iputs 'delete_folder_with_images'
-    iputs self
     Flow::File.delete_folder(self._id)
+  end
+
+  def set_image_cover(image_id)
+    self.images.each{ |image| image.is_cover = false }
+    self.images.find(image_id).is_cover = true
+    self.save
   end
 end

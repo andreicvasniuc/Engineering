@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products, except: [:new, :edit] do
 
-      resources :images, only: [:show] do
+      resources :images, only: [] do
         post :upload, on: :collection
+        put :make_cover, on: :member
       end
 
     end

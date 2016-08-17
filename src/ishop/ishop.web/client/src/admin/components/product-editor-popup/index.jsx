@@ -4,12 +4,13 @@ import template from './template.html';
 import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, productService, productNotifier) {
+  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.productService = productService;
     this.productNotifier = productNotifier;
+    this.imageService = imageService;
     this.closeIcon = closeIcon;
 
     this.tabs = {
@@ -34,6 +35,7 @@ class ProductEditorPopupController {
     this.activeTab = this.tabs.basicInformation;
     this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/images/upload/`;
     //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
+    this.setCoverImageId();
   }
 
   openProductEditorPopup() {
@@ -81,6 +83,24 @@ class ProductEditorPopupController {
 
   isCurrentTab(tab) {
     return this.activeTab == tab;
+  }
+
+  getImageSrc(image) {
+    return `http://localhost:3000/uploaded_images/${this.product._id.$oid}/${image._id.$oid}.${image.extension}`;
+  }
+
+  setCoverImageId() {
+    if(!this.product.images || this.product.images.length == 0) return;
+
+    let coverImage = _.find(this.product.images, { is_cover: true });
+    this.coverImageId = coverImage ? coverImage._id.$oid : null; // used just for select a radio button
+  }
+
+  makeCover(image) {
+    this.imageService.make_cover(this.product._id.$oid, image, (response) => {
+      this.product = response;
+      this.setCoverImageId();
+    });
   }
 
   /* flow methods */

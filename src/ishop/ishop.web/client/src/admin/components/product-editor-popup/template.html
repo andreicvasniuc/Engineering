@@ -60,11 +60,12 @@
 
                     <div class="gallery-box" ng-repeat="image in $ctrl.product.images">
                         <span class="title">
-                            <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageIdentifier" ng-value="image._id.$oid" />
-                            <label for="image-{{$index}}">{{image._id.$oid}}.{{image.extension}}</label>
+                            <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageId" ng-value="image._id.$oid" ng-click="$ctrl.makeCover(image)"/>
+                            <label for="image-{{$index}}" ng-if="!image.is_cover">make cover</label>
+                            <label for="image-{{$index}}" ng-if="image.is_cover">cover</label>
                         </span>
-                        <div class="thumbnail" ng-click="$ctrl.coverImageIdentifier = image._id.$oid">
-                            <img ng-src="http://localhost:3000/uploaded_images/{{$ctrl.product._id.$oid}}/{{image._id.$oid}}.{{image.extension}}" />
+                        <div class="thumbnail" ng-click="$ctrl.makeCover(image)">
+                            <img ng-src="{{$ctrl.getImageSrc(image)}}" />
                         </div>
 
                         <div class="btn-group">

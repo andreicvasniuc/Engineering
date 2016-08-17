@@ -9,6 +9,6 @@ module ImageConcern
 
     index is_cover: 1
 
-    default_scope -> { order(:is_cover => :desc) } 
+    default_scope -> { order(:_id => :asc) } 
   end
 end
