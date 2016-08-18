@@ -31,6 +31,15 @@ class Admin::ImagesController < ApplicationController
     end
   end
 
+  # DELETE /admin/products/:product_id/images/:id
+  # DELETE /admin/products/:product_id/images/:id.json
+  def destroy
+    image = @product.images.find(image_id)
+    image.destroy
+
+    render json: @product, status: :ok, location: @product
+  end
+
   private
     def product_id
       params[:product_id]

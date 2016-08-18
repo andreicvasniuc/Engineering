@@ -15,8 +15,8 @@ class Flow::File
 
   def initialize(folder_name, args)
     @folder_name = folder_name
-    @name = args[:flowFilename]
-    @extension = args[:flowFilename].split(".").last
+    @name = split_filename(args).first
+    @extension = split_filename(args).last
     @tempfile = args[:file].tempfile
   end
 
@@ -28,21 +28,34 @@ class Flow::File
     end
   end
 
+  def self.delete_image(folder_name, name, extension)
+    product_image_path = get_product_image_path(folder_name, name, extension)
+    File.delete(product_image_path) if File.exist?(product_image_path)
+  end
+
   def self.delete_folder(folder_name)
     uploaded_product_image_path = get_uploaded_product_image_path(folder_name)
     FileUtils.rm_rf(uploaded_product_image_path)
   end
 
   private
+    def split_filename(args)
+      args[:flowFilename].split(".")
+    end
+
     def product_image_path
-      uploaded_product_image_path = self.class.get_uploaded_product_image_path(@folder_name)
-      self.class.create_directory(uploaded_product_image_path)
+      self.class.get_product_image_path(@folder_name, @name, @extension)
+    end
+
+    def self.get_product_image_path(folder_name, name, extension)
+      uploaded_product_image_path = get_uploaded_product_image_path(folder_name)
+      create_directory(uploaded_product_image_path)
       
-      "#{uploaded_product_image_path}/#{@name}.#{@extension}"
+      "#{uploaded_product_image_path}/#{name}.#{extension}"
     end
 
     def self.get_uploaded_product_image_path(folder_name)
-      uploaded_images_path = Rails.root.join('public', 'uploaded_images').to_s
+      uploaded_images_path = Rails.root.join('public', 'product_images').to_s
       create_directory(uploaded_images_path)
 
       "#{uploaded_images_path}/#{folder_name}"

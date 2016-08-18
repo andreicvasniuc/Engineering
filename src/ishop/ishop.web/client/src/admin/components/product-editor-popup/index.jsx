@@ -4,13 +4,15 @@ import template from './template.html';
 import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService) {
+  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService, imageNotifier, modalAlert) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.imageService = imageService;
+    this.imageNotifier = imageNotifier;
+    this.modalAlert = modalAlert;
     this.closeIcon = closeIcon;
 
     this.tabs = {
@@ -33,9 +35,11 @@ class ProductEditorPopupController {
     this.product = product;
     this.isEdit = !!product;
     this.activeTab = this.tabs.basicInformation;
-    this.uploadUrl = `http://localhost:3000/admin/products/${product._id.$oid}/images/upload/`;
-    //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
-    this.setCoverImageId();
+
+    if(this.isEdit){
+      this.setUploadUrl();
+      this.setCoverImageId();
+    }
   }
 
   openProductEditorPopup() {
@@ -45,6 +49,11 @@ class ProductEditorPopupController {
       backdrop: 'static',
       keyboard: false
     });
+  }
+
+  setUploadUrl() {
+    this.uploadUrl = `http://localhost:3000/admin/products/${this.product._id.$oid}/images/upload/`;
+    //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
   }
 
   startSavingSpinner() { this.isSavingSpinner = true; }
@@ -86,7 +95,7 @@ class ProductEditorPopupController {
   }
 
   getImageSrc(image) {
-    return `http://localhost:3000/uploaded_images/${this.product._id.$oid}/${image._id.$oid}.${image.extension}`;
+    return `http://localhost:3000/product_images/${this.product._id.$oid}/${image._id.$oid}.${image.extension}`;
   }
 
   setCoverImageId() {
@@ -100,6 +109,20 @@ class ProductEditorPopupController {
     this.imageService.make_cover(this.product._id.$oid, image, (response) => {
       this.product = response;
       this.setCoverImageId();
+    });
+  }
+
+  deleteImage(image) {
+    this.imageService.delete(this.product._id.$oid, image, (response) => {
+      this.product = response;
+      this.imageNotifier.showSuccessDeleteMessage();
+    });
+  }
+
+  delete(image) {
+    this.modalAlert.open({
+      message: 'Are you sure you want to delete this image?',
+      buttons: [{ label: 'No' }, { label: 'Yes', callback: () => { this.deleteImage(image); } }]
     });
   }
 
