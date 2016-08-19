@@ -33,6 +33,7 @@ class ProductEditorPopupController {
   }
 
   initialize(product, activeTab) {
+    console.log(product);
     this.product = product;
     this.isEdit = !!product;
     this.selectTab(activeTab);
@@ -53,7 +54,9 @@ class ProductEditorPopupController {
   }
 
   setUploadUrl() {
+    console.log(this.product);
     this.uploadUrl = `http://localhost:3000/admin/products/${this.product._id.$oid}/images/upload/`;
+    console.log(this.uploadUrl);
     //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
   }
 
@@ -88,7 +91,6 @@ class ProductEditorPopupController {
   }
 
   selectTab(tab) {
-    console.log('selectTab', tab);
     this.activeTab = tab;
   }
 
@@ -137,12 +139,17 @@ class ProductEditorPopupController {
     // flow.files = _.reject(flow.files, { uniqueIdentifier: file.uniqueIdentifier });
     // console.log(flow.files.length);
 
-    file.cancel(); // delete the file from flow.files
-    this.product = JSON.parse(response);
+    //file.cancel(); // delete the file from flow.files
+    //this.product = JSON.parse(response);
+    this.lastSuccessResponse = JSON.parse(response);
   }
 
   flowComplete(flow) {
-    console.log('flowComplete');
+    this.$timeout(() => {
+      console.log('flowComplete', this.lastSuccessResponse);
+      flow.files = [];
+      this.product = this.lastSuccessResponse;
+    });
   }
 
   flowError(file, message, files) {
