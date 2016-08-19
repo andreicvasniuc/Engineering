@@ -24,17 +24,18 @@ class ProductEditorPopupController {
   }
 
   createOpenPopupEvent() {
-    this.$scope.$on('openProductEditorPopup', (event, product) => {
-      this.initialize(product);
+    this.$scope.$on('openProductEditorPopup', (event, product, openImageUploadingTab) => {
+      let activeTab = openImageUploadingTab ? this.tabs.imageUploading : this.tabs.basicInformation;
+      this.initialize(product, activeTab);
       this.stopSavingSpinner();
       this.openProductEditorPopup(); 
     });
   }
 
-  initialize(product) {
+  initialize(product, activeTab) {
     this.product = product;
     this.isEdit = !!product;
-    this.activeTab = this.tabs.basicInformation;
+    this.selectTab(activeTab);
 
     if(this.isEdit){
       this.setUploadUrl();
@@ -62,11 +63,11 @@ class ProductEditorPopupController {
   add() {
     this.startSavingSpinner();
     this.productService.add(this.product, (response) => {
-      this.initialize(response);
+      this.initialize(response, this.activeTab);
       this.$scope.$emit('reloadGrid');
       this.productNotifier.showSuccessCreateMessage();
       this.stopSavingSpinner();
-      this.activeTab = this.tabs.imageUploading;
+      this.selectTab(this.tabs.imageUploading);
     });
     //, (error) => {});
   }
@@ -87,6 +88,7 @@ class ProductEditorPopupController {
   }
 
   selectTab(tab) {
+    console.log('selectTab', tab);
     this.activeTab = tab;
   }
 

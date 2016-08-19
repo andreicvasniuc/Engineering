@@ -41,7 +41,7 @@ class ProductGridController {
           displayName: '',
           cellTemplate: gridActionCell,
           clickable: false,
-          width: 50
+          width: 85
       }
     ];
   }
@@ -49,16 +49,25 @@ class ProductGridController {
   createCallbacks(){
     this.callbacks = {
       edit: this.edit,
+      upload: this.upload,
       delete: this.delete,
       clickOnRow: this.clickOnRow,
       publish: this.publish
     };
   }
 
-  edit(entity, event) {
+  editProduct(entity, openImageUploadingTab) {
     self.productService.get(entity, (response) => {
-      self.$rootScope.$broadcast('openProductEditorPopup', response);
+      self.$rootScope.$broadcast('openProductEditorPopup', response, openImageUploadingTab);
     });
+  }
+
+  edit(entity, event) {
+    self.editProduct(entity, false);
+  }
+
+  upload(entity, event) {
+    self.editProduct(entity, true);
   }
 
   deleteProduct(product) {
