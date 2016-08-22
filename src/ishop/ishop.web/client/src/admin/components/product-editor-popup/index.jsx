@@ -33,7 +33,6 @@ class ProductEditorPopupController {
   }
 
   initialize(product, activeTab) {
-    console.log(product);
     this.product = product;
     this.isEdit = !!product;
     this.selectTab(activeTab);
@@ -54,9 +53,7 @@ class ProductEditorPopupController {
   }
 
   setUploadUrl() {
-    console.log(this.product);
     this.uploadUrl = `http://localhost:3000/admin/products/${this.product._id.$oid}/images/upload/`;
-    console.log(this.uploadUrl);
     //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
   }
 
@@ -164,8 +161,11 @@ class ProductEditorPopupController {
   }
 
   startUpload(flow) {
-    console.log('startUpload', this.coverImageIdentifier, flow);
+    console.log('startUpload');
+    console.log(flow.opts.target);
+    console.log(this.uploadUrl);
     // flow.opts.query = { coverImageIdentifier: this.coverImageIdentifier };
+    flow.opts.target = this.uploadUrl;
     flow.upload();
   }
 }

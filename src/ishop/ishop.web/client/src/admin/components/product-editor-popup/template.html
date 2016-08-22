@@ -42,7 +42,7 @@
             <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
               <div class="pad15">
                 
-                <div flow-init="{target: $ctrl.uploadUrl, testChunks: false }" 
+                <div flow-init="{ testChunks: false }" 
                      flow-file-success="$ctrl.flowFileSuccess($file, $message)" 
                      flow-complete="$ctrl.flowComplete($flow)" 
                      flow-error="$ctrl.flowError($file, $message, $flow.files)" 
