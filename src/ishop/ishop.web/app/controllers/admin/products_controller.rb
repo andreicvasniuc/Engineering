@@ -5,7 +5,14 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products.json
   def index
     # sleep 1.5
-    @products = Admin::Product.only(:code, :published, :updated_at).all
+    # @products = Admin::Product.only(:code, :published, :updated_at, :images).all
+    
+    @products = Admin::Product.only(:code, :published, :updated_at, :images).elem_match(images: {is_cover: false})
+    # @products = Admin::Product.where({images: {'$elemMatch' => {is_cover: true}}})
+
+    # this works
+    # db.products.find({},{code: 1, images: {$elemMatch: {is_cover: true}}})
+
     # iputs @products.first
 
     render json: @products
