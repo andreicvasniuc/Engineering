@@ -34,4 +34,9 @@ Rails.application.configure do
 
   # Show the logging configuration on STDOUT
   config.show_log_configuration = true
+
+  config.mongoid.logger = Logger.new($stdout, :debug)
+
+  Mongoid.logger.level = Logger::DEBUG
+  Mongoid.logger = Logger.new($stdout)
 end
