@@ -38,6 +38,11 @@ class Flow::File
     FileUtils.rm_rf(uploaded_product_image_path)
   end
 
+  def self.get_relative_image_path(folder_name, name, extension)
+    relative_image_path = get_product_image_path(folder_name, name, extension)
+    relative_image_path.sub(Rails.root.join('public').to_s, '')
+  end
+
   private
     def split_filename(args)
       args[:flowFilename].split(".")

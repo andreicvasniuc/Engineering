@@ -5,17 +5,12 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products.json
   def index
     # sleep 1.5
-    # @products = Admin::Product.only(:code, :published, :updated_at, :images).all
-    
-    # @products = Admin::Product.only(:code, :published, :updated_at, :images).elem_match(images: {is_cover: false})
-    # @products = Admin::Product.where({images: {'$elemMatch' => {is_cover: true}}})
 
-    @products = Admin::Product.collection.find({},{:projection => {:code => 1, :published => 1, :updated_at => 1, :images => {'$elemMatch' => {:is_cover => true}}}}).to_a
+    # request.base_url
+    @products = Admin::Product.get_list_with_cover_images()
 
-    # this works
-    # db.products.find({},{code: 1, images: {$elemMatch: {is_cover: true}}})
-
-    # iputs @products.first
+    # iputs @products
+    # @products.each { |p| p.images.each { |i| iputs i.url } }
 
     render json: @products
   end
@@ -23,7 +18,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
-    iputs @product
+    # iputs @product
     render json: @product
   end
 

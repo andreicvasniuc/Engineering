@@ -3,6 +3,7 @@ import './style.styl';
 import template from './template.html';
 import gridActionCell from './grid-action-cell.html';
 import gridPublishedCell from './grid-published-cell.html';
+import gridImageCell from './grid-image-cell.html';
 
 class ProductGridController {
   constructor($scope, $rootScope, productService, productNotifier, modalAlert) {
@@ -19,6 +20,13 @@ class ProductGridController {
 
   createColumnDefinitions() {
     this.columnDefinitions = [
+      {
+          field: 'images',
+          displayName: '',
+          cellTemplate: gridImageCell,
+          clickable: false,
+          width: 120
+      },
       {
           field: 'code',
           displayName: 'Code'

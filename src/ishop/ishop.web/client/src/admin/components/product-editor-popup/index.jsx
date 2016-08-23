@@ -64,7 +64,7 @@ class ProductEditorPopupController {
     this.startSavingSpinner();
     this.productService.add(this.product, (response) => {
       this.initialize(response, this.activeTab);
-      this.$scope.$emit('reloadGrid');
+      // this.reloadGrid();
       this.productNotifier.showSuccessCreateMessage();
       this.stopSavingSpinner();
       this.selectTab(this.tabs.imageUploading);
@@ -75,15 +75,20 @@ class ProductEditorPopupController {
   edit() {
     this.startSavingSpinner();
     this.productService.edit(this.product, (response) => {
-      this.$scope.$emit('reloadGrid');
+      // this.reloadGrid();
       this.productNotifier.showSuccessUpdateMessage();
       this.stopSavingSpinner();
-      this.cancel();
+      // this.cancel();
     });
     //, (error) => {});
   }
 
+  reloadGrid() {
+    this.$scope.$emit('reloadGrid');
+  }
+
   cancel() {
+    this.reloadGrid();
     this.modal.dismiss('cancel');
   }
 
@@ -93,10 +98,6 @@ class ProductEditorPopupController {
 
   isCurrentTab(tab) {
     return this.activeTab == tab;
-  }
-
-  getImageSrc(image) {
-    return `http://localhost:3000/product_images/${this.product._id.$oid}/${image._id.$oid}.${image.extension}`;
   }
 
   setCoverImageId() {
