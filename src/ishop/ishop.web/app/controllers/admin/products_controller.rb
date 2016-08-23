@@ -7,8 +7,10 @@ class Admin::ProductsController < ApplicationController
     # sleep 1.5
     # @products = Admin::Product.only(:code, :published, :updated_at, :images).all
     
-    @products = Admin::Product.only(:code, :published, :updated_at, :images).elem_match(images: {is_cover: false})
+    # @products = Admin::Product.only(:code, :published, :updated_at, :images).elem_match(images: {is_cover: false})
     # @products = Admin::Product.where({images: {'$elemMatch' => {is_cover: true}}})
+
+    @products = Admin::Product.collection.find({},{:projection => {:code => 1, :published => 1, :updated_at => 1, :images => {'$elemMatch' => {:is_cover => true}}}}).to_a
 
     # this works
     # db.products.find({},{code: 1, images: {$elemMatch: {is_cover: true}}})
