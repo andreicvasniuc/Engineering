@@ -4,20 +4,20 @@ class Admin::ImagesController < ApplicationController
   # POST /admin/products/:product_id/images/upload
   # POST /admin/products/:product_id/images/upload.json
   def upload
-    flow_file = Flow::File.new(product_id, params)
+    flow_file = FlowFile.new(params)
     @image = @product.images.build({ extension: flow_file.extension })
 
     unless @image.save
       render json: @image.errors, status: :unprocessable_entity; return
     end
 
-    flow_file.name = @image._id;
+    flow_file.name = @image._id
+    image_processor = ImageProcessor.new(product_id, flow_file)
 
-    if flow_file.save
-      # render json: @image, status: :ok, location: admin_product_image_url(@product, @image)
+    if image_processor.save
       render json: @product, status: :ok, location: @product
     else
-      render json: flow_file.errors, status: :unprocessable_entity
+      render json: image_processor.errors, status: :unprocessable_entity
     end
   end
 

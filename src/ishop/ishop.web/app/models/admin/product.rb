@@ -8,7 +8,7 @@ class Admin::Product
   after_destroy :delete_folder_with_images
 
   def delete_folder_with_images
-    Flow::File.delete_folder(self._id)
+    ImageProcessor.delete_folder(self._id)
   end
 
   def set_image_cover(image_id)
