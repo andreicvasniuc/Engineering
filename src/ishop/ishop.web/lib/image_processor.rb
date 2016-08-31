@@ -43,7 +43,7 @@ class ImageProcessor
     end
 
     def self.get_uploaded_product_image_path(folder_name)
-      uploaded_images_path = Rails.root.join('public', 'product_images').to_s
+      uploaded_images_path = Rails.root.join('public', 'uploads', 'product_images').to_s
       create_directory(uploaded_images_path)
 
       "#{uploaded_images_path}/#{folder_name}"
