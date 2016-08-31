@@ -4,7 +4,7 @@ class Admin::ImagesController < ApplicationController
   # POST /admin/products/:product_id/images/upload
   # POST /admin/products/:product_id/images/upload.json
   def upload
-    flow_file = FlowFile.new(params)
+    flow_file = Image::File.new(params)
     @image = @product.images.build({ extension: flow_file.extension })
 
     unless @image.save
@@ -12,9 +12,9 @@ class Admin::ImagesController < ApplicationController
     end
 
     flow_file.name = @image._id
-    image_processor = ImageProcessor.new(product_id, flow_file)
+    image_processor = Image::Processor.new(product_id, flow_file)
 
-    if image_processor.save
+    if image_processor.save_image
       render json: @product, status: :ok, location: @product
     else
       render json: image_processor.errors, status: :unprocessable_entity

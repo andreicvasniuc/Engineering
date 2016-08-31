@@ -1,4 +1,4 @@
-class FlowFile
+class Image::File
   attr_reader :extension, :tempfile
   attr_accessor :name
 

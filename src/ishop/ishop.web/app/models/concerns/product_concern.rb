@@ -19,7 +19,7 @@ module ProductConcern
 
     def create_image_url
       self.images.each do |image|
-        image.url = ImageProcessor.get_relative_image_path(self._id, image._id, image.extension)
+        image.url = Image::Processor.get_relative_image_path(self._id, image._id, image.extension)
         image.url = 'http://localhost:3000' + image.url if Rails.env.development? # TODO: change when add figaro gem or somethng like that to have settongs foe each env
       end
     end
