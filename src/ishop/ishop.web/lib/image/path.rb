@@ -18,7 +18,7 @@ class Image::Path
       @path = "/uploads/product_images"
 
       unless @is_relative
-        @path =  "#{Rails.root.join('public').to_s}/uploads/product_images"
+        @path =  Rails.root.join('public').to_s + @path
         create_directory(@path)
       end
 
