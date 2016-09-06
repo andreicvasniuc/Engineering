@@ -16,12 +16,15 @@ class Image::Path
 
   private
     def create_path
-      @path = "/uploads/product_images"
+      @path = "/uploads"
 
       unless @is_relative
         @path =  Rails.root.join('public').to_s + @path
         create_directory(@path)
       end
+
+      @path = "#{@path}/product_images"
+      create_directory(@path) unless @is_relative
 
       @path = "#{@path}/#{@folder_name}"
 

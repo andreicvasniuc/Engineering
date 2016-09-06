@@ -128,6 +128,10 @@ class ProductEditorPopupController {
     });
   }
 
+  uploadedFileSize(file) {
+    return Math.round(file.sizeUploaded() * 100/file.size);
+  }
+
   /* flow methods */
 
   flowFileSuccess(file, response) {

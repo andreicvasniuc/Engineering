@@ -79,8 +79,8 @@
                             <img flow-img="file" />
                         </div>
 
-                        <uib-progressbar class="progress-striped" value="file.sizeUploaded() * 100/file.size" type="info">
-                            {{file.sizeUploaded() * 100/file.size}}%
+                        <uib-progressbar class="progress-striped" value="$ctrl.uploadedFileSize(file)" type="info">
+                            {{$ctrl.uploadedFileSize(file)}}%
                         </uib-progressbar>
                     </div>
                     <div class="clearfix"></div>
