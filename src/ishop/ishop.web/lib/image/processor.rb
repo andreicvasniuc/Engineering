@@ -19,8 +19,8 @@ class Image::Processor
   #   File.delete(image_path) if File.exist?(image_path)
   # end
 
-  def self.delete_folder(folder_name)
-    image_path = get_image_path(folder_name)
+  def self.delete_folder(folder_name, name=nil)
+    image_path = get_image_path(folder_name, name)
     FileUtils.rm_rf(image_path)
   end
 
@@ -33,14 +33,14 @@ class Image::Processor
     def save_and_resize_images
       image = MiniMagick::Image.new(@file.tempfile.path)
 
-      image.resize "150"
-      image.write image_path(:small)
+      image.resize "1200" # 1200x1800
+      image.write image_path(:large)
 
-      image.resize "450"
+      image.resize "450" # 450x675
       image.write image_path(:medium)
 
-      image.resize "1200"
-      image.write image_path(:large)
+      image.resize "150" # 150x225
+      image.write image_path(:small)
 
       # File.open(image_path, "w+b") do |f| 
       #   f.write(@file.tempfile.read)

@@ -1,10 +1,11 @@
 class Image::Path
-  attr_reader :folder_name, :image_name, :image_extension, :is_relative, :path
+  attr_reader :folder_name, :image_name, :image_extension, :image_size, :is_relative, :path
 
-  def initialize(folder_name, image_name=nil, image_extension=nil, is_relative=false)
+  def initialize(folder_name, image_name=nil, image_extension=nil, image_size=nil, is_relative=false)
     @folder_name = folder_name
     @image_name = image_name
     @image_extension = image_extension
+    @image_size = image_size
     @is_relative = is_relative
     create_path()
   end
@@ -24,9 +25,14 @@ class Image::Path
 
       @path = "#{@path}/#{@folder_name}"
 
-      unless @image_name.nil? || @image_extension.nil?
+      unless @image_name.nil?
         create_directory(@path) unless @is_relative
-        @path = "#{@path}/#{@image_name}.#{@image_extension}"
+        @path = "#{@path}/#{@image_name}"
+      end
+
+      unless @image_extension.nil? || @image_size.nil?
+        create_directory(@path) unless @is_relative
+        @path = "#{@path}/#{@image_size}.#{@image_extension}"
       end
     end
 

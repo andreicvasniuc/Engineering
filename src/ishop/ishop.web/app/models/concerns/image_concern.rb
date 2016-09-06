@@ -7,10 +7,17 @@ module ImageConcern
     field :extension, type: String
     field :is_cover, type: Boolean
 
-    field :url, type: String # used to send an url to UI, it is NOT saved in db
-
     index is_cover: 1
 
     default_scope -> { order(:_id => :asc) }
+
+    attr_accessor :small_image_url, :medium_image_url, :large_image_url
+
+    after_save :set_urls
+
+    private
+      def set_urls
+        self.product.create_image_url()
+      end
   end
 end

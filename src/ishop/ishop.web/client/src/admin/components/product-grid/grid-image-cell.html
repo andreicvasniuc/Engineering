@@ -1,5 +1,5 @@
 <div class="ui-grid-cell-contents ui-grid-cell-action">
   <span class="thumbnail" ng-if="grid.getCellValue(row, col)[0]">
-    <img ng-src="{{grid.getCellValue(row, col)[0].url}}" class="clickable" ng-click="grid.appScope.$ctrl.callbacks.upload(row.entity, event)" />
+    <img ng-src="{{grid.getCellValue(row, col)[0].small_image_url}}" class="clickable" ng-click="grid.appScope.$ctrl.callbacks.upload(row.entity, event)" />
   </span>
 </div>

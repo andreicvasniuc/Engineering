@@ -19,10 +19,18 @@ module ProductConcern
 
     def create_image_url
       self.images.each do |image|
-        image.url = Image::Processor.get_relative_image_path(self._id, image._id, image.extension)
-        image.url = 'http://localhost:3000' + image.url if Rails.env.development? # TODO: change when add figaro gem or somethng like that to have settongs foe each env
+        image.small_image_url  = create_image_url_by_size(image, :small )
+        image.medium_image_url = create_image_url_by_size(image, :medium)
+        image.large_image_url  = create_image_url_by_size(image, :large )
       end
     end
+
+    private
+      def create_image_url_by_size(image, size)
+        url = Image::Processor.get_relative_image_path(self._id, image._id, image.extension, size)
+        url = 'http://localhost:3000' + url if Rails.env.development? # TODO: change when add figaro gem or somethng like that to have settongs foe each env
+        return url
+      end
   end
 
   # for the given article/event returns the first comment

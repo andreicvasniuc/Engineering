@@ -33,4 +33,18 @@ class Admin::Product
     })
     list_json.map { |item_json| self.new(item_json) }
   end
+
+  def as_json(options={})
+    attrs = super(options)
+
+    self.images.each_with_index do |image, index|
+      attrs["images"][index].merge!({
+        :small_image_url => image.small_image_url,
+        :medium_image_url => image.medium_image_url,
+        :large_image_url => image.large_image_url
+      })
+    end
+    
+    attrs
+  end
 end
