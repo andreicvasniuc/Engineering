@@ -16,6 +16,7 @@ class ProductGridController {
 
     this.createColumnDefinitions();
     this.createCallbacks();
+    this.setGridHeight();
   }
 
   createColumnDefinitions() {
@@ -102,6 +103,15 @@ class ProductGridController {
     self.productService.edit(entity, (response) => {
       self.productNotifier.showSuccessPublishedMessage(published);
       if(callback) callback();
+    });
+  }
+
+  setGridHeight() {
+    this.$scope.$watch(() => {
+      return this.gridData.length;
+    }, () => {
+      let rowHeight = 170;
+      this.$scope.$broadcast('setGridHeight', rowHeight);
     });
   }
 }

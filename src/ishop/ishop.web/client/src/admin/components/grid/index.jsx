@@ -1,14 +1,18 @@
+import $ from 'jquery';
 import './style.styl';
 
 import template from './template.html';
 import gridRow from './grid-row.html';
 
 class GridController {
-  constructor(uiGridConstants) {
+  constructor($scope, $timeout, uiGridConstants) {
+    this.$scope = $scope;
+    this.$timeout = $timeout;
     this.uiGridConstants = uiGridConstants;
 
     this.setGridId();
     this.setGridOptions();
+    this.setGridHeight();
   }
 
   setGridId() {
@@ -47,6 +51,31 @@ class GridController {
         rowTemplate: gridRow,
         columnDefs: this.createColumnDefs()
     };
+  }
+
+  setGridHeight() {
+    this.$scope.$on('setGridHeight', (event, rowHeight) => {
+      let minGridHeight = 200;
+      let headerHeight = 30;
+      let windowHeight = $(window).height() * 0.7;
+      let rowsCount = this.gridData.length;
+      let customHeight = (rowsCount * rowHeight) + headerHeight + 2;
+      let newHeight = customHeight;
+
+      if (rowsCount == 0) {
+          newHeight = minGridHeight;
+      } else if (rowsCount > 3) {
+          newHeight = customHeight > windowHeight ? windowHeight : customHeight;
+      }
+
+      if (newHeight < minGridHeight) {
+          newHeight = minGridHeight;
+      }
+
+      this.$timeout(() => {
+        $('#' + this.gridId).height(newHeight);
+      });
+    });
   }
 }
 
