@@ -10,7 +10,8 @@
         ng-model="$ctrl.value" 
         ng-required="$ctrl.isRequired" 
         placeholder="{{$ctrl.placeholder}}" 
-        maxlength="{{$ctrl.maxlength}}"/>
+        maxlength="{{$ctrl.maxlength}}"
+        focus-me="$ctrl.focus"/>
 
     <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }" ng-if="$ctrl.displayAfter"></label>
 

@@ -21,7 +21,8 @@ let labeledInput = {
     inputClass: '@',
     placeholder: '@',
     maxlength: '@',
-    displayAfter: '='
+    displayAfter: '=',
+    focus: '<'
   },
   controller: LabeledInputController,
   templateUrl: template
