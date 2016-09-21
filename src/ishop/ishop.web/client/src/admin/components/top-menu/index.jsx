@@ -1,9 +1,7 @@
 import template from './template.html';
 
 class TopMenuController {
-  constructor() {
-    //console.log('TopMenuController');
-  }
+  constructor() {}
 }
 
 let topMenu = {

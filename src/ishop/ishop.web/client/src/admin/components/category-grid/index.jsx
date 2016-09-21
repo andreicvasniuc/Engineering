@@ -1,9 +1,7 @@
 import template from './template.html';
 
 class CategoryGridController {
-  constructor() {
-    console.log('CategoryGridController');
-  }
+  constructor() {}
 }
 
 let categoryGrid = {

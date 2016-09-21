@@ -1,9 +1,7 @@
 import template from './template.html';
 
 class MainLayoutController {
-  constructor() {
-    //console.log('MainLayoutController');
-  }
+  constructor() {}
 }
 
 let mainLayout = {

@@ -1,7 +1,5 @@
 class DashboardController {
-  constructor() {
-    //console.log('DashboardController controller');
-  }
+  constructor() {}
 }
 
 export default DashboardController

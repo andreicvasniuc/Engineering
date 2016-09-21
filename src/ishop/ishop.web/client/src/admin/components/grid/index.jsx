@@ -42,7 +42,6 @@ class GridController {
   }
 
   setGridOptions() {
-    //console.log(this.createColumnDefs(), this.gridData);
     this.gridOptions = {
         data: '$ctrl.gridData',
         useExternalSorting: true,

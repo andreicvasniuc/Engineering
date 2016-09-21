@@ -1,6 +1,5 @@
 class ProductService {
   constructor() {
-    //console.log('requestService',requestService);
 
     this.productList = [
         {id: 1, name: 'Product 1'},
@@ -12,7 +11,6 @@ class ProductService {
   }
 
   getProducts(){
-    //console.log('get products in service');
     return this.productList;
   }
 }

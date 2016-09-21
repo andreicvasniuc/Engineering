@@ -2,12 +2,9 @@ import template from './template.html';
 import style from './style.styl';
 
 class ProductViewController {
-  constructor() {
-    console.log('ProductViewController');
-  }
+  constructor() {}
 
   select(product) {
-    console.log('product', product);
     product.isSelected = true;
   }
 

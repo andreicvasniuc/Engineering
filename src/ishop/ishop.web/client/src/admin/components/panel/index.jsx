@@ -1,9 +1,7 @@
 import template from './template.html';
 
 class PanelController {
-  constructor() {
-    //console.log('PanelController');
-  }
+  constructor() {}
 }
 
 let panel = {

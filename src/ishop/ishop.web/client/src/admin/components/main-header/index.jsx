@@ -1,9 +1,7 @@
 import template from './template.html';
 
 class MainHeaderController {
-  constructor() {
-    //console.log('MainHeaderController');
-  }
+  constructor() {}
 }
 
 let mainHeader = {
