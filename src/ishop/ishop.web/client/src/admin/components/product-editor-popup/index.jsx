@@ -108,9 +108,10 @@ class ProductEditorPopupController {
   }
 
   makeCover(image) {
-    this.imageService.make_cover(this.product._id.$oid, image, (response) => {
+    this.imageService.makeCover(this.product._id.$oid, image, (response) => {
       this.product = response;
       this.setCoverImageId();
+      this.imageNotifier.showSuccessMakeCoverMessage();
     });
   }
 
@@ -135,20 +136,14 @@ class ProductEditorPopupController {
   /* flow methods */
 
   flowFileSuccess(file, response) {
-    console.log('flowFileSuccess');
-    console.log(JSON.parse(response));
-    // console.log(flow.files.length);
-    // flow.files = _.reject(flow.files, { uniqueIdentifier: file.uniqueIdentifier });
-    // console.log(flow.files.length);
-
     //file.cancel(); // delete the file from flow.files
     //this.product = JSON.parse(response);
     this.lastSuccessResponse = JSON.parse(response);
+    this.imageNotifier.showSuccessUploadMessage();
   }
 
   flowComplete(flow) {
     this.$timeout(() => {
-      console.log('flowComplete', this.lastSuccessResponse);
       flow.files = [];
       this.product = this.lastSuccessResponse;
     });
@@ -159,17 +154,12 @@ class ProductEditorPopupController {
   }
 
   flowFileAdded(flow, file, event) {
-    console.log('flowFileAdded', file, event); 
     this.$timeout(() => {
       this.startUpload(flow);
     });
   }
 
   startUpload(flow) {
-    console.log('startUpload');
-    console.log(flow.opts.target);
-    console.log(this.uploadUrl);
-    // flow.opts.query = { coverImageIdentifier: this.coverImageIdentifier };
     flow.opts.target = this.uploadUrl;
     flow.upload();
   }

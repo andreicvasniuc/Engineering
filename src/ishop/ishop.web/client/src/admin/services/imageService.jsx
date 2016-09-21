@@ -3,8 +3,8 @@ class ImageService {
     this.imageResource = imageResource;
   }
 
-  make_cover(product_id, image, successCallback, errorCallback){
-    this.imageResource.make_cover({ product_id: product_id, id: image._id.$oid }, successCallback, errorCallback);
+  makeCover(product_id, image, successCallback, errorCallback){
+    this.imageResource.makeCover({ product_id: product_id, id: image._id.$oid }, successCallback, errorCallback);
   }
 
   delete(product_id, image, successCallback, errorCallback){
