@@ -30,12 +30,14 @@ class ProductGridController {
       },
       {
           field: 'code',
-          displayName: 'Code'
+          displayName: 'Code',
+          sortable: true
       },
       {
           field: 'updated_at',
           displayName: 'Edit Date',
           cellFilter: 'date:"longDate"',
+          sortable: true,
           width: 200
       },
       {
@@ -43,6 +45,7 @@ class ProductGridController {
           displayName: '',
           cellTemplate: gridPublishedCell,
           clickable: false,
+          sortable: true,
           width: 30
       },
       {
@@ -55,7 +58,7 @@ class ProductGridController {
     ];
   }
 
-  createCallbacks(){
+  createCallbacks() {
     this.callbacks = {
       edit: this.edit,
       upload: this.upload,
@@ -134,7 +137,10 @@ class ProductGridController {
 
 let productGrid = {
   bindings: { 
-    gridData: '='
+    gridData: '=',
+    sortByEnum: '=',
+    sortBy: '=',
+    sortByDirection: '='
   },
   controller: ProductGridController,
   //template: ($element, $attrs) => new ProductGridView($element, $attrs).template,

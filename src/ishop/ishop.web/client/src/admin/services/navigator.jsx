@@ -13,7 +13,7 @@ class NavigatorService {
   }
 
   getCurrentNavigationItem() {
-    return _.find(this.navigationItems, { url: this.router.getCurrentUrl() });
+    return _.find(this.navigationItems, (item) => this.router.doesUrlContain(item.url));
   }
 }
 

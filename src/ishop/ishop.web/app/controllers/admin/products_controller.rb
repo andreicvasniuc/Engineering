@@ -5,6 +5,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products.json
   def index
     # sleep 1.5
+    iputs params
 
     # request.base_url
     @products = Admin::Product.get_list_with_cover_images()

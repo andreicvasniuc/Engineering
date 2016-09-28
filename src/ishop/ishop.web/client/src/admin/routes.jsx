@@ -15,6 +15,9 @@ export default ($routeProvider, routeUrls) => {
     }
   };
 
+  let searchPath = '/sort/:sortBy/:sortByDirection/search/:searchText?';
+  routeUrls.products_search = routeUrls.products + searchPath;
+
   $routeProvider
     .when(
         routeUrls.index,
@@ -24,6 +27,9 @@ export default ($routeProvider, routeUrls) => {
         routes.dashboard)
     .when(
         routeUrls.products,
+        routes.products)
+    .when(
+        routeUrls.products_search,
         routes.products)
     .otherwise(
         { redirectTo: routeUrls.index });

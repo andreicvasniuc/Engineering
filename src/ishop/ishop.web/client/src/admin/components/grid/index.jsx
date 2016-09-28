@@ -5,10 +5,11 @@ import template from './template.html';
 import gridRow from './grid-row.html';
 
 class GridController {
-  constructor($scope, $timeout, uiGridConstants) {
+  constructor($scope, $timeout, uiGridConstants, sortByDirectionEnum) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.uiGridConstants = uiGridConstants;
+    this.sortByDirectionEnum = sortByDirectionEnum;
 
     this.setGridId();
     this.setGridOptions();
@@ -20,24 +21,33 @@ class GridController {
   }
 
   generalColumnDef() {
-      return {
-          enableColumnMenu: false
-      };
+    return { enableColumnMenu: false };
   }
 
   columnDef(object) {
-      let extendedObject = angular.extend({ enableSorting: false }, this.generalColumnDef(), object);
-      return extendedObject;
+    let extendedObject = angular.extend({ enableSorting: false }, this.generalColumnDef(), object);
+    return extendedObject;
+  }
+
+  getDirectionByField(sortByField) {
+    return this.sortBy == this.sortByEnum[sortByField] ? (this.sortByDirection == this.sortByDirectionEnum.ascending ? this.uiGridConstants.ASC : this.uiGridConstants.DESC) : null;
+  }
+
+  sortableColumnDef(object) {
+    object.sort = { direction: this.getDirectionByField(object.field) };
+    object.suppressRemoveSort = true; // make the column to be limited to the two state sort
+    let extendedObject = angular.extend({}, this.generalColumnDef(), object);
+    return extendedObject;
   }
 
   createColumnDefs() {
     return this.columnDefinitions.map(item => {
-        if (item.sortable) {
-            delete item.sortable;
-            return this.sortableColumnDef(item);
-        } else {
-            return this.columnDef(item);
-        }
+      if (item.sortable) {
+        delete item.sortable;
+        return this.sortableColumnDef(item);
+      } else {
+        return this.columnDef(item);
+      }
     });
   }
 
@@ -48,8 +58,43 @@ class GridController {
         enableHorizontalScrollbar: this.uiGridConstants.scrollbars.NEVER,
         enableVerticalScrollbar: this.uiGridConstants.scrollbars.WHEN_NEEDED,
         rowTemplate: gridRow,
-        columnDefs: this.createColumnDefs()
+        columnDefs: this.createColumnDefs(),
+        onRegisterApi: (gridApi) => this.onRegisterApi(gridApi)
     };
+
+    this.$scope.$on('moreDataLoaded', () => {
+      this.$scope.gridApi.infiniteScroll.dataLoaded();
+    });
+  }
+
+  onRegisterApi(gridApi) {
+    gridApi.core.on.sortChanged(this.$scope, this.onSortChanged);
+
+    gridApi.core.on.rowsRendered(this.$scope, () => {
+      console.log('rowsRendered', this.callbacks, this.callbacks.rowsRendered);
+        // if (!this.callbacks.rowsRendered) return;
+        // this.callbacks.rowsRendered();
+    });
+
+    if (this.needLoadMoreData !== false) {
+      console.log('gridApi.infiniteScroll.on.needLoadMoreData', gridApi.infiniteScroll.on.needLoadMoreData, this.$scope);
+        gridApi.infiniteScroll.on.needLoadMoreData(this.$scope, () => {
+          console.log('needLoadMoreData');
+          //this.$scope.$emit('loadMoreData');
+        });
+    }
+  }
+
+  onSortChanged(grid, sortColumns) {
+    console.log('onSortChanged', grid, sortColumns);
+    // var sortColumnIndex = sortColumns.length > 1 ? ($scope.sortColumnIndex || 0) : 0;
+
+    // var isDefaultSort = sortColumns.length === 0;
+    // var sortByOptions = {
+    //     sortBy: isDefaultSort ? $scope.sortByEnum.Default : getSortByItem(sortColumns[sortColumnIndex].name),
+    //     sortByDirection: isDefaultSort || sortColumns[sortColumnIndex].sort.direction == uiGridConstants.ASC ? sortByDirectionEnum.Ascending : sortByDirectionEnum.Descending
+    // };
+    // $scope.$emit('executeSorting', sortByOptions);
   }
 
   setGridHeight() {
@@ -86,7 +131,8 @@ let grid = {
     sortByEnum: '=',
     sortBy: '=',
     sortByDirection: '=',
-    callbacks: '='
+    callbacks: '=',
+    needLoadMoreData: '='
   },
   controller: GridController,
   templateUrl: template
