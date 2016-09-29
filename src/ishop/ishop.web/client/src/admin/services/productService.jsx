@@ -3,8 +3,8 @@ class ProductService {
     this.productResource = productResource;
   }
 
-  getList(successCallback, errorCallback){
-    return this.productResource.query(successCallback, errorCallback);
+  getList(request, successCallback, errorCallback){
+    return this.productResource.query(request, successCallback, errorCallback);
   }
 
   get(product, successCallback, errorCallback) {

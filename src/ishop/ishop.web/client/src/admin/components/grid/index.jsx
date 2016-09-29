@@ -56,15 +56,12 @@ class GridController {
         data: '$ctrl.gridData',
         useExternalSorting: true,
         enableHorizontalScrollbar: this.uiGridConstants.scrollbars.NEVER,
-        enableVerticalScrollbar: this.uiGridConstants.scrollbars.WHEN_NEEDED,
+        enableVerticalScrollbar: this.uiGridConstants.scrollbars.ALWAYS,
         rowTemplate: gridRow,
+        rowHeight: this.rowHeight,
         columnDefs: this.createColumnDefs(),
         onRegisterApi: (gridApi) => this.onRegisterApi(gridApi)
     };
-
-    this.$scope.$on('moreDataLoaded', () => {
-      this.$scope.gridApi.infiniteScroll.dataLoaded();
-    });
   }
 
   onRegisterApi(gridApi) {
@@ -79,8 +76,11 @@ class GridController {
     if (this.needLoadMoreData !== false) {
       console.log('gridApi.infiniteScroll.on.needLoadMoreData', gridApi.infiniteScroll.on.needLoadMoreData, this.$scope);
         gridApi.infiniteScroll.on.needLoadMoreData(this.$scope, () => {
-          console.log('needLoadMoreData');
-          //this.$scope.$emit('loadMoreData');
+          this.$scope.$emit('loadMoreData');
+        });
+
+        this.$scope.$on('moreDataLoaded', () => {
+          gridApi.infiniteScroll.dataLoaded();
         });
     }
   }
@@ -132,7 +132,8 @@ let grid = {
     sortBy: '=',
     sortByDirection: '=',
     callbacks: '=',
-    needLoadMoreData: '='
+    needLoadMoreData: '=',
+    rowHeight: '='
   },
   controller: GridController,
   templateUrl: template
