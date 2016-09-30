@@ -16,6 +16,14 @@ class Admin::ProductsController < ApplicationController
     render json: @products
   end
 
+  def list
+    iputs params
+
+    @products = Admin::Product.get_list_with_cover_images()
+
+    render json: @products
+  end
+
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
