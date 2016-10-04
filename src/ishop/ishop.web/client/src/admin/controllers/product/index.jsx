@@ -5,7 +5,7 @@ class ProductController {
     this.productService = productService;
     this.router = router;
 
-    this.initializeScrolling();
+    this.initialize();
     this.initializeSorting(sortByDirectionEnum);
     this.loadProductList();
 
@@ -13,10 +13,11 @@ class ProductController {
     $scope.$on('loadMoreData', () => this.loadMoreData());
   }
 
-  initializeScrolling() {
+  initialize() {
     this.start = 1;
-    this.range = 5;
+    this.range = 10;
     this.offset = 0;
+    this.productList = [];
   }
 
   initializeSorting(sortByDirectionEnum) {
@@ -34,8 +35,10 @@ class ProductController {
       take: this.range
     };
 
-    this.productList = this.productService.getList(request,
-      () => { 
+    this.productService.getList(request,
+      (response) => {
+        this.productList = this.productList.concat(response.productList);
+        this.totalCount = response.totalCount;
         this.isLoadingSpinner = false;
         if(successCallback) successCallback();
       }, 
@@ -46,10 +49,9 @@ class ProductController {
     this.start += 1;
     this.offset = (this.start - 1) * this.range;
 
-    // totalCount ????
     if (this.offset >= this.totalCount) return;
 
-    loadProductList(() => this.$scope.$broadcast(moreDataLoaded));
+    this.loadProductList(() => this.$scope.$broadcast(moreDataLoaded));
   }
 
   addProduct() {

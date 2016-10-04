@@ -6,10 +6,11 @@ import gridPublishedCell from './grid-published-cell.html';
 import gridImageCell from './grid-image-cell.html';
 
 class ProductGridController {
-  constructor($scope, $rootScope, productService, productNotifier, modalAlert) {
+  constructor($scope, $rootScope, $timeout, productService, productNotifier, modalAlert) {
     self = this;
     this.$scope = $scope;
     this.$rootScope = $rootScope;
+    this.$timeout = $timeout;
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.modalAlert = modalAlert;
@@ -113,8 +114,10 @@ class ProductGridController {
     this.$scope.$watch(() => {
       return this.gridData.length;
     }, () => {
-      let rowHeight = 170;
-      this.$scope.$broadcast('setGridHeight', rowHeight);
+      this.$timeout(() => {
+        let rowHeight = 170;
+        this.$scope.$broadcast('setGridHeight', rowHeight);
+      });
     });
   }
 }
@@ -138,6 +141,7 @@ class ProductGridController {
 let productGrid = {
   bindings: { 
     gridData: '=',
+    totalCount: '=',
     sortByEnum: '=',
     sortBy: '=',
     sortByDirection: '='

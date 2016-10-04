@@ -16,12 +16,14 @@ class Admin::ProductsController < ApplicationController
     render json: @products
   end
 
+  # POST /admin/products/list
+  # POST /admin/products/list.json
   def list
     iputs params
 
-    @products = Admin::Product.get_list_with_cover_images()
+    @products, @total_count = Admin::Product.get_list_and_total_count(params[:skip], params[:take])
 
-    render json: @products
+    render json: { productList: @products, totalCount: @total_count }
   end
 
   # GET /admin/products/1
