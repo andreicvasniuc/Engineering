@@ -47,7 +47,7 @@ class ProductGridController {
           cellTemplate: gridPublishedCell,
           clickable: false,
           sortable: true,
-          width: 30
+          width: 35
       },
       {
           field: 'action',

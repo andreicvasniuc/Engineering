@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
 class RouterService {
-  constructor($location, $routeParams, sortByDirectionEnum) {
+  constructor($location, $routeParams, uiGridConstants) {
     this.$location = $location;
     this.$routeParams = $routeParams;
-    this.sortByDirectionEnum = sortByDirectionEnum;
+    this.uiGridConstants = uiGridConstants;
 
     this.paramMasks = {
       sortBy: ':sortBy',
@@ -16,12 +16,13 @@ class RouterService {
   initialize(sortByEnum, defaultSortByEnumItem, defaultSortByDirectionEnumItem) {
     this.sortByEnum = sortByEnum;
     this.defaultSortByEnumItem = defaultSortByEnumItem;
-    this.defaultSortByDirectionEnumItem = defaultSortByDirectionEnumItem || this.sortByDirectionEnum.ascending;
-    this.sortByEnumItems = this.createArrayFromObject(sortByEnum);
+    this.defaultSortByDirectionEnumItem = defaultSortByDirectionEnumItem || this.uiGridConstants.ASC;
+    // this.sortByEnumItems = this.createArrayFromObject(sortByEnum);
+    // this.sortByDirectionEnumItems = this.createArrayFromObject(this.sortByDirectionEnum);
   }
 
   getSortByDirection() {
-    return this.$routeParams.sortByDirection ? this.sortByDirectionEnum[this.$routeParams.sortByDirection] : this.defaultSortByDirectionEnumItem;
+    return this.$routeParams.sortByDirection ? this.uiGridConstants[this.$routeParams.sortByDirection.toUpperCase()] : this.defaultSortByDirectionEnumItem;
   }
 
   getSortBy() {
@@ -36,12 +37,19 @@ class RouterService {
     return [this.getSortBy(), this.getSortByDirection(), this.getSearchText()];
   }
 
-  createArrayFromObject(object) {
-    return $.map(object, function (value, key) { return { key: key, value: value }; });
-  }
+  // createArrayFromObject(object) {
+  //   return $.map(object, function (value, key) { return { key: key, value: value }; });
+  // }
 
   goTo(url) {
     this.$location.url(url);
+  }
+
+  goToSearchPage(url, sortBy, sortByDirection, searchText) {
+    url = url.replace(this.paramMasks.sortBy, sortBy);
+    url = url.replace(this.paramMasks.sortByDirection, sortByDirection);
+    url = url.replace(this.paramMasks.searchText, searchText);
+    this.goTo(url);
   }
 
   getCurrentUrl() {

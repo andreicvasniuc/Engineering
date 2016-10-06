@@ -18,7 +18,9 @@ class Admin::Product
   end
 
   # get list and total count with cover images
-  def self.get_list_and_total_count(skip, take)
+  def self.get_list_and_total_count(pagination, sorting)
+    directions = { asc: 1, desc: -1 }
+
     # run this command 
     # db.products.find({},{code: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
     list_json = collection.find({},{
@@ -29,9 +31,11 @@ class Admin::Product
         :images => {'$elemMatch' => {:is_cover => true}}
       },
       :sort => {
-        :updated_at => -1 # default sorting in Admin::Product
+        sorting[:field] => directions[sorting[:direction].to_sym]
       }
-    }).skip(skip).limit(take)
+    })
+    .skip(pagination[:skip])
+    .limit(pagination[:take])
 
     list_json = list_json.map { |item_json| self.new(item_json) }
 

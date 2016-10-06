@@ -1,16 +1,18 @@
 class ProductController {
-  constructor($scope, $rootScope, productService, router, sortByDirectionEnum) {
+  constructor($scope, $rootScope, productService, router, routeUrls, uiGridConstants) {
     this.$scope = $scope;
     this.$rootScope = $rootScope;
     this.productService = productService;
     this.router = router;
+    this.routeUrls = routeUrls;
 
     this.initialize();
-    this.initializeSorting(sortByDirectionEnum);
+    this.initializeSorting(uiGridConstants);
     this.loadProductList();
 
     $scope.$on('reloadGrid', () => this.loadProductList());
     $scope.$on('loadMoreData', () => this.loadMoreData());
+    $scope.$on('executeSorting', (event, sortByOptions) => this.executeSearch(sortByOptions));
   }
 
   initialize() {
@@ -20,9 +22,9 @@ class ProductController {
     this.productList = [];
   }
 
-  initializeSorting(sortByDirectionEnum) {
-    this.sortByEnum = { code: 0, published: 1, updated_at: 2 };
-    this.router.initialize(this.sortByEnum, this.sortByEnum.updated_at, sortByDirectionEnum.descending);
+  initializeSorting(uiGridConstants) {
+    this.sortByEnum = { code: 'code', published: 'published', updated_at: 'updated_at' };
+    this.router.initialize(this.sortByEnum, this.sortByEnum.updated_at, uiGridConstants.DESC);
 
     [this.sortBy, this.sortByDirection, this.searchText] = this.router.getSortAndSearch();
   }
@@ -31,8 +33,14 @@ class ProductController {
     this.isLoadingSpinner = true;
 
     let request = {
-      skip: this.offset,
-      take: this.range
+      pagination: {
+        skip: this.offset,
+        take: this.range
+      },
+      sorting: {
+        field: this.sortBy,
+        direction: this.sortByDirection
+      }
     };
 
     this.productService.getList(request,
@@ -54,8 +62,21 @@ class ProductController {
     this.loadProductList(() => this.$scope.$broadcast(moreDataLoaded));
   }
 
+  executeSearch(sortByOptions) {
+    this.router.goToSearchPage(
+      this.routeUrls.products_search,
+      sortByOptions.sortBy,
+      sortByOptions.sortByDirection,
+      this.searchText
+    );
+  }
+
   addProduct() {
     this.$rootScope.$broadcast('openProductEditorPopup');
+  }
+
+  search() {
+
   }
 }
 

@@ -5,11 +5,10 @@ import template from './template.html';
 import gridRow from './grid-row.html';
 
 class GridController {
-  constructor($scope, $timeout, uiGridConstants, sortByDirectionEnum) {
+  constructor($scope, $timeout, uiGridConstants) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.uiGridConstants = uiGridConstants;
-    this.sortByDirectionEnum = sortByDirectionEnum;
 
     this.setGridId();
     this.setGridOptions();
@@ -30,7 +29,7 @@ class GridController {
   }
 
   getDirectionByField(sortByField) {
-    return this.sortBy == this.sortByEnum[sortByField] ? (this.sortByDirection == this.sortByDirectionEnum.ascending ? this.uiGridConstants.ASC : this.uiGridConstants.DESC) : null;
+    return this.sortBy == this.sortByEnum[sortByField] ? this.sortByDirection : null;
   }
 
   sortableColumnDef(object) {
@@ -65,36 +64,28 @@ class GridController {
   }
 
   onRegisterApi(gridApi) {
-    gridApi.core.on.sortChanged(this.$scope, this.onSortChanged);
+    gridApi.core.on.sortChanged(this.$scope, (grid, sortColumns) => this.onSortChanged(grid, sortColumns));
 
-    gridApi.core.on.rowsRendered(this.$scope, () => {
-      console.log('rowsRendered', this.callbacks, this.callbacks.rowsRendered);
-        // if (!this.callbacks.rowsRendered) return;
-        // this.callbacks.rowsRendered();
-    });
+    // gridApi.core.on.rowsRendered(this.$scope, () => {
+    //   console.log('rowsRendered', this.callbacks, this.callbacks.rowsRendered);
+    //     // if (!this.callbacks.rowsRendered) return;
+    //     // this.callbacks.rowsRendered();
+    // });
 
     if (this.needLoadMoreData !== false) {
-      console.log('gridApi.infiniteScroll.on.needLoadMoreData', gridApi.infiniteScroll.on.needLoadMoreData, this.$scope);
-        gridApi.infiniteScroll.on.needLoadMoreData(this.$scope, () => {
-          this.$scope.$emit('loadMoreData');
-        });
+        gridApi.infiniteScroll.on.needLoadMoreData(this.$scope, () => { this.$scope.$emit('loadMoreData'); });
 
-        this.$scope.$on('moreDataLoaded', () => {
-          gridApi.infiniteScroll.dataLoaded();
-        });
+        this.$scope.$on('moreDataLoaded', () => { gridApi.infiniteScroll.dataLoaded(); });
     }
   }
 
   onSortChanged(grid, sortColumns) {
-    console.log('onSortChanged', grid, sortColumns);
-    // var sortColumnIndex = sortColumns.length > 1 ? ($scope.sortColumnIndex || 0) : 0;
-
-    // var isDefaultSort = sortColumns.length === 0;
-    // var sortByOptions = {
-    //     sortBy: isDefaultSort ? $scope.sortByEnum.Default : getSortByItem(sortColumns[sortColumnIndex].name),
-    //     sortByDirection: isDefaultSort || sortColumns[sortColumnIndex].sort.direction == uiGridConstants.ASC ? sortByDirectionEnum.Ascending : sortByDirectionEnum.Descending
-    // };
-    // $scope.$emit('executeSorting', sortByOptions);
+    let sortColumn = sortColumns[sortColumns.length-1];
+    let sortByOptions = {
+        sortBy: sortColumn.field,
+        sortByDirection: sortColumn.sort.direction
+    };
+    this.$scope.$emit('executeSorting', sortByOptions);
   }
 
   setGridHeight() {
