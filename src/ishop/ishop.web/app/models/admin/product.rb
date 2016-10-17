@@ -18,12 +18,14 @@ class Admin::Product
   end
 
   # get list and total count with cover images
-  def self.get_list_and_total_count(pagination, sorting)
+  def self.get_list_and_total_count(search, pagination, sorting)
     directions = { asc: 1, desc: -1 }
 
     # run this command 
-    # db.products.find({},{code: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
-    list_json = collection.find({},{
+    # db.products.find({code: { '$regex':/search/}}},{code: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
+    list_json = collection.find({
+      :code => {'$regex' => search}
+      },{
       :projection => {
         :code => 1, 
         :published => 1, 

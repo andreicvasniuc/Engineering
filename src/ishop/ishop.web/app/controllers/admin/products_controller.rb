@@ -21,7 +21,7 @@ class Admin::ProductsController < ApplicationController
   def list
     iputs params
 
-    @products, @total_count = Admin::Product.get_list_and_total_count(params[:pagination], params[:sorting])
+    @products, @total_count = Admin::Product.get_list_and_total_count(params[:search], params[:pagination], params[:sorting])
 
     render json: { productList: @products, totalCount: @total_count }
   end

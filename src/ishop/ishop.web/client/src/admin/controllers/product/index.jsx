@@ -10,7 +10,7 @@ class ProductController {
     this.initializeSorting(uiGridConstants);
     this.loadProductList();
 
-    $scope.$on('reloadGrid', () => this.loadProductList());
+    $scope.$on('reloadGrid', () => this.reloadGrid());
     $scope.$on('loadMoreData', () => this.loadMoreData());
     $scope.$on('executeSorting', (event, sortByOptions) => this.executeSearch(sortByOptions));
   }
@@ -40,7 +40,8 @@ class ProductController {
       sorting: {
         field: this.sortBy,
         direction: this.sortByDirection
-      }
+      },
+      search: this.searchText
     };
 
     this.productService.getList(request,
@@ -53,22 +54,29 @@ class ProductController {
       () => { console.log('error'); });
   }
 
+  reloadProductList() {
+    this.loadProductList(() => this.$scope.$broadcast('moreDataLoaded'));
+  }
+
+  reloadGrid() {
+    this.initialize();
+    this.reloadProductList();
+  }
+
   loadMoreData() {
     this.start += 1;
     this.offset = (this.start - 1) * this.range;
 
     if (this.offset >= this.totalCount) return;
 
-    this.loadProductList(() => this.$scope.$broadcast(moreDataLoaded));
+    this.reloadProductList();
   }
 
   executeSearch(sortByOptions) {
-    this.router.goToSearchPage(
-      this.routeUrls.products_search,
-      sortByOptions.sortBy,
-      sortByOptions.sortByDirection,
-      this.searchText
-    );
+    this.sortBy = sortByOptions.sortBy;
+    this.sortByDirection = sortByOptions.sortByDirection;
+
+    this.search();
   }
 
   addProduct() {
@@ -76,7 +84,7 @@ class ProductController {
   }
 
   search() {
-
+    this.router.goToSearchPage(this.routeUrls.products_search, this.sortBy, this.sortByDirection, this.searchText);
   }
 }
 
