@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
+  mount Knock::Engine => "/knock"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
