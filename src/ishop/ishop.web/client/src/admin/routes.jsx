@@ -1,8 +1,14 @@
+import authenticationTemplate from './controllers/authentication/template.html';
 import dashboardTemplate from './controllers/dashboard/template.html';
 import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls) => {
   let routes = {
+    authentication: {
+      templateUrl: authenticationTemplate,
+      controller: 'AuthenticationController',
+      controllerAs: '$ctrl'
+    },
     dashboard: {
       templateUrl: dashboardTemplate,
       controller: 'DashboardController',
@@ -19,6 +25,9 @@ export default ($routeProvider, routeUrls) => {
   routeUrls.products_search = routeUrls.products + searchPath;
 
   $routeProvider
+    .when(
+        routeUrls.authentication,
+        routes.authentication)
     .when(
         routeUrls.index,
         routes.dashboard)

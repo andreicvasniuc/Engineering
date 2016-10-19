@@ -1,6 +1,7 @@
 class ProductService {
-  constructor(productResource) {
+  constructor(productResource, requestService) {
     this.productResource = productResource;
+    this.requestService = requestService;
   }
 
   // getList(request, successCallback, errorCallback){
@@ -8,7 +9,8 @@ class ProductService {
   // }
 
   getList(request, successCallback, errorCallback){
-    return this.productResource.list(request, successCallback, errorCallback);
+    //this.productResource.list(request, successCallback, errorCallback);
+    this.requestService.ajax(this.productResource.list, request, successCallback, errorCallback);
   }
 
   get(product, successCallback, errorCallback) {
