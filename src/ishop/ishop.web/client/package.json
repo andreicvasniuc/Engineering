@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run start-backend & npm run start-frontend",
-    "start-backend": "cd .. && bundle exec unicorn -p 3000",
-    "start-frontend": "webpack-dev-server --content-base src/admin",
+    "backend": "cd .. && bundle exec unicorn -p 3000",
+    "frontend": "webpack-dev-server --content-base src/admin",
     "start-old": "node node_modules/.bin/webpack-dev-server --content-base src/admin",
     "build-old": "NODE_ENV=production node node_modules/.bin/webpack && cp src/admin/index.html dist/index.html",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
     "angular-jwt": "^0.1.7",
     "angular-resource": "^1.5.8",
     "angular-route": "^1.5.8",

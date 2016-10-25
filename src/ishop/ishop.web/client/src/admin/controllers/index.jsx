@@ -2,11 +2,11 @@ import angular from 'angular';
 
 import DashboardController from './dashboard';
 import ProductController from './product';
-import AuthenticationController from './authentication';
+import LoginController from './login';
 
 export default angular
     .module('admin.controllers', [])
-    .controller('AuthenticationController', AuthenticationController)
+    .controller('LoginController', LoginController)
     .controller('DashboardController', DashboardController)
     .controller('ProductController', ProductController)
     .name;

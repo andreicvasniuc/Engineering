@@ -9,8 +9,8 @@ class ProductService {
   // }
 
   getList(request, successCallback, errorCallback){
-    //this.productResource.list(request, successCallback, errorCallback);
-    this.requestService.ajax(this.productResource.list, request, successCallback, errorCallback);
+    this.productResource.list(request, successCallback, errorCallback);
+    //this.requestService.ajax(this.productResource.list, request, successCallback, errorCallback);
   }
 
   get(product, successCallback, errorCallback) {

@@ -6,10 +6,10 @@ class RequestService {
 
   ajax(serviceOperation, request, successCallback, errorCallback) {
     serviceOperation(request, successCallback, (response) => {
-      if(response.status == 401) { // "Unauthorized"
-        this.router.goTo(this.routeUrls.authentication);
-        return;
-      }
+      // if(response.status == 401) { // "Unauthorized"
+      //   this.router.goTo(this.routeUrls.login);
+      //   return;
+      // }
 
       if (errorCallback) errorCallback(response);
     })
