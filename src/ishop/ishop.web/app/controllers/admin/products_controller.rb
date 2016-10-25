@@ -1,4 +1,4 @@
-class Admin::ProductsController < AuthenticationController
+class Admin::ProductsController < SecuredController
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /admin/products

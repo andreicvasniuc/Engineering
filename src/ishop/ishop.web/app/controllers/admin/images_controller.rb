@@ -1,4 +1,4 @@
-class Admin::ImagesController < AuthenticationController
+class Admin::ImagesController < SecuredController
   before_action :set_product
 
   # POST /admin/products/:product_id/images/upload
