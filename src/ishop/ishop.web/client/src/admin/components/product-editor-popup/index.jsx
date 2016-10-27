@@ -4,7 +4,7 @@ import template from './template.html';
 import closeIcon from 'assets/images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService, imageNotifier, modalAlert) {
+  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService, imageNotifier, modalAlert, envService) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
@@ -14,6 +14,7 @@ class ProductEditorPopupController {
     this.imageNotifier = imageNotifier;
     this.modalAlert = modalAlert;
     this.closeIcon = closeIcon;
+    this.envService = envService;
 
     this.tabs = {
       basicInformation: 0,
@@ -53,8 +54,7 @@ class ProductEditorPopupController {
   }
 
   setUploadUrl() {
-    this.uploadUrl = `http://localhost:3000/admin/products/${this.product._id.$oid}/images/upload/`;
-    //this.uploadUrl = `http://localhost:3000/admin/product_images/upload/`;
+    this.uploadUrl = `${this.envService.getApiUrl()}/admin/products/${this.product._id.$oid}/images/upload/`;
   }
 
   startSavingSpinner() { this.isSavingSpinner = true; }
@@ -161,6 +161,7 @@ class ProductEditorPopupController {
 
   startUpload(flow) {
     flow.opts.target = this.uploadUrl;
+    flow.opts.headers = { Authorization : `Bearer ${sessionStorage.getItem('auth_token')}` };
     flow.upload();
   }
 }

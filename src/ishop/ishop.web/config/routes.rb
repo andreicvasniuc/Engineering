@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Knock::Engine => "/knock"
+  post 'user_token' => 'user_token#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -6,18 +6,22 @@ import notifiers from './notifiers';
 import RouterService from './router';
 import NavigatorService from './navigator';
 import NotifierService from './notifier';
+import ModalAlert from './modalAlert';
 import RequestService from './requestService';
 import ProductService from './productService';
 import ImageService from './imageService';
-import ModalAlert from './modalAlert';
+import LoginService from './loginService';
+import EnvService from './envService';
 
 export default angular
     .module('admin.services', [ resources, notifiers ])
     .service('router', RouterService)
     .service('navigator', NavigatorService)
     .service('notifier', NotifierService)
+    .service('modalAlert', ModalAlert)
     .service('requestService', RequestService)
     .service('productService', ProductService)
     .service('imageService', ImageService)
-    .service('modalAlert', ModalAlert)
+    .service('loginService', LoginService)
+    .service('envService', EnvService)
     .name;

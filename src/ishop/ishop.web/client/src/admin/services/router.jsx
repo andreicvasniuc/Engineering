@@ -26,7 +26,7 @@ class RouterService {
   }
 
   getSortBy() {
-      return this.$routeParams.sortBy ? this.sortByEnum[this.$routeParams.sortBy] : this.defaultSortByEnumItem;
+      return this.$routeParams.sortBy ? this.sortByEnum[this.$routeParams.sortBy.toLowerCase()] : this.defaultSortByEnumItem;
   }
 
   getSearchText() {

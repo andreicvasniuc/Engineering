@@ -20,16 +20,6 @@ module.exports = webpackMerge(commonConfig, {
     publicPath: '/'
   },
 
-  resolve: {
-      alias: {
-          assets: helpers.src('assets')
-      }
-  },
-
-  devServer: {
-    headers: {"Access-Control-Allow-Origin": "http://localhost:3000"}
-  },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/admin/index.ejs'

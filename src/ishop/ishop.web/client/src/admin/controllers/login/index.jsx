@@ -1,6 +1,8 @@
 class LoginController {
-  constructor($cookies) {
+  constructor($cookies, loginService, router) {
     this.$cookies = $cookies;
+    this.loginService = loginService;
+    this.router = router;
 
     this.getCookies();
   }
@@ -38,7 +40,13 @@ class LoginController {
 
     this.setCookies();
 
-    console.log('signin', this.email, this.password, this.remember);
+    this.loginService.signin( this.email, this.password,
+      (response) => {
+        sessionStorage.setItem('auth_token', response.jwt);
+        this.router.goTo(this.loginService.redirectToUrl);
+      },
+      (response) => { console.log('error', response); }
+    );
   }
 }
 
