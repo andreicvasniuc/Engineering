@@ -6,7 +6,7 @@
                 <div class="input-group custom-search-form">
                     <input type="text" placeholder="Search..." class="form-control">
                     <span class="input-group-btn">
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" ng-click="$ctrl.alert()">
                         <i class="fa fa-search"></i>
                     </button>
                 </span>
@@ -15,7 +15,7 @@
             </li>
 
             <li ng-repeat="item in $ctrl.navigationItems">
-                <a ng-click="$ctrl.goTo(item.url)" class="pointer" ng-class="{'active': $ctrl.isActive(item.url)}">
+                <a ng-click="$ctrl.goTo(item.url)" class="clickable" ng-class="{'active': $ctrl.isActive(item.url)}">
                     <i class="fa fa-fw fa-{{item.cssClass}}"></i> {{item.title}}
                 </a>
             </li>

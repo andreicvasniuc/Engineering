@@ -14,6 +14,10 @@ class SidebarController {
   isActive(url) {
     return url == this.router.getCurrentUrl();
   }
+
+  alert() {
+    alert('it is not implemented yet!');
+  }
 }
 
 let sidebar = {
