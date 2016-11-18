@@ -8,7 +8,10 @@
               <div class="panel-heading">
                   <!-- Products -->
                   <div class="input-group custom-search-form width250 pull-left">
-                    <input type="text" placeholder="Search code..." class="form-control" ng-model="$ctrl.searchText">
+                    <input type="text" placeholder="Search code..." class="form-control" ng-model="$ctrl.searchText" enter-pressed="$ctrl.search()">
+                    <span class="clear-search" ng-show="$ctrl.searchText">
+                        <i class="fa fa-cut clickable" title="cut" ng-click="$ctrl.clearSearch()"></i>
+                    </span>
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="$ctrl.search()">
                             <i class="fa fa-search"></i>

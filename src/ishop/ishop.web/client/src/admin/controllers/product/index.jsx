@@ -86,6 +86,11 @@ class ProductController {
   search() {
     this.router.goToSearchPage(this.routeUrls.products_search, this.sortBy, this.sortByDirection, this.searchText);
   }
+
+  clearSearch() {
+    this.searchText = '';
+    this.search();
+  }
 }
 
 export default ProductController
