@@ -12,11 +12,11 @@ class User
 
   has_secure_password
 
-  def from_token_request
-    iputs 'from_token_request'
-  end
+  # def from_token_request
+  #   iputs 'from_token_request'
+  # end
 
-  def from_token_payload
-    iputs 'from_token_payload'
-  end
+  # def from_token_payload
+  #   iputs 'from_token_payload'
+  # end
 end
