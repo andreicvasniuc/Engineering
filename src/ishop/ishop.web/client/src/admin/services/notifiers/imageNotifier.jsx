@@ -1,6 +1,7 @@
 class ImageNotifierService {
   constructor(notifier) {
     this.notifier = notifier;
+    this.item = 'The image';
   }
 
   showSuccessUploadMessage() {
@@ -8,7 +9,7 @@ class ImageNotifierService {
   }
 
   showSuccessDeleteMessage() {
-    this.notifier.success('The image was deleted successfully.');
+    this.notifier.showSuccessDeleteMessage(this.item);
   }
 
   showSuccessMakeCoverMessage() {

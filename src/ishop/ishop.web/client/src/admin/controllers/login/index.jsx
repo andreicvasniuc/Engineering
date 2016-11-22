@@ -1,8 +1,9 @@
 class LoginController {
-  constructor($cookies, loginService, router) {
+  constructor($cookies, loginService, router, loginNotifier) {
     this.$cookies = $cookies;
     this.loginService = loginService;
     this.router = router;
+    this.loginNotifier = loginNotifier;
 
     this.getCookies();
   }
@@ -45,7 +46,11 @@ class LoginController {
         sessionStorage.setItem('auth_token', response.jwt);
         this.router.goTo(this.loginService.redirectToUrl);
       },
-      (response) => { console.log('error', response); }
+      (data, status, headers, config) => {
+        if(status == 404) {
+          this.loginNotifier.showErrorLoginMessage();
+        }
+      }
     );
   }
 }

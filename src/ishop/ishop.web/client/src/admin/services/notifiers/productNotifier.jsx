@@ -1,22 +1,23 @@
 class ProductNotifierService {
   constructor(notifier) {
     this.notifier = notifier;
+    this.item = 'The product';
   }
 
   showSuccessSaveMessage() {
-    this.notifier.success('The product was saved successfully.');
+    this.notifier.showSuccessSaveMessage(this.item);
   }
 
   showSuccessCreateMessage() {
-    this.notifier.success('The product was created successfully.');
+    this.notifier.showSuccessCreateMessage(this.item);
   }
 
   showSuccessUpdateMessage() {
-    this.notifier.success('The product was updated successfully.');
+    this.notifier.showSuccessUpdateMessage(this.item);
   }
 
   showSuccessDeleteMessage() {
-    this.notifier.success('The product was deleted successfully.');
+    this.notifier.showSuccessDeleteMessage(this.item);
   }
 
   showSuccessPublishedMessage(published) {
