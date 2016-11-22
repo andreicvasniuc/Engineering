@@ -2,7 +2,9 @@ import loginTemplate from './controllers/login/template.html';
 import dashboardTemplate from './controllers/dashboard/template.html';
 import productTemplate from './controllers/product/template.html';
 
-export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider) => {
+export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages) => {
+  /* Routing */
+
   let routes = {
     login: {
       templateUrl: loginTemplate,
@@ -45,6 +47,8 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider) =>
     .otherwise(
         { redirectTo: routeUrls.index });
 
+    /* JWT configuration */
+
     jwtOptionsProvider.config({
       tokenGetter: () => { return sessionStorage.getItem('auth_token'); },
       whiteListedDomains: ['localhost'],
@@ -56,4 +60,17 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider) =>
       }
     });
     $httpProvider.interceptors.push('jwtInterceptor');
+
+    /* i18n and l10n */
+
+    let translations = {
+      HEADLINE: 'What an awesome module!',
+      PARAGRAPH: 'Srsly!',
+      NAMESPACE: {
+        PARAGRAPH: 'And it comes with awesome features!'
+      }
+    };
+
+    $translateProvider.translations(languages.en, translations)
+    .preferredLanguage(languages.en);
 }

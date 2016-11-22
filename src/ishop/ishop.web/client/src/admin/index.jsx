@@ -9,6 +9,7 @@ import angularUIBootstrap from 'angular-ui-bootstrap';
 import angularToastr from 'angular-toastr';
 import angularJwt from 'angular-jwt';
 import angularCookies from 'angular-cookies';
+import angularTranslate from 'angular-translate';
 
 import config from './config';
 import run from './run';
@@ -34,6 +35,7 @@ export default angular
       angularToastr,
       angularJwt,
       angularCookies,
+      angularTranslate,
       'ui.grid', 
       'ui.grid.infiniteScroll', 
       'ui.grid.autoResize',
