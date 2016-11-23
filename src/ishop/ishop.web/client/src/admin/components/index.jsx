@@ -19,6 +19,7 @@ import buttonDefault from './button-default';
 import labeledInput from './labeled-input';
 import modalAlert from './modal-alert';
 import productEditorPopup from './product-editor-popup';
+import languageSelector from './language-selector';
 
 export default angular
     .module('admin.components', [])
@@ -41,4 +42,5 @@ export default angular
     .component('gridPublishedCell', gridPublishedCell)
     .component('modalAlert', modalAlert)
     .component('productEditorPopup', productEditorPopup)
+    .component('languageSelector', languageSelector)
     .name;

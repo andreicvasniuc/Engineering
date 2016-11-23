@@ -63,14 +63,16 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
 
     /* i18n and l10n */
 
-    let translations = {
-      HEADLINE: 'What an awesome module!',
-      PARAGRAPH: 'Srsly!',
-      NAMESPACE: {
-        PARAGRAPH: 'And it comes with awesome features!'
-      }
-    };
-
-    $translateProvider.translations(languages.en, translations)
-    .preferredLanguage(languages.en);
+    $translateProvider
+      .translations(languages.en, {
+        LOGIN: 'Login'
+      })
+      .translations(languages.ru, {
+        LOGIN: 'Войти'
+      })
+      .translations(languages.ua, {
+        LOGIN: 'Увійти'
+      })
+      //.determinePreferredLanguage();
+      .preferredLanguage(languages.ru);
 }
