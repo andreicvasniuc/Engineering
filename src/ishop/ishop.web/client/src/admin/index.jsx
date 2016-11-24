@@ -5,11 +5,11 @@ import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
 import Flow from 'ng-flow/dist/ng-flow-standalone';
 import uiGrid from 'angular-ui-grid/ui-grid';
-import angularUIBootstrap from 'angular-ui-bootstrap';
-import angularToastr from 'angular-toastr';
+import uiBootstrap from 'angular-ui-bootstrap';
+import toastr from 'angular-toastr';
 import angularJwt from 'angular-jwt';
-import angularCookies from 'angular-cookies';
-import angularTranslate from 'angular-translate';
+import ngCookies from 'angular-cookies';
+import pascalprechtTranslate from 'angular-translate';
 import 'angular-translate-storage-cookie';
 
 import config from './config';
@@ -32,11 +32,11 @@ export default angular
       directives,
       services,
       constants,
-      angularUIBootstrap,
-      angularToastr,
+      uiBootstrap,
+      toastr,
       angularJwt,
-      angularCookies,
-      angularTranslate,
+      ngCookies,
+      pascalprechtTranslate,
       'ui.grid', 
       'ui.grid.infiniteScroll', 
       'ui.grid.autoResize',
