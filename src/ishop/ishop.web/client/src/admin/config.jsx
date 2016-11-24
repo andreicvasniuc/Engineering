@@ -65,14 +65,35 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
 
     $translateProvider
       .translations(languages.en, {
-        LOGIN: 'Login'
+        LOGIN: 'Login',
+        REMEMBER_ME: 'Remember Me',
+        SIGN_IN: 'Sign In',
+        EMAIL: 'E-mail',
+        PASSWORD: 'Password'
       })
       .translations(languages.ru, {
-        LOGIN: 'Войти'
+        LOGIN: 'Войти',
+        REMEMBER_ME: 'Запомнить',
+        SIGN_IN: 'Вход',
+        EMAIL: 'Эл. адрес',
+        PASSWORD: 'Пароль'
       })
       .translations(languages.ua, {
-        LOGIN: 'Увійти'
+        LOGIN: 'Увійти',
+        REMEMBER_ME: 'Запам’ятати мене',
+        SIGN_IN: 'Вхiд',
+        EMAIL: 'Електронна пошта',
+        PASSWORD: 'Пароль'
+      })
+      .translations(languages.ro, {
+        LOGIN: 'Intră',
+        REMEMBER_ME: 'Ține-mă minte',
+        SIGN_IN: 'Intrare pe site',
+        EMAIL: 'E-mail',
+        PASSWORD: 'Parola'
       })
       //.determinePreferredLanguage();
-      .preferredLanguage(languages.ru);
+      .useCookieStorage()
+      .fallbackLanguage(languages.en)
+      .preferredLanguage(languages.ua);
 }

@@ -10,6 +10,7 @@ import angularToastr from 'angular-toastr';
 import angularJwt from 'angular-jwt';
 import angularCookies from 'angular-cookies';
 import angularTranslate from 'angular-translate';
+import 'angular-translate-storage-cookie';
 
 import config from './config';
 import run from './run';

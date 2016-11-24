@@ -1,13 +1,15 @@
-<div class="btn-group" uib-dropdown>
-  <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>
-    <img ng-src="{{$ctrl.selectedLanguage.icon}}" alt="selected language" />
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-    <li role="menuitem" ng-repeat="language in $ctrl.languageList">
-      <a href="javascript:void(0)">
-        <img ng-src="{{language.icon}}" alt="{{language.key}}" />
-      </a>
-    </li>
-  </ul>
+<div class="language-selector">
+  <div class="btn-group" uib-dropdown>
+    <button id="single-button" type="button" class="btn" uib-dropdown-toggle title="{{$ctrl.selectedLanguage.title}}">
+      <img ng-src="{{$ctrl.selectedLanguage.icon}}" alt="selected language" />
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+      <li role="menuitem" ng-repeat="language in $ctrl.languageList">
+        <a href="javascript:void(0)" ng-click="$ctrl.selectLanguage(language)" title="{{language.title}}">
+          <img ng-src="{{language.icon}}" alt="{{language.key}}" />
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
