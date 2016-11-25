@@ -11,6 +11,7 @@ import angularJwt from 'angular-jwt';
 import ngCookies from 'angular-cookies';
 import pascalprechtTranslate from 'angular-translate';
 import 'angular-translate-storage-cookie';
+import 'angular-translate-loader-static-files';
 
 import config from './config';
 import run from './run';
@@ -19,6 +20,7 @@ import controllers from './controllers';
 import components from './components';
 import directives from './directives';
 import services from './services';
+import providers from './providers';
 import constants from './constants';
 
 window.Flow = Flow;
@@ -31,6 +33,7 @@ export default angular
       components,
       directives,
       services,
+      providers,
       constants,
       uiBootstrap,
       toastr,

@@ -11,8 +11,6 @@ import RequestService from './requestService';
 import ProductService from './productService';
 import ImageService from './imageService';
 import LoginService from './loginService';
-import EnvService from './envService';
-import TranslateService from './translateService';
 
 export default angular
     .module('admin.services', [ resources, notifiers ])
@@ -24,6 +22,4 @@ export default angular
     .service('productService', ProductService)
     .service('imageService', ImageService)
     .service('loginService', LoginService)
-    .service('envService', EnvService)
-    .service('translateService', TranslateService)
     .name;

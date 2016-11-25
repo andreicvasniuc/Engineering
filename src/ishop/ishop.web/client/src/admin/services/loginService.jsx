@@ -1,8 +1,8 @@
 class LoginService {
-  constructor($http, envService) {
+  constructor($http, env) {
     this.$http = $http;
 
-    this.authTokenUrl = `${envService.getApiUrl()}/user_token`;
+    this.authTokenUrl = `${env.getApiUrl()}/user_token`;
     this.redirectToUrl = null;
   }
 

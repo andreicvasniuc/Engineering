@@ -2,7 +2,7 @@ import loginTemplate from './controllers/login/template.html';
 import dashboardTemplate from './controllers/dashboard/template.html';
 import productTemplate from './controllers/product/template.html';
 
-export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages) => {
+export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages, envProvider) => {
   /* Routing */
 
   let routes = {
@@ -64,33 +64,9 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
     /* i18n and l10n */
 
     $translateProvider
-      .translations(languages.en, {
-        LOGIN: 'Login',
-        REMEMBER_ME: 'Remember Me',
-        SIGN_IN: 'Sign In',
-        EMAIL: 'E-mail',
-        PASSWORD: 'Password'
-      })
-      .translations(languages.ru, {
-        LOGIN: 'Войти',
-        REMEMBER_ME: 'Запомнить',
-        SIGN_IN: 'Вход',
-        EMAIL: 'Эл. адрес',
-        PASSWORD: 'Пароль'
-      })
-      .translations(languages.ua, {
-        LOGIN: 'Увійти',
-        REMEMBER_ME: 'Запам’ятати мене',
-        SIGN_IN: 'Вхiд',
-        EMAIL: 'Електронна пошта',
-        PASSWORD: 'Пароль'
-      })
-      .translations(languages.ro, {
-        LOGIN: 'Intră',
-        REMEMBER_ME: 'Ține-mă minte',
-        SIGN_IN: 'Intrare pe site',
-        EMAIL: 'E-mail',
-        PASSWORD: 'Parola'
+      .useStaticFilesLoader({
+        prefix: `${envProvider.getApiUrl()}/i18n/admin/`,
+        suffix: '.json'
       })
       //.determinePreferredLanguage();
       .useCookieStorage()

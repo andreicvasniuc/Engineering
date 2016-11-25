@@ -1,8 +1,8 @@
 class ImageResource {
-  constructor($resource, envService) {
-    return $resource(`${envService.getApiUrl()}/admin/products/:product_id/images/:id`, { product_id: '@product_id', id: '@id' }, {
+  constructor($resource, env) {
+    return $resource(`${env.getApiUrl()}/admin/products/:product_id/images/:id`, { product_id: '@product_id', id: '@id' }, {
         //make_cover: { method: 'PUT' }
-        makeCover: { method: 'PUT', url: `${envService.getApiUrl()}/admin/products/:product_id/images/:id/make_cover` }
+        makeCover: { method: 'PUT', url: `${env.getApiUrl()}/admin/products/:product_id/images/:id/make_cover` }
     });
   }
 }

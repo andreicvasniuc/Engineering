@@ -25,3 +25,12 @@ Things you may want to cover:
 
 * install logging
 rails generate logging:install
+
+* start backend from client/
+npm run backend
+
+* start frontend from client/
+npm run frontend
+
+*** Links:
+* country flags site: http://www.iconarchive.com/show/flag-borderless-icons-by-hopstarter.2.html
