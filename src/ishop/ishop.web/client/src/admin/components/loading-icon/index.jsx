@@ -1,4 +1,4 @@
-import loading from 'assets/images/loading.gif';
+import loading from 'images/loading.gif';
 
 class LoadingIconController {
   constructor() {

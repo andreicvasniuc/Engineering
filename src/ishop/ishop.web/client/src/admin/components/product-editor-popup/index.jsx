@@ -1,7 +1,7 @@
 import './style.styl';
 
 import template from './template.html';
-import closeIcon from 'assets/images/close.png';
+import closeIcon from 'images/close.png';
 
 class ProductEditorPopupController {
   constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService, imageNotifier, modalAlert, envService) {

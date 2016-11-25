@@ -1,6 +1,6 @@
 import template from './template.html';
-import publishedIcon from 'assets/images/published.png';
-import unpublishedIcon from 'assets/images/unpublished.png';
+import publishedIcon from 'images/published.png';
+import unpublishedIcon from 'images/unpublished.png';
 
 class GridPublishedCellController {
   constructor() {

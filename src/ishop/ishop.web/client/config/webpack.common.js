@@ -3,11 +3,7 @@ var helpers = require('./helpers');
 
 module.exports = {
   resolve: {
-      extensions: [ '', '.js', '.jsx' ],
-  
-      alias: {
-          assets: helpers.src('assets')
-      }
+      extensions: [ '', '.js', '.jsx' ]
   },
 
   module: {

@@ -14,6 +14,13 @@ module.exports = webpackMerge(devConfig, {
     admin: pathToAdmin('index.jsx')
   },
 
+  resolve: {
+      alias: {
+          css: helpers.src('assets/admin/css'),
+          images: helpers.src('assets/admin/images')
+      }
+  },
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['admin', 'vendor']

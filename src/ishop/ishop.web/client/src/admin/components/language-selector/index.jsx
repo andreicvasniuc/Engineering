@@ -2,10 +2,10 @@ import './style.styl';
 
 import template from './template.html';
 
-import enIcon from 'assets/images/flags/en.png';
-import ruIcon from 'assets/images/flags/ru.png';
-import uaIcon from 'assets/images/flags/ua.png';
-import roIcon from 'assets/images/flags/ro.png';
+import enIcon from 'images/flags/en.png';
+import ruIcon from 'images/flags/ru.png';
+import uaIcon from 'images/flags/ua.png';
+import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
   constructor($translate, languages) {
