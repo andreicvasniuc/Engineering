@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-class RouterService {
+class Router {
   constructor($location, $routeParams, uiGridConstants) {
     this.$location = $location;
     this.$routeParams = $routeParams;
@@ -61,4 +61,4 @@ class RouterService {
   }
 }
 
-export default RouterService
+export default Router

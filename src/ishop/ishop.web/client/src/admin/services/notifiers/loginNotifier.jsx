@@ -1,4 +1,4 @@
-class LoginNotifierService {
+class LoginNotifier {
   constructor(notifier) {
     this.notifier = notifier;
   }
@@ -8,4 +8,4 @@ class LoginNotifierService {
   }
 }
 
-export default LoginNotifierService
+export default LoginNotifier

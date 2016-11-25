@@ -1,4 +1,4 @@
-class ProductNotifierService {
+class ProductNotifier {
   constructor(notifier) {
     this.notifier = notifier;
     this.item = 'The product';
@@ -25,4 +25,4 @@ class ProductNotifierService {
   }
 }
 
-export default ProductNotifierService
+export default ProductNotifier

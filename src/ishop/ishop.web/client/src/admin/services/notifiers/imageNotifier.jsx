@@ -1,4 +1,4 @@
-class ImageNotifierService {
+class ImageNotifier {
   constructor(notifier) {
     this.notifier = notifier;
     this.item = 'The image';
@@ -17,4 +17,4 @@ class ImageNotifierService {
   }
 }
 
-export default ImageNotifierService
+export default ImageNotifier

@@ -1,4 +1,4 @@
-class NavigatorService {
+class Navigator {
   constructor(router, routeUrls) {
     this.router = router;
     this.routeUrls = routeUrls;
@@ -17,4 +17,4 @@ class NavigatorService {
   }
 }
 
-export default NavigatorService
+export default Navigator

@@ -1,4 +1,4 @@
-class NotifierService {
+class Notifier {
   constructor(toastr) {
     this.toastr = toastr;
   }
@@ -28,4 +28,4 @@ class NotifierService {
   }
 }
 
-export default NotifierService
+export default Notifier
