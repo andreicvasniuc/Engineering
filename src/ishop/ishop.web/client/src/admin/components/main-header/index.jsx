@@ -1,7 +1,13 @@
 import template from './template.html';
 
 class MainHeaderController {
-  constructor() {}
+  constructor(router, routeUrls) {
+    this.router = router;
+  }
+
+  goToDashboard() {
+    this.router.goTo(routeUrls.dashboard);
+  }
 }
 
 let mainHeader = {
