@@ -59,6 +59,7 @@ class GridController {
         rowTemplate: gridRow,
         rowHeight: this.rowHeight,
         columnDefs: this.createColumnDefs(),
+        infiniteScrollRowsFromEnd: 2,
         onRegisterApi: (gridApi) => this.onRegisterApi(gridApi)
     };
   }
