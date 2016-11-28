@@ -4,5 +4,22 @@
   "SIGN_IN": "Вход",
   "EMAIL": "Эл. адрес",
   "PASSWORD": "Пароль",
-  "ADMINISTRATION": "Администрирование"
+  "ADMINISTRATION": "Администрирование",
+  "DASHBOARD": "Панель приборов",
+  "PRODUCTS": "Продукты",
+  "SEARCH_ELLIPSIS": "Поиск...",
+  "SEARCH_BY_CODE_ELLIPSIS": "Поиск по коду...",
+  "ADD_PRODUCT": "Добавить продукт",
+  "ITEM": "единицa",
+  "ITEM_2_3_4": "единицы",
+  "ITEMS": "единиц",
+  "NO_RECORDS_FOUND": "Записей не найдено",
+  "COVER": "Обложка",
+  "CODE": "Код",
+  "EDIT_DATE": "Дата редактирования",
+  "PUBLISH": "Публиковать",
+  "UNPUBLISH": "Не публиковать",
+  "EDIT": "Pедактировать",
+  "UPLOAD": "Загрузить",
+  "DELETE": "Удалить"
 }

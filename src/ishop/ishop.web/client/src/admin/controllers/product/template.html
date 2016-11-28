@@ -8,7 +8,7 @@
               <div class="panel-heading">
                   <!-- Products -->
                   <div class="input-group custom-search-form width250 pull-left">
-                    <input type="text" placeholder="Search code..." class="form-control" ng-model="$ctrl.searchText" enter-pressed="$ctrl.search()">
+                    <input type="text" translate-attr="{ placeholder: 'SEARCH_BY_CODE_ELLIPSIS' }" class="form-control" ng-model="$ctrl.searchText" enter-pressed="$ctrl.search()">
                     <span class="clear-search" ng-show="$ctrl.searchText">
                         <i class="fa fa-cut clickable" title="cut" ng-click="$ctrl.clearSearch()"></i>
                     </span>
@@ -19,7 +19,7 @@
                     </span>
                   </div>
 
-                  <button-default label="Add product" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
+                  <button-default label="{{'ADD_PRODUCT' | translate}}" click-callback="$ctrl.addProduct()" class="pull-right"></button-default>
                   <div class="clearfix"></div>
 
               </div>
@@ -32,7 +32,7 @@
                                   sort-by-enum="$ctrl.sortByEnum"
                                   sort-by="$ctrl.sortBy"
                                   sort-by-direction="$ctrl.sortByDirection"
-                                  show-empty-message="No records found"
+                                  show-empty-message="NO_RECORDS_FOUND"
                                   is-empty="$ctrl.productList.length == 0 && !$ctrl.isLoadingSpinner" 
                                   loading-spinner="$ctrl.isLoadingSpinner">
                     </product-grid>

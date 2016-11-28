@@ -4,5 +4,22 @@
   "SIGN_IN": "Sign In",
   "EMAIL": "E-mail",
   "PASSWORD": "Password",
-  "ADMINISTRATION": "Administration"
+  "ADMINISTRATION": "Administration",
+  "DASHBOARD": "Dashboard",
+  "PRODUCTS": "Products",
+  "SEARCH_ELLIPSIS": "Search...",
+  "SEARCH_BY_CODE_ELLIPSIS": "Search by code...",
+  "ADD_PRODUCT": "Add product",
+  "ITEM": "item",
+  "ITEM_2_3_4": "items",
+  "ITEMS": "items",
+  "NO_RECORDS_FOUND": "No records found",
+  "COVER": "Cover",
+  "CODE": "Code",
+  "EDIT_DATE": "Edit Date",
+  "PUBLISH": "Publish",
+  "UNPUBLISH": "Unpublish",
+  "EDIT": "Edit",
+  "UPLOAD": "Upload",
+  "DELETE": "Delete"
 }

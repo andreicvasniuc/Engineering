@@ -9,7 +9,7 @@ export default ($compile, $timeout) => {
     link: (scope, element, attrs) => {
         let isEmpty = attrs.isEmpty;
         let msg = (attrs.showEmptyMessage) ? attrs.showEmptyMessage : 'Nothing to display';
-        let template = "<div class='ui-grid-row.even ui-grid-no-results' ng-show='" + isEmpty + "'>" + msg + "</div>";
+        let template = "<div class='ui-grid-row.even ui-grid-no-results' ng-show='" + isEmpty + "' translate='" + msg + "'></div>";
         let tmpl = angular.element(template);
         $compile(tmpl)(scope);
         $timeout(() => {

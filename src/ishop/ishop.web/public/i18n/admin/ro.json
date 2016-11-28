@@ -4,5 +4,22 @@
   "SIGN_IN": "Intrare pe site",
   "EMAIL": "E-mail",
   "PASSWORD": "Parola",
-  "ADMINISTRATION": "Administrare"
+  "ADMINISTRATION": "Administrare",
+  "DASHBOARD": "Board",
+  "PRODUCTS": "Produse",
+  "SEARCH_ELLIPSIS": "Caută...",
+  "SEARCH_BY_CODE_ELLIPSIS": "Caută prin cod...",
+  "ADD_PRODUCT": "Adauga produs",
+  "ITEM": "unitate",
+  "ITEM_2_3_4": "unități",
+  "ITEMS": "unități",
+  "NO_RECORDS_FOUND": "Nu a fost gasit nici un record",
+  "COVER": "Copertă",
+  "CODE": "Cod",
+  "EDIT_DATE": "Data editarii",
+  "PUBLISH": "Publică",
+  "UNPUBLISH": "Unpublică",
+  "EDIT": "Editează",
+  "UPLOAD": "Încărcă",
+  "DELETE": "Șterge"
 }

@@ -24,19 +24,22 @@ class ProductGridController {
     this.columnDefinitions = [
       {
           field: 'images',
-          displayName: '',
+          displayName: "COVER",
+          headerCellFilter: "translate",
           cellTemplate: gridImageCell,
           clickable: false,
           width: 120
       },
       {
           field: 'code',
-          displayName: 'Code',
+          displayName: 'CODE',
+          headerCellFilter: "translate",
           sortable: true
       },
       {
           field: 'updated_at',
-          displayName: 'Edit Date',
+          displayName: 'EDIT_DATE',
+          headerCellFilter: "translate",
           cellFilter: 'date:"longDate"',
           sortable: true,
           width: 200

@@ -4,5 +4,22 @@
   "SIGN_IN": "Вхiд",
   "EMAIL": "Електронна пошта",
   "PASSWORD": "Пароль",
-  "ADMINISTRATION": "Адміністрування"
+  "ADMINISTRATION": "Адміністрування",
+  "DASHBOARD": "Панель приладів",
+  "PRODUCTS": "Продукти",
+  "SEARCH_ELLIPSIS": "Пошук...",
+  "SEARCH_BY_CODE_ELLIPSIS": "Пошук по коду...",
+  "ADD_PRODUCT": "Додати продукт",
+  "ITEM": "одиниця",
+  "ITEM_2_3_4": "одиницi",
+  "ITEMS": "одиниць",
+  "NO_RECORDS_FOUND": "Записів не знайдено",
+  "COVER": "Oбкладинка",
+  "CODE": "Код",
+  "EDIT_DATE": "Дата редагування",
+  "PUBLISH": "Oпублікувати",
+  "UNPUBLISH": "Не опубліковувати",
+  "EDIT": "Pедагувати",
+  "UPLOAD": "Завантажити",
+  "DELETE": "Bидалити"
 }

@@ -7,8 +7,8 @@ class Navigator {
 
   getNavigationItems() {
     return [
-      {title: 'Dashboard', url: this.routeUrls.dashboard, cssClass: 'dashboard' },
-      {title: 'Products', url: this.routeUrls.products, cssClass: 'table' }
+      {title: 'DASHBOARD', url: this.routeUrls.dashboard, cssClass: 'dashboard' },
+      {title: 'PRODUCTS', url: this.routeUrls.products, cssClass: 'table' }
     ];
   }
 

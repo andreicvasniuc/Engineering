@@ -1,6 +1,15 @@
 <div>
     <div>
-        <span ng-show="$ctrl.totalCount">{{$ctrl.totalCount}} items</span>
+        <span ng-show="$ctrl.totalCount">
+        {{$ctrl.totalCount}}
+          <span ng-switch on="$ctrl.totalCount">
+            <span ng-switch-when="1" translate="ITEM"></span>
+            <span ng-switch-when="2" translate="ITEM_2_3_4"></span>
+            <span ng-switch-when="3" translate="ITEM_2_3_4"></span>
+            <span ng-switch-when="4" translate="ITEM_2_3_4"></span>
+            <span ng-switch-default translate="ITEMS"></span>
+          </span>
+        </span>
         <span ng-hide="$ctrl.totalCount">&nbsp;</span>
     </div>
     <div id="{{$ctrl.gridId}}" class="grid-style" ui-grid="$ctrl.gridOptions" ui-grid-infinite-scroll ui-grid-auto-resize>
