@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { CarPartsComponent } from './car-parts.component';
-import { CarPartDetailComponent } from './car-part-detail.component';
+import { CarPartDetailComponent } from './car-part-detail/car-part-detail.component';
 import { CanActivateViaIdGuard } from './can-activate-via-id.guard';
 import { CarPartResolve } from './car-part.resolve';
 
 
-export const AppRoutes: Routes = [
+export const CarPartsRoutes: Routes = [
     { 
         path: '', 
         component: CarPartsComponent 

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { CarPart } from './car-part';
+import { CarPart } from '../car-part';
 
 @Component({
     selector: 'car-part-form',

@@ -1,5 +1,5 @@
 <li [class.featured]="item.featured" [ngClass]="{featuredOther: item.featured}">
-    <h2>{{item.name | uppercase}}</h2>
+    <h2 highlight>{{item.name | uppercase}}</h2>
     <p><img [src]="item.image" [alt]="item.name" /></p>
     <p class="description">{{item.description}}</p>
     <p class="price">{{item.price | currency: 'EUR': true}}</p>

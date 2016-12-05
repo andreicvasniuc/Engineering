@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarPart } from './car-part';
+import { CarPart } from '../car-part';
 
 @Component({
   selector: 'car-part-detail',
