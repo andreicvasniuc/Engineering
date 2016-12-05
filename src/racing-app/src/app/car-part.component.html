@@ -1,0 +1,24 @@
+<li [class.featured]="item.featured" [ngClass]="{featuredOther: item.featured}">
+    <h2>{{item.name | uppercase}}</h2>
+    <p><img [src]="item.image" [alt]="item.name" /></p>
+    <p class="description">{{item.description}}</p>
+    <p class="price">{{item.price | currency: 'EUR': true}}</p>
+    <p *ngIf="item.inStock > 0">{{item.inStock}} in Stock</p>
+    <p *ngIf="item.inStock === 0">Out of Stock</p>
+    <p>{{ item | json }}</p>
+    <p>
+        <button type="button" (click)="downQuantity()">Down Quantity</button>
+    </p>
+    <p>
+        <input type="text" name="quantity" [(ngModel)]="item.quantity" #inputQuantity>
+    </p>
+    <p>
+        <button type="button" (click)="upQuantity($event, inputQuantity)">Up Quantity</button>
+    </p>
+    <p>
+        <button type="button" (click)="delete()">Delete</button>
+    </p>
+    <p>
+        <a [routerLink]="['/carpart', item.id]">Go to details</a>
+    </p>
+</li>

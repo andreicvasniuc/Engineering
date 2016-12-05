@@ -1,0 +1,8 @@
+<p>There are {{totalCarParts()}} total parts in stock.</p>
+<p>{{carParts | json}}</p>
+<p>
+    <car-part-form (added)="onCartPartAdded($event)"></car-part-form>
+</p>
+<ul>
+    <car-part *ngFor="let carPart of carParts" [item]="carPart" (deleted)="onCarPartDeleted($event)"></car-part>
+</ul>
