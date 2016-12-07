@@ -1,11 +1,13 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { CarPartsComponent } from './car-parts.component';
 import { CarPartDetailComponent } from './car-part-detail/car-part-detail.component';
 import { CanActivateViaIdGuard } from './can-activate-via-id.guard';
 import { CarPartResolve } from './car-part.resolve';
 
 
-export const CarPartsRoutes: Routes = [
+const carPartsRoutes: Routes = [
     { 
         path: '', 
         component: CarPartsComponent 
@@ -19,3 +21,13 @@ export const CarPartsRoutes: Routes = [
         }
     }
 ];
+
+@NgModule({
+    imports: [ 
+        RouterModule.forRoot(carPartsRoutes)
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class CarPartsRoutingModule {}

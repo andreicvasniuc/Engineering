@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
+import { CarPartsRoutingModule } from './car-parts-routing.module';
 
 import { CarPartsComponent } from './car-parts.component';
 import { CarPartComponent } from './car-part/car-part.component';
@@ -13,7 +13,6 @@ import { CarPartDetailComponent } from './car-part-detail/car-part-detail.compon
 import { RacingDataService } from './racing-data.service';
 import { CanActivateViaIdGuard } from './can-activate-via-id.guard';
 import { CarPartResolve } from './car-part.resolve';
-import { CarPartsRoutes } from './car-parts.routes';
 
 @NgModule({
     declarations: [ 
@@ -26,11 +25,11 @@ import { CarPartsRoutes } from './car-parts.routes';
         BrowserModule, 
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(CarPartsRoutes),
+        CarPartsRoutingModule,
         SharedModule
     ],
     exports: [
-        RouterModule
+        CarPartsRoutingModule
     ],
     providers: [ 
         RacingDataService,
