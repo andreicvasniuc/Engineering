@@ -1,0 +1,12 @@
+{
+    "data": {
+        "id": 2,
+        "name": "Opel",
+        "description": "Opel id cool",
+        "inStock": 3,
+        "price": 5.99,
+        "image": "public/images/angular.png",
+        "featured": true,
+        "quantity": 0
+    }
+}

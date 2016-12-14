@@ -1,0 +1,12 @@
+{
+    "data": {
+        "id": 3,
+        "name": "Mazda",
+        "description": "Mazda id cool",
+        "inStock": 0,
+        "price": 2.99,
+        "image": "public/images/angular.png",
+        "featured": false,
+        "quantity": 0
+    }
+}
