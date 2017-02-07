@@ -1,7 +1,7 @@
 class ProductNotifier {
   constructor(notifier) {
     this.notifier = notifier;
-    this.item = 'The product';
+    this.item = 'PRODUCT';
   }
 
   showSuccessSaveMessage() {
@@ -21,7 +21,7 @@ class ProductNotifier {
   }
 
   showSuccessPublishedMessage(published) {
-    this.notifier.success(`The product was ${published ? "" : "un"}published successfully.`); 
+    this.notifier.success(`PRODUCT WAS ${published ? "" : "UN"}PUBLISHED SUCCESSFULLY`); 
   }
 }
 

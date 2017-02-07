@@ -1,8 +1,8 @@
 <div class="modal-header">
     <h4 class="modal-title">
-        <span ng-if="!$ctrl.isEdit">Create</span> 
-        <span ng-if="$ctrl.isEdit">Edit</span> 
-        Product
+        <span ng-if="!$ctrl.isEdit" translate="CREATE"></span> 
+        <span ng-if="$ctrl.isEdit" translate="EDIT"></span> 
+        <span translate="PRODUCT"></span>
 
         <img alt="Close icon" ng-src="{{$ctrl.closeIcon}}" ng-click="$ctrl.cancel()" class="clickable pull-right">
         <div class="clearfix"></div>
@@ -13,22 +13,22 @@
     <form name="$ctrl.form" novalidate>
 
         <uib-tabset active="$ctrl.activeTab" justified="true">
-            <uib-tab index="$ctrl.tabs.basicInformation" heading="Basic" select="$ctrl.selectTab($ctrl.tabs.basicInformation)">
+            <uib-tab index="$ctrl.tabs.basicInformation" heading="{{'BASIC' | translate}}" select="$ctrl.selectTab($ctrl.tabs.basicInformation)">
 
                 <div class="pad15">
                     <div class="form-group">
-                        <labeled-input label="Code" 
+                        <labeled-input label="{{'CODE' | translate}}" 
                                        field-id="code"
                                        value="$ctrl.product.code"
                                        is-required="true"
-                                       placeholder="Enter product code..."
+                                       placeholder="{{'ENTER_PRODUCT_CODE' | translate}}"
                                        label-class="width50"
                                        focus="true">
                         </labeled-input>
                     </div>
 
                     <div class="form-group">
-                        <labeled-input label="Published" 
+                        <labeled-input label="{{'PUBLISHED' | translate}}" 
                                        field-id="is-published"
                                        value="$ctrl.product.published"
                                        type="checkbox"
@@ -40,7 +40,7 @@
 
             </uib-tab>
 
-            <uib-tab index="$ctrl.tabs.imageUploading" heading="Image uploading" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
+            <uib-tab index="$ctrl.tabs.imageUploading" heading="{{'IMAGE_UPLOADING' | translate}}" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
               <div class="pad15">
                 
                 <div flow-init="{ testChunks: false }" 
@@ -50,10 +50,10 @@
                      flow-file-added="$ctrl.flowFileAdded($flow, $file, $event)">
                         
                     <div class="clear pad15" flow-drop flow-drag-enter="style={border:'2px dashed green'}" flow-drag-leave="style={}" ng-style="style">
-                        <span flow-btn class="btn btn-default">Upload Images</span>
+                        <span flow-btn class="btn btn-default" translate="UPLOAD_IMAGES"></span>
                         <span>
-                            <b>OR</b>
-                            Drag And Drop your images here
+                            <b translate="OR"></b>
+                            <span translate="DRAG_AND_DROP_YOUR_IMAGES_HERE"></span>
                         </span>
 
                         <!-- <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button> -->
@@ -62,15 +62,15 @@
                     <div class="gallery-box" ng-repeat="image in $ctrl.product.images">
                         <span class="title">
                             <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageId" ng-value="image._id.$oid" ng-click="$ctrl.makeCover(image)"/>
-                            <label for="image-{{$index}}" ng-if="!image.is_cover">make cover</label>
-                            <label for="image-{{$index}}" ng-if="image.is_cover">cover</label>
+                            <label for="image-{{$index}}" ng-if="!image.is_cover" translate="MAKE_COVER"></label>
+                            <label for="image-{{$index}}" ng-if="image.is_cover" translate="COVER"></label>
                         </span>
                         <div class="thumbnail" ng-click="$ctrl.makeCover(image)">
                             <img ng-src="{{image.small_image_url}}" />
                         </div>
 
                         <div class="btn-group">
-                            <a ng-click="$ctrl.delete(image)" class="btn btn-xs btn-danger">Delete</a>
+                            <a ng-click="$ctrl.delete(image)" class="btn btn-xs btn-danger" translate="DELETE"></a>
                         </div>
                     </div>
 
@@ -96,11 +96,11 @@
 </div>
 
 <div class="modal-footer">
-    <button-default label="Cancel" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
+    <button-default label="{{'CANCEL' | translate}}" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
 
     <span ng-show="$ctrl.isCurrentTab($ctrl.tabs.basicInformation)">
-        <button-spinner label="Add" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
+        <button-spinner label="{{'ADD' | translate}}" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
 
-        <button-spinner label="Edit" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
+        <button-spinner label="{{'EDIT' | translate}}" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
     </span>
 </div>

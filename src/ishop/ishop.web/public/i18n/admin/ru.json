@@ -7,6 +7,7 @@
   "ADMINISTRATION": "Администрирование",
   "DASHBOARD": "Панель приборов",
   "PRODUCTS": "Продукты",
+  "PRODUCT": "Продукт",
   "SEARCH_ELLIPSIS": "Поиск...",
   "SEARCH_BY_CODE_ELLIPSIS": "Поиск по коду...",
   "ADD_PRODUCT": "Добавить продукт",
@@ -21,5 +22,24 @@
   "UNPUBLISH": "Не публиковать",
   "EDIT": "Pедактировать",
   "UPLOAD": "Загрузить",
-  "DELETE": "Удалить"
+  "DELETE": "Удалить",
+  "CREATE": "Создать",
+  "BASIC": "Oсновноe",
+  "IMAGE_UPLOADING": "Загрузка изображений",
+  "UPLOAD_IMAGES": "Загрузите Изображение",
+  "OR": "ИЛИ",
+  "DRAG_AND_DROP_YOUR_IMAGES_HERE": "Перетащите изображение сюда",
+  "MAKE_COVER": "сделать обложкой",
+  "CANCEL": "Отменить",
+  "ADD": "Добавить",
+  "PUBLISHED": "опубликованный",
+  "UNPUBLISHED": "неопубликованный",
+  "WAS": "был",
+  "SUCCESSFULLY": "успешно",
+  "SAVED": "сохранен",
+  "CREATED": "создан",
+  "UPDATED": "обновлен",
+  "DELETED": "удален",
+  "ENTER_PRODUCT_CODE": "Введите код продукта..."
+
 }
