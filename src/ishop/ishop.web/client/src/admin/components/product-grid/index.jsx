@@ -40,7 +40,7 @@ class ProductGridController {
           field: 'updated_at',
           displayName: 'EDIT_DATE',
           headerCellFilter: "translate",
-          cellFilter: 'date:"longDate"',
+          cellFilter: 'date:"dd/MM/yyyy"',
           sortable: true,
           width: 200
       },
