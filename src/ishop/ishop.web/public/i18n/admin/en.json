@@ -40,5 +40,12 @@
   "CREATED": "created",
   "UPDATED": "updated",
   "DELETED": "deleted",
-  "ENTER_PRODUCT_CODE": "Enter product code..."
+  "UPLOADED": "uploaded",
+  "ENTER_PRODUCT_CODE": "Enter product code...",
+  "DELETE_IMAGE_MESSAGE": "Are you sure you want to delete this image?",
+  "NO": "No",
+  "YES": "Yes",
+  "IMAGE": "The image",
+  "MADE": "made",
+  "AS_COVER": "as cover"
 }

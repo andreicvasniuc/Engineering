@@ -1,11 +1,11 @@
 class ImageNotifier {
   constructor(notifier) {
     this.notifier = notifier;
-    this.item = 'The image';
+    this.item = 'IMAGE';
   }
 
   showSuccessUploadMessage() {
-    this.notifier.success('The image was uploaded successfully.');
+    this.notifier.success(`${this.item} WAS UPLOADED SUCCESSFULLY`);
   }
 
   showSuccessDeleteMessage() {
@@ -13,7 +13,7 @@ class ImageNotifier {
   }
 
   showSuccessMakeCoverMessage() {
-    this.notifier.success('The image was made as cover successfully.');
+    this.notifier.success(`${this.item} WAS MADE AS_COVER SUCCESSFULLY`);
   }
 }
 

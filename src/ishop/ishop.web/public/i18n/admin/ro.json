@@ -40,5 +40,12 @@
   "CREATED": "creată",
   "UPDATED": "actualizat",
   "DELETED": "eliminat",
-  "ENTER_PRODUCT_CODE": "Introduceti product cod..."
+  "UPLOADED": "încărcat",
+  "ENTER_PRODUCT_CODE": "Introduceti product cod...",
+  "DELETE_IMAGE_MESSAGE": "Sunteți sigur că doriți să ștergeți această imagine?",
+  "NO": "Nu",
+  "YES": "Da",
+  "IMAGE": "Imaginea",
+  "MADE": "făcut",
+  "AS_COVER": "ca copertă"
 }

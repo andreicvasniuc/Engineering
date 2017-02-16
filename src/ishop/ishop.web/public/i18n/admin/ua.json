@@ -25,10 +25,10 @@
   "DELETE": "Bидалити",
   "CREATE": "Створити",
   "BASIC": "Oсновнe",
-  "IMAGE_UPLOADING": "Завантаження зображень",
-  "UPLOAD_IMAGES": "Завантажте Зображення",
+  "IMAGE_UPLOADING": "Завантаження малюноків",
+  "UPLOAD_IMAGES": "Завантажте Малюнок",
   "OR": "АБО",
-  "DRAG_AND_DROP_YOUR_IMAGES_HERE": "Перетягніть зображення сюди",
+  "DRAG_AND_DROP_YOUR_IMAGES_HERE": "Перетягніть малюнок сюди",
   "MAKE_COVER": "зробити обкладинкою",
   "CANCEL": "Скасувати",
   "ADD": "Додати",
@@ -40,5 +40,12 @@
   "CREATED": "створений",
   "UPDATED": "оновлений",
   "DELETED": "видалений",
-  "ENTER_PRODUCT_CODE": "Введіть код продукту..."
+  "UPLOADED": "завантажений",
+  "ENTER_PRODUCT_CODE": "Введіть код продукту...",
+  "DELETE_IMAGE_MESSAGE": "Ви впевнені, що хочете видалити цей малюнок?",
+  "NO": "Ні",
+  "YES": "Так",
+  "IMAGE": "Малюнок",
+  "MADE": "зроблений",
+  "AS_COVER": "як обкладинка"
 }

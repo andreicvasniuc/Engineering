@@ -4,10 +4,11 @@ import template from './template.html';
 import closeIcon from 'images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, productService, productNotifier, imageService, imageNotifier, modalAlert, env) {
+  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, imageService, imageNotifier, modalAlert, env) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
+    this.$translate = $translate;
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.imageService = imageService;
@@ -123,9 +124,15 @@ class ProductEditorPopupController {
   }
 
   delete(image) {
-    this.modalAlert.open({
-      message: 'Are you sure you want to delete this image?',
-      buttons: [{ label: 'No' }, { label: 'Yes', callback: () => { this.deleteImage(image); } }]
+    this.$translate('DELETE_IMAGE_MESSAGE').then((message) => {
+      this.$translate('NO').then((no) => {
+        this.$translate('YES').then((yes) => {
+          this.modalAlert.open({
+            message: message,
+            buttons: [{ label: no }, { label: yes, callback: () => { this.deleteImage(image); } }]
+          });
+        });
+      });
     });
   }
 

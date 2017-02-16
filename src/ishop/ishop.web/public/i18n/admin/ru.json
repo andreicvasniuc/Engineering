@@ -25,10 +25,10 @@
   "DELETE": "Удалить",
   "CREATE": "Создать",
   "BASIC": "Oсновноe",
-  "IMAGE_UPLOADING": "Загрузка изображений",
-  "UPLOAD_IMAGES": "Загрузите Изображение",
+  "IMAGE_UPLOADING": "Загрузка рисуноков",
+  "UPLOAD_IMAGES": "Загрузите Рисунок",
   "OR": "ИЛИ",
-  "DRAG_AND_DROP_YOUR_IMAGES_HERE": "Перетащите изображение сюда",
+  "DRAG_AND_DROP_YOUR_IMAGES_HERE": "Перетащите рисунок сюда",
   "MAKE_COVER": "сделать обложкой",
   "CANCEL": "Отменить",
   "ADD": "Добавить",
@@ -40,6 +40,12 @@
   "CREATED": "создан",
   "UPDATED": "обновлен",
   "DELETED": "удален",
-  "ENTER_PRODUCT_CODE": "Введите код продукта..."
-
+  "UPLOADED": "загружен",
+  "ENTER_PRODUCT_CODE": "Введите код продукта...",
+  "DELETE_IMAGE_MESSAGE": "Вы уверены в том, что хотите удалить данный рисунок?",
+  "NO": "Нет",
+  "YES": "Да",
+  "IMAGE": "Рисунок",
+  "MADE": "сделан",
+  "AS_COVER": "как обложку"
 }
