@@ -1,8 +1,12 @@
 import angular from 'angular';
 
-import productView from './product-view';
+import mainLayout from './main-layout';
+import mainHeader from './main-header';
+import mainFooter from './main-footer';
 
 export default angular
     .module('app.components', [])
-    .component('productView', productView)
+    .component('mainLayout', mainLayout)
+    .component('mainHeader', mainHeader)
+    .component('mainFooter', mainFooter)
     .name;

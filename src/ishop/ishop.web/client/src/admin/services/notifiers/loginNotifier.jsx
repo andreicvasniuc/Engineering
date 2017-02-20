@@ -4,7 +4,7 @@ class LoginNotifier {
   }
 
   showErrorLoginMessage() {
-    this.notifier.error('The email or password you have entered is incorrect.', null, { timeOut: 0, extendedTimeOut: 0, closeButton: true });
+    this.notifier.error('INCORRECT_EMAIL_OR_PASSWORD', null, { timeOut: 0, extendedTimeOut: 0, closeButton: true });
   }
 }
 

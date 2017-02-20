@@ -1,28 +1,34 @@
 var _ = require('lodash');
+var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
+var devConfig = require('./webpack.dev.js');
 var helpers = require('./helpers');
 
 
-var pathToAdmin = _.partial(helpers.src, 'admin');
+var pathToApp = _.partial(helpers.src, 'app');
 
-module.exports = webpackMerge(commonConfig, {
+module.exports = webpackMerge(devConfig, {
   entry: {
-    admin: pathToAdmin('index.jsx')//,
-    //app:  pathApp('index.jsx')
+    vendor: pathToApp('vendor.jsx'),
+    app: pathToApp('index.jsx')
   },
 
-  output: {
-    path: '../../public/javascripts',
-    //path: pathApp(),
-    filename: '[name].js', // Template based on keys in entry above
-    publicPath: '/'
+  resolve: {
+      alias: {
+          css: helpers.src('assets/app/css'),
+          images: helpers.src('assets/app/images'),
+          js: helpers.src('assets/app/js')
+      }
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor']
+    }),
+
     new HtmlWebpackPlugin({
-      template: 'src/admin/index.ejs'
+      template: 'src/app/index.ejs'
     })
   ]
 });

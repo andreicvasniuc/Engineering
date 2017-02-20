@@ -1,18 +1,33 @@
 class ProductService {
-  constructor() {
+  // constructor(productResource, requestService) {
+  //   this.productResource = productResource;
+  //   this.requestService = requestService;
+  // }
 
-    this.productList = [
-        {id: 1, name: 'Product 1'},
-        {id: 2, name: 'Product 2'},
-        {id: 3, name: 'Product 3'},
-        {id: 4, name: 'Product 4'},
-        {id: 5, name: 'Product 5'}
-    ];
-  }
+  // // getList(request, successCallback, errorCallback){
+  // //   return this.productResource.query(request, successCallback, errorCallback);
+  // // }
 
-  getProducts(){
-    return this.productList;
-  }
+  // getList(request, successCallback, errorCallback){
+  //   this.productResource.list(request, successCallback, errorCallback);
+  //   //this.requestService.ajax(this.productResource.list, request, successCallback, errorCallback);
+  // }
+
+  // get(product, successCallback, errorCallback) {
+  //   this.productResource.get({ id: product._id.$oid }, successCallback, errorCallback);
+  // }
+
+  // add(product, successCallback, errorCallback){
+  //   this.productResource.save({ product: product }, successCallback, errorCallback);
+  // }
+
+  // edit(product, successCallback, errorCallback){
+  //   this.productResource.update({ id: product._id.$oid, product: product }, successCallback, errorCallback);
+  // }
+
+  // delete(product, successCallback, errorCallback){
+  //   this.productResource.remove({ id: product._id.$oid }, successCallback, errorCallback);
+  // }
 }
 
 export default ProductService

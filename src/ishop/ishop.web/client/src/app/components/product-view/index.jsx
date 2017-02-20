@@ -29,7 +29,7 @@ class ProductViewController {
 //   }
 // }
 
-let productGrid = {
+let productView = {
   bindings: { data: '=' },
   controller: ProductViewController,
   //template: ($element, $attrs) => new ProductGridView($element, $attrs).template,

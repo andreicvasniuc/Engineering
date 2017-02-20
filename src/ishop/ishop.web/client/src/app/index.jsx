@@ -3,7 +3,7 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
 
-import routes from './routes';
+import config from './config';
 
 import controllers from './controllers';
 import components from './components';
@@ -18,4 +18,4 @@ export default angular
       services,
       constants
     ])
-    .config(routes);
+    .config(config);

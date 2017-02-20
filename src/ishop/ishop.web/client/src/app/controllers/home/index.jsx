@@ -1,6 +1,8 @@
+import tempMacbookIcon from 'images/macbook_1.png';
+
 class HomeController {
   constructor() {
-    console.log('home controller');
+    this.tempMacbookIcon = tempMacbookIcon;
   }
 }
 
