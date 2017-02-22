@@ -6,11 +6,12 @@ import gridPublishedCell from './grid-published-cell.html';
 import gridImageCell from './grid-image-cell.html';
 
 class ProductGridController {
-  constructor($scope, $rootScope, $timeout, productService, productNotifier, modalAlert) {
+  constructor($scope, $rootScope, $timeout, $translate, productService, productNotifier, modalAlert) {
     self = this;
     this.$scope = $scope;
     this.$rootScope = $rootScope;
     this.$timeout = $timeout;
+    this.$translate = $translate;
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.modalAlert = modalAlert;
@@ -94,9 +95,15 @@ class ProductGridController {
   }
 
   delete(entity, event) {
-    self.modalAlert.open({
-      message: 'Deleting this product you will delete all uploaded images for this product. Are you sure you want to delete this product?',
-      buttons: [{ label: 'No' }, { label: 'Yes', callback: () => { self.deleteProduct(entity); } }]
+    self.$translate('DELETE_PRODUCT_MESSAGE').then((message) => {
+      self.$translate('NO').then((no) => {
+        self.$translate('YES').then((yes) => {
+          self.modalAlert.open({
+            message: message,
+            buttons: [{ label: no }, { label: yes, callback: () => { self.deleteProduct(entity); } }]
+          });
+        });
+      });
     });
   }
 

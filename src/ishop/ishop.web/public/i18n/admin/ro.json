@@ -43,6 +43,7 @@
   "UPLOADED": "încărcat",
   "ENTER_PRODUCT_CODE": "Introduceti product cod...",
   "DELETE_IMAGE_MESSAGE": "Sunteți sigur că doriți să ștergeți această imagine?",
+  "DELETE_PRODUCT_MESSAGE": "Dacă ștergeți acest produs vă va șterge toate imaginile încărcate pentru acest produs. Sunteți sigur că doriți să ștergeți acest produs?",
   "NO": "Nu",
   "YES": "Da",
   "IMAGE": "Imaginea",
