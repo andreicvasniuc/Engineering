@@ -17,12 +17,18 @@ module.exports = webpackMerge(devConfig, {
   resolve: {
       alias: {
           css: helpers.src('assets/app/css'),
-          images: helpers.src('assets/app/images'),
-          js: helpers.src('assets/app/js')
+          images: helpers.src('assets/app/images')
       }
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
+
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor']
     }),

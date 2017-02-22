@@ -7,6 +7,6 @@ import 'css/superfish.css';
 import 'css/easy-responsive-tabs.css';
 import 'css/style.css';
 
-// import 'jquery';
-// import 'bootstrap';
-// import 'js/owl.carousel.min.js';
+import 'jquery';
+import 'bootstrap';
+import 'owl.carousel';
