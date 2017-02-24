@@ -17,7 +17,8 @@ module.exports = webpackMerge(devConfig, {
   resolve: {
       alias: {
           css: helpers.src('assets/app/css'),
-          images: helpers.src('assets/app/images')
+          images: helpers.src('assets/app/images'),
+          js: helpers.src('assets/app/js')
       }
   },
 

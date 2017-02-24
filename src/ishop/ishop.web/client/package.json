@@ -45,10 +45,15 @@
     "angular-ui-bootstrap": "^1.3.3",
     "angular-ui-grid": "^3.2.9",
     "bootstrap": "^3.3.7",
+    "easy-responsive-tabs": "0.0.2",
+    "fastclick": "^1.0.6",
     "jquery": "^2.2.4",
+    "jquery-hoverintent": "^1.8.2",
     "jquery.easing": "^1.4.1",
     "lodash": "^4.16.4",
+    "magnific-popup": "^1.1.0",
     "ng-flow": "^2.1.4",
-    "owl.carousel": "^2.2.0"
+    "owl.carousel": "^2.2.0",
+    "superfish": "^1.7.9"
   }
 }
