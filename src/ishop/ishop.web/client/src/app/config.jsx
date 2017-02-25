@@ -1,7 +1,9 @@
 import homeTemplate from './controllers/home/template.html';
 import productTemplate from './controllers/product/template.html';
 
-export default ($routeProvider, routeUrls) => {
+export default ($routeProvider, routeUrls, $translateProvider, languages, envProvider) => {
+  /* Routing */
+
   let routes = {
     home: {
       templateUrl: homeTemplate,
@@ -17,14 +19,24 @@ export default ($routeProvider, routeUrls) => {
 
   $routeProvider
     .when(
-        routeUrls.index,
-        routes.home)
-    .when(
         routeUrls.home,
         routes.home)
     .when(
         routeUrls.products,
         routes.products)
     .otherwise(
-        { redirectTo: routeUrls.index });
+        { redirectTo: routeUrls.home });
+
+    /* i18n and l10n */
+
+    $translateProvider
+      .useStaticFilesLoader({
+        prefix: `${envProvider.getApiUrl()}/i18n/app/`,
+        suffix: '.json'
+      })
+      //.determinePreferredLanguage();
+      .useSanitizeValueStrategy('escape')
+      .useCookieStorage()
+      .fallbackLanguage(languages.en)
+      .preferredLanguage(languages.ua);
 }

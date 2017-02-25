@@ -6,5 +6,5 @@ import 'css/font-awesome.css';
 
 import 'css/admin.styl';
 
-import _ from 'lodash';
+import 'lodash';
 //import bootstrap from 'bootstrap';

@@ -69,6 +69,7 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
         suffix: '.json'
       })
       //.determinePreferredLanguage();
+      .useSanitizeValueStrategy('escape')
       .useCookieStorage()
       .fallbackLanguage(languages.en)
       .preferredLanguage(languages.ua);
