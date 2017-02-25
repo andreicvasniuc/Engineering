@@ -1,0 +1,18 @@
+<ul class="nav navbar-top-links navbar-right language-selector">
+    <li class="dropdown" uib-dropdown>
+        <a href="javascript:void(0)" class="dropdown-toggle" uib-dropdown-toggle>
+            <img ng-src="{{$ctrl.selectedLanguage.icon}}" alt="selected language" /> 
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user" uib-dropdown-menu>
+            <li ng-repeat="language in $ctrl.languageList">
+              <a href="javascript:void(0)" ng-click="$ctrl.selectLanguage(language)" title="{{language.title}}">
+                <img ng-src="{{language.icon}}" alt="{{language.key}}" />
+                {{language.key}}
+              </a>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+</ul>

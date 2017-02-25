@@ -3,41 +3,36 @@ import template from './template.html';
 import headerBackgroundIcon from 'images/hero4.jpg';
 
 class MainHeaderController {
-  constructor($translate, router, routeUrls) {
+  constructor($translate, router, routeUrls, translator, $timeout) {
     this.$translate = $translate;
     this.router = router;
     this.routeUrls = routeUrls;
+    this.translator = translator;
     this.headerBackgroundIcon = headerBackgroundIcon;
+
+    this.$timeout = $timeout;
 
     this.createMainMenu();
   }
 
   createMainMenu() {
-    this.menuList = [
-        { name: 'HOME', url: this.routeUrls.home, isActive: true },
-        { name: 'CATALOG', url: this.routeUrls.dresses, subMenuList: [
-            { name: 'DRESSES', url: this.routeUrls.dresses },
-            { name: 'ACCESSORIES', url: this.routeUrls.accessories }
-        ] },
-        { name: 'CONTACT', url: this.routeUrls.contact }
-    ];
+    this.menu = {
+      list: [
+          { name: 'HOME', url: this.routeUrls.home, isActive: true },
+          { name: 'CATALOG', url: this.routeUrls.dresses, list: [
+              { name: 'DRESSES', url: this.routeUrls.dresses },
+              { name: 'ACCESSORIES', url: this.routeUrls.accessories }
+          ] },
+          { name: 'CONTACT', url: this.routeUrls.contact }
+      ]
+    };
 
-    console.log(_.flatten(this.menuList));
+    this.translator.translateDeep(this.menu, 'list', 'name');
 
-    this.$translate(['HOME', 'CONTACT']).then((translation) => {
-        console.log('translation', translation);
-    });
-
-    this.translateList();
-  }
-
-  translateList(list, translatePropertyName, childListPropertyName) {
-    list.forEach((item) => {
-
-        this.$translate(item[translatePropertyName]).then((translation) => {
-
-        });
-    });
+    this.$timeout(() => {
+      console.log(this.menu);
+      this.menu.list.push({name: 'ola'});
+    }, 2000);
   }
 }
 

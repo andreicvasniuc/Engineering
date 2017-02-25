@@ -2,6 +2,7 @@
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import uiBootstrap from 'angular-ui-bootstrap';
 import ngCookies from 'angular-cookies';
 import pascalprechtTranslate from 'angular-translate';
 import 'angular-translate-storage-cookie';
@@ -23,6 +24,7 @@ export default angular
       services,
       providers,
       constants,
+      uiBootstrap,
       ngCookies,
       pascalprechtTranslate
     ])
