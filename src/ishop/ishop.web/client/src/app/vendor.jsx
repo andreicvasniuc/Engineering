@@ -10,7 +10,7 @@ import 'css/style.css';
 import 'lodash';
 
 import 'jquery';
-import 'bootstrap';
+// import 'bootstrap';
 import 'owl.carousel';
 import 'magnific-popup'
 import 'jquery-hoverintent'

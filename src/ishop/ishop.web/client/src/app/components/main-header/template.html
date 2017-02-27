@@ -1,40 +1,23 @@
 <header id="fh5co-header-section" role="header" class="" >
     <div class="container">
-        
         <!-- START #fh5co-logo -->
         <h1 id="fh5co-logo" class="pull-left"><a href="/">Zlata</a></h1>
         
         <language-selector class="pull-right"></language-selector>
         
-        <!-- START #fh5co-menu-wrap -->
-        <nav id="fh5co-menu-wrap" role="navigation">
-            <ul class="sf-menu" id="fh5co-primary-menu">
-                <li ng-repeat="menuItem in $ctrl.menu.list" ng-class="{'active': menuItem.isActive}">
-                    <a ng-href="{{menuItem.url}}" ng-class="{'fh5co-sub-ddown': !!menuItem.list}">
-                        {{menuItem.name}}
-                    </a>
-                    <ul class="fh5co-sub-menu" ng-if="!!menuItem.list">
-                        <li ng-repeat="subMenuItem in menuItem.list">
-                            <a ng-href="{{subMenuItem.url}}">
-                                {{subMenuItem.name}}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <navigation></navigation>
     </div>
 </header>
 
 <!-- START #fh5co-hero -->
-<aside id="fh5co-hero" style="background-image: url({{$ctrl.headerBackgroundIcon}});">
+<aside id="fh5co-hero" ng-style="{'background-image': 'url({{$ctrl.headerBackgroundIcon}})'}">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="fh5co-hero-wrap">
                     <div class="fh5co-hero-intro">
-                            <h2>We Are Creative People<span></span></h2>
-                            <h1>Zlata wedding fashion</h1>
+                        <h2>We Are Creative People<span></span></h2>
+                        <h1>Zlata wedding fashion</h1>
                     </div>
                 </div>
             </div>

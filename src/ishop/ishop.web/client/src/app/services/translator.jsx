@@ -12,13 +12,10 @@ class Translator {
       translationIds.push(treeItem[translatePropertyName])
     });
 
-    console.log('translationIds', translationIds);
-
     this.$translate(translationIds).then((translation) => {
         this.treeProcessor.proceedTree(item, listPropertyName, (treeItem) => {
           if(!treeItem[translatePropertyName]) return;
           treeItem[translatePropertyName] = translation[treeItem[translatePropertyName]];
-          console.log(treeItem[translatePropertyName]);
         });
     });
   }

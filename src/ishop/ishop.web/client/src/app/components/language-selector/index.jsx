@@ -8,9 +8,10 @@ import uaIcon from 'images/flags/ua.png';
 import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
-  constructor($route, $translate, languages) {
+  constructor($route, $translate, $timeout, languages) {
     this.$route = $route;
     this.$translate = $translate;
+    this.$timeout = $timeout;
     this.languages = languages;
 
     this.createLanguageList();
@@ -34,7 +35,7 @@ class LanguageSelectorController {
   selectLanguage(language) {
     this.selectedLanguage = language;
     this.$translate.use(this.selectedLanguage.key);
-    this.$route.reload();
+    this.$timeout(() => this.$route.reload(), 50);
   }
 }
 

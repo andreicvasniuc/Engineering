@@ -2,92 +2,6 @@
 	
 	'use strict';
 
-	// iPad and iPod detection	
-	var isiPad = function(){
-	  return (navigator.platform.indexOf("iPad") != -1);
-	}
-
-	var isiPhone = function(){
-    return (
-      (navigator.platform.indexOf("iPhone") != -1) || 
-      (navigator.platform.indexOf("iPod") != -1)
-    );
-	}
-
-	// Mobile Menu Clone ( Mobiles/Tablets )
-	var mobileMenu = function() {
-		if ( $(window).width() < 769 ) {
-			$('html,body').addClass('fh5co-overflow');
-
-			if ( $('#fh5co-mobile-menu').length < 1 ) {
-				
-				var clone = $('#fh5co-primary-menu').clone().attr({
-					id: 'fh5co-mobile-menu-ul',
-					class: ''
-				});
-				var cloneLogo = $('#fh5co-logo').clone().attr({
-					id : 'fh5co-logo-mobile',
-					class : ''
-				});
-
-				$('<div id="fh5co-logo-mobile-wrap">').append(cloneLogo).insertBefore('#fh5co-header-section');
-				$('#fh5co-logo-mobile-wrap').append('<a href="#" id="fh5co-mobile-menu-btn"><i class="ti-menu"></i></a>')
-				$('<div id="fh5co-mobile-menu">').append(clone).insertBefore('#fh5co-header-section');
-
-				$('#fh5co-header-section').hide();
-				$('#fh5co-logo-mobile-wrap').show();
-			} else {
-				$('#fh5co-header-section').hide();
-				$('#fh5co-logo-mobile-wrap').show();
-			}
-
-		} else {
-
-			$('#fh5co-logo-mobile-wrap').hide();
-			$('#fh5co-header-section').show();
-			$('html,body').removeClass('fh5co-overflow');
-			if ( $('body').hasClass('fh5co-mobile-menu-visible')) {
-				$('body').removeClass('fh5co-mobile-menu-visible');
-			}
-		}
-	};
-
-
-	// Parallax
-  // var scrollBanner = function () {
-  //   var scrollPos = $(this).scrollTop();
-  //   console.log(scrollPos);
-  //   $('.fh5co-hero-intro').css({
-  //     'opacity' : 1-(scrollPos/300)
-  //   });
-  // }
-
-
-	// Click outside of the Mobile Menu
-	var mobileMenuOutsideClick = function() {
-		$(document).click(function (e) {
-	    var container = $("#fh5co-mobile-menu, #fh5co-mobile-menu-btn");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	      $('body').removeClass('fh5co-mobile-menu-visible');
-	    }
-		});
-	};
-
-
-	// Mobile Button Click
-	var mobileBtnClick = function() {
-		// $('#fh5co-mobile-menu-btn').on('click', function(e){
-		$(document).on('click', '#fh5co-mobile-menu-btn', function(e){
-			e.preventDefault();
-			if ( $('body').hasClass('fh5co-mobile-menu-visible') ) {
-				$('body').removeClass('fh5co-mobile-menu-visible');	
-			} else {
-				$('body').addClass('fh5co-mobile-menu-visible');
-			}
-			
-		});
-	};
-
 
 	// Main Menu Superfish
 	var mainMenu = function() {
@@ -116,14 +30,6 @@
 
 	};
 
-	// Window Resize
-	var windowResize = function() {
-		$(window).resize(function(){
-			mobileMenu();
-		});
-
-	};
-
 	// Window Scroll
 	var windowScroll = function() {
 		$(window).scroll(function() {
@@ -146,13 +52,6 @@
 	    });
 
 		});
-	};
-
-	// Fast Click for ( Mobiles/Tablets )
-	var mobileFastClick = function() {
-		if ( isiPad() && isiPhone()) {
-			FastClick.attach(document.body);
-		}
 	};
 
 	// Easy Repsonsive Tabs
@@ -237,17 +136,11 @@
 	};
 
 	$(function(){
-
-		mobileFastClick();
 		responsiveTabs();
-		mobileMenu();
 		mainMenu();
 		magnifPopup();
-		mobileBtnClick();
 		mobileClickSubMenus();
-		mobileMenuOutsideClick();
 		owlCrouselFeatureSlide();
-		windowResize();
 		windowScroll();
 
 

@@ -5,6 +5,8 @@ import Translator from './translator';
 import RequestService from './requestService';
 import ProductService from './productService';
 import TreeProcessor from './treeProcessor';
+import DeviceDetector from './deviceDetector';
+import MobileMenuService from './mobileMenuService';
 
 export default angular
     .module('app.services', [])
@@ -13,4 +15,6 @@ export default angular
     .service('requestService', RequestService)
     .service('productService', ProductService)
     .service('treeProcessor', TreeProcessor)
+    .service('deviceDetector', DeviceDetector)
+    .service('mobileMenuService', MobileMenuService)
     .name;
