@@ -9,6 +9,7 @@ class MobileMenuService {
       this.mobileMenu();
       this.mobileMenuOutsideClick();
       this.mobileBtnClick();
+      this.mobileClickSubMenus();
     });
   }
 
@@ -71,6 +72,18 @@ class MobileMenuService {
       }
       
     });
+  }
+
+  // Superfish Sub Menu Click ( Mobiles/Tablets )
+  mobileClickSubMenus() {
+    $('body').on('click', '.fh5co-sub-ddown', function(event) {
+      event.preventDefault();
+      var $this = $(this),
+        li = $this.closest('li');
+      // li.find('> .fh5co-sub-menu').slideToggle(200);
+      $this.find('~ .fh5co-sub-menu').slideToggle(200);
+    });
+
   }
 }
 

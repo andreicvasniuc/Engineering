@@ -1,35 +1,13 @@
-<ul class="nav navbar-top-links navbar-right language-selector">
-    <li class="dropdown" uib-dropdown>
-        <a href="javascript:void(0)" class="dropdown-toggle" uib-dropdown-toggle>
-            <img ng-src="{{$ctrl.selectedLanguage.icon}}" alt="selected language" /> 
-            <i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-user" uib-dropdown-menu>
-            <li ng-repeat="language in $ctrl.languageList">
-              <a href="javascript:void(0)" ng-click="$ctrl.selectLanguage(language)" title="{{language.title}}">
+<div class="language-selector">
+    <a href="javascript:void(0)" class="fh5co-sub-ddown">
+        <img ng-src="{{$ctrl.selectedLanguage.icon}}" alt="selected language" /> 
+    </a>
+    <ul class="fh5co-sub-menu">
+        <li ng-repeat="language in $ctrl.languageList">
+            <a href="javascript:void(0)" ng-click="$ctrl.selectLanguage(language)" title="{{language.title}}">
                 <img ng-src="{{language.icon}}" alt="{{language.key}}" />
                 {{language.key}}
-              </a>
-            </li>
-        </ul>
-        <!-- /.dropdown-user -->
-    </li>
-    <!-- /.dropdown -->
-</ul>
-
-<nav id="fh5co-menu-wrap" role="navigation">
-    <ul class="sf-menu sf-js-enabled sf-arrows" id="fh5co-primary-menu">
-        <li>
-            <a ng-href="javascript:void(0)" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}">
-                {{menuItem.name}}
             </a>
-            <ul class="fh5co-sub-menu" ng-if="!!menuItem.list">
-                <li ng-repeat="subMenuItem in menuItem.list">
-                    <a ng-href="{{subMenuItem.url}}">
-                        {{subMenuItem.name}}
-                    </a>
-                </li>
-            </ul>
         </li>
     </ul>
-</nav>
+</div>

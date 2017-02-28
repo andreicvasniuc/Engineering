@@ -8,10 +8,11 @@ import uaIcon from 'images/flags/ua.png';
 import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
-  constructor($route, $translate, $timeout, languages) {
+  constructor($route, $translate, $timeout, $window, languages) {
     this.$route = $route;
     this.$translate = $translate;
     this.$timeout = $timeout;
+    this.$window = $window;
     this.languages = languages;
 
     this.createLanguageList();
@@ -35,7 +36,10 @@ class LanguageSelectorController {
   selectLanguage(language) {
     this.selectedLanguage = language;
     this.$translate.use(this.selectedLanguage.key);
-    this.$timeout(() => this.$route.reload(), 50);
+    this.$timeout(() => {
+      this.$route.reload();
+      $(this.$window).scrollTop($(this.$window).scrollTop() + 1); // to display sticky menu
+    }, 50);
   }
 }
 

@@ -1,37 +1,10 @@
 .language-selector {
-  
-  &.navbar-top-links {
-    li.dropdown {
-      margin-right: 2px;
-      margin-top: 15px;
-      
-      a {
-        &:hover {
-          background: none;
-        }
-        border: none;
-      }
-      
-      i.fa-caret-down {
-        visibility: hidden;
-      }
-      
-      &:hover {
-        i.fa-caret-down {
-          visibility: visible;
-        }
-      }
-    }
+  a:hover ~ ul, a ~ ul:hover {
+    display: block;
   }
-
-  .dropdown-menu {
-    min-width: inherit;
-    
-    li {
-      a {
-        padding: 5px 10px;
-      }
-    }
+  
+  ul {
+    min-width: 70px;
   }
   
   img {

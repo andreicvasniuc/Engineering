@@ -18,42 +18,6 @@
 
 	};
 
-	// Superfish Sub Menu Click ( Mobiles/Tablets )
-	var mobileClickSubMenus = function() {
-
-		$('body').on('click', '.fh5co-sub-ddown', function(event) {
-			event.preventDefault();
-			var $this = $(this),
-				li = $this.closest('li');
-			li.find('> .fh5co-sub-menu').slideToggle(200);
-		});
-
-	};
-
-	// Window Scroll
-	var windowScroll = function() {
-		$(window).scroll(function() {
-
-			var scrollPos = $(this).scrollTop();
-			if ( $('body').hasClass('fh5co-mobile-menu-visible') ) {
-				$('body').removeClass('fh5co-mobile-menu-visible');
-			}
-
-			if ( $(window).scrollTop() > 70 ) {
-				$('#fh5co-header-section').addClass('fh5co-scrolled');
-			} else {
-				$('#fh5co-header-section').removeClass('fh5co-scrolled');
-			}
-
-
-			// Parallax
-			$('.fh5co-hero-intro').css({
-	      'opacity' : 1-(scrollPos/300)
-	    });
-
-		});
-	};
-
 	// Easy Repsonsive Tabs
 	var responsiveTabs = function(){
 		
@@ -139,9 +103,7 @@
 		responsiveTabs();
 		mainMenu();
 		magnifPopup();
-		mobileClickSubMenus();
 		owlCrouselFeatureSlide();
-		windowScroll();
 
 
 	});

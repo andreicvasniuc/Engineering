@@ -2,7 +2,6 @@
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
-import uiBootstrapDropdown from 'angular-ui-bootstrap/src/dropdown';
 import ngCookies from 'angular-cookies';
 import pascalprechtTranslate from 'angular-translate';
 import 'angular-translate-storage-cookie';
@@ -25,7 +24,6 @@ export default angular
       services,
       providers,
       constants,
-      uiBootstrapDropdown,
       ngCookies,
       pascalprechtTranslate
     ])
