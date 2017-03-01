@@ -1,7 +1,9 @@
-<header id="fh5co-header-section" role="header" ng-class="{'fh5co-scrolled': $ctrl.isWindowScrolled}">
+<mobile-menu ng-if="$ctrl.isMobileWindowSize"></mobile-menu>
+
+<header ng-if="!$ctrl.isMobileWindowSize" id="fh5co-header-section" role="header" ng-class="{'fh5co-scrolled': $ctrl.isWindowScrolled}">
     <div class="container">
         <h1 id="fh5co-logo" class="pull-left"><a href="/">Zlata</a></h1>
-        <navigation></navigation>
+        <menu></menu>
     </div>
 </header>
 

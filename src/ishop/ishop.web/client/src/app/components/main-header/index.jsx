@@ -5,15 +5,17 @@ import headerBackgroundIcon from 'images/hero2.jpg';
 class MainHeaderController {
   constructor($scope, $window) {
     this.$scope = $scope;
-    this.$window = $window;
+    this.$window = $($window);
     this.headerBackgroundIcon = headerBackgroundIcon;
     this.headingOpacity = 1;
 
-    $(this.$window).unbind('scroll').scroll(() => this.windowScroll());
+    this.$window.unbind('scroll').scroll(() => this.windowScroll());
+    this.$window.unbind('resize').resize(() => this.windowResize());
+    this.checkMobileWindowSize();
   }
 
   windowScroll() {
-    let scrollPos = $(this.$window).scrollTop();
+    let scrollPos = this.$window.scrollTop();
 
     if ( $('body').hasClass('fh5co-mobile-menu-visible') ) {
       $('body').removeClass('fh5co-mobile-menu-visible');
@@ -23,6 +25,15 @@ class MainHeaderController {
     this.headingOpacity = 1-(scrollPos / 300);
 
     this.$scope.$apply();
+  }
+
+  windowResize() {
+    this.checkMobileWindowSize();
+    this.$scope.$apply();
+  }
+
+  checkMobileWindowSize() {
+    this.isMobileWindowSize = this.$window.width() < 769;
   }
 }
 

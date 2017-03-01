@@ -1,0 +1,24 @@
+<div id="fh5co-logo-mobile-wrap">
+    <h1 id="fh5co-logo-mobile" class=""><a href="/">Zlata</a></h1>
+    <a href="javascript:void(0)" id="fh5co-mobile-menu-btn"><i class="ti-menu"></i></a>
+</div>
+
+<div id="fh5co-mobile-menu">
+    <ul class="" id="fh5co-mobile-menu-ul">
+        <li ng-repeat="menuItem in $ctrl.menu.list" ng-class="{'active': menuItem.isActive}">
+            <a ng-href="{{menuItem.url}}" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}">
+                {{menuItem.name}}
+            </a>
+            <ul class="fh5co-sub-menu" ng-if="!!menuItem.list">
+                <li ng-repeat="subMenuItem in menuItem.list">
+                    <a ng-href="{{subMenuItem.url}}">
+                        {{subMenuItem.name}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <language-selector></language-selector>
+        </li>
+    </ul>
+</div>

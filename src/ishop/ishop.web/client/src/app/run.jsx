@@ -3,6 +3,6 @@ export default ($window, deviceDetector, mobileMenuService) => {
     FastClick.attach(document.body); // Fast Click for ( Mobiles/Tablets )
   }
 
-  mobileMenuService.initialize();
-  $($window).resize(() => mobileMenuService.mobileMenu());
+  //mobileMenuService.initialize();
+  //$($window).resize(() => mobileMenuService.mobileMenu());
 }

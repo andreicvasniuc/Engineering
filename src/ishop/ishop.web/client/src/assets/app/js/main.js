@@ -2,22 +2,6 @@
 	
 	'use strict';
 
-
-	// Main Menu Superfish
-	var mainMenu = function() {
-
-		$('#fh5co-primary-menu').superfish({
-			delay: 0,
-			animation: {
-				opacity: 'show'
-			},
-			speed: 'fast',
-			cssArrows: true,
-			disableHI: true
-		});
-
-	};
-
 	// Easy Repsonsive Tabs
 	var responsiveTabs = function(){
 		
@@ -100,10 +84,9 @@
 	};
 
 	$(function(){
-		responsiveTabs();
-		mainMenu();
-		magnifPopup();
-		owlCrouselFeatureSlide();
+		//responsiveTabs();
+		//magnifPopup();
+		//owlCrouselFeatureSlide();
 
 
 	});
