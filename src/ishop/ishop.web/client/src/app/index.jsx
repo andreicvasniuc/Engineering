@@ -12,6 +12,7 @@ import run from './run';
 
 import controllers from './controllers';
 import components from './components';
+import directives from './directives';
 import services from './services';
 import providers from './providers';
 import constants from './constants';
@@ -21,6 +22,7 @@ export default angular
       ngRoute,
       controllers,
       components,
+      directives,
       services,
       providers,
       constants,

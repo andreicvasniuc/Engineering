@@ -1,11 +1,13 @@
 import template from './template.html';
 
 class MenuController {
-  constructor(menuService) {
+  constructor($rootScope, menuService) {
     console.log('MenuController');
     this.menu = menuService.getMenu();
 
     this.superfishMainMenu();
+
+    $rootScope.isMobileMenuVisible = false;
   }
 
   superfishMainMenu() {

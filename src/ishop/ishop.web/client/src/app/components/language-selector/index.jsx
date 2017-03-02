@@ -8,12 +8,13 @@ import uaIcon from 'images/flags/ua.png';
 import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
-  constructor($route, $translate, $timeout, $window, languages) {
+  constructor($route, $translate, $timeout, $window, $rootScope, languages) {
     this.$route = $route;
     this.$translate = $translate;
     this.$timeout = $timeout;
     this.$window = $window;
     this.languages = languages;
+    this.$rootScope = $rootScope;
 
     this.createLanguageList();
     this.getLanguageFromCoockies();
@@ -36,9 +37,15 @@ class LanguageSelectorController {
   selectLanguage(language) {
     this.selectedLanguage = language;
     this.$translate.use(this.selectedLanguage.key);
+
     this.$timeout(() => {
       this.$route.reload();
-      $(this.$window).scrollTop($(this.$window).scrollTop() + 1); // to display sticky menu
+
+      if(this.$rootScope.isMobileMenuVisible) {
+        this.$timeout(() => this.$rootScope.isMobileMenuVisible = true, 50); // to display mobile menu
+      } else {
+        $(this.$window).scrollTop($(this.$window).scrollTop() + 1); // to display sticky menu
+      }
     }, 50);
   }
 }

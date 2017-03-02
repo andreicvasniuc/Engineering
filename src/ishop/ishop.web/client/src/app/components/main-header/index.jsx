@@ -3,8 +3,9 @@ import template from './template.html';
 import headerBackgroundIcon from 'images/hero2.jpg';
 
 class MainHeaderController {
-  constructor($scope, $window) {
+  constructor($scope, $rootScope, $window) {
     this.$scope = $scope;
+    this.$rootScope = $rootScope;
     this.$window = $($window);
     this.headerBackgroundIcon = headerBackgroundIcon;
     this.headingOpacity = 1;
@@ -17,12 +18,10 @@ class MainHeaderController {
   windowScroll() {
     let scrollPos = this.$window.scrollTop();
 
-    if ( $('body').hasClass('fh5co-mobile-menu-visible') ) {
-      $('body').removeClass('fh5co-mobile-menu-visible');
-    }
-
     this.isWindowScrolled = scrollPos > 70;
     this.headingOpacity = 1-(scrollPos / 300);
+
+    this.$rootScope.isMobileMenuVisible = false;
 
     this.$scope.$apply();
   }
@@ -33,7 +32,8 @@ class MainHeaderController {
   }
 
   checkMobileWindowSize() {
-    this.isMobileWindowSize = this.$window.width() < 769;
+    this.$rootScope.isMobileWindowSize = this.$window.width() < 769;
+    this.$rootScope.isMobileMenuVisible = false;
   }
 }
 

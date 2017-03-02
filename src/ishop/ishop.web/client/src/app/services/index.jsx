@@ -6,7 +6,6 @@ import RequestService from './requestService';
 import ProductService from './productService';
 import TreeProcessor from './treeProcessor';
 import DeviceDetector from './deviceDetector';
-import MobileMenuService from './mobileMenuService';
 import MenuService from './menuService';
 
 export default angular
@@ -17,6 +16,5 @@ export default angular
     .service('productService', ProductService)
     .service('treeProcessor', TreeProcessor)
     .service('deviceDetector', DeviceDetector)
-    .service('mobileMenuService', MobileMenuService)
     .service('menuService', MenuService)
     .name;
