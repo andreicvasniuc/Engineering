@@ -1,9 +1,5 @@
-import tempMacbookIcon from 'images/macbook_1.png';
-
 class HomeController {
-  constructor() {
-    this.tempMacbookIcon = tempMacbookIcon;
-  }
+  constructor() {}
 }
 
 export default HomeController
