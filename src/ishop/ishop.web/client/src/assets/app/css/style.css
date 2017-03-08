@@ -1376,10 +1376,10 @@ Components
   margin-top: 0;
 }
 
-.owl-carousel .owl-controls .owl-nav .owl-next,
-.owl-carousel .owl-controls .owl-nav .owl-prev,
-.owl-carousel-posts .owl-controls .owl-nav .owl-next,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel-posts .owl-nav .owl-next,
+.owl-carousel-posts .owl-nav .owl-prev {
   top: 50%;
   margin-top: -29px;
   z-index: 9999;
@@ -1391,85 +1391,85 @@ Components
   transition: all 0.2s ease;
 }
 
-.owl-carousel-posts .owl-controls .owl-nav .owl-next,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+.owl-carousel-posts .owl-nav .owl-next,
+.owl-carousel-posts .owl-nav .owl-prev {
   top: 24%;
 }
 
-.owl-carousel .owl-controls .owl-nav .owl-next,
-.owl-carousel-posts .owl-controls .owl-nav .owl-next {
-  right: -40px;
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel-posts .owl-nav .owl-next {
+  right: 20px;
 }
-.owl-carousel .owl-controls .owl-nav .owl-next:hover,
-.owl-carousel-posts .owl-controls .owl-nav .owl-next:hover {
+.owl-carousel .owl-nav .owl-next:hover,
+.owl-carousel-posts .owl-nav .owl-next:hover {
   margin-right: -10px;
 }
 
-.owl-carousel .owl-controls .owl-nav .owl-prev,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
-  left: -40px;
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel-posts .owl-nav .owl-prev {
+  left: 20px;
 }
-.owl-carousel .owl-controls .owl-nav .owl-prev:hover,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev:hover {
+.owl-carousel .owl-nav .owl-prev:hover,
+.owl-carousel-posts .owl-nav .owl-prev:hover {
   margin-left: -10px;
 }
 
-.owl-carousel-posts .owl-controls .owl-nav .owl-next {
+.owl-carousel-posts .owl-nav .owl-next {
   right: -50px;
 }
 @media screen and (max-width: 768px) {
-  .owl-carousel-posts .owl-controls .owl-nav .owl-next {
+  .owl-carousel-posts .owl-nav .owl-next {
     right: 0px;
   }
 }
 
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+.owl-carousel-posts .owl-nav .owl-prev {
   left: -50px;
 }
 @media screen and (max-width: 768px) {
-  .owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  .owl-carousel-posts .owl-nav .owl-prev {
     left: 0px;
   }
 }
 
-.owl-carousel-posts .owl-controls .owl-nav .owl-next i,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev i,
-.owl-carousel-fullwidth .owl-controls .owl-nav .owl-next i,
-.owl-carousel-fullwidth .owl-controls .owl-nav .owl-prev i {
+.owl-carousel-posts .owl-nav .owl-next i,
+.owl-carousel-posts .owl-nav .owl-prev i,
+.owl-carousel-fullwidth .owl-nav .owl-next i,
+.owl-carousel-fullwidth .owl-nav .owl-prev i {
   color: #2e2e2e;
 }
-.owl-carousel-posts .owl-controls .owl-nav .owl-next:hover i,
-.owl-carousel-posts .owl-controls .owl-nav .owl-prev:hover i,
-.owl-carousel-fullwidth .owl-controls .owl-nav .owl-next:hover i,
-.owl-carousel-fullwidth .owl-controls .owl-nav .owl-prev:hover i {
+.owl-carousel-posts .owl-nav .owl-next:hover i,
+.owl-carousel-posts .owl-nav .owl-prev:hover i,
+.owl-carousel-fullwidth .owl-nav .owl-next:hover i,
+.owl-carousel-fullwidth .owl-nav .owl-prev:hover i {
   color: #000000;
 }
 
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next i,
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev i {
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-nav .owl-next i,
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-nav .owl-prev i {
   color: #ffffff;
 }
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next:hover i,
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev:hover i {
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-nav .owl-next:hover i,
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-nav .owl-prev:hover i {
   color: #ffffff;
 }
 
 @media screen and (max-width: 768px) {
-  .owl-theme .owl-controls .owl-nav {
+  .owl-theme .owl-nav {
     display: none;
   }
 }
 
-.owl-theme .owl-controls .owl-nav [class*="owl-"] {
+.owl-theme .owl-nav [class*="owl-"] {
   background: none !important;
 }
-.owl-theme .owl-controls .owl-nav [class*="owl-"] i {
+.owl-theme .owl-nav [class*="owl-"] i {
   font-size: 30px;
 }
-.owl-theme .owl-controls .owl-nav [class*="owl-"] i:hover, .owl-theme .owl-controls .owl-nav [class*="owl-"] i:focus {
+.owl-theme .owl-nav [class*="owl-"] i:hover, .owl-theme .owl-nav [class*="owl-"] i:focus {
   background: none !important;
 }
-.owl-theme .owl-controls .owl-nav [class*="owl-"]:hover, .owl-theme .owl-controls .owl-nav [class*="owl-"]:focus {
+.owl-theme .owl-nav [class*="owl-"]:hover, .owl-theme .owl-nav [class*="owl-"]:focus {
   background: none !important;
 }
 

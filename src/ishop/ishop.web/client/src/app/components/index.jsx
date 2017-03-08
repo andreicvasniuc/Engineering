@@ -6,6 +6,7 @@ import mainFooter from './main-footer';
 import languageSelector from './language-selector';
 import menu from './menu';
 import mobileMenu from './mobile-menu';
+import carousel from './carousel';
 
 export default angular
     .module('app.components', [])
@@ -15,4 +16,5 @@ export default angular
     .component('languageSelector', languageSelector)
     .component('menu', menu)
     .component('mobileMenu', mobileMenu)
+    .component('carousel', carousel)
     .name;

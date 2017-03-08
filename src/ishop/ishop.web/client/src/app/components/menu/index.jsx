@@ -2,7 +2,6 @@ import template from './template.html';
 
 class MenuController {
   constructor($rootScope, menuService) {
-    console.log('MenuController');
     this.menu = menuService.getMenu();
 
     this.superfishMainMenu();
@@ -11,7 +10,7 @@ class MenuController {
   }
 
   superfishMainMenu() {
-    $('#fh5co-primary-menu').unbind('superfish').superfish({ delay: 0, animation: { opacity: 'show' }, speed: 'fast', cssArrows: true, disableHI: true });
+    // $('#fh5co-primary-menu').unbind('superfish').superfish({ delay: 0, animation: { opacity: 'show' }, speed: 'fast', cssArrows: true, disableHI: true });
   }
 
 }
