@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="top-bar">
+    <div class="row column">
+      <div class="top-bar-left">
+        <navigation [isTitleBold]="true">
+          <li>
+            <input class="ng-pristine ng-valid ng-touched" placeholder="Search" type="search" [(ngModel)]="searchText" (keyup.enter)="search()">
+          </li>
+          <li>
+            <button class="button" type="button" (click)="search()">Search </button>
+          </li>
+        </navigation>
+      </div>
+    </div>
+  </div>
+</header>

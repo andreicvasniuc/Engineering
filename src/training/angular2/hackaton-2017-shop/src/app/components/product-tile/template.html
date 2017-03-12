@@ -1,0 +1,13 @@
+<div class="box" *ngIf="product" title="{{product.title}}">
+  <a [routerLink]="['/product', product.id]">
+    <img class="thumbnail" alt="{{product.title}}" [src]="product.image" height="300">
+  </a>
+  <a [routerLink]="['/product', product.id]">
+	  <div class="content">
+		<h5>{{product.title}}</h5>
+		<p>{{product.price}}</p>
+		<span class="button expanded">View more...</span>
+	  </div>
+  </a>
+
+</div>

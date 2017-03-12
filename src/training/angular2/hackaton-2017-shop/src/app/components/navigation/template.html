@@ -1,0 +1,10 @@
+<ul class="menu">
+  <li>
+    <strong *ngIf="isTitleBold">{{navigation.title}}</strong>
+    <span *ngIf="!isTitleBold">{{navigation.title}}</span>
+  </li>
+  <li *ngFor="let menuItem of navigation.menuItems">
+    <a routerLink="{{menuItem.url}}">{{menuItem.name}}</a>
+  </li>
+  <ng-content></ng-content>
+</ul>

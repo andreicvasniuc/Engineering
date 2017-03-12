@@ -1,0 +1,6 @@
+<loading-icon *ngIf="!products"></loading-icon>
+
+<div class="row small-up-2 large-up-4">
+  <product-tile *ngFor="let product of products" [product]="product" class="column plp-item">
+  </product-tile>
+</div>

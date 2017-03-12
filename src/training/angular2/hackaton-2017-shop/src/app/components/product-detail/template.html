@@ -1,0 +1,24 @@
+<loading-icon *ngIf="!product"></loading-icon>
+
+<div *ngIf="product">
+  <div class="row columns">
+    <ul class="breadcrumbs">
+      <li><button (click)="goBack()">< Back</button></li>
+    </ul>
+  </div>
+
+  <div class="row">
+  <div class="banner" itemscope="" itemtype="http://schema.org/Product">
+	<div class="banner-content nopadding">
+	  <h3 itemprop="name">{{product.title}}</h3>
+      <h5 itemprop="category">{{product.category}}</h5>
+      <p  itemprop="description">{{product.description}}</p>
+      <p itemprop="rating">Rating: {{product.rating}}</p>
+      <p itemprop="price">Price: {{product.price}}</p>
+	</div>
+	<div class="banner-image padding">
+      <img class="thumbnail" alt="{{product.title}}" [src]="product.image">
+    </div>
+  </div>
+  </div>
+</div>

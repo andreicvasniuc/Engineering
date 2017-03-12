@@ -1,0 +1,15 @@
+<loading-icon *ngIf="!products || products.length == 0"></loading-icon>
+
+<section class="section" *ngIf="products && products.length > 0">
+  <div class="row column text-center">
+    <h2 style="width: 100%">
+      <span *ngIf="!isRecommendation">Top products</span>
+      <span *ngIf="isRecommendation">Recommendations</span>
+    </h2>
+  </div>
+
+  <div class="row small-up-2 large-up-4">
+    <product-tile *ngFor="let product of products" [product]="product" class="column plp-item">
+    </product-tile>
+  </div>
+</section>
