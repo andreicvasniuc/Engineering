@@ -52,6 +52,6 @@ class Image::Processor
     end
 
     def self.get_image_path(folder_name, name=nil, extension=nil, size=:small, is_relative=false)
-      Image::Path.new(folder_name, name, extension, size, is_relative).to_s
+      Image::Path.new(folder_name, name.nil? ? "" : "image_#{name}", extension, size, is_relative).to_s
     end
 end

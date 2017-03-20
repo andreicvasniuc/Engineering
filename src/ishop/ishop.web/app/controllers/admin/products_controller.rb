@@ -1,26 +1,9 @@
 class Admin::ProductsController < SecuredController
   before_action :set_product, only: [:show, :update, :destroy]
 
-  # GET /admin/products
-  # GET /admin/products.json
-  # def index
-  #   # sleep 1.5
-  #   iputs params
-
-  #   # request.base_url
-  #   @products = Admin::Product.get_list_with_cover_images()
-
-  #   # iputs @products
-  #   # @products.each { |p| p.images.each { |i| iputs i.url } }
-
-  #   render json: @products
-  # end
-
-  # POST /admin/products/list
-  # POST /admin/products/list.json
-  def list
-    iputs params
-
+  # POST /admin/collections/:collection_id/products/search
+  # POST /admin/collections/:collection_id/products/search.json
+  def search
     @products, @total_count = Admin::Product.get_list_and_total_count(params[:search], params[:pagination], params[:sorting])
 
     render json: { productList: @products, totalCount: @total_count }
@@ -67,7 +50,6 @@ class Admin::ProductsController < SecuredController
   private
 
     def set_product
-      iputs params[:id]
       @product = Admin::Product.find(params[:id])
     end
 

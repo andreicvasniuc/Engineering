@@ -5,19 +5,23 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  scope '/api' do
-    resources :products, except: [:new, :edit]
-  end
+  # scope '/api' do
+  #   resources :products, except: [:new, :edit]
+  # end
 
   namespace :admin do
-    resources :products, except: [:new, :edit] do
-      post :list, on: :collection
+    resources :collections, except: [:index, :new, :edit] do
+      post :search, on: :collection
+      post :upload_image, on: :member
+      
+      resources :products, except: [:index, :new, :edit] do
+        post :search, on: :collection
 
-      resources :images, only: [:destroy] do
-        post :upload, on: :collection
-        put :make_cover, on: :member
+        resources :images, only: [:destroy] do
+          post :upload, on: :collection
+          patch :make_cover, on: :member
+        end
       end
-
     end
   end
 

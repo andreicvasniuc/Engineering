@@ -1,0 +1,106 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <span ng-if="!$ctrl.isEdit" translate="CREATE"></span> 
+        <span ng-if="$ctrl.isEdit" translate="EDIT"></span> 
+        <span translate="COLLECTION_"></span>
+
+        <img alt="Close icon" ng-src="{{$ctrl.closeIcon}}" ng-click="$ctrl.cancel()" class="clickable pull-right">
+        <div class="clearfix"></div>
+    </h4>
+</div>
+
+<div class="modal-body role-modal-body">
+    <form name="$ctrl.form" novalidate>
+
+        <uib-tabset active="$ctrl.activeTab" justified="true">
+            <uib-tab index="$ctrl.tabs.basicInformation" heading="{{'BASIC' | translate}}" select="$ctrl.selectTab($ctrl.tabs.basicInformation)">
+
+                <div class="pad15">
+                    <div class="form-group">
+                        <labeled-input label="{{'NAME' | translate}}" 
+                                       field-id="name"
+                                       value="$ctrl.collection.name"
+                                       is-required="true"
+                                       placeholder="{{'ENTER_COLLECTION_NAME' | translate}}"
+                                       label-class="width100"
+                                       focus="true">
+                        </labeled-input>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-textarea label="{{'DESCRIPTION' | translate}}" 
+                                          field-id="description"
+                                          value="$ctrl.collection.description"
+                                          placeholder="{{'ENTER_DESCRIPTION' | translate}}"
+                                          label-class="width100"
+                                          css-class="textarea">
+                        </labeled-textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-input label="{{'PUBLISHED' | translate}}" 
+                                       field-id="is-published"
+                                       value="$ctrl.collection.published"
+                                       type="checkbox"
+                                       css-class="checkbox"
+                                       display-after="true">
+                        </labeled-input>
+                    </div>
+                </div>
+
+            </uib-tab>
+
+            <uib-tab index="$ctrl.tabs.imageUploading" heading="{{'IMAGE_UPLOADING' | translate}}" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
+              <div class="pad15">
+                
+                <div flow-init="{ testChunks: false, singleFile: true }" 
+                     flow-file-success="$ctrl.flowFileSuccess($file, $message)" 
+                     flow-complete="$ctrl.flowComplete($flow)" 
+                     flow-error="$ctrl.flowError($file, $message, $flow.files)" 
+                     flow-file-added="$ctrl.flowFileAdded($flow, $file, $event)">
+                        
+                    <div class="clear pad15" flow-drop flow-drag-enter="style={border:'2px dashed green'}" flow-drag-leave="style={}" ng-style="style">
+                        <span flow-btn class="btn btn-default" translate="UPLOAD_IMAGES"></span>
+                        <span>
+                            <b translate="OR"></b>
+                            <span translate="DRAG_AND_DROP_YOUR_IMAGES_HERE"></span>
+                        </span>
+
+                        <!-- <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button> -->
+                    </div>
+
+                    <div class="gallery-box" ng-if="$ctrl.collection.image">
+                        <div class="thumbnail">
+                            <img ng-src="{{$ctrl.collection.image.small_image_url}}" />
+                        </div>
+                    </div>
+
+                    <div class="gallery-box" ng-repeat="file in $flow.files" title="{{file.name}}">
+                        <div ng-show="$flow.files.length" class="thumbnail">
+                            <img flow-img="file" />
+                        </div>
+
+                        <uib-progressbar class="progress-striped" value="$ctrl.uploadedFileSize(file)" type="info">
+                            {{$ctrl.uploadedFileSize(file)}}%
+                        </uib-progressbar>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+
+              </div>
+            </uib-tab>
+        </uib-tabset>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button-default label="{{'CANCEL' | translate}}" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
+
+    <span ng-show="$ctrl.isCurrentTab($ctrl.tabs.basicInformation)">
+        <button-spinner label="{{'ADD' | translate}}" click-callback="$ctrl.add()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="!$ctrl.isEdit"></button-spinner>
+
+        <button-spinner label="{{'EDIT' | translate}}" click-callback="$ctrl.edit()" is-disabled="$ctrl.form.$invalid" is-loading-spinner="$ctrl.isSavingSpinner" ng-if="$ctrl.isEdit"></button-spinner>
+    </span>
+</div>

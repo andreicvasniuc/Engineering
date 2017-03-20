@@ -2,6 +2,7 @@ import angular from 'angular';
 
 import categoryGrid from './category-grid';
 import productGrid from './product-grid';
+import collectionGrid from './collection-grid';
 import gridActionCell from './grid-action-cell';
 import gridPublishedCell from './grid-published-cell';
 import mainLayout from './main-layout';
@@ -17,14 +18,17 @@ import loadingIcon from './loading-icon';
 import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
 import labeledInput from './labeled-input';
+import labeledTextarea from './labeled-textarea';
 import modalAlert from './modal-alert';
 import productEditorPopup from './product-editor-popup';
+import collectionEditorPopup from './collection-editor-popup';
 import languageSelector from './language-selector';
 
 export default angular
     .module('admin.components', [])
     .component('categoryGrid', categoryGrid)
     .component('productGrid', productGrid)
+    .component('collectionGrid', collectionGrid)
     .component('mainLayout', mainLayout)
     .component('mainHeader', mainHeader)
     .component('sidebar', sidebar)
@@ -38,9 +42,11 @@ export default angular
     .component('buttonSpinner', buttonSpinner)
     .component('buttonDefault', buttonDefault)
     .component('labeledInput', labeledInput)
+    .component('labeledTextarea', labeledTextarea)
     .component('gridActionCell', gridActionCell)
     .component('gridPublishedCell', gridPublishedCell)
     .component('modalAlert', modalAlert)
     .component('productEditorPopup', productEditorPopup)
+    .component('collectionEditorPopup', collectionEditorPopup)
     .component('languageSelector', languageSelector)
     .name;

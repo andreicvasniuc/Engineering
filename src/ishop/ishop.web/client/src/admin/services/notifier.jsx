@@ -28,20 +28,20 @@ class Notifier {
     this.translateMessage(message, (translatedMessage) => this.toastr.error(translatedMessagxe, title, optionsOverride))
   }
 
-  showSuccessSaveMessage(item) {
-    this.success(`${item} WAS SAVED SUCCESSFULLY`);
+  showSuccessSaveMessage(item, ending) {
+    this.success(`${item} WAS${ending ? '_' : ''} SAVED${ending ? '_' : ''} SUCCESSFULLY`);
   }
 
-  showSuccessCreateMessage(item) {
-    this.success(`${item} WAS CREATED SUCCESSFULLY`);
+  showSuccessCreateMessage(item, ending) {
+    this.success(`${item} WAS${ending ? '_' : ''} CREATED${ending ? '_' : ''} SUCCESSFULLY`);
   }
 
-  showSuccessUpdateMessage(item) {
-    this.success(`${item} WAS UPDATED SUCCESSFULLY`);
+  showSuccessUpdateMessage(item, ending) {
+    this.success(`${item} WAS${ending ? '_' : ''} UPDATED${ending ? '_' : ''} SUCCESSFULLY`);
   }
 
-  showSuccessDeleteMessage(item) {
-    this.success(`${item} WAS DELETED SUCCESSFULLY`);
+  showSuccessDeleteMessage(item, ending) {
+    this.success(`${item} WAS${ending ? '_' : ''} DELETED${ending ? '_' : ''} SUCCESSFULLY`);
   }
 }
 

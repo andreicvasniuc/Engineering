@@ -1,5 +1,6 @@
 import loginTemplate from './controllers/login/template.html';
 import dashboardTemplate from './controllers/dashboard/template.html';
+import collectionTemplate from './controllers/collection/template.html';
 import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages, envProvider) => {
@@ -17,6 +18,12 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
       controllerAs: '$ctrl',
       requiresLogin: true
     },
+    collections: {
+      templateUrl: collectionTemplate,
+      controller: 'CollectionController',
+      controllerAs: '$ctrl',
+      requiresLogin: true
+    },
     products: {
       templateUrl: productTemplate,
       controller: 'ProductController',
@@ -27,6 +34,7 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
 
   let searchPath = '/sort/:sortBy/:sortByDirection/search/:searchText?';
   routeUrls.products_search = routeUrls.products + searchPath;
+  routeUrls.collections_search = routeUrls.collections + searchPath;
 
   $routeProvider
     .when(
@@ -38,6 +46,12 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
     .when(
         routeUrls.dashboard,
         routes.dashboard)
+    .when(
+        routeUrls.collections,
+        routes.collections)
+    .when(
+        routeUrls.collections_search,
+        routes.collections)
     .when(
         routeUrls.products,
         routes.products)

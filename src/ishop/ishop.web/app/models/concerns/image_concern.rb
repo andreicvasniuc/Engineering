@@ -13,11 +13,12 @@ module ImageConcern
 
     attr_accessor :small_image_url, :medium_image_url, :large_image_url
 
-    after_save :set_urls
+    # after_save :set_urls
 
     private
-      def set_urls
-        self.product.create_image_url()
-      end
+      # def set_urls
+      #   self.collection.create_image_url() unless self.collection.nil?
+      #   self.product.create_image_url() unless self.product.nil?
+      # end
   end
 end

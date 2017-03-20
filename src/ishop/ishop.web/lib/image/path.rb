@@ -23,7 +23,7 @@ class Image::Path
         create_directory(@path)
       end
 
-      @path = "#{@path}/product_images"
+      @path = "#{@path}/collection_product_images"
       create_directory(@path) unless @is_relative
 
       @path = "#{@path}/#{@folder_name}"

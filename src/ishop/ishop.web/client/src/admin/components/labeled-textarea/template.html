@@ -1,0 +1,18 @@
+<div class="{{$ctrl.cssClass}}">
+
+    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }" ng-if="!$ctrl.displayAfter"></label>
+
+    <textarea id="{{$ctrl.fieldId}}" 
+        name="{{$ctrl.fieldName}}" 
+        class="rightm10 form-control {{$ctrl.textareaClass}}" 
+        ng-disabled="$ctrl.isDisabled" 
+        ng-model="$ctrl.value" 
+        ng-required="$ctrl.isRequired" 
+        placeholder="{{$ctrl.placeholder}}" 
+        maxlength="{{$ctrl.maxlength}}"
+        focus-me="$ctrl.focus">
+    </textarea>
+
+    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="inline-block bold rightm10 {{$ctrl.labelClass}}" ng-class="{ 'red-asterisk' : $ctrl.isRequired }" ng-if="$ctrl.displayAfter"></label>
+
+</div>
