@@ -22,6 +22,7 @@ import labeledTextarea from './labeled-textarea';
 import modalAlert from './modal-alert';
 import productEditorPopup from './product-editor-popup';
 import collectionEditorPopup from './collection-editor-popup';
+import collectionSelectorPopup from './collection-selector-popup';
 import languageSelector from './language-selector';
 
 export default angular
@@ -48,5 +49,6 @@ export default angular
     .component('modalAlert', modalAlert)
     .component('productEditorPopup', productEditorPopup)
     .component('collectionEditorPopup', collectionEditorPopup)
+    .component('collectionSelectorPopup', collectionSelectorPopup)
     .component('languageSelector', languageSelector)
     .name;

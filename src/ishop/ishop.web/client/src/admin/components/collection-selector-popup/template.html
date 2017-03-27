@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <span translate="SELECT"></span> 
+        <span translate="COLLECTION_"></span>
+
+        <img alt="Close icon" ng-src="{{$ctrl.closeIcon}}" ng-click="$ctrl.cancel()" class="clickable pull-right">
+        <div class="clearfix"></div>
+    </h4>
+</div>
+
+<div class="modal-body role-modal-body">
+    <form class="text-center">
+
+      <div ng-show="$ctrl.isLoadingSpinner">
+        <loading-icon />
+      </div>
+      <div ng-hide="$ctrl.isLoadingSpinner">
+        <div class="btn-group" uib-dropdown>
+          <button type="button" class="btn btn-default" uib-dropdown-toggle>
+            {{'CHOOSE' | translate}} 
+            {{'COLLECTION_' | translate}}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu>
+            <li ng-repeat="collection in $ctrl.collections">
+              <a href="/" ng-click="$ctrl.select(collection, $event)">{{collection.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button-default label="{{'CANCEL' | translate}}" click-callback="$ctrl.cancel()" class="rightm10"></button-default>
+</div>

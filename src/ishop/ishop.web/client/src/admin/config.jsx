@@ -1,6 +1,7 @@
 import loginTemplate from './controllers/login/template.html';
 import dashboardTemplate from './controllers/dashboard/template.html';
 import collectionTemplate from './controllers/collection/template.html';
+import collectionProductTemplate from './controllers/collection-product/template.html';
 import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages, envProvider) => {
@@ -24,6 +25,12 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
       controllerAs: '$ctrl',
       requiresLogin: true
     },
+    collection_products: {
+      templateUrl: collectionProductTemplate,
+      controller: 'CollectionProductController',
+      controllerAs: '$ctrl',
+      requiresLogin: true
+    },
     products: {
       templateUrl: productTemplate,
       controller: 'ProductController',
@@ -33,7 +40,7 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
   };
 
   let searchPath = '/sort/:sortBy/:sortByDirection/search/:searchText?';
-  routeUrls.products_search = routeUrls.products + searchPath;
+  routeUrls.collection_products_search = routeUrls.collection_products + searchPath;
   routeUrls.collections_search = routeUrls.collections + searchPath;
 
   $routeProvider
@@ -56,8 +63,11 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
         routeUrls.products,
         routes.products)
     .when(
-        routeUrls.products_search,
-        routes.products)
+        routeUrls.collection_products,
+        routes.collection_products)
+    .when(
+        routeUrls.collection_products_search,
+        routes.collection_products)
     .otherwise(
         { redirectTo: routeUrls.index });
 

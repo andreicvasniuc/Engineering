@@ -8,10 +8,8 @@ class Admin::Collection
 
   after_destroy :delete_folder_with_images
 
-  def delete_folder_with_images
-    self.image.delete_image # use this way because after_destroy event is not triggered for embeds_one association
-    CollectionImage::Processor.delete_folder(self._id)
-  end
+  scope :published, -> { where(published: true) }
+  scope :names, -> { only(:name) }
 
   def self.search(search, pagination, sorting)
     directions = { asc: 1, desc: -1 }
@@ -57,5 +55,10 @@ class Admin::Collection
     })
     
     attrs
+  end
+
+  def delete_folder_with_images
+    self.image.delete_image # use this way because after_destroy event is not triggered for embeds_one association
+    CollectionImage::Processor.delete_folder(self._id)
   end
 end
