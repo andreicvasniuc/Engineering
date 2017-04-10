@@ -30,7 +30,7 @@ class ProductEditorPopupController {
       let activeTab = openImageUploadingTab ? this.tabs.imageUploading : this.tabs.basicInformation;
       this.initialize(product, activeTab);
       this.stopSavingSpinner();
-      this.openProductEditorPopup(); 
+      this.openProductEditorPopup();
     });
   }
 

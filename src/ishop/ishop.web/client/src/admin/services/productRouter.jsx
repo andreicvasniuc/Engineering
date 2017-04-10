@@ -25,8 +25,8 @@ class ProductRouter {
     this.router.goTo(url);
   }
 
-  goToSearchPage(url, collectionId, sortBy, sortByDirection, searchText) {
-    url = url.replace(this.paramMasks.collectionId, collectionId);
+  goToSearchPage(url, sortBy, sortByDirection, searchText) {
+    url = url.replace(this.paramMasks.collectionId, this.getCollectionId());
     this.router.goToSearchPage(url, sortBy, sortByDirection, searchText);
   }
 }

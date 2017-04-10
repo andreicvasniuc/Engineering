@@ -13,7 +13,7 @@ class CollectionSelectorPopupController {
     this.closeIcon = closeIcon;
 
     this.createOpenPopupEvent();
-    this.loadCollectionList();
+    this.loadCollections();
   }
 
   createOpenPopupEvent() {
@@ -38,7 +38,7 @@ class CollectionSelectorPopupController {
     this.modal.dismiss('cancel');
   }
 
-  loadCollectionList(successCallback) {
+  loadCollections(successCallback) {
     this.isLoadingSpinner = true;
 
     this.collectionService.getPublishedList((response) => {

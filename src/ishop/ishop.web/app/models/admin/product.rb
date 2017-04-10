@@ -4,6 +4,7 @@ class Admin::Product
   include ProductConcern
 
   embeds_many :images, class_name: "Admin::Image"
+  embedded_in :collection, class_name: "Admin::Collection"
 
   after_destroy :delete_folder_with_images
 

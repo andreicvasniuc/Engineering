@@ -32,15 +32,30 @@ class Admin::Collection
     .skip(pagination[:skip])
     .limit(pagination[:take])
 
-    iputs list_json
-
     list_json = list_json.map { |item_json| self.new(item_json) }
-
-    iputs list_json
 
     total_count = collection.count
 
     [list_json, total_count]
+  end
+
+  def search(search, pagination, sorting)
+    # iputs search
+    # iputs pagination
+    # iputs sorting
+    # iputs collection
+    # iputs self
+    # iputs self.methods.sort
+
+    list = self.products.where({ 
+      code: /#{search}/i
+    })
+    #.elem_match(images: {is_cover: true})
+
+    iputs 'upa11'
+    iputs list
+
+    [list, self.products.size]
   end
 
   def as_json(options={})

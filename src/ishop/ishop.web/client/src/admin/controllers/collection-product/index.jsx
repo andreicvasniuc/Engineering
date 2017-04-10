@@ -33,7 +33,6 @@ class CollectionProductController {
     this.isLoadingSpinner = true;
 
     let request = {
-      collectionId: this.productRouter.getCollectionId(),
       pagination: {
         skip: this.offset,
         take: this.range
@@ -85,7 +84,7 @@ class CollectionProductController {
   }
 
   search() {
-    this.productRouter.goToSearchPage(this.routeUrls.products_search, this.sortBy, this.sortByDirection, this.searchText);
+    this.productRouter.goToSearchPage(this.routeUrls.collection_products_search, this.sortBy, this.sortByDirection, this.searchText);
   }
 
   clearSearch() {

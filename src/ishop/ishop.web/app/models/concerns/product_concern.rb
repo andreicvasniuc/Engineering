@@ -4,7 +4,7 @@ module ProductConcern
   extend ActiveSupport::Concern
 
   included do
-    store_in collection: 'products'
+    # store_in collection: 'products'
 
     field :code, type: String
     field :published, type: Boolean

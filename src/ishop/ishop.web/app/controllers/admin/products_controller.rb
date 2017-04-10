@@ -1,11 +1,18 @@
 class Admin::ProductsController < SecuredController
+  before_action :set_collection
   before_action :set_product, only: [:show, :update, :destroy]
 
   # POST /admin/collections/:collection_id/products/search
   # POST /admin/collections/:collection_id/products/search.json
   def search
     # get collectionId and related products !!!!!!!!!!!!!
-    @products, @total_count = Admin::Product.search(params[:search], params[:pagination], params[:sorting])
+    iputs params
+
+    # render json: { products: [], totalCount: 0 }
+    # return
+
+    # @products, @total_count = Admin::Product.search(params[:search], params[:pagination], params[:sorting])
+    @products, @total_count = @collection.search(params[:search], params[:pagination], params[:sorting])
 
     render json: { products: @products, totalCount: @total_count }
   end
@@ -13,20 +20,22 @@ class Admin::ProductsController < SecuredController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
-    # iputs @product
+    iputs @product
     render json: @product
   end
 
   # POST /admin/products
   # POST /admin/products.json
   def create
-    # iputs product_params
-    @product = Admin::Product.new(product_params)
+    iputs product_params
+    @product = @collection.products.build(product_params)
+
+    iputs @product
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      render json: @collection, status: :created, location: @collection
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: @collection.errors, status: :unprocessable_entity
     end
   end
 
@@ -50,8 +59,12 @@ class Admin::ProductsController < SecuredController
   
   private
 
+    def set_collection
+      @collection = Admin::Collection.find(params[:collection_id])
+    end
+
     def set_product
-      @product = Admin::Product.find(params[:id])
+      @product = @collection.products.find(params[:id])
     end
 
     def product_params
