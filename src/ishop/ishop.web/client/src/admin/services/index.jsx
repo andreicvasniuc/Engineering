@@ -4,6 +4,7 @@ import resources from './resources';
 import notifiers from './notifiers';
 
 import RouterService from './router';
+import ProductRouterService from './productRouter';
 import NavigatorService from './navigator';
 import NotifierService from './notifier';
 import ModalAlert from './modalAlert';
@@ -16,6 +17,7 @@ import LoginService from './loginService';
 export default angular
     .module('admin.services', [ resources, notifiers ])
     .service('router', RouterService)
+    .service('productRouter', ProductRouterService)
     .service('navigator', NavigatorService)
     .service('notifier', NotifierService)
     .service('modalAlert', ModalAlert)

@@ -40,8 +40,8 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
   };
 
   let searchPath = '/sort/:sortBy/:sortByDirection/search/:searchText?';
-  routeUrls.collection_products_search = routeUrls.collection_products + searchPath;
   routeUrls.collections_search = routeUrls.collections + searchPath;
+  routeUrls.collection_products_search = routeUrls.collection_products + searchPath;
 
   $routeProvider
     .when(

@@ -18,7 +18,7 @@ class Admin::Product
   end
 
   # get list and total count with cover images
-  def self.get_list_and_total_count(search, pagination, sorting)
+  def self.search(search, pagination, sorting)
     directions = { asc: 1, desc: -1 }
 
     # run this command 

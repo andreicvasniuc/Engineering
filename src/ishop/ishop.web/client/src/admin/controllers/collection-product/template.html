@@ -27,13 +27,13 @@
 
                 <div class="row">
                   <div class="col-lg-12">
-                    <product-grid grid-data="$ctrl.productList"
+                    <product-grid grid-data="$ctrl.products"
                                   total-count="$ctrl.totalCount"
                                   sort-by-enum="$ctrl.sortByEnum"
                                   sort-by="$ctrl.sortBy"
                                   sort-by-direction="$ctrl.sortByDirection"
                                   show-empty-message="NO_RECORDS_FOUND"
-                                  is-empty="$ctrl.productList.length == 0 && !$ctrl.isLoadingSpinner" 
+                                  is-empty="$ctrl.products.length == 0 && !$ctrl.isLoadingSpinner" 
                                   loading-spinner="$ctrl.isLoadingSpinner">
                     </product-grid>
                   </div>

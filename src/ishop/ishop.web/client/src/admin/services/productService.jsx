@@ -4,13 +4,8 @@ class ProductService {
     this.requestService = requestService;
   }
 
-  // getList(request, successCallback, errorCallback){
-  //   return this.productResource.query(request, successCallback, errorCallback);
-  // }
-
-  getList(request, successCallback, errorCallback){
-    this.productResource.list(request, successCallback, errorCallback);
-    //this.requestService.ajax(this.productResource.list, request, successCallback, errorCallback);
+  search(request, successCallback, errorCallback){
+    this.productResource.search(request, successCallback, errorCallback);
   }
 
   get(product, successCallback, errorCallback) {

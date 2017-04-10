@@ -1,8 +1,8 @@
 class ProductResource {
   constructor($resource, env) {
-    return $resource(`${env.getApiUrl()}/admin/products/:id`, { id: '@id' }, {
+    return $resource(`${env.getApiUrl()}/admin/collections/:collectionId/products/:id`, { collectionId: '@collectionId', id: '@id' }, {
         update: { method: 'PUT' },
-        list: { method: 'POST', url: `${env.getApiUrl()}/admin/products/list` }
+        search: { method: 'POST', url: `${env.getApiUrl()}/admin/collections/:collectionId/products/search` }
         //synchronize: { method: 'POST', url: '/api/values/synchronize' }
     });
   }

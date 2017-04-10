@@ -2,12 +2,13 @@ import template from './template.html';
 import closeIcon from 'images/close.png';
 
 class CollectionSelectorPopupController {
-  constructor($scope, $uibModal, $translate, collectionService, router, routeUrls) {
+  constructor($scope, $uibModal, $translate, collectionService, router, routeUrls, productRouter) {
     this.$scope = $scope;
     this.$uibModal = $uibModal;
     this.$translate = $translate;
     this.collectionService = collectionService;
     this.router = router;
+    this.productRouter = productRouter;
     this.routeUrls = routeUrls;
     this.closeIcon = closeIcon;
 
@@ -29,9 +30,8 @@ class CollectionSelectorPopupController {
   }
 
   select(collection, event) {
-    console.log(collection, event);
     event.preventDefault();
-    //create productRouter and use it to populate collectionId
+    this.productRouter.goTo(this.routeUrls.collection_products, collection._id.$oid);
   }
 
   cancel() {
