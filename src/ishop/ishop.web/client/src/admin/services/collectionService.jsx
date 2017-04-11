@@ -11,8 +11,8 @@ class CollectionService {
     this.collectionResource.getPublishedList(successCallback, errorCallback);
   }
 
-  get(collection, successCallback, errorCallback) {
-    this.collectionResource.get({ id: collection._id.$oid }, successCallback, errorCallback);
+  get(id, successCallback, errorCallback) {
+    this.collectionResource.get({ id: id }, successCallback, errorCallback);
   }
 
   add(collection, successCallback, errorCallback) {

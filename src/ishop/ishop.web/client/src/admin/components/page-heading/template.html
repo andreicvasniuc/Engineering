@@ -1,6 +1,9 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header" translate="{{$ctrl.currentNavigationItem.title}}">
+        <h1></h1>
+        <h1 class="page-header">
+            <span ng-if="$ctrl.preTitle" ng-bind-html="$ctrl.preTitle | trust"></span>
+            {{$ctrl.currentNavigationItem.title | translate}}
             <!-- <small>Statistics Overview</small> -->
         </h1>
         <!-- <breadcrumb /> -->

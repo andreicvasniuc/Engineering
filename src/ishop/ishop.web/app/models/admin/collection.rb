@@ -40,16 +40,25 @@ class Admin::Collection
   end
 
   def search(search, pagination, sorting)
+    iputs 'search'
+    iputs [sorting[:field].to_sym, sorting[:direction].to_sym]
     # iputs search
     # iputs pagination
-    # iputs sorting
+     # iputs sorting
     # iputs collection
     # iputs self
     # iputs self.methods.sort
 
+
+
     list = self.products.where({ 
       code: /#{search}/i
     })
+    # .sort {|x,y| sorting[:direction].to_sym == :asc ? x[sorting[:field].to_sym] <= y[sorting[:field].to_sym] : x[sorting[:field].to_sym] > y[sorting[:field].to_sym] }
+    
+    # .skip(pagination[:skip])
+    # .limit(pagination[:take])
+        # .order(sorting[:field] => sorting[:direction])
     #.elem_match(images: {is_cover: true})
 
     iputs 'upa11'

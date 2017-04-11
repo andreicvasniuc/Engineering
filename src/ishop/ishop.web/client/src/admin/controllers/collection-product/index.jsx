@@ -1,13 +1,15 @@
 class CollectionProductController {
-  constructor($scope, $rootScope, productService, productRouter, routeUrls, uiGridConstants) {
+  constructor($scope, $rootScope, collectionService, productService, productRouter, routeUrls, uiGridConstants) {
     this.$scope = $scope;
     this.$rootScope = $rootScope;
+    this.collectionService = collectionService;
     this.productService = productService;
     this.productRouter = productRouter;
     this.routeUrls = routeUrls;
 
     this.initialize();
     this.initializeSorting(uiGridConstants);
+    this.loadCollection();
     this.loadProducts();
 
     $scope.$on('reloadGrid', () => this.reloadGrid());
@@ -27,6 +29,12 @@ class CollectionProductController {
     this.productRouter.initialize(this.sortByEnum, this.sortByEnum.updated_at, uiGridConstants.DESC);
 
     [this.sortBy, this.sortByDirection, this.searchText] = this.productRouter.getSortAndSearch();
+  }
+
+  loadCollection() {
+    this.collectionService.get(this.productRouter.getCollectionId(), (collection) => {
+      this.collectionName = collection.name;
+    });
   }
 
   loadProducts(successCallback) {

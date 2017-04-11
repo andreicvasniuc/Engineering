@@ -5,13 +5,6 @@ class Admin::ProductsController < SecuredController
   # POST /admin/collections/:collection_id/products/search
   # POST /admin/collections/:collection_id/products/search.json
   def search
-    # get collectionId and related products !!!!!!!!!!!!!
-    iputs params
-
-    # render json: { products: [], totalCount: 0 }
-    # return
-
-    # @products, @total_count = Admin::Product.search(params[:search], params[:pagination], params[:sorting])
     @products, @total_count = @collection.search(params[:search], params[:pagination], params[:sorting])
 
     render json: { products: @products, totalCount: @total_count }
@@ -20,22 +13,18 @@ class Admin::ProductsController < SecuredController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
-    iputs @product
     render json: @product
   end
 
   # POST /admin/products
   # POST /admin/products.json
   def create
-    iputs product_params
     @product = @collection.products.build(product_params)
 
-    iputs @product
-
     if @product.save
-      render json: @collection, status: :created, location: @collection
+      render json: @product, status: :created, location: @collection
     else
-      render json: @collection.errors, status: :unprocessable_entity
+      render json: @product.errors, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +32,7 @@ class Admin::ProductsController < SecuredController
   # PATCH/PUT /admin/products/1.json
   def update
     if @product.update(product_params)
-      render json: @product, status: :ok, location: @product
+      render json: @product, status: :ok, location: @collection
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -54,7 +43,7 @@ class Admin::ProductsController < SecuredController
   def destroy
     @product.destroy
 
-    render json: @product, status: :ok, location: @product
+    render json: @product, status: :ok, location: @collection
   end
   
   private

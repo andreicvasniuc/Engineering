@@ -80,7 +80,7 @@ class CollectionGridController {
   }
 
   editCollection(entity, openImageUploadingTab) {
-    self.collectionService.get(entity, (response) => {
+    self.collectionService.get(entity._id.$oid, (response) => {
       self.$rootScope.$broadcast('openCollectionEditorPopup', response, openImageUploadingTab);
     });
   }

@@ -7,7 +7,9 @@ class PageHeadingController {
 }
 
 let pageHeading = {
-  bindings: {},
+  bindings: {
+    preTitle: '@'
+  },
   controller: PageHeadingController,
   templateUrl: template
 };

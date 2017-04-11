@@ -1,0 +1,1 @@
+export default ($sce) => (text) => $sce.trustAsHtml(text)
