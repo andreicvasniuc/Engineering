@@ -14,23 +14,52 @@ class Admin::Collection
   def self.search(search, pagination, sorting)
     directions = { asc: 1, desc: -1 }
 
-    list_json = collection.find({
-      :name => {'$regex' => search},
-      :description => {'$regex' => search}
-      },{
-      :projection => {
-        :name => 1, 
-        :description => 1, 
-        :published => 1, 
-        :updated_at => 1,
-        :image => 1
+    list_json = collection
+    .aggregate([
+      { '$match' => {
+          :name => {'$regex' => search},
+          :description => {'$regex' => search}
+        }
       },
-      :sort => {
-        sorting[:field] => directions[sorting[:direction].to_sym]
-      }
-    })
-    .skip(pagination[:skip])
-    .limit(pagination[:take])
+      { '$project' => {
+          :name => 1, 
+          :description => 1, 
+          :published => 1, 
+          :updated_at => 1,
+          :image => 1,
+          :products_count => { '$size' => { '$ifNull' => ['$products', []] } }
+        }
+      },
+      { '$sort' => {
+          sorting[:field] => directions[sorting[:direction].to_sym]
+        }
+      },
+      {
+        '$skip' => pagination[:skip]
+      },
+      {
+        '$limit' => pagination[:take]
+      }])
+
+    # .find({
+    #   :name => {'$regex' => search},
+    #   :description => {'$regex' => search}
+    #   },
+    #   {
+    #   :projection => {
+    #     :name => 1, 
+    #     :description => 1, 
+    #     :published => 1, 
+    #     :updated_at => 1,
+    #     :image => 1,
+    #     :productsCount => { '$size' => '$products' }
+    #   },
+    #   :sort => {
+    #     sorting[:field] => directions[sorting[:direction].to_sym]
+    #   }
+    # })
+    # .skip(pagination[:skip])
+    # .limit(pagination[:take])
 
     list_json = list_json.map { |item_json| self.new(item_json) }
 
@@ -51,9 +80,7 @@ class Admin::Collection
 
 
 
-    list = self.products.where({ 
-      code: /#{search}/i
-    })
+    list = self.products.where({ code: /#{search}/i })
     # .sort {|x,y| sorting[:direction].to_sym == :asc ? x[sorting[:field].to_sym] <= y[sorting[:field].to_sym] : x[sorting[:field].to_sym] > y[sorting[:field].to_sym] }
     
     # .skip(pagination[:skip])
@@ -69,6 +96,8 @@ class Admin::Collection
 
   def as_json(options={})
     attrs = super(options)
+
+    attrs["products_count"] = self.products_count
 
     return attrs if self.image.nil?
 

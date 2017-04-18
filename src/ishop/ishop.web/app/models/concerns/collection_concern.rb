@@ -13,6 +13,8 @@ module CollectionConcern
     index name: 1
     index published: 1
 
+    attr_accessor :products_count
+
     default_scope -> { order(:updated_at => :desc) }
 
     after_initialize :create_image_url

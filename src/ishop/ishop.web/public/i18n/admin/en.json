@@ -68,5 +68,7 @@
   "YES": "Yes",
   "IMAGE": "The image",
   "MADE": "made",
-  "AS_COVER": "as cover"
+  "AS_COVER": "as cover",
+  "PRODUCTS_COUNT": "Products count",
+  "GO_TO_PRODUCTS": "Go to products"
 }

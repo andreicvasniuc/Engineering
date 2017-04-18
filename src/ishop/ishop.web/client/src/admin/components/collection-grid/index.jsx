@@ -4,9 +4,10 @@ import template from './template.html';
 import gridActionCell from './grid-action-cell.html';
 import gridPublishedCell from './grid-published-cell.html';
 import gridImageCell from './grid-image-cell.html';
+import gridLinkCell from './grid-link-cell.html';
 
 class CollectionGridController {
-  constructor($scope, $rootScope, $timeout, $translate, collectionService, collectionNotifier, modalAlert) {
+  constructor($scope, $rootScope, $timeout, $translate, collectionService, collectionNotifier, modalAlert, productRouter, routeUrls) {
     self = this;
     this.$scope = $scope;
     this.$rootScope = $rootScope;
@@ -15,6 +16,8 @@ class CollectionGridController {
     this.collectionService = collectionService;
     this.collectionNotifier = collectionNotifier;
     this.modalAlert = modalAlert;
+    this.productRouter = productRouter;
+    this.routeUrls = routeUrls;
 
     this.createColumnDefinitions();
     this.createCallbacks();
@@ -52,6 +55,15 @@ class CollectionGridController {
           width: 200
       },
       {
+          field: 'products_count',
+          displayName: 'PRODUCTS_COUNT',
+          headerCellFilter: "translate",
+          cellTemplate: gridLinkCell,
+          cellClass: 'text-center',
+          clickable: false,
+          width: 180
+      },
+      {
           field: 'published',
           displayName: '',
           cellTemplate: gridPublishedCell,
@@ -75,7 +87,8 @@ class CollectionGridController {
       upload: this.upload,
       delete: this.delete,
       clickOnRow: this.clickOnRow,
-      publish: this.publish
+      publish: this.publish,
+      goToProducts: this.goToProducts
     };
   }
 
@@ -124,6 +137,10 @@ class CollectionGridController {
       self.collectionNotifier.showSuccessPublishedMessage(published);
       if(callback) callback();
     });
+  }
+
+  goToProducts(entity) {
+    self.productRouter.goTo(self.routeUrls.collection_products, entity._id.$oid);
   }
 
   setGridHeight() {
