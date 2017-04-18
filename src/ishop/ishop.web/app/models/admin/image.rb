@@ -2,8 +2,7 @@ class Admin::Image
   include Mongoid::Document
   include ImageConcern
 
-  # embedded_in :collection, class_name: "Admin::Collection"
-  # embedded_in :product, class_name: "Admin::Product"
+  embedded_in :product, class_name: "Admin::Product"
 
   after_destroy :delete_image1
 

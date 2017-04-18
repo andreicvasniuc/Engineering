@@ -1,8 +1,8 @@
 class CollectionImage::Processor
   attr_reader :processor
 
-  def initialize(folder_name, file)
-    @processor = Image::Processor.new(self.class.full_folder_name(folder_name), file)
+  def initialize(collection_id, file)
+    @processor = Image::Processor.new(self.class.full_folder_name(collection_id), file)
   end
 
   def save_image
@@ -17,8 +17,7 @@ class CollectionImage::Processor
     Image::Processor.delete_folder(full_folder_name(folder_name), name)
   end
 
-  private
-    def self.full_folder_name(folder_name)
-      "collection_#{folder_name}"
-    end
+  def self.full_folder_name(collection_id)
+    "collection_#{collection_id}"
+  end
 end

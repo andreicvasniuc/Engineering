@@ -4,13 +4,14 @@ import template from './template.html';
 import closeIcon from 'images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, imageService, imageNotifier, modalAlert, env) {
+  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, productRouter, imageService, imageNotifier, modalAlert, env) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.$translate = $translate;
     this.productService = productService;
     this.productNotifier = productNotifier;
+    this.productRouter = productRouter;
     this.imageService = imageService;
     this.imageNotifier = imageNotifier;
     this.modalAlert = modalAlert;
@@ -55,7 +56,7 @@ class ProductEditorPopupController {
   }
 
   setUploadUrl() {
-    this.uploadUrl = `${this.env.getApiUrl()}/admin/products/${this.product._id.$oid}/images/upload/`;
+    this.uploadUrl = `${this.env.getApiUrl()}/admin/collections/${this.productRouter.getCollectionId()}/products/${this.product._id.$oid}/images/upload/`;
   }
 
   startSavingSpinner() { this.isSavingSpinner = true; }
