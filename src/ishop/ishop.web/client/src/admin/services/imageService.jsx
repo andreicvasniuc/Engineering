@@ -1,14 +1,15 @@
 class ImageService {
-  constructor(imageResource) {
+  constructor(imageResource, productRouter) {
     this.imageResource = imageResource;
+    this.productRouter = productRouter;
   }
 
-  makeCover(product_id, image, successCallback, errorCallback){
-    this.imageResource.makeCover({ product_id: product_id, id: image._id.$oid }, successCallback, errorCallback);
+  makeCover(productId, image, successCallback, errorCallback){
+    this.imageResource.makeCover({ collectionId: this.productRouter.getCollectionId(), productId: productId, id: image._id.$oid }, successCallback, errorCallback);
   }
 
-  delete(product_id, image, successCallback, errorCallback){
-    this.imageResource.remove({ product_id: product_id, id: image._id.$oid }, successCallback, errorCallback);
+  delete(productId, image, successCallback, errorCallback){
+    this.imageResource.remove({ collectionId: this.productRouter.getCollectionId(), productId: productId, id: image._id.$oid }, successCallback, errorCallback);
   }
 }
 

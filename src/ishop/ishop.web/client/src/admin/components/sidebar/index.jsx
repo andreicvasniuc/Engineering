@@ -1,14 +1,19 @@
 import template from './template.html';
 
 class SidebarController {
-  constructor(router, navigator) {
+  constructor($route, router, navigator) {
+    this.$route = $route;
     this.router = router;
 
     this.navigationItems = navigator.navigationItems;
   }
 
   goTo(url) {
-    this.router.goTo(url);
+    if(this.isActive(url)) {
+      this.$route.reload();
+    } else {
+      this.router.goTo(url);
+    }
   }
 
   isActive(url) {

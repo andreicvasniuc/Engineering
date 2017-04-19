@@ -79,7 +79,6 @@ class Admin::CollectionsController < SecuredController
   private
 
     def delete_image
-      @collection.image.delete_image # use this way because after_destroy event is not triggered for embeds_one association
       @collection.image.destroy
     end
 

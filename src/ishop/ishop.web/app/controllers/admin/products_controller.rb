@@ -4,11 +4,11 @@ class Admin::ProductsController < SecuredController
 
   # POST /admin/collections/:collection_id/products/search
   # POST /admin/collections/:collection_id/products/search.json
-  def search
-    @products, @total_count = @collection.search(params[:search], params[:pagination], params[:sorting])
+  # def search
+  #   @products, @total_count = @collection.search(params[:search], params[:pagination], params[:sorting])
 
-    render json: { products: @products, totalCount: @total_count }
-  end
+  #   render json: { products: @products, totalCount: @total_count }
+  # end
 
   # GET /admin/products/1
   # GET /admin/products/1.json

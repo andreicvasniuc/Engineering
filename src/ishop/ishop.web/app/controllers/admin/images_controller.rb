@@ -15,8 +15,6 @@ class Admin::ImagesController < SecuredController
     image_processor = ProductImage::Processor.new(collection_id, product_id, image_file)
 
     if image_processor.save_image
-      iputs @product
-      iputs @product.images
       render json: @product, status: :ok, location: @collection
     else
       render json: image_processor.errors, status: :unprocessable_entity

@@ -48,6 +48,11 @@ class CollectionSelectorPopupController {
       }, 
       () => { console.log('error'); });
   }
+
+  goToCollections() {
+    this.cancel();
+    this.router.goTo(this.routeUrls.collections);
+  }
 }
 
 let collectionSelectorPopup = {

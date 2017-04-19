@@ -20,10 +20,15 @@ module CollectionConcern
     after_initialize :create_image_url
 
     def create_image_url
-      return if self.image.nil?
-      self.image.small_image_url  = create_image_url_by_size(self.image, :small )
-      self.image.medium_image_url = create_image_url_by_size(self.image, :medium)
-      self.image.large_image_url  = create_image_url_by_size(self.image, :large )
+      if self.image.present?
+        self.image.small_image_url  = create_image_url_by_size(self.image, :small )
+        self.image.medium_image_url = create_image_url_by_size(self.image, :medium)
+        self.image.large_image_url  = create_image_url_by_size(self.image, :large )
+      end
+
+      self.products.each do |product|
+        product.create_image_url()
+      end if self.products.present?
     end
 
     private

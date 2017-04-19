@@ -9,8 +9,6 @@ class CollectionProductController {
     this.routeUrls = routeUrls;
     this.uiGridConstants = uiGridConstants;
 
-    console.log("$cacheFactory.get('$http');", $cacheFactory, $cacheFactory.get('$http'));
-
     this.initialize();
     this.initializeSorting();
     this.loadCollection();
@@ -36,22 +34,20 @@ class CollectionProductController {
   }
 
   loadCollection(clearCache) {
-
     if(clearCache) this.$cacheFactoryObject.removeAll();
 
     this.isLoadingSpinner = true;
 
     this.collectionService.get(this.productRouter.getCollectionId(), (collection) => {
-      console.log('collection', collection);
       this.collection = collection;
       this.products = this.searchProducts(collection.products);
-      this.totalCount = collection.products.length;
+      this.totalCount = this.products.length;
       this.isLoadingSpinner = false;
     });
   }
 
   searchProducts(products) {
-    console.log('searchProducts', products, this.sortBy, this.sortByDirection, this.searchText);
+    if(!products) return [];
 
     if(this.searchText) {
       products = _.filter(products, (product) => product.code && product.code.indexOf(this.searchText) != -1);
@@ -96,14 +92,12 @@ class CollectionProductController {
   // }
 
   reloadGrid() {
-    console.log('reloadGrid');
     this.loadCollection(true);
     //this.initialize();
     // this.reloadProducts();
   }
 
   loadMoreData() {
-    console.log('loadMoreData');
     // this.start += 1;
     // this.offset = (this.start - 1) * this.range;
 

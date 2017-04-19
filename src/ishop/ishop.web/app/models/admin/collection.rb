@@ -17,8 +17,10 @@ class Admin::Collection
     list_json = collection
     .aggregate([
       { '$match' => {
-          :name => {'$regex' => search},
-          :description => {'$regex' => search}
+          '$or' => [
+            {:name => {'$regex' => search}},
+            {:description => {'$regex' => search}}
+          ]
         }
       },
       { '$project' => {
@@ -41,22 +43,24 @@ class Admin::Collection
         '$limit' => pagination[:take]
       }])
 
+    # list_json = collection
     # .find({
-    #   :name => {'$regex' => search},
-    #   :description => {'$regex' => search}
+    #     '$or' => [
+    #       {:name => {'$regex' => search}},
+    #       {:description => {'$regex' => search}}
+    #     ]
     #   },
     #   {
-    #   :projection => {
-    #     :name => 1, 
-    #     :description => 1, 
-    #     :published => 1, 
-    #     :updated_at => 1,
-    #     :image => 1,
-    #     :productsCount => { '$size' => '$products' }
+    #     :projection => {
+    #       :name => 1, 
+    #       :description => 1, 
+    #       :published => 1, 
+    #       :updated_at => 1,
+    #       :image => 1
     #   },
-    #   :sort => {
-    #     sorting[:field] => directions[sorting[:direction].to_sym]
-    #   }
+    #     :sort => {
+    #       sorting[:field] => directions[sorting[:direction].to_sym]
+    #     }
     # })
     # .skip(pagination[:skip])
     # .limit(pagination[:take])
@@ -68,50 +72,37 @@ class Admin::Collection
     [list_json, total_count]
   end
 
-  def search(search, pagination, sorting)
-    iputs 'search'
-    iputs [sorting[:field].to_sym, sorting[:direction].to_sym]
-    # iputs search
-    # iputs pagination
-     # iputs sorting
-    # iputs collection
-    # iputs self
-    # iputs self.methods.sort
-
-
-
-    list = self.products.where({ code: /#{search}/i })
-    # .sort {|x,y| sorting[:direction].to_sym == :asc ? x[sorting[:field].to_sym] <= y[sorting[:field].to_sym] : x[sorting[:field].to_sym] > y[sorting[:field].to_sym] }
+  # def search(search, pagination, sorting)
+  #   list = self.products.where({ code: /#{search}/i })
+  #   # .sort {|x,y| sorting[:direction].to_sym == :asc ? x[sorting[:field].to_sym] <= y[sorting[:field].to_sym] : x[sorting[:field].to_sym] > y[sorting[:field].to_sym] }
     
-    # .skip(pagination[:skip])
-    # .limit(pagination[:take])
-        # .order(sorting[:field] => sorting[:direction])
-    #.elem_match(images: {is_cover: true})
+  #   # .skip(pagination[:skip])
+  #   # .limit(pagination[:take])
+  #       # .order(sorting[:field] => sorting[:direction])
+  #   #.elem_match(images: {is_cover: true})
 
-    iputs 'upa11'
-    iputs list
-
-    [list, self.products.size]
-  end
+  #   [list, self.products.size]
+  # end
 
   def as_json(options={})
     attrs = super(options)
 
     attrs["products_count"] = self.products_count
 
-    return attrs if self.image.nil?
-
     attrs["image"].merge!({
         :small_image_url => self.image.small_image_url,
         :medium_image_url => self.image.medium_image_url,
         :large_image_url => self.image.large_image_url
-    })
+    }) if self.image.present?
+
+      self.products.each_with_index do |product, index|
+        attrs["products"][index] = product.as_json(attrs["products"][index])
+      end if self.products.present?
     
     attrs
   end
 
   def delete_folder_with_images
-    self.image.delete_image # use this way because after_destroy event is not triggered for embeds_one association
     CollectionImage::Processor.delete_folder(self._id)
   end
 end

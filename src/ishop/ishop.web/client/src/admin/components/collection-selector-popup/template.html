@@ -15,17 +15,22 @@
         <loading-icon />
       </div>
       <div ng-hide="$ctrl.isLoadingSpinner">
-        <div class="btn-group" uib-dropdown>
-          <button type="button" class="btn btn-default" uib-dropdown-toggle>
-            {{'CHOOSE' | translate}} 
-            {{'COLLECTION_' | translate}}
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu>
-            <li ng-repeat="collection in $ctrl.collections">
-              <a href="/" ng-click="$ctrl.select(collection, $event)">{{collection.name}}</a>
-            </li>
-          </ul>
+        <div ng-hide="$ctrl.collections.length == 0">
+          <div class="btn-group" uib-dropdown>
+            <button type="button" class="btn btn-default" uib-dropdown-toggle>
+              {{'CHOOSE' | translate}} 
+              {{'COLLECTION_' | translate}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu>
+              <li ng-repeat="collection in $ctrl.collections">
+                <a href="/" ng-click="$ctrl.select(collection, $event)">{{collection.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div ng-show="$ctrl.collections.length == 0">
+          <button-default label="{{'GO_AND_ADD_COLLECTIONS' | translate}}" click-callback="$ctrl.goToCollections()"></button-default>
         </div>
       </div>
 

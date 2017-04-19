@@ -24,7 +24,7 @@ class ProductGridController {
   createColumnDefinitions() {
     this.columnDefinitions = [
       {
-          field: 'images',
+          field: 'cover_image',
           displayName: "COVER",
           headerCellFilter: "translate",
           cellTemplate: gridImageCell,

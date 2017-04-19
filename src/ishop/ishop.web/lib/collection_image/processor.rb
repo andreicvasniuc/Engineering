@@ -9,12 +9,12 @@ class CollectionImage::Processor
     @processor.save_image
   end
 
-  def self.get_relative_image_path(folder_name, name, extension, size)
-    Image::Processor.get_relative_image_path(full_folder_name(folder_name), name, extension, size)
+  def self.get_relative_image_path(collection_id, name, extension, size)
+    Image::Processor.get_relative_image_path(full_folder_name(collection_id), name, extension, size)
   end
 
-  def self.delete_folder(folder_name, name=nil)
-    Image::Processor.delete_folder(full_folder_name(folder_name), name)
+  def self.delete_folder(collection_id, name=nil)
+    Image::Processor.delete_folder(full_folder_name(collection_id), name)
   end
 
   def self.full_folder_name(collection_id)

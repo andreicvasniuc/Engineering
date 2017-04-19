@@ -4,6 +4,8 @@ class Admin::CollectionImage < Admin::Image
 
   after_save :set_urls
 
+  after_destroy :delete_image
+
   def delete_image
     CollectionImage::Processor.delete_folder(self.collection._id, self._id)
   end
