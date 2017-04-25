@@ -19,11 +19,13 @@ import buttonSpinner from './button-spinner';
 import buttonDefault from './button-default';
 import labeledInput from './labeled-input';
 import labeledTextarea from './labeled-textarea';
+import labeledDropdown from './labeled-dropdown';
 import modalAlert from './modal-alert';
 import productEditorPopup from './product-editor-popup';
 import collectionEditorPopup from './collection-editor-popup';
 import collectionSelectorPopup from './collection-selector-popup';
 import languageSelector from './language-selector';
+import sizeEditorPopover from './size-editor-popover';
 
 export default angular
     .module('admin.components', [])
@@ -44,6 +46,7 @@ export default angular
     .component('buttonDefault', buttonDefault)
     .component('labeledInput', labeledInput)
     .component('labeledTextarea', labeledTextarea)
+    .component('labeledDropdown', labeledDropdown)
     .component('gridActionCell', gridActionCell)
     .component('gridPublishedCell', gridPublishedCell)
     .component('modalAlert', modalAlert)
@@ -51,4 +54,5 @@ export default angular
     .component('collectionEditorPopup', collectionEditorPopup)
     .component('collectionSelectorPopup', collectionSelectorPopup)
     .component('languageSelector', languageSelector)
+    .component('sizeEditorPopover', sizeEditorPopover)
     .name;

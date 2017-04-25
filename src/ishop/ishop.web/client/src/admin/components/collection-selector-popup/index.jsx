@@ -41,7 +41,7 @@ class CollectionSelectorPopupController {
   loadCollections(successCallback) {
     this.isLoadingSpinner = true;
 
-    this.collectionService.getPublishedList((response) => {
+    this.collectionService.list((response) => {
         this.collections = response.collections;
         this.isLoadingSpinner = false;
         if(successCallback) successCallback();

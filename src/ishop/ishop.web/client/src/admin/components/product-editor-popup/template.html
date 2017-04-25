@@ -17,14 +17,36 @@
 
                 <div class="pad15">
                     <div class="form-group">
-                        <labeled-input label="{{'CODE' | translate}}" 
-                                       field-id="code"
-                                       value="$ctrl.product.code"
+                        <labeled-input label="{{'NAME' | translate}}" 
+                                       field-id="name"
+                                       value="$ctrl.product.name"
                                        is-required="true"
-                                       placeholder="{{'ENTER_PRODUCT_CODE' | translate}}"
-                                       label-class="width50"
-                                       focus="true">
+                                       placeholder="{{'ENTER_PRODUCT_NAME' | translate}}"
+                                       focus="true"
+                                       css-class="input">
                         </labeled-input>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-textarea label="{{'DESCRIPTION' | translate}}" 
+                                          field-id="description"
+                                          value="$ctrl.product.description"
+                                          placeholder="{{'ENTER_DESCRIPTION' | translate}}"
+                                          css-class="textarea">
+                        </labeled-textarea>
+                    </div>
+
+                    <div class="form-group relative">
+                        <labeled-dropdown label="{{'SIZE' | translate}}" 
+                                          field-id="size"
+                                          items="$ctrl.sizes"
+                                          value="$ctrl.product.size_id"
+                                          text-property="name"
+                                          value-property="id"
+                                          css-class="dropdown">
+                        </labeled-dropdown>
+
+                        <button-default label="{{'ADD_SIZE' | translate}}" class="add-item-btn" uib-popover-template="$ctrl.sizeTemplate" popover-placement="right-top"></button-default>
                     </div>
 
                     <div class="form-group">

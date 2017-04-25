@@ -22,8 +22,8 @@
                                        value="$ctrl.collection.name"
                                        is-required="true"
                                        placeholder="{{'ENTER_COLLECTION_NAME' | translate}}"
-                                       label-class="width100"
-                                       focus="true">
+                                       focus="true"
+                                       css-class="input">
                         </labeled-input>
                     </div>
 
@@ -32,7 +32,6 @@
                                           field-id="description"
                                           value="$ctrl.collection.description"
                                           placeholder="{{'ENTER_DESCRIPTION' | translate}}"
-                                          label-class="width100"
                                           css-class="textarea">
                         </labeled-textarea>
                     </div>
@@ -75,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-box" ng-repeat="file in $flow.files" title="{{file.name}}">
+                    <div class="gallery-box uploading" ng-repeat="file in $flow.files" title="{{file.name}}">
                         <div ng-show="$flow.files.length" class="thumbnail">
                             <img flow-img="file" />
                         </div>

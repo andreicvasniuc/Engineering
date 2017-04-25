@@ -73,7 +73,7 @@ class Admin::Collection
   end
 
   # def search(search, pagination, sorting)
-  #   list = self.products.where({ code: /#{search}/i })
+  #   list = self.products.where({ name: /#{search}/i })
   #   # .sort {|x,y| sorting[:direction].to_sym == :asc ? x[sorting[:field].to_sym] <= y[sorting[:field].to_sym] : x[sorting[:field].to_sym] > y[sorting[:field].to_sym] }
     
   #   # .skip(pagination[:skip])

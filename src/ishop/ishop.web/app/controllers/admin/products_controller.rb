@@ -57,6 +57,6 @@ class Admin::ProductsController < SecuredController
     end
 
     def product_params
-      params.require(:product).permit(:code, :published)
+      params.require(:product).permit(:name, :description, :size_id, :published)
     end
 end

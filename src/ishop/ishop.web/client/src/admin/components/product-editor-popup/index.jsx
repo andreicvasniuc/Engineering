@@ -1,10 +1,11 @@
 import './style.styl';
 
 import template from './template.html';
+import sizeTemplate from './sizeTemplate.html';
 import closeIcon from 'images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, productRouter, imageService, imageNotifier, modalAlert, env) {
+  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, productRouter, imageService, imageNotifier, sizeService, modalAlert, env) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
@@ -14,9 +15,12 @@ class ProductEditorPopupController {
     this.productRouter = productRouter;
     this.imageService = imageService;
     this.imageNotifier = imageNotifier;
+    this.sizeService = sizeService;
     this.modalAlert = modalAlert;
     this.closeIcon = closeIcon;
     this.env = env;
+
+    this.sizeTemplate = sizeTemplate;
 
     this.tabs = {
       basicInformation: 0,
@@ -30,6 +34,7 @@ class ProductEditorPopupController {
     this.$scope.$on('openProductEditorPopup', (event, product, openImageUploadingTab) => {
       let activeTab = openImageUploadingTab ? this.tabs.imageUploading : this.tabs.basicInformation;
       this.initialize(product, activeTab);
+      this.loadSizes();
       this.stopSavingSpinner();
       this.openProductEditorPopup();
     });
@@ -61,6 +66,13 @@ class ProductEditorPopupController {
 
   startSavingSpinner() { this.isSavingSpinner = true; }
   stopSavingSpinner() { this.isSavingSpinner = false; }
+
+  loadSizes() {
+    this.sizeService.list((response) => {
+      this.sizes = response.sizes;
+      this.sizes.forEach((size) => size.id = size._id.$oid);
+    });
+  }
 
   add() {
     this.startSavingSpinner();

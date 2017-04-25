@@ -12,15 +12,25 @@
         }
     }
     
+    .input {
+        input {
+            width: 55%;
+        }
+    }
+
     .textarea {
         textarea {
-            width: 300px;
+            width: 55%;
         }
         
         label {
             position: relative;
             top:-40px;
         }
+    }
+    
+    label {
+        width: 100px;
     }
 }
 
@@ -43,6 +53,10 @@
     float: left;
     border: 1px solid #ddd;
     overflow: hidden;
+    
+    &.uploading {
+        height: 270px;
+    }
     
     .progress {
         margin-bottom: 0;

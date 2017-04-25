@@ -4,7 +4,7 @@ class CollectionResource {
         get: { method: 'GET', cache: true },
         update: { method: 'PUT' },
         search: { method: 'POST', url: `${env.getApiUrl()}/admin/collections/search` },
-        getPublishedList: { method: 'GET', url: `${env.getApiUrl()}/admin/collections/get_published_list` }
+        list: { method: 'GET', url: `${env.getApiUrl()}/admin/collections/list` }
     });
   }
 }

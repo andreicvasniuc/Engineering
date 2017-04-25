@@ -32,8 +32,14 @@ class ProductGridController {
           width: 120
       },
       {
-          field: 'code',
-          displayName: 'CODE',
+          field: 'name',
+          displayName: 'NAME',
+          headerCellFilter: "translate",
+          sortable: true
+      },
+      {
+          field: 'description',
+          displayName: 'DESCRIPTION',
           headerCellFilter: "translate",
           sortable: true
       },

@@ -9,10 +9,10 @@ class Admin::CollectionsController < SecuredController
     render json: { collections: @collections, totalCount: @total_count }
   end
 
-  # GET /admin/collections/get_published_list
-  # GET /admin/collections/get_published_list.json
-  def get_published_list
-    @collections = Admin::Collection.published.names
+  # GET /admin/collections/list
+  # GET /admin/collections/list.json
+  def list
+    @collections = Admin::Collection.names
 
     render json: { collections: @collections }
   end

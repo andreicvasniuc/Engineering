@@ -6,12 +6,14 @@ module ProductConcern
   included do
     # store_in collection: 'products'
 
-    field :code, type: String
+    field :name, type: String
+    field :description, type: String
+    field :size_id, type: String
     field :published, type: Boolean
-    # field :_id, type: String, default: -> { code }
+    # field :_id, type: String, default: -> { name }
 
-    index code: 1
-    index published: 1
+    # index name: 1
+    # index published: 1
 
     default_scope -> { order(:updated_at => :desc) }
 

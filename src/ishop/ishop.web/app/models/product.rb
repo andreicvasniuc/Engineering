@@ -3,5 +3,5 @@ class Product
   include Mongoid::Timestamps
   include ProductConcern
 
-  #default_scope -> { order(:code => :asc) }
+  #default_scope -> { order(:name => :asc) }
 end

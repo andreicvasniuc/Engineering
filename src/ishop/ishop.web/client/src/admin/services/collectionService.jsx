@@ -7,8 +7,8 @@ class CollectionService {
     this.collectionResource.search(request, successCallback, errorCallback);
   }
 
-  getPublishedList(successCallback, errorCallback){
-    this.collectionResource.getPublishedList(successCallback, errorCallback);
+  list(successCallback, errorCallback){
+    this.collectionResource.list({}, successCallback, errorCallback);
   }
 
   get(id, successCallback, errorCallback) {

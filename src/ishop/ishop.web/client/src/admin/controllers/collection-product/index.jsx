@@ -27,7 +27,7 @@ class CollectionProductController {
   }
 
   initializeSorting() {
-    this.sortByEnum = { code: 'code', published: 'published', updated_at: 'updated_at' };
+    this.sortByEnum = { name: 'name', description: 'description', published: 'published', updated_at: 'updated_at' };
     this.productRouter.initialize(this.sortByEnum, this.sortByEnum.updated_at, this.uiGridConstants.DESC);
 
     [this.sortBy, this.sortByDirection, this.searchText] = this.productRouter.getSortAndSearch();
@@ -50,7 +50,7 @@ class CollectionProductController {
     if(!products) return [];
 
     if(this.searchText) {
-      products = _.filter(products, (product) => product.code && product.code.indexOf(this.searchText) != -1);
+      products = _.filter(products, (product) => product.name && product.name.indexOf(this.searchText) != -1);
     }
 
     products = _.sortBy(products, (product) => product[this.sortBy] && product[this.sortBy].toLowerCase && product[this.sortBy].toLowerCase());

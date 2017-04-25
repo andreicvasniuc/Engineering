@@ -23,12 +23,12 @@ class Admin::Product
   #   directions = { asc: 1, desc: -1 }
 
   #   # run this command 
-  #   # db.products.find({code: { '$regex':/search/}}},{code: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
+  #   # db.products.find({name: { '$regex':/search/}}},{name: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
   #   list_json = collection.find({
-  #     :code => {'$regex' => search}
+  #     :name => {'$regex' => search}
   #     },{
   #     :projection => {
-  #       :code => 1, 
+  #       :name => 1, 
   #       :published => 1, 
   #       :updated_at => 1, 
   #       :images => {'$elemMatch' => {:is_cover => true}}

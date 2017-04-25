@@ -25,7 +25,7 @@ class Notifier {
   }
 
   error(message, title, optionsOverride) {
-    this.translateMessage(message, (translatedMessage) => this.toastr.error(translatedMessagxe, title, optionsOverride))
+    this.translateMessage(message, (translatedMessage) => this.toastr.error(translatedMessage, title, optionsOverride))
   }
 
   showSuccessSaveMessage(item, ending) {

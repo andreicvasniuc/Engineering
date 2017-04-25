@@ -1,0 +1,15 @@
+<div class="{{$ctrl.cssClass}}">
+    <label for="{{$ctrl.fieldId}}" ng-bind="$ctrl.label" class="{{$ctrl.labelClass}}"  ng-class="{ 'red-asterisk' : $ctrl.isRequired }"></label>
+
+    <select id="{{$ctrl.fieldId}}" 
+            name="{{$ctrl.fieldName}}"
+            ng-model="$ctrl.value" 
+            ng-options="item['{{$ctrl.valueProperty}}'] as item['{{$ctrl.textProperty}}'] for item in $ctrl.items" 
+            ng-disabled="$ctrl.isDisabled" 
+            class="form-control {{$ctrl.selectClass}}"
+            ng-required="$ctrl.isRequired"
+        >
+        <option value="" selected>{{'CHOOSE' | translate}}</option>
+        <option value="" ng-if="false"></option>
+    </select>
+</div>
