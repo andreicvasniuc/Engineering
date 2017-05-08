@@ -6,16 +6,15 @@ module CollectionConcern
   included do
     store_in collection: 'collections'
 
-    field :name, type: String
-    field :description, type: String
+    field :name, type: String, localize: true
+    field :description, type: String, localize: true
     field :published, type: Boolean
 
     index name: 1
     index published: 1
 
     attr_accessor :products_count
-
-    default_scope -> { order(:updated_at => :desc) }
+    # default_scope -> { order(:updated_at => :desc) }
 
     after_initialize :create_image_url
 

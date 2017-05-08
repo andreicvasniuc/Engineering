@@ -8,8 +8,8 @@ import uaIcon from 'images/flags/ua.png';
 import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
-  constructor($translate, languages) {
-    this.$translate = $translate;
+  constructor(localeService, languages) {
+    this.localeService = localeService;
     this.languages = languages;
 
     this.createLanguageList();
@@ -26,13 +26,13 @@ class LanguageSelectorController {
   }
 
   getLanguageFromCoockies() {
-    let languageKey = this.$translate.storage().get(this.$translate.storageKey());
+    let languageKey = this.localeService.get();
     this.selectedLanguage = _.find(this.languageList, { key: languageKey });
   }
 
   selectLanguage(language) {
     this.selectedLanguage = language;
-    this.$translate.use(this.selectedLanguage.key);
+    this.localeService.set(this.selectedLanguage.key);
   }
 }
 

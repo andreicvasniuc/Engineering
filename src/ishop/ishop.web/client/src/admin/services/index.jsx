@@ -14,6 +14,7 @@ import ProductService from './productService';
 import ImageService from './imageService';
 import LoginService from './loginService';
 import SizeService from './sizeService';
+import LocaleService from './localeService';
 
 export default angular
     .module('admin.services', [ resources, notifiers ])
@@ -28,4 +29,5 @@ export default angular
     .service('imageService', ImageService)
     .service('loginService', LoginService)
     .service('sizeService', SizeService)
+    .service('localeService', LocaleService)
     .name;

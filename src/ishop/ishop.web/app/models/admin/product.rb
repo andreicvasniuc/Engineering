@@ -22,7 +22,7 @@ class Admin::Product
   # def self.search(search, pagination, sorting)
   #   directions = { asc: 1, desc: -1 }
 
-  #   # run this command 
+  #   # run this command
   #   # db.products.find({name: { '$regex':/search/}}},{name: 1, published: 1, updated_at: 1, images: {$elemMatch: {is_cover: true}}})
   #   list_json = collection.find({
   #     :name => {'$regex' => search}
