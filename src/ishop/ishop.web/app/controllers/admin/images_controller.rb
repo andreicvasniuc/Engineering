@@ -25,7 +25,7 @@ class Admin::ImagesController < SecuredController
   # PATCH/PUT /admin/products/:product_id/images/:id/make_cover.json
   def make_cover
     if @product.set_image_cover(image_id)
-      render json: @product, status: :ok, location: @collection
+      render json: @product, status: :ok#, location: @collection
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class Admin::ImagesController < SecuredController
     image = @product.images.find(image_id)
     image.destroy
 
-    render json: @product, status: :ok, location: @collection
+    render json: @product, status: :ok#, location: @collection
   end
 
   private

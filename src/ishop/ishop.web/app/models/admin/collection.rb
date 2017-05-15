@@ -87,11 +87,11 @@ class Admin::Collection
 
   def create_for_all_locales
     saved_name = self.name
-    saved_description = self.description;
+    saved_description = self.description
     
     LocaleLooper.run do
       self.name = saved_name
-      self.description = saved_description;
+      self.description = saved_description
     end
 
     self.save

@@ -15,7 +15,7 @@ class Admin::SizesController < SecuredController
     @size = Admin::Size.new(size_params)
 
     if @size.save
-      render json: @size, status: :created, location: @size
+      render json: @size, status: :created#, location: @size
     else
       render json: @size.errors, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class Admin::SizesController < SecuredController
   # PATCH/PUT /admin/sizes/1.json
   def update
     if @size.update(size_params)
-      render json: @size, status: :ok, location: @size
+      render json: @size, status: :ok#, location: @size
     else
       render json: @size.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class Admin::SizesController < SecuredController
   def destroy
     @size.destroy
 
-    render json: @size, status: :ok, location: @size
+    render json: @size, status: :ok#, location: @size
   end
 
   private
