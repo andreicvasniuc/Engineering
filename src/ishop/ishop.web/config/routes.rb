@@ -30,6 +30,10 @@ Rails.application.routes.draw do
       resources :sizes, only: [:create, :update, :destroy] do
         get :list, on: :collection
       end
+
+      resources :colors, only: [:create, :update, :destroy] do
+        get :list, on: :collection
+      end
     end
 
   end

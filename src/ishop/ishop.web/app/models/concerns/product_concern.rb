@@ -8,8 +8,9 @@ module ProductConcern
 
     field :name, type: String, localize: true
     field :description, type: String, localize: true
-    field :size_id, type: String
     field :published, type: Boolean
+    field :size_id, type: String
+    field :color_id, type: String
     # field :_id, type: String, default: -> { name }
 
     # index name: 1
