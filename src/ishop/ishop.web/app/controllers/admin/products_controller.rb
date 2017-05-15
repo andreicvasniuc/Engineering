@@ -22,7 +22,7 @@ class Admin::ProductsController < SecuredController
     @product = @collection.products.build(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @collection
+      render json: @product, status: :created#, location: @collection
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class Admin::ProductsController < SecuredController
   # PATCH/PUT /admin/products/1.json
   def update
     if @product.update(product_params)
-      render json: @product, status: :ok, location: @collection
+      render json: @product, status: :ok#, location: @collection
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class Admin::ProductsController < SecuredController
   def destroy
     @product.destroy
 
-    render json: @product, status: :ok, location: @collection
+    render json: @product, status: :ok#, location: @collection
   end
   
   private

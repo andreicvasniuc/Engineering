@@ -6,8 +6,8 @@ module ProductConcern
   included do
     # store_in collection: 'products'
 
-    field :name, type: String
-    field :description, type: String
+    field :name, type: String, localize: true
+    field :description, type: String, localize: true
     field :size_id, type: String
     field :published, type: Boolean
     # field :_id, type: String, default: -> { name }

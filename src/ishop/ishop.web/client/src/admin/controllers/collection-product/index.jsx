@@ -33,9 +33,7 @@ class CollectionProductController {
     [this.sortBy, this.sortByDirection, this.searchText] = this.productRouter.getSortAndSearch();
   }
 
-  loadCollection(clearCache) {
-    if(clearCache) this.$cacheFactoryObject.removeAll();
-
+  loadCollection() {
     this.isLoadingSpinner = true;
 
     this.collectionService.get(this.productRouter.getCollectionId(), (collection) => {
@@ -92,7 +90,7 @@ class CollectionProductController {
   // }
 
   reloadGrid() {
-    this.loadCollection(true);
+    this.loadCollection();
     //this.initialize();
     // this.reloadProducts();
   }

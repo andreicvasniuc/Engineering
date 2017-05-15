@@ -29,7 +29,7 @@ class Admin::CollectionsController < SecuredController
     @collection = Admin::Collection.new(collection_params)
 
     if @collection.save
-      render json: @collection, status: :created, location: @collection
+      render json: @collection, status: :created#, location: @collection
     else
       render json: @collection.errors, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class Admin::CollectionsController < SecuredController
   # PATCH/PUT /admin/collections/1.json
   def update
     if @collection.update(collection_params)
-      render json: @collection, status: :ok, location: @collection
+      render json: @collection, status: :ok#, location: @collection
     else
       render json: @collection.errors, status: :unprocessable_entity
     end
@@ -50,7 +50,7 @@ class Admin::CollectionsController < SecuredController
   def destroy
     @collection.destroy
 
-    render json: @collection, status: :ok, location: @collection
+    render json: @collection, status: :ok#, location: @collection
   end
 
   # POST /admin/collections/1/upload_image
@@ -70,7 +70,7 @@ class Admin::CollectionsController < SecuredController
     image_processor = CollectionImage::Processor.new(collection_id, image_file)
 
     if image_processor.save_image
-      render json: @collection, status: :ok, location: @collection
+      render json: @collection, status: :ok#, location: @collection
     else
       render json: image_processor.errors, status: :unprocessable_entity
     end

@@ -6,6 +6,7 @@ class Admin::Product
   embeds_many :images, class_name: "Admin::ProductImage"
   embedded_in :collection, class_name: "Admin::Collection"
 
+  after_create :create_for_all_locales
   after_destroy :delete_folder_with_images
 
   def delete_folder_with_images
@@ -60,5 +61,17 @@ class Admin::Product
     end
     
     attrs
+  end
+
+  def create_for_all_locales
+    saved_name = self.name
+    saved_description = self.description;
+    
+    LocaleLooper.run do
+      self.name = saved_name
+      self.description = saved_description;
+    end
+
+    self.save
   end
 end

@@ -6,7 +6,7 @@ module SizeConcern
   included do
     store_in collection: 'sizes'
 
-    field :name, type: String
+    field :name, type: String, localize: true
 
     index name: 1
 
