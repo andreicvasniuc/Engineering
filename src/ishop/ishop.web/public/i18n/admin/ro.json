@@ -71,8 +71,11 @@
   "GO_TO_PRODUCTS": "Merge la produse",
   "GO_AND_ADD_COLLECTIONS": "Du-te și se adaugă colecții",
   "INCORRECT_EMAIL_OR_PASSWORD": "Adresa de e-mail sau parola este incorectă",
+  "ENTER": "Introduce...",
   "SIZE": "Dimensiunea",
   "ADD_SIZE": "Adaugă dimensiune",
-  "ENTER": "Introduce...",
-  "DELETE_SIZE_MESSAGE": "Dacă ștergeți această dimensiune vă va șterge toate referințele către ea in produse. Sunteți sigur că doriți să ștergeți această dimensiune?"
+  "DELETE_SIZE_MESSAGE": "Dacă ștergeți această dimensiune vă va șterge toate referințele către ea in produse. Sunteți sigur că doriți să ștergeți această dimensiune?",
+  "COLOR": "Culoarea",
+  "ADD_COLOR": "Adaugă culoare",
+  "DELETE_COLOR_MESSAGE": "Dacă ștergeți această culoare vă va șterge toate referințele către ea in produse. Sunteți sigur că doriți să ștergeți această culoare?"
 }

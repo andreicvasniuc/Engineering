@@ -4,6 +4,7 @@ import CollectionResource from './collectionResource';
 import ProductResource from './productResource';
 import ImageResource from './imageResource';
 import SizeResource from './sizeResource';
+import ColorResource from './colorResource';
 
 export default angular
     .module('admin.services.resources', [])
@@ -11,4 +12,5 @@ export default angular
     .service('productResource', ProductResource)
     .service('imageResource', ImageResource)
     .service('sizeResource', SizeResource)
+    .service('colorResource', ColorResource)
     .name;

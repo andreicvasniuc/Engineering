@@ -13,8 +13,9 @@ import CollectionService from './collectionService';
 import ProductService from './productService';
 import ImageService from './imageService';
 import LoginService from './loginService';
-import SizeService from './sizeService';
 import LocaleService from './localeService';
+import SizeService from './sizeService';
+import ColorService from './colorService';
 
 export default angular
     .module('admin.services', [ resources, notifiers ])
@@ -28,6 +29,7 @@ export default angular
     .service('productService', ProductService)
     .service('imageService', ImageService)
     .service('loginService', LoginService)
-    .service('sizeService', SizeService)
     .service('localeService', LocaleService)
+    .service('sizeService', SizeService)
+    .service('colorService', ColorService)
     .name;

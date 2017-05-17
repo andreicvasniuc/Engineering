@@ -25,7 +25,7 @@ import productEditorPopup from './product-editor-popup';
 import collectionEditorPopup from './collection-editor-popup';
 import collectionSelectorPopup from './collection-selector-popup';
 import languageSelector from './language-selector';
-import sizeEditorPopover from './size-editor-popover';
+import itemEditorPopover from './item-editor-popover';
 
 export default angular
     .module('admin.components', [])
@@ -54,5 +54,5 @@ export default angular
     .component('collectionEditorPopup', collectionEditorPopup)
     .component('collectionSelectorPopup', collectionSelectorPopup)
     .component('languageSelector', languageSelector)
-    .component('sizeEditorPopover', sizeEditorPopover)
+    .component('itemEditorPopover', itemEditorPopover)
     .name;

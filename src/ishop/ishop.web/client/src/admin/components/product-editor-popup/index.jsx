@@ -2,25 +2,29 @@ import './style.styl';
 
 import template from './template.html';
 import sizeTemplate from './sizeTemplate.html';
+import colorTemplate from './colorTemplate.html';
 import closeIcon from 'images/close.png';
 
 class ProductEditorPopupController {
-  constructor($scope, $timeout, $uibModal, $translate, productService, productNotifier, productRouter, imageService, imageNotifier, sizeService, modalAlert, env) {
+  constructor($scope, $timeout, $uibModal, $translate, $cacheFactory, productService, productNotifier, productRouter, imageService, imageNotifier, sizeService, colorService, modalAlert, env) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.$translate = $translate;
+    this.$cacheFactoryObject = $cacheFactory.get('$http');
     this.productService = productService;
     this.productNotifier = productNotifier;
     this.productRouter = productRouter;
     this.imageService = imageService;
     this.imageNotifier = imageNotifier;
     this.sizeService = sizeService;
+    this.colorService = colorService;
     this.modalAlert = modalAlert;
     this.closeIcon = closeIcon;
     this.env = env;
 
     this.sizeTemplate = sizeTemplate;
+    this.colorTemplate = colorTemplate;
 
     this.tabs = {
       basicInformation: 0,
@@ -35,6 +39,7 @@ class ProductEditorPopupController {
       let activeTab = openImageUploadingTab ? this.tabs.imageUploading : this.tabs.basicInformation;
       this.initialize(product, activeTab);
       this.loadSizes();
+      this.loadColors();
       this.stopSavingSpinner();
       this.openProductEditorPopup();
     });
@@ -67,11 +72,30 @@ class ProductEditorPopupController {
   startSavingSpinner() { this.isSavingSpinner = true; }
   stopSavingSpinner() { this.isSavingSpinner = false; }
 
-  loadSizes() {
+  loadSizes(clearCache) {
+    if(clearCache) this.clearAllCache();
+
     this.sizeService.list((response) => {
       this.sizes = response.sizes;
-      this.sizes.forEach((size) => size.id = size._id.$oid);
+      this.setIdToItems(this.sizes);
     });
+  }
+
+  loadColors(clearCache) {
+    if(clearCache) this.clearAllCache();
+
+    this.colorService.list((response) => {
+      this.colors = response.colors;
+      this.setIdToItems(this.colors);
+    });
+  }
+
+  clearAllCache() {
+    this.$cacheFactoryObject.removeAll();
+  }
+
+  setIdToItems(items) {
+    items.forEach((item) => item.id = item._id.$oid);
   }
 
   add() {

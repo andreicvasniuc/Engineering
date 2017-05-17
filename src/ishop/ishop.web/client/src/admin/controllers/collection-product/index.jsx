@@ -1,8 +1,7 @@
 class CollectionProductController {
-  constructor($scope, $rootScope, $cacheFactory, collectionService, productService, productRouter, routeUrls, uiGridConstants) {
+  constructor($scope, $rootScope, collectionService, productService, productRouter, routeUrls, uiGridConstants) {
     this.$scope = $scope;
     this.$rootScope = $rootScope;
-    this.$cacheFactoryObject = $cacheFactory.get('$http');
     this.collectionService = collectionService;
     this.productService = productService;
     this.productRouter = productRouter;

@@ -71,8 +71,11 @@
   "GO_TO_PRODUCTS": "Go to products",
   "GO_AND_ADD_COLLECTIONS": "Go and add collections",
   "INCORRECT_EMAIL_OR_PASSWORD": "Incorrect email or password",
+  "ENTER": "Enter...",
   "SIZE": "Size",
   "ADD_SIZE": "Add size",
-  "ENTER": "Enter...",
-  "DELETE_SIZE_MESSAGE": "Deleting this size you will delete all references to it from products. Are you sure you want to delete this size?"
+  "DELETE_SIZE_MESSAGE": "Deleting this size you will delete all references to it from products. Are you sure you want to delete this size?",
+  "COLOR": "Color",
+  "ADD_COLOR": "Add color",
+  "DELETE_COLOR_MESSAGE": "Deleting this color you will delete all references to it from products. Are you sure you want to delete this color?"
 }
