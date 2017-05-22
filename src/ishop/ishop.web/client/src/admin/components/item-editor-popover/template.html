@@ -1,0 +1,27 @@
+<div class="item-editor">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <input type="text" ng-model="$ctrl.item.name" placeholder="{{'ENTER' | translate}}" enter-pressed="$ctrl.add()" class="form-control" />
+          </div>
+
+          <div class="panel-body">
+              <div class="table-responsive">
+                  <table class="table table-hover">
+                      <tbody ng-if="$ctrl.items.length != 0">
+                          <tr ng-repeat="item in $ctrl.items">
+                              <td>
+                                <div ng-hide="item.isEdit" ng-click="$ctrl.editMode(item, $event)" class="clickable">{{item.name}}</div>
+                                <input ng-show="item.isEdit" type="text" ng-model="item.name" placeholder="{{'ENTER' | translate}}" enter-pressed="$ctrl.edit(item)" class="form-control" />
+                              </td>
+                          </tr>
+                      </tbody>
+                      <tbody ng-if="$ctrl.items.length == 0">
+                        <tr>
+                          <th translate="NO_RECORDS_FOUND" class="text-center"></th>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+</div>
