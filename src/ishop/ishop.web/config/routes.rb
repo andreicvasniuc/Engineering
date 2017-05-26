@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /en|ua|ru|ro/ do
 
-    # scope '/api' do
-    #   resources :products, except: [:new, :edit]
-    # end
+    scope '/api' do
+      resources :collections, only: [] do
+        post :search, on: :collection
+      end
+    end
 
     namespace :admin do
       resources :collections, except: [:index, :new, :edit] do

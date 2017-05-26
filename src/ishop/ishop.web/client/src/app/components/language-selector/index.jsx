@@ -8,13 +8,13 @@ import uaIcon from 'images/flags/ua.png';
 import roIcon from 'images/flags/ro.png';
 
 class LanguageSelectorController {
-  constructor($route, $translate, $timeout, $window, $rootScope, languages) {
+  constructor($route, $timeout, $window, $rootScope, localeService, languages) {
     this.$route = $route;
-    this.$translate = $translate;
     this.$timeout = $timeout;
     this.$window = $window;
-    this.languages = languages;
     this.$rootScope = $rootScope;
+    this.localeService = localeService;
+    this.languages = languages;
 
     this.createLanguageList();
     this.getLanguageFromCoockies();
@@ -30,13 +30,13 @@ class LanguageSelectorController {
   }
 
   getLanguageFromCoockies() {
-    let languageKey = this.$translate.storage().get(this.$translate.storageKey());
+    let languageKey = this.localeService.get();
     this.selectedLanguage = _.find(this.languageList, { key: languageKey });
   }
 
   selectLanguage(language) {
     this.selectedLanguage = language;
-    this.$translate.use(this.selectedLanguage.key);
+    this.localeService.set(this.selectedLanguage.key);
 
     this.$timeout(() => {
       this.$route.reload();

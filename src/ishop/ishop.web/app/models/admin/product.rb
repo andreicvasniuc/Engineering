@@ -3,8 +3,8 @@ class Admin::Product
   include Mongoid::Timestamps
   include ProductConcern
 
-  embeds_many :images, class_name: "Admin::ProductImage"
   embedded_in :collection, class_name: "Admin::Collection"
+  embeds_many :images, class_name: "Admin::ProductImage"
 
   after_create :create_for_all_locales
   after_destroy :delete_folder_with_images

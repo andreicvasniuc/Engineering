@@ -9,7 +9,6 @@ class Admin::Collection
   after_create :create_for_all_locales
   after_destroy :delete_folder_with_images
 
-  scope :published, -> { where(published: true) }
   scope :names, -> { only(:name) }
 
   def self.search(search, pagination, sorting)
