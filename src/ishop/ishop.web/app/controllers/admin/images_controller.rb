@@ -4,7 +4,7 @@ class Admin::ImagesController < SecuredController
   # POST /admin/products/:product_id/images/upload
   # POST /admin/products/:product_id/images/upload.json
   def upload
-    image_file = ::Image::File.new(params)
+    image_file = ImageFile.new(params)
     @image = @product.images.build({ extension: image_file.extension })
 
     unless @image.save
@@ -12,7 +12,7 @@ class Admin::ImagesController < SecuredController
     end
 
     image_file.name = @image._id
-    image_processor = ProductImage::Processor.new(collection_id, product_id, image_file)
+    image_processor = ProductImageProcessor.new(collection_id, product_id, image_file)
 
     if image_processor.save_image
       render json: @product, status: :ok#, location: @collection

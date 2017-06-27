@@ -81,7 +81,7 @@ class Admin::Collection
   end
 
   def delete_folder_with_images
-    ::CollectionImage::Processor.delete_folder(self._id)
+    CollectionImageProcessor.delete_folder(self._id)
   end
 
   def create_for_all_locales

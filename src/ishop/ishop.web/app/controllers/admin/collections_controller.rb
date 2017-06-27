@@ -56,7 +56,7 @@ class Admin::CollectionsController < SecuredController
   # POST /admin/collections/1/upload_image
   # POST /admin/collections1/upload_image.json
   def upload_image
-    image_file = ::Image::File.new(params)
+    image_file = ImageFile.new(params)
 
     delete_image() unless @collection.image.nil?
 
@@ -67,7 +67,7 @@ class Admin::CollectionsController < SecuredController
     end
 
     image_file.name = @image._id
-    image_processor = CollectionImage::Processor.new(collection_id, image_file)
+    image_processor = CollectionImageProcessor.new(collection_id, image_file)
 
     if image_processor.save_image
       render json: @collection, status: :ok#, location: @collection

@@ -6,7 +6,7 @@ class Admin::ProductImage < Admin::Image
   after_destroy :delete_image
 
   def delete_image
-    ProductImage::Processor.delete_folder(self.product.collection._id, self.product._id, self._id)
+    ProductImageProcessor.delete_folder(self.product.collection._id, self.product._id, self._id)
   end
 
   private

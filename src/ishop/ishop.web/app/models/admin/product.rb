@@ -10,7 +10,7 @@ class Admin::Product
   after_destroy :delete_folder_with_images
 
   def delete_folder_with_images
-    ::ProductImage::Processor.delete_folder(self.collection._id, self._id)
+    ProductImageProcessor.delete_folder(self.collection._id, self._id)
   end
 
   def set_image_cover(image_id)

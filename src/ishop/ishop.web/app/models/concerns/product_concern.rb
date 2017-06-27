@@ -30,7 +30,7 @@ module ProductConcern
 
     private
       def create_image_url_by_size(image, size)
-        url = ProductImage::Processor.get_relative_image_path(self.collection._id, self._id, image._id, image.extension, size)
+        url = ProductImageProcessor.get_relative_image_path(self.collection._id, self._id, image._id, image.extension, size)
         url = 'http://localhost:3000' + url if Rails.env.development? # TODO: change when add figaro gem or somethng like that to have settongs foe each env
         return url
       end
