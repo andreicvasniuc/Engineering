@@ -7,6 +7,8 @@ import languageSelector from './language-selector';
 import mainMenu from './main-menu';
 import mobileMenu from './mobile-menu';
 import carousel from './carousel';
+import topCollection from './top-collection';
+import loadingIcon from './loading-icon';
 
 export default angular
     .module('app.components', [])
@@ -17,4 +19,6 @@ export default angular
     .component('mainMenu', mainMenu)
     .component('mobileMenu', mobileMenu)
     .component('carousel', carousel)
+    .component('topCollection', topCollection)
+    .component('loadingIcon', loadingIcon)
     .name;

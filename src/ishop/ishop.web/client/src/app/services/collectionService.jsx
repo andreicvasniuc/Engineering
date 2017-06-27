@@ -8,6 +8,10 @@ class CollectionService {
     request.locale = this.localeService.get();
     this.collectionResource.search(request, successCallback, errorCallback);
   }
+
+  getTopCollection(successCallback, errorCallback) {
+    this.collectionResource.getTopCollection({ locale: this.localeService.get() }, successCallback, errorCallback);
+  }
 }
 
 export default CollectionService

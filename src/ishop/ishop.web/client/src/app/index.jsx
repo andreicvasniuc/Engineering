@@ -2,6 +2,7 @@
 
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import ngResource from 'angular-resource';
 import ngCookies from 'angular-cookies';
 import pascalprechtTranslate from 'angular-translate';
 import 'angular-translate-storage-cookie';
@@ -20,6 +21,7 @@ import constants from './constants';
 export default angular
     .module('app', [
       ngRoute,
+      ngResource,
       controllers,
       components,
       directives,

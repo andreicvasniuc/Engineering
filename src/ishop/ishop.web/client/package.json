@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run backend & npm run frontend",
     "backend": "cd .. && bundle exec unicorn -p 3000",
-    "frontend": "webpack-dev-server --content-base src/admin",
+    "frontend-admin": "webpack-dev-server --content-base src/admin",
+    "frontend-app": "webpack-dev-server --content-base src/app",
     "start-old": "node node_modules/.bin/webpack-dev-server --content-base src/admin",
     "build-old": "NODE_ENV=production node node_modules/.bin/webpack && cp src/admin/index.html dist/index.html",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"

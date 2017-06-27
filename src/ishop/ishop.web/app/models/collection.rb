@@ -7,6 +7,7 @@ class Collection
   embeds_many :products, class_name: "Product"
 
   scope :published, -> { where(published: true) }
+  scope :latest, -> { order(:created_at => :desc) }
 
   def self.search(search, pagination, sorting)
     ### this query does NOT provide a way to get products_count
@@ -18,5 +19,9 @@ class Collection
                 .limit(pagination[:take])
 
     [query, self.count]
+  end
+
+  def self.get_top_collection
+    self.published.latest.first
   end
 end

@@ -6,4 +6,11 @@ class CollectionsController < ApplicationController
 
     render json: { collections: @collections, totalCount: @total_count }
   end
+
+  # GET /api/collections/get_top_collection
+  # GET /api/collections/get_top_collection.json
+  def get_top_collection
+    @collection = Collection.get_top_collection()
+    render json: @collection
+  end
 end

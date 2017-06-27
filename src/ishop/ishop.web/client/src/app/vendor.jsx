@@ -6,6 +6,7 @@ import 'css/magnific-popup.css';
 import 'css/superfish.css';
 import 'css/easy-responsive-tabs.css';
 import 'css/style.css';
+import 'css/loading.css';
 
 import 'lodash';
 
