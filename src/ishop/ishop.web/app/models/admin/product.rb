@@ -48,21 +48,6 @@ class Admin::Product
   #   [list_json, total_count]
   # end
 
-  def as_json(options={})
-    attrs = super(options)
-
-    self.images.each_with_index do |image, index|
-      attrs["images"][index].merge!({
-        :small_image_url => image.small_image_url,
-        :medium_image_url => image.medium_image_url,
-        :large_image_url => image.large_image_url
-      })
-      attrs["cover_image"] = attrs["images"][index] if image.is_cover
-    end
-    
-    attrs
-  end
-
   def create_for_all_locales
     saved_name = self.name
     saved_description = self.description

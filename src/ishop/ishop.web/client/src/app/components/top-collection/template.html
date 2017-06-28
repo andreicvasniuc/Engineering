@@ -4,4 +4,29 @@
     <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">{{$ctrl.collection.name}}</h1>
     <h4 class="h5 fh5co-heading-sub">{{$ctrl.collection.description}}</h4>
     <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+        <div id="portfolio" class="bottom-border-shadow">
+            <div class="container bottom-border">
+                <div class="row padding-top-40">
+                    <ul class="portfolio-group">
+
+                        <!-- Portfolio Item -->
+                        <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40" ng-repeat="product in $ctrl.collection.products">
+                            <a href="#">
+                                <figure class="animate fadeInLeft">
+                                    <img alt="image1" ng-src="{{product.cover_image.small_image_url}}">
+                                    <figcaption>
+                                        <h3>{{product.name}}</h3>
+                                        <span>{{product.description}}</span>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <!-- //Portfolio Item// -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 </div>

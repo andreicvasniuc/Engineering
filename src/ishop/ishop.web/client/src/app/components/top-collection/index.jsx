@@ -1,3 +1,5 @@
+import './style.styl';
+
 import template from './template.html';
 
 class TopCollectionController {
@@ -13,7 +15,7 @@ class TopCollectionController {
 
     this.collectionService.getTopCollection((collection) => {
       this.collection = collection;
-      this.products = collection.products || [];
+      // this.products = collection.products || [];
       this.isLoadingSpinner = false;
     });
   }

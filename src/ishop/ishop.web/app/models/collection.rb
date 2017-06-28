@@ -22,6 +22,6 @@ class Collection
   end
 
   def self.get_top_collection
-    self.published.latest.first
+    self.published.latest.only(:name, :description, "products._id", "products.name", "products.description", "products.images").first
   end
 end

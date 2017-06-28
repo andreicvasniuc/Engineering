@@ -28,6 +28,21 @@ module ProductConcern
       end
     end
 
+    def as_json(options={})
+      attrs = super(options)
+
+      self.images.each_with_index do |image, index|
+        attrs["images"][index].merge!({
+          :small_image_url => image.small_image_url,
+          :medium_image_url => image.medium_image_url,
+          :large_image_url => image.large_image_url
+        })
+        attrs["cover_image"] = attrs["images"][index] if image.is_cover
+      end
+      
+      attrs
+    end
+
     private
       def create_image_url_by_size(image, size)
         url = ProductImageProcessor.get_relative_image_path(self.collection._id, self._id, image._id, image.extension, size)
