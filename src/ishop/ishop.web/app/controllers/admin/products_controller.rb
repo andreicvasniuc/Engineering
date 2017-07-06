@@ -57,6 +57,6 @@ class Admin::ProductsController < SecuredController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :published, :size_id, :color_id)
+      params.require(:product).permit(:name, :description, :published, :is_top, :size_id, :color_id)
     end
 end

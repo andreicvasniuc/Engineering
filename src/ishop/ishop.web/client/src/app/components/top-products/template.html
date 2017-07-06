@@ -1,8 +1,8 @@
 <loading-icon ng-show="$ctrl.isLoadingSpinner" />
 
 <div class="col-md-8 col-md-offset-2 clearfix fh5co-header" ng-hide="$ctrl.isLoadingSpinner">
-    <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">{{$ctrl.collection.name}}</h1>
-    <h4 class="h5 fh5co-heading-sub">{{$ctrl.collection.description}}</h4>
+    <h1 class="h1 fh5co-heading fh5co-no-margin-bottom" translate="TOP_PRODUCTS"></h1>
+    <!-- <h4 class="h5 fh5co-heading-sub">{{$ctrl.collection.description}}</h4> -->
     <div class="fh5co-spacer fh5co-spacer-sm"></div>
 
         <div id="portfolio" class="bottom-border-shadow">
@@ -11,7 +11,7 @@
                     <ul class="portfolio-group">
 
                         <!-- Portfolio Item -->
-                        <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40" ng-repeat="product in $ctrl.collection.products">
+                        <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40" ng-repeat="product in $ctrl.products">
                             <a href="#">
                                 <figure class="animate fadeInLeft">
                                     <img alt="image1" ng-src="{{product.cover_image.small_image_url}}">

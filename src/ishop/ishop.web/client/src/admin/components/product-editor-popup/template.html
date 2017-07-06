@@ -62,10 +62,20 @@
                         <button-default label="{{'ADD_COLOR' | translate}}" class="add-item-btn" uib-popover-template="$ctrl.colorTemplate" popover-placement="right-top"></button-default>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb0">
                         <labeled-input label="{{'PUBLISHED' | translate}}" 
                                        field-id="is-published"
                                        value="$ctrl.product.published"
+                                       type="checkbox"
+                                       css-class="checkbox"
+                                       display-after="true">
+                        </labeled-input>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-input label="{{'TOP_PRODUCT' | translate}}" 
+                                       field-id="is-top"
+                                       value="$ctrl.product.is_top"
                                        type="checkbox"
                                        css-class="checkbox"
                                        display-after="true">

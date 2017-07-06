@@ -9,8 +9,8 @@ class CollectionsController < ApplicationController
 
   # GET /api/collections/get_top_collection
   # GET /api/collections/get_top_collection.json
-  def get_top_collection
-    @collection = Collection.get_top_collection()
-    render json: @collection
-  end
+  # def get_top_collection
+  #   @collection = Collection.get_top_collection()
+  #   render json: @collection
+  # end
 end
