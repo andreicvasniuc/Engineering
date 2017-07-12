@@ -14,8 +14,8 @@ class Product
     #   product.create_image_url()
     # end
     collections = Collection.only(:products)
-    products = collections.map { |collection| collection.products }.flatten
-    iputs products
+    products = collections.map { |collection| collection.products }.flatten[0..5]
+    iputs products.size
     products
   end
 end

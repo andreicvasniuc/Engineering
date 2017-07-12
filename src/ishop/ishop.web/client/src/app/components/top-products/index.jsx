@@ -1,5 +1,3 @@
-import './style.styl';
-
 import template from './template.html';
 
 class TopProductsController {
