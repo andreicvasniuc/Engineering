@@ -7,6 +7,15 @@ class Product
   embeds_many :images, class_name: "ProductImage"
 
   def self.top_list
-    Collection.only(:products).where("products.is_top" => true).pluck(:products).flatten
+    # products = Collection.only(:products).where("products.is_top" => true).pluck(:products).flatten
+    # products_json = Collection.only(:products).pluck(:products).flatten
+    # products = products_json.map do |product_json| 
+    #   product = self.new(product_json)
+    #   product.create_image_url()
+    # end
+    collections = Collection.only(:products)
+    products = collections.map { |collection| collection.products }.flatten
+    iputs products
+    products
   end
 end

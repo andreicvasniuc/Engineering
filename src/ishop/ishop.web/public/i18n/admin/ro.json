@@ -78,6 +78,5 @@
   "COLOR": "Culoarea",
   "ADD_COLOR": "Adaugă culoare",
   "DELETE_COLOR_MESSAGE": "Dacă ștergeți această culoare vă va șterge toate referințele către ea in produse. Sunteți sigur că doriți să ștergeți această culoare?",
-  "TOP_PRODUCT": "produs de top",
-  "TOP_PRODUCTS": "Produse de top"
+  "TOP_PRODUCT": "produs de top"
 }
