@@ -13,10 +13,10 @@
                         <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40" ng-repeat="product in $ctrl.products">
                             <a href="#">
                                 <figure class="animate fadeInLeft">
-                                    <img alt="image1" ng-src="{{product.cover_image.small_image_url}}">
+                                    <img alt="{{product.name}}" ng-src="{{product.cover_image.medium_image_url}}">
                                     <figcaption>
                                         <h3>{{product.name}}</h3>
-                                        <span>{{product.description}}</span>
+                                        <!-- <span>{{product.description}}</span> -->
                                     </figcaption>
                                 </figure>
                             </a>

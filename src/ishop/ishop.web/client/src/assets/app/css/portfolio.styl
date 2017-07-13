@@ -49,13 +49,14 @@
   -webkit-transition: -webkit-transform 0.4s ease-out;
   -moz-transition: -moz-transform 0.4s ease-out;
   transition: transform 0.4s ease-out;
+  width: 250px;
 }
 .portfolio-group figcaption {
   color: #ffffff;
-  top: 0;
+  bottom: 0;
   left: 0;
   padding: 30px 40px;
-  background-color: #000000;
+  background-color: #405D65;
   text-align: left;
   text-transform: none;
   position: absolute;
@@ -69,6 +70,7 @@
   font-weight: 400;
   text-transform: uppercase;
   line-height: 1em;
+  text-align: center;
 }
 .portfolio-group .col-sm-4,
 .portfolio-group .col-md-4,
@@ -106,18 +108,24 @@ ul.grid li:first-child a {
 .portfolio-item figure:hover img,
 .portfolio-item figure.cs-hover img {
   bottom: 0px;
-  -webkit-transform: scale(1.2) translateY(-7.5%);
-  -moz-transform: scale(1.2) translateY(-7.5%);
-  -ms-transform: scale(1.2) translateY(-7.5%);
-  transform: scale(1.2) translateY(-7.5%);
+  -webkit-transform: scale(1.2) translateY(7.5%);
+  -moz-transform: scale(1.2) translateY(7.5%);
+  -ms-transform: scale(1.2) translateY(7.5%);
+  transform: scale(1.2) translateY(7.5%);
 }
 .portfolio-item figcaption {
-  height: 100%;
+  height: 30%;
   width: 100%;
   opacity: 0;
   -webkit-transition: opacity 0.5s 0.2s;
   -moz-transition: opacity 0.5s 0.2s;
   transition: opacity 0.5s 0.2s;
+  
+  // temp
+  // opacity: 0.7;
+  // -webkit-transition: opacity 0.5s;
+  // -moz-transition: opacity 0.5s;
+  // transition: opacity 0.5s;
 }
 // .no-touch .portfolio-item figure:hover figcaption,
 .portfolio-item figure:hover figcaption,
