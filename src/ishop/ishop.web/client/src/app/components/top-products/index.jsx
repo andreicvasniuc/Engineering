@@ -1,7 +1,8 @@
 import template from './template.html';
 
 class TopProductsController {
-  constructor(productService) {
+  constructor($timeout, productService) {
+    this.$timeout = $timeout;
     this.productService = productService;
 
     this.loadTopProducts();
@@ -12,7 +13,7 @@ class TopProductsController {
 
     this.productService.topList((response) => {
       this.products = response.products || [];
-      this.isLoadingSpinner = false;
+      this.$timeout(() => this.isLoadingSpinner = false, 50);
     });
   }
 }

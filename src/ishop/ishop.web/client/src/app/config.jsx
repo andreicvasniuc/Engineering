@@ -22,7 +22,7 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
         routeUrls.home,
         routes.home)
     .when(
-        routeUrls.products,
+        routeUrls.dresses,
         routes.products)
     .otherwise(
         { redirectTo: routeUrls.home });

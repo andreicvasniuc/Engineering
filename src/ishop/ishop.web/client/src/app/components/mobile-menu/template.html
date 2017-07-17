@@ -6,12 +6,12 @@
 <div id="fh5co-mobile-menu" outside-click="$ctrl.hideMobileMenu()" except-selector="#fh5co-mobile-menu-btn">
     <ul class="" id="fh5co-mobile-menu-ul">
         <li ng-repeat="menuItem in $ctrl.menu.list" ng-class="{'active': menuItem.isActive}">
-            <a ng-href="{{menuItem.url}}" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}" ng-click="$ctrl.toggleSubMenu($event, !!menuItem.list)">
+            <a ng-href="#{{menuItem.url}}" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}" ng-click="$ctrl.toggleSubMenu($event, !!menuItem.list)">
                 {{menuItem.name}}
             </a>
             <ul class="fh5co-sub-menu" ng-if="!!menuItem.list">
                 <li ng-repeat="subMenuItem in menuItem.list">
-                    <a ng-href="{{subMenuItem.url}}">
+                    <a ng-href="#{{subMenuItem.url}}">
                         {{subMenuItem.name}}
                     </a>
                 </li>

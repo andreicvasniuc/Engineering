@@ -2,12 +2,12 @@
 <nav id="fh5co-menu-wrap" role="navigation">
     <ul class="sf-menu sf-js-enabled sf-arrows" id="fh5co-primary-menu">
         <li ng-repeat="menuItem in $ctrl.menu.list" ng-class="{'active': menuItem.isActive}">
-            <a ng-href="{{menuItem.url}}" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}">
+            <a ng-href="#{{menuItem.url}}" ng-class="{'fh5co-sub-ddown sf-with-ul': !!menuItem.list}">
                 {{menuItem.name}}
             </a>
             <ul class="fh5co-sub-menu" ng-if="!!menuItem.list">
                 <li ng-repeat="subMenuItem in menuItem.list">
-                    <a ng-href="{{subMenuItem.url}}">
+                    <a ng-href="#{{subMenuItem.url}}">
                         {{subMenuItem.name}}
                     </a>
                 </li>

@@ -1,7 +1,18 @@
 class ProductController {
-  constructor(productService) {
-    console.log('product controller', productService);
-    this.productList = productService.productList;
+  constructor($timeout, productService) {
+    this.$timeout = $timeout;
+    this.productService = productService;
+
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.isLoadingSpinner = true;
+
+    this.productService.list((response) => {
+      this.products = response.products || [];
+      this.$timeout(() => this.isLoadingSpinner = false, 50);
+    });
   }
 }
 
