@@ -49,7 +49,7 @@
   -webkit-transition: -webkit-transform 0.4s ease-out;
   -moz-transition: -moz-transform 0.4s ease-out;
   transition: transform 0.4s ease-out;
-  width: 250px;
+  // width: 250px;
 }
 .portfolio-group figcaption {
   color: #ffffff;
@@ -75,10 +75,34 @@
 .portfolio-group .col-sm-4,
 .portfolio-group .col-md-4,
 .portfolio-group .col-lg-4 {
-  // width: 33.33%;
-    width: initial;
+    max-width: 450px;
+    width: 100%;
+    // width: initial;
     margin-bottom: 30px;
 }
+
+@media (min-width: 768px) {
+  .portfolio-group .col-sm-4,
+  .portfolio-group .col-md-4,
+  .portfolio-group .col-lg-4 {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .portfolio-group .col-sm-4,
+  .portfolio-group .col-md-4,
+  .portfolio-group .col-lg-4 {
+    width: 33.33%;
+  }
+}
+@media (min-width: 1200px) {
+  .portfolio-group .col-sm-4,
+  .portfolio-group .col-md-4,
+  .portfolio-group .col-lg-4 {
+    width: 33.33%;
+  }
+}
+
 ul.portfolio li a,
 ul.grid li:first-child a {
   padding: 0 !important;
