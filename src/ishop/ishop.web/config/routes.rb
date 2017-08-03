@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
       resources :products, only: [] do
         get :top_list, on: :collection
-        get :list, on: :collection
+        get :dresses, on: :collection
+        get :accessories, on: :collection
       end
     end
 

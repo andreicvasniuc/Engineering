@@ -9,6 +9,10 @@ class CollectionImageProcessor
     @processor.save_image
   end
 
+  def errors
+    @processor.errors
+  end
+
   def self.get_relative_image_path(collection_id, name, extension, size)
     ImageProcessor.get_relative_image_path(full_folder_name(collection_id), name, extension, size)
   end

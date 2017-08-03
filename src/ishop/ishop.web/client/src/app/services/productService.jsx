@@ -8,8 +8,12 @@ class ProductService {
     this.productResource.topList({ locale: this.localeService.get() }, successCallback, errorCallback);
   }
 
-  list(successCallback, errorCallback) {
-    this.productResource.list({ locale: this.localeService.get() }, successCallback, errorCallback);
+  dresses(successCallback, errorCallback) {
+    return this.productResource.dresses({ locale: this.localeService.get() }, successCallback, errorCallback);
+  }
+
+  accessories(successCallback, errorCallback) {
+    return this.productResource.accessories({ locale: this.localeService.get() }, successCallback, errorCallback);
   }
 }
 

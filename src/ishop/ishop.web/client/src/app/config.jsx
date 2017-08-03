@@ -10,10 +10,31 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
       controller: 'HomeController',
       controllerAs: '$ctrl'
     },
-    products: {
+    dresses: {
       templateUrl: productTemplate,
       controller: 'ProductController',
-      controllerAs: '$ctrl'
+      controllerAs: '$ctrl',
+      resolve: {
+          productResolver: (productService) => {
+            return productService.dresses((response) => {
+              return response.products;
+            });
+          },
+          titleTranslateId: () => "ALL_DRESSES"
+      }
+    },
+    accessories: {
+      templateUrl: productTemplate,
+      controller: 'ProductController',
+      controllerAs: '$ctrl',
+      resolve: {
+          productResolver: (productService) => {
+            return productService.accessories((response) => {
+              return response.products;
+            });
+          },
+          titleTranslateId: () => "ALL_ACCESSORIES"
+      }
     }
   };
 
@@ -23,7 +44,10 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
         routes.home)
     .when(
         routeUrls.dresses,
-        routes.products)
+        routes.dresses)
+    .when(
+        routeUrls.accessories,
+        routes.accessories)
     .otherwise(
         { redirectTo: routeUrls.home });
 

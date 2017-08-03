@@ -1,4 +1,5 @@
 class ProductImageProcessor
+  attr_reader :processor
 
   def initialize(collection_id, product_id, file)
     @processor = ImageProcessor.new(self.class.full_folder_name(collection_id, product_id), file)
@@ -6,6 +7,10 @@ class ProductImageProcessor
 
   def save_image
     @processor.save_image
+  end
+
+  def errors
+    @processor.errors
   end
 
   def self.get_relative_image_path(collection_id, product_id, name, extension, size)

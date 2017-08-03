@@ -1,7 +1,9 @@
 class ProductController {
-  constructor($timeout, productService) {
+  constructor($timeout, $translate, productResolver, titleTranslateId) {
     this.$timeout = $timeout;
-    this.productService = productService;
+    this.productResolver = productResolver;
+
+    $translate(titleTranslateId).then((translation) => this.title = translation);
 
     this.loadProducts();
   }
@@ -9,7 +11,7 @@ class ProductController {
   loadProducts() {
     this.isLoadingSpinner = true;
 
-    this.productService.list((response) => {
+    this.productResolver.$promise.then((response) => {
       this.products = response.products || [];
       this.$timeout(() => this.isLoadingSpinner = false, 50);
     });

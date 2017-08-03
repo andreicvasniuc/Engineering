@@ -72,10 +72,20 @@
                         </labeled-input>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb0">
                         <labeled-input label="{{'TOP_PRODUCT' | translate}}" 
                                        field-id="is-top"
                                        value="$ctrl.product.is_top"
+                                       type="checkbox"
+                                       css-class="checkbox"
+                                       display-after="true">
+                        </labeled-input>
+                    </div>
+
+                    <div class="form-group">
+                        <labeled-input label="{{'ACCESSORY' | translate}}" 
+                                       field-id="is-accessory"
+                                       value="$ctrl.product.is_accessory"
                                        type="checkbox"
                                        css-class="checkbox"
                                        display-after="true">

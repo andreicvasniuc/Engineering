@@ -10,6 +10,7 @@ module ProductConcern
     field :description, type: String, localize: true
     field :published, type: Boolean
     field :is_top, type: Boolean
+    field :is_accessory, type: Boolean
     field :size_id, type: String
     field :color_id, type: String
     # field :_id, type: String, default: -> { name }

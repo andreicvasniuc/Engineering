@@ -1,17 +1,13 @@
 class ProductsController < ApplicationController
-  # GET /products/top_list
-  # GET /products/top_list.json
   def top_list
-    @products = Product.top_list
-
-    render json: { products: @products }
+    render json: { products: Product.top_list }
   end
 
-  # GET /products/list
-  # GET /products/list.json
-  def list
-    @products = Product.list
+  def dresses
+    render json: { products: Product.dresses }
+  end
 
-    render json: { products: @products }
+  def accessories
+    render json: { products: Product.accessories }
   end
 end
