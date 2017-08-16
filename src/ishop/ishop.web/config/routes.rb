@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         # get :get_top_collection, on: :collection
       end
 
-      resources :products, only: [] do
+      resources :products, only: [:show] do
         get :top_list, on: :collection
         get :dresses, on: :collection
         get :accessories, on: :collection

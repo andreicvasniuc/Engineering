@@ -23,6 +23,11 @@ class Product
     get_products(collection_query)
   end
 
+  def self.get(id)
+    collection_query = published_collection.where("products._id" => BSON::ObjectId(id))
+    get_products(collection_query).first
+  end
+
   private
     def self.published_collection
       Collection.only(:products).published.where("products.published" => true)

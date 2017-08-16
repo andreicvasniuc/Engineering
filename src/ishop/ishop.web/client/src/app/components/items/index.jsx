@@ -7,7 +7,8 @@ class ItemsController {
 
 let items = {
   bindings: {
-    list: '<'
+    list: '<',
+    getUrlCallback: '&'
   },
   controller: ItemsController,
   templateUrl: template

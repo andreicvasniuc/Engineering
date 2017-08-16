@@ -10,4 +10,13 @@ class ProductsController < ApplicationController
   def accessories
     render json: { products: Product.accessories }
   end
+
+  def show
+    render json: { product: Product.get(product_id) }
+  end
+
+  private
+    def product_id
+      params[:id]
+    end
 end

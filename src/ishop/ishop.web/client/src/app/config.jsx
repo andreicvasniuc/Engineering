@@ -1,4 +1,5 @@
 import homeTemplate from './controllers/home/template.html';
+import productListTemplate from './controllers/product-list/template.html';
 import productTemplate from './controllers/product/template.html';
 
 export default ($routeProvider, routeUrls, $translateProvider, languages, envProvider) => {
@@ -11,8 +12,8 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
       controllerAs: '$ctrl'
     },
     dresses: {
-      templateUrl: productTemplate,
-      controller: 'ProductController',
+      templateUrl: productListTemplate,
+      controller: 'ProductListController',
       controllerAs: '$ctrl',
       resolve: {
           productResolver: (productService) => {
@@ -24,8 +25,8 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
       }
     },
     accessories: {
-      templateUrl: productTemplate,
-      controller: 'ProductController',
+      templateUrl: productListTemplate,
+      controller: 'ProductListController',
       controllerAs: '$ctrl',
       resolve: {
           productResolver: (productService) => {
@@ -35,6 +36,11 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
           },
           titleTranslateId: () => "ALL_ACCESSORIES"
       }
+    },
+    product: {
+      templateUrl: productTemplate,
+      controller: 'ProductController',
+      controllerAs: '$ctrl'
     }
   };
 
@@ -46,8 +52,14 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
         routeUrls.dresses,
         routes.dresses)
     .when(
+        routeUrls.dress,
+        routes.product)
+    .when(
         routeUrls.accessories,
         routes.accessories)
+    .when(
+        routeUrls.accessory,
+        routes.product)
     .otherwise(
         { redirectTo: routeUrls.home });
 

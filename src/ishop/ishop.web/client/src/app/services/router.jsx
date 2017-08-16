@@ -15,6 +15,10 @@ class Router {
   doesUrlContain(url) {
     return this.getCurrentUrl().indexOf(url) != -1;
   }
+
+  getId() {
+    return this.$routeParams.id;
+  }
 }
 
 export default Router

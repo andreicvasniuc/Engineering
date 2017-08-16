@@ -4,7 +4,7 @@
             <ul class="portfolio-group">
 
                 <li class="portfolio-item col-sm-4 col-xs-6 margin-bottom-40" ng-repeat="item in $ctrl.list">
-                    <a href="#">
+                    <a ng-href="{{$ctrl.getUrlCallback({ item: item })}}">
                         <figure class="animate fadeInLeft">
                             <img alt="{{item.name}}" ng-src="{{item.cover_image.medium_image_url}}">
                             <figcaption>
