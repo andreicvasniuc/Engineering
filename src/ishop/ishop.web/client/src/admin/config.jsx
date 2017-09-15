@@ -69,7 +69,7 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
         routeUrls.collection_products_search,
         routes.collection_products)
     .otherwise(
-        { redirectTo: routeUrls.index });
+        { redirectTo: routeUrls.collections });
 
     /* JWT configuration */
 

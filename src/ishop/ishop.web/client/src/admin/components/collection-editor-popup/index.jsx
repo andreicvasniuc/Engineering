@@ -4,18 +4,15 @@ import template from './template.html';
 import closeIcon from 'images/close.png';
 
 class CollectionEditorPopupController {
-  constructor($scope, $timeout, $uibModal, $translate, collectionService, collectionNotifier, imageService, imageNotifier, modalAlert, env) {
+  constructor($scope, $timeout, $uibModal, $translate, collectionService, collectionNotifier, imageNotifier) {
     this.$scope = $scope;
     this.$timeout = $timeout;
     this.$uibModal = $uibModal;
     this.$translate = $translate;
     this.collectionService = collectionService;
     this.collectionNotifier = collectionNotifier;
-    this.imageService = imageService;
     this.imageNotifier = imageNotifier;
-    this.modalAlert = modalAlert;
     this.closeIcon = closeIcon;
-    this.env = env;
 
     this.tabs = {
       basicInformation: 0,
@@ -38,10 +35,6 @@ class CollectionEditorPopupController {
     this.collection = collection;
     this.isEdit = !!collection;
     this.selectTab(activeTab);
-
-    if(this.isEdit){
-      this.setUploadUrl();
-    }
   }
 
   openCollectionEditorPopup() {
@@ -51,10 +44,6 @@ class CollectionEditorPopupController {
       backdrop: 'static',
       keyboard: false
     });
-  }
-
-  setUploadUrl() {
-    this.uploadUrl = `${this.env.getApiUrl()}/admin/collections/${this.collection._id.$oid}/upload_image/`;
   }
 
   startSavingSpinner() { this.isSavingSpinner = true; }
@@ -95,41 +84,14 @@ class CollectionEditorPopupController {
     return this.activeTab == tab;
   }
 
-  uploadedFileSize(file) {
-    return Math.round(file.sizeUploaded() * 100/file.size);
-  }
-
-  /* flow methods */
-
-  flowFileSuccess(file, response) {
-    //file.cancel(); // delete the file from flow.files
-    //this.collection = JSON.parse(response);
-    this.lastSuccessResponse = JSON.parse(response);
-    this.imageNotifier.showSuccessUploadMessage();
-  }
-
-  flowComplete(flow) {
-    this.$timeout(() => {
-      flow.files = [];
-      this.collection = this.lastSuccessResponse;
+  uploadImage() {
+    this.collectionService.uploadImage(this.collection, (response) => {
+      this.imageNotifier.showSuccessUploadMessage();
     });
   }
 
-  flowError(file, message, files) {
-    console.log('flowError', file, message, files); 
-  }
-
-  flowFileAdded(flow, file, event) {
-    this.$timeout(() => {
-      this.collection.image = null;
-      this.startUpload(flow);
-    });
-  }
-
-  startUpload(flow) {
-    flow.opts.target = this.uploadUrl;
-    flow.opts.headers = { Authorization : `Bearer ${sessionStorage.getItem('auth_token')}` };
-    flow.upload();
+  deleteImage() {
+    delete this.collection.image;
   }
 }
 

@@ -7,7 +7,6 @@ class Admin::Collection
   embeds_many :products, class_name: "Admin::Product"
 
   after_create :create_for_all_locales
-  after_destroy :delete_folder_with_images
 
   scope :names, -> { only(:name) }
 
@@ -60,10 +59,6 @@ class Admin::Collection
     end
 
     [list_json, collection.count]
-  end
-
-  def delete_folder_with_images
-    CollectionImageProcessor.delete_folder(self._id)
   end
 
   def create_for_all_locales

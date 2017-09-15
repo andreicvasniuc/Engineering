@@ -4,7 +4,8 @@ class CollectionResource {
         get: { method: 'GET' },
         update: { method: 'PUT' },
         search: { method: 'POST', url: `${env.getApiUrl()}/:locale/admin/collections/search` },
-        list: { method: 'GET', url: `${env.getApiUrl()}/:locale/admin/collections/list` }
+        list: { method: 'GET', url: `${env.getApiUrl()}/:locale/admin/collections/list` },
+        uploadImage: { method: 'POST', url: `${env.getApiUrl()}/:locale/admin/collections/:id/upload_image` }
     });
   }
 }

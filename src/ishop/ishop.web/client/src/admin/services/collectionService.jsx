@@ -28,6 +28,10 @@ class CollectionService {
   delete(collection, successCallback, errorCallback){
     this.collectionResource.remove({ id: collection._id.$oid, locale: this.localeService.get() }, successCallback, errorCallback);
   }
+
+  uploadImage(collection, successCallback, errorCallback){
+    this.collectionResource.uploadImage({ id: collection._id.$oid, image: collection.image, locale: this.localeService.get() }, successCallback, errorCallback);
+  }
 }
 
 export default CollectionService

@@ -56,20 +56,11 @@ class Admin::CollectionsController < SecuredController
   # POST /admin/collections/1/upload_image
   # POST /admin/collections1/upload_image.json
   def upload_image
-    image_file = ImageFile.new(params)
-
     delete_image() unless @collection.image.nil?
 
-    @image = @collection.build_image({ extension: image_file.extension })
+    @image = @collection.build_image(collection_image_params)
 
-    unless @image.save
-      render json: @image.errors, status: :unprocessable_entity; return
-    end
-
-    image_file.name = @image._id
-    image_processor = CollectionImageProcessor.new(collection_id, image_file)
-
-    if image_processor.save_image
+    if @image.save
       render json: @collection, status: :ok#, location: @collection
     else
       render json: image_processor.errors, status: :unprocessable_entity
@@ -92,5 +83,9 @@ class Admin::CollectionsController < SecuredController
 
     def collection_params
       params.require(:collection).permit(:name, :description, :published)
+    end
+
+    def collection_image_params
+      params.require(:image).permit(:url)
     end
 end

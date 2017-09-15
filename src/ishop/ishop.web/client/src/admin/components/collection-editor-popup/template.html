@@ -52,7 +52,29 @@
             <uib-tab index="$ctrl.tabs.imageUploading" heading="{{'IMAGE_UPLOADING' | translate}}" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
               <div class="pad15">
                 
-                <div flow-init="{ testChunks: false, singleFile: true }" 
+                <div class="form-group" ng-if="!$ctrl.collection.image">
+                    <div class="textarea">
+                      <textarea id="image-url" 
+                          class="rightm10 form-control" 
+                          ng-model="$ctrl.collection.image.url" 
+                          placeholder="{{'DRAG_IMAGE_HERE' | translate}}"
+                          ng-change="$ctrl.uploadImage()">
+                      </textarea>
+
+                    </div>
+                </div>
+
+                <div class="gallery-box" ng-if="$ctrl.collection.image">
+                    <div class="thumbnail">
+                        <img ng-src="{{$ctrl.collection.image.url}}" />
+                    </div>
+
+                    <div class="btn-group">
+                        <a ng-click="$ctrl.deleteImage()" class="btn btn-xs btn-danger" translate="DELETE"></a>
+                    </div>
+                </div>
+
+                <!-- <div flow-init="{ testChunks: false, singleFile: true }" 
                      flow-file-success="$ctrl.flowFileSuccess($file, $message)" 
                      flow-complete="$ctrl.flowComplete($flow)" 
                      flow-error="$ctrl.flowError($file, $message, $flow.files)" 
@@ -64,8 +86,6 @@
                             <b translate="OR"></b>
                             <span translate="DRAG_AND_DROP_YOUR_IMAGES_HERE"></span>
                         </span>
-
-                        <!-- <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button> -->
                     </div>
 
                     <div class="gallery-box" ng-if="$ctrl.collection.image">
@@ -84,8 +104,7 @@
                         </uib-progressbar>
                     </div>
                     <div class="clearfix"></div>
-
-                </div>
+                </div> -->
 
               </div>
             </uib-tab>
