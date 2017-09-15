@@ -10,8 +10,6 @@ class ProductController {
   loadProduct() {
     this.isLoadingSpinner = true;
 
-    console.log(this.router);
-    console.log(this.router.getId());
     this.productService.get(this.router.getId(), (response) => {
       this.product = response.product;
       this.$timeout(() => this.isLoadingSpinner = false, 50);

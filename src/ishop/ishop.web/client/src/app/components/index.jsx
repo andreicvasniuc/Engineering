@@ -11,6 +11,7 @@ import carousel from './carousel';
 import topProducts from './top-products';
 import loadingIcon from './loading-icon';
 import items from './items';
+import itemDetails from './item-details';
 
 export default angular
     .module('app.components', [])
@@ -25,4 +26,5 @@ export default angular
     .component('topProducts', topProducts)
     .component('loadingIcon', loadingIcon)
     .component('items', items)
+    .component('itemDetails', itemDetails)
     .name;

@@ -5,5 +5,5 @@
     <!-- <h4 class="h5 fh5co-heading-sub">{{$ctrl.collection.description}}</h4> -->
     <div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-        <items list="$ctrl.products"></items>
+        <items list="$ctrl.products" get-url-callback="$ctrl.getProductUrl(item)"></items>
 </div>

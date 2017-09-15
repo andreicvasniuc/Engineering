@@ -2,6 +2,6 @@
 
     <loading-icon ng-show="$ctrl.isLoadingSpinner" />
 
-    {{ $ctrl.product }}
+    <item-details item="$ctrl.product" ng-if="!$ctrl.isLoadingSpinner" />
 
 </main-container>
