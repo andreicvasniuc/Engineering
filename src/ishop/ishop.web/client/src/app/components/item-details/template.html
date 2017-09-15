@@ -1,0 +1,27 @@
+<article class="item-details">
+    <div>
+        <div class="gallery">
+            <a ng-href="{{$ctrl.item.cover_image.large_image_url}}">
+                <img class="cover-image" ng-src="https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/19875413_200751207120844_8265447848444504168_n.jpg?oh=1ad097510281a70426b3b81728e50fc2&oe=5A5AB2E7">
+            </a>
+
+            <a ng-repeat="image in $ctrl.getNoCoverImages()" ng-href="{{image.large_image_url}}">
+                <img class="no-cover-image" ng-src="{{image.small_image_url}}">
+            </a>
+        </div>
+        <div class="info">
+            <h1 ng-bind="$ctrl.item.name"></h1>
+            <div class="extra-fields">
+                <div>
+                    <span translate="COLOR"></span>: 
+                    <span ng-bind="$ctrl.getColor()"></span>
+                </div>
+                <div>
+                    <span translate="SIZE"></span>: 
+                    <span ng-bind="$ctrl.getSize()"></span>
+                </div>
+            </div>
+            <div class="description" ng-bind="$ctrl.item.description"></div>
+        </div>
+    </div>
+</article>

@@ -584,7 +584,7 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
-  height: 600px;
+  height: 400px;
   position: fixed;
   top: 0;
   left: 0;
@@ -599,7 +599,7 @@ textarea {
 }
 #fh5co-hero .fh5co-hero-wrap {
   display: table;
-  height: 600px;
+  height: 400px;
   width: 100%;
 }
 #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro {
@@ -669,7 +669,7 @@ body.inner-page #fh5co-hero .fh5co-hero-wrap {
 }
 
 #fh5co-main {
-  margin-top: 600px;
+  margin-top: 400px;
   padding-top: 50px;
   z-index: 102;
   position: relative;
@@ -1057,6 +1057,7 @@ Components
   font-weight: bold;
   font-size: 45px;
   line-height: 57px;
+  color: #4F6467;
 }
 @media screen and (max-width: 768px) {
   .fh5co-header .fh5co-heading {

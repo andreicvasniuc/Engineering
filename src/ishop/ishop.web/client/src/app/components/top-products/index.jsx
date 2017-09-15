@@ -1,9 +1,10 @@
 import template from './template.html';
 
 class TopProductsController {
-  constructor($timeout, productService) {
+  constructor($timeout, productService, productRouter) {
     this.$timeout = $timeout;
     this.productService = productService;
+    this.productRouter = productRouter;
 
     this.loadTopProducts();
   }
@@ -15,6 +16,10 @@ class TopProductsController {
       this.products = response.products || [];
       this.$timeout(() => this.isLoadingSpinner = false, 50);
     });
+  }
+
+  getProductUrl(product) {
+    return this.productRouter.getUrl(product);
   }
 }
 
