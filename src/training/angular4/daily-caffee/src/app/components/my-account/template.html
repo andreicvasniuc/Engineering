@@ -1,0 +1,15 @@
+<div class="col-md-8 col-md-offset-2">
+    <h3>My Account</h3>
+    <div><a [routerLink]="['/']">Menu</a></div>
+    <div *ngIf="user">
+        {{user.firstName}} {{user.lastName}} <br>
+        cnp: {{user.cnp}} <br>
+        email: {{user.email}} <br>
+        enable: {{user.enable}} <br>
+        id: {{user.id}} <br>
+        idSerialNo: {{user.idSerialNo}} <br>
+        image: {{user.image}} <br>
+        is_completed: {{user.is_completed}} <br>
+        phoneNumber: {{user.phoneNumber}}
+    </div>
+</div>

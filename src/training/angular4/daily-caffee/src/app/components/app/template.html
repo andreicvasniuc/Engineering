@@ -1,0 +1,25 @@
+<main-header></main-header>
+
+<div class="container">
+    <div class="row" [hidden]="isHidden()">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills">
+                <li><a [routerLink]="['/']">Menu</a></li>
+                <li><a [routerLink]="['/login']">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+
+
+  <!--
+
+  <router-outlet></router-outlet>-->
+
+<!--<main-footer></main-footer>-->
