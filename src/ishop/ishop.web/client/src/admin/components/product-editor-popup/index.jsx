@@ -51,7 +51,7 @@ class ProductEditorPopupController {
     this.selectTab(activeTab);
 
     if(this.isEdit){
-      this.setUploadUrl();
+      //this.setUploadUrl();
       this.setCoverImageId();
     }
   }
@@ -65,9 +65,9 @@ class ProductEditorPopupController {
     });
   }
 
-  setUploadUrl() {
-    this.uploadUrl = `${this.env.getApiUrl()}/admin/collections/${this.productRouter.getCollectionId()}/products/${this.product._id.$oid}/images/upload/`;
-  }
+  // setUploadUrl() {
+  //   this.uploadUrl = `${this.env.getApiUrl()}/admin/collections/${this.productRouter.getCollectionId()}/products/${this.product._id.$oid}/images/upload/`;
+  // }
 
   startSavingSpinner() { this.isSavingSpinner = true; }
   stopSavingSpinner() { this.isSavingSpinner = false; }
@@ -173,41 +173,49 @@ class ProductEditorPopupController {
     });
   }
 
-  uploadedFileSize(file) {
-    return Math.round(file.sizeUploaded() * 100/file.size);
+  uploadImage() {
+    this.imageService.upload(this.product._id.$oid, this.image, (response) => {
+      this.product.images = response.images;
+      this.image.url = '';
+      this.imageNotifier.showSuccessUploadMessage();
+    });
   }
+
+  // uploadedFileSize(file) {
+  //   return Math.round(file.sizeUploaded() * 100/file.size);
+  // }
 
   /* flow methods */
 
-  flowFileSuccess(file, response) {
-    //file.cancel(); // delete the file from flow.files
-    //this.product = JSON.parse(response);
-    this.lastSuccessResponse = JSON.parse(response);
-    this.imageNotifier.showSuccessUploadMessage();
-  }
+  // flowFileSuccess(file, response) {
+  //   //file.cancel(); // delete the file from flow.files
+  //   //this.product = JSON.parse(response);
+  //   this.lastSuccessResponse = JSON.parse(response);
+  //   this.imageNotifier.showSuccessUploadMessage();
+  // }
 
-  flowComplete(flow) {
-    this.$timeout(() => {
-      flow.files = [];
-      this.product = this.lastSuccessResponse;
-    });
-  }
+  // flowComplete(flow) {
+  //   this.$timeout(() => {
+  //     flow.files = [];
+  //     this.product = this.lastSuccessResponse;
+  //   });
+  // }
 
-  flowError(file, message, files) {
-    console.log('flowError', file, message, files); 
-  }
+  // flowError(file, message, files) {
+  //   console.log('flowError', file, message, files); 
+  // }
 
-  flowFileAdded(flow, file, event) {
-    this.$timeout(() => {
-      this.startUpload(flow);
-    });
-  }
+  // flowFileAdded(flow, file, event) {
+  //   this.$timeout(() => {
+  //     this.startUpload(flow);
+  //   });
+  // }
 
-  startUpload(flow) {
-    flow.opts.target = this.uploadUrl;
-    flow.opts.headers = { Authorization : `Bearer ${sessionStorage.getItem('auth_token')}` };
-    flow.upload();
-  }
+  // startUpload(flow) {
+  //   flow.opts.target = this.uploadUrl;
+  //   flow.opts.headers = { Authorization : `Bearer ${sessionStorage.getItem('auth_token')}` };
+  //   flow.upload();
+  // }
 }
 
 let productEditorPopup = {

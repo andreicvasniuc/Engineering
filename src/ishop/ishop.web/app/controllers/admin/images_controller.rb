@@ -4,21 +4,31 @@ class Admin::ImagesController < SecuredController
   # POST /admin/products/:product_id/images/upload
   # POST /admin/products/:product_id/images/upload.json
   def upload
-    image_file = ImageFile.new(params)
-    @image = @product.images.build({ extension: image_file.extension })
 
-    unless @image.save
-      render json: @image.errors, status: :unprocessable_entity; return
-    end
+    @image = @product.images.build(image_params)
 
-    image_file.name = @image._id
-    image_processor = ProductImageProcessor.new(collection_id, product_id, image_file)
-
-    if image_processor.save_image
+    if @image.save
       render json: @product, status: :ok#, location: @collection
     else
-      render json: image_processor.errors, status: :unprocessable_entity
+      render json: @image.errors, status: :unprocessable_entity
     end
+
+
+    # image_file = ImageFile.new(params)
+    # @image = @product.images.build({ extension: image_file.extension })
+
+    # unless @image.save
+    #   render json: @image.errors, status: :unprocessable_entity; return
+    # end
+
+    # image_file.name = @image._id
+    # image_processor = ProductImageProcessor.new(collection_id, product_id, image_file)
+
+    # if image_processor.save_image
+    #   render json: @product, status: :ok#, location: @collection
+    # else
+    #   render json: image_processor.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /admin/products/:product_id/images/:id/make_cover
@@ -56,5 +66,9 @@ class Admin::ImagesController < SecuredController
 
     def image_id
       params[:id]
+    end
+
+    def image_params
+      params.require(:image).permit(:url)
     end
 end

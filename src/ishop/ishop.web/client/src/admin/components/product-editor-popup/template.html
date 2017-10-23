@@ -98,7 +98,34 @@
             <uib-tab index="$ctrl.tabs.imageUploading" heading="{{'IMAGE_UPLOADING' | translate}}" disable="!$ctrl.isEdit" select="$ctrl.selectTab($ctrl.tabs.imageUploading)">
               <div class="pad15">
                 
-                <div flow-init="{ testChunks: false }" 
+                <div class="form-group">
+                    <div class="textarea">
+                      <textarea id="image-url" 
+                          class="rightm10 form-control" 
+                          ng-model="$ctrl.image.url" 
+                          placeholder="{{'DRAG_IMAGE_HERE' | translate}}"
+                          ng-change="$ctrl.uploadImage()">
+                      </textarea>
+                    </div>
+                </div>
+
+                <div class="gallery-box" ng-repeat="image in $ctrl.product.images">
+                    <span class="title">
+                        <input id="image-{{$index}}" type="radio" name="cover" ng-model="$ctrl.coverImageId" ng-value="image._id.$oid" ng-click="$ctrl.makeCover(image)"/>
+                        <label for="image-{{$index}}" ng-if="!image.is_cover" translate="MAKE_COVER"></label>
+                        <label for="image-{{$index}}" ng-if="image.is_cover" translate="COVER"></label>
+                    </span>
+                    <div class="thumbnail" ng-click="$ctrl.makeCover(image)">
+                        <img ng-src="{{image.url}}" />
+                    </div>
+
+                    <div class="btn-group">
+                        <a ng-click="$ctrl.delete(image)" class="btn btn-xs btn-danger" translate="DELETE"></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <!-- <div flow-init="{ testChunks: false }" 
                      flow-file-success="$ctrl.flowFileSuccess($file, $message)" 
                      flow-complete="$ctrl.flowComplete($flow)" 
                      flow-error="$ctrl.flowError($file, $message, $flow.files)" 
@@ -110,8 +137,6 @@
                             <b translate="OR"></b>
                             <span translate="DRAG_AND_DROP_YOUR_IMAGES_HERE"></span>
                         </span>
-
-                        <!-- <button type="button" class="btn btn-default float-right topm2 start-upload-btn" ng-click="$ctrl.startUpload($flow)" ng-disabled="$flow.files.length == 0">Start upload</button> -->
                     </div>
 
                     <div class="gallery-box" ng-repeat="image in $ctrl.product.images">
@@ -141,7 +166,7 @@
                     </div>
                     <div class="clearfix"></div>
 
-                </div>
+                </div> -->
 
               </div>
             </uib-tab>
