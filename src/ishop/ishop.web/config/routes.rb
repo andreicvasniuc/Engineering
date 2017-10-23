@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|ua|ru|ro/ do
 
     scope '/api' do
-      resources :collections, only: [] do
+      resources :collections, only: [:index] do
         post :search, on: :collection
         # get :get_top_collection, on: :collection
       end

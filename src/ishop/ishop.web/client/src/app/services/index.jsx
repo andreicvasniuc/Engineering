@@ -3,6 +3,7 @@ import angular from 'angular';
 import resources from './resources';
 
 import Router from './router';
+import CollectionRouter from './collectionRouter';
 import ProductRouter from './productRouter';
 import Translator from './translator';
 import RequestService from './requestService';
@@ -19,6 +20,7 @@ export default angular
     .module('app.services', [ resources ])
     .service('router', Router)
     .service('productRouter', ProductRouter)
+    .service('collectionRouter', CollectionRouter)
     .service('translator', Translator)
     .service('requestService', RequestService)
     .service('productService', ProductService)

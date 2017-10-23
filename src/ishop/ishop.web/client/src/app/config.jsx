@@ -1,4 +1,5 @@
 import homeTemplate from './controllers/home/template.html';
+import collectionListTemplate from './controllers/collection-list/template.html';
 import productListTemplate from './controllers/product-list/template.html';
 import productTemplate from './controllers/product/template.html';
 
@@ -10,6 +11,19 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
       templateUrl: homeTemplate,
       controller: 'HomeController',
       controllerAs: '$ctrl'
+    },
+    collections: {
+      templateUrl: collectionListTemplate,
+      controller: 'CollectionListController',
+      controllerAs: '$ctrl',
+      resolve: {
+          collectionResolver: (collectionService) => {
+            return collectionService.list((response) => {
+              return response.collections;
+            });
+          },
+          titleTranslateId: () => "ALL_COLLECTIONS"
+      }
     },
     dresses: {
       templateUrl: productListTemplate,
@@ -48,6 +62,9 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
     .when(
         routeUrls.home,
         routes.home)
+    .when(
+        routeUrls.collections,
+        routes.collections)
     .when(
         routeUrls.dresses,
         routes.dresses)

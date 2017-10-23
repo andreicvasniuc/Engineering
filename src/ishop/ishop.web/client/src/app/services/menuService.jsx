@@ -15,9 +15,10 @@ class MenuService {
     return {
       list: [
           { name: 'HOME', url: this.routeUrls.home, isActive: true },
-          { name: 'CATALOG', url: this.routeUrls.dresses, list: 
+          { name: 'CATALOG', url: this.routeUrls.collections, list: 
             [
-              { name: 'DRESSES', url: this.routeUrls.dresses },
+              { name: 'COLLECTIONS', url: this.routeUrls.collections },
+              // { name: 'DRESSES', url: this.routeUrls.dresses },
               { name: 'ACCESSORIES', url: this.routeUrls.accessories }
             ]
           },

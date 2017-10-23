@@ -23,6 +23,7 @@ gem 'rails-api'
 # Mongoid
 gem 'mongoid' #, '~> 5.1.0'
 gem 'bson_ext'
+gem 'mongoid-slug'
 
 # logging
 gem 'logging'

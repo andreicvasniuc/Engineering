@@ -178,6 +178,9 @@ class ProductEditorPopupController {
       this.product.images = response.images;
       this.image.url = '';
       this.imageNotifier.showSuccessUploadMessage();
+      if(this.product.images && this.product.images.length == 1) {
+        this.makeCover(this.product.images[0]);
+      }
     });
   }
 

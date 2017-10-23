@@ -9,9 +9,9 @@ class CollectionService {
     this.collectionResource.search(request, successCallback, errorCallback);
   }
 
-  // getTopCollection(successCallback, errorCallback) {
-  //   this.collectionResource.getTopCollection({ locale: this.localeService.get() }, successCallback, errorCallback);
-  // }
+  list(successCallback, errorCallback) {
+    this.collectionResource.query({ locale: this.localeService.get() }, successCallback, errorCallback);
+  }
 }
 
 export default CollectionService

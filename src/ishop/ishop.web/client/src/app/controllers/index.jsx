@@ -1,6 +1,7 @@
 import angular from 'angular';
 
 import HomeController from './home';
+import CollectionListController from './collection-list';
 import ProductListController from './product-list';
 import ProductController from './product';
 
@@ -9,4 +10,5 @@ export default angular
     .controller('HomeController', HomeController)
     .controller('ProductController', ProductController)
     .controller('ProductListController', ProductListController)
+    .controller('CollectionListController', CollectionListController)
     .name;
