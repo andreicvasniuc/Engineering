@@ -19,7 +19,7 @@ module CollectionConcern
     def as_json(options={})
       attrs = super(options)
 
-      attrs["products_count"] = self.products_count
+      attrs["products_count"] = self.products_count || (self.products || []).count
 
         self.products.each_with_index do |product, index|
           attrs["products"][index] = product.as_json(attrs["products"][index])

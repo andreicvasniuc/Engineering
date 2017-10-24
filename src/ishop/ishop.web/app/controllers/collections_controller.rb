@@ -7,11 +7,9 @@ class CollectionsController < ApplicationController
     render json: { collections: @collections, totalCount: @total_count }
   end
 
-  # GET /api/collections
-  # GET /api/collections.json
-  def index
-    iputs params
-    # @collection = Collection.get_top_collection()
-    render json: []
+  # GET /api/collections/list
+  # GET /api/collections/list.json
+  def list
+    render json: { collections: Collection.published }
   end
 end

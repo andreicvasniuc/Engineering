@@ -10,7 +10,7 @@ class CollectionService {
   }
 
   list(successCallback, errorCallback) {
-    this.collectionResource.query({ locale: this.localeService.get() }, successCallback, errorCallback);
+    return this.collectionResource.list({ locale: this.localeService.get() }, successCallback, errorCallback);
   }
 }
 
