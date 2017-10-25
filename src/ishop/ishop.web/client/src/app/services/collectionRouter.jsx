@@ -9,9 +9,8 @@ class CollectionRouter {
     };
   }
 
-  getUrl(product) {
-    let url = product.is_accessory ? this.routeUrls.accessory : this.routeUrls.dress;
-    return '/#' + url.replace(this.paramMasks.id, product._id.$oid)
+  getUrl(collection) {
+    return '/#' + this.routeUrls.collection.replace(this.paramMasks.id, collection.slug)
   }
 }
 

@@ -6,7 +6,7 @@
         <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">{{ $ctrl.title }}</h1>
         <div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-        <items list="$ctrl.products" get-url-callback="$ctrl.getProductUrl(item)"></items>
+        <items list="$ctrl.products" get-url-callback="$ctrl.getProductUrl(item)" get-image-source-callback="$ctrl.getCoverImageSource(item)"></items>
     </div>
 
 </main-container>

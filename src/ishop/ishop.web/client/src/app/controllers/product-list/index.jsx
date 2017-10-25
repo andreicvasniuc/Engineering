@@ -21,6 +21,10 @@ class ProductListController {
   getProductUrl(product) {
     return this.productRouter.getUrl(product);
   }
+
+  getCoverImageSource(product) {
+    return product.cover_image && product.cover_image.url;
+  }
 }
 
 export default ProductListController

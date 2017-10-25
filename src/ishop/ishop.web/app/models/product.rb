@@ -4,8 +4,6 @@ class Product
   include Mongoid::Slug
   include ProductConcern
 
-  slug :name
-
   embedded_in :collection, class_name: "Collection"
   embeds_many :images, class_name: "ProductImage"
 

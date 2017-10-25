@@ -1,6 +1,7 @@
 class Admin::Collection
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   include CollectionConcern
 
   embeds_one :image, class_name: "Admin::CollectionImage"

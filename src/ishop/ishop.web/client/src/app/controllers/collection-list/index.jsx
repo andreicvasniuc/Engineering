@@ -20,9 +20,11 @@ class CollectionListController {
   }
 
   getCollectionUrl(collection) {
-    console.log('collection', collection);
-    return 'collection';
-    // return this.productRouter.getUrl(product);
+    return this.collectionRouter.getUrl(collection);
+  }
+
+  getImageSource(collection) {
+    return collection.image && collection.image.url;
   }
 }
 

@@ -1,6 +1,7 @@
 class Admin::Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   include ProductConcern
 
   embedded_in :collection, class_name: "Admin::Collection"

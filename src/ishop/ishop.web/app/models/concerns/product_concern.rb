@@ -12,10 +12,14 @@ module ProductConcern
     field :size_id, type: String
     field :color_id, type: String
 
+    slug :name
+
     default_scope -> { order(:updated_at => :desc) }
 
     def as_json(options={})
       attrs = super(options)
+
+      attrs["slug"] = self.slug;
 
       self.images.each_with_index do |image, index|
         attrs["cover_image"] = attrs["images"][index] if image.is_cover

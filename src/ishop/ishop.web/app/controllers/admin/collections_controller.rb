@@ -74,6 +74,7 @@ class Admin::CollectionsController < SecuredController
     end
 
     def set_collection
+      # @collection = Admin::Collection.find(BSON::ObjectId.from_string(collection_id))
       @collection = Admin::Collection.find(collection_id)
     end
 

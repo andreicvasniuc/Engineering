@@ -13,6 +13,8 @@ module CollectionConcern
     index name: 1
     index published: 1
 
+    slug :name
+
     attr_accessor :products_count
     # default_scope -> { order(:updated_at => :desc) }
 
@@ -20,6 +22,7 @@ module CollectionConcern
       attrs = super(options)
 
       attrs["products_count"] = self.products_count || (self.products || []).count
+      attrs["slug"] = self.slug;
 
         self.products.each_with_index do |product, index|
           attrs["products"][index] = product.as_json(attrs["products"][index])
