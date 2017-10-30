@@ -9,6 +9,7 @@ module CollectionConcern
     field :name, type: String, localize: true
     field :description, type: String, localize: true
     field :published, type: Boolean
+    field :has_accessories, type: Boolean
 
     index name: 1
     index published: 1

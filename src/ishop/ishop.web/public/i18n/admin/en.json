@@ -80,5 +80,6 @@
   "DELETE_COLOR_MESSAGE": "Deleting this color you will delete all references to it from products. Are you sure you want to delete this color?",
   "TOP_PRODUCT": "top product",
   "ACCESSORY": "accessory",
+  "ACCESSORIES": "accessories",
   "DRAG_IMAGE_HERE": "Drag image here"
 }

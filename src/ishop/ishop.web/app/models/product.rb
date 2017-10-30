@@ -10,23 +10,23 @@ class Product
   # scope :published, -> { where("products.published" => true) }
 
   def self.top_list
-    collection_query = published_collection.where("products.is_top" => true)
-    get_products(collection_query)
+    criteria = published_collection.where("products.is_top" => true)
+    get_products(criteria).select{ |product| product.published && product.is_top }
   end
 
-  def self.dresses
-    collection_query = published_collection.or({"products.is_accessory" => false}, {"products.is_accessory" => nil})
-    get_products(collection_query)
-  end
+  # def self.dresses
+  #   criteria = published_collection.or({"products.is_accessory" => false}, {"products.is_accessory" => nil})
+  #   get_products(criteria)
+  # end
 
-  def self.accessories
-    collection_query = published_collection.where("products.is_accessory" => true)
-    get_products(collection_query)
-  end
+  # def self.accessories
+  #   criteria = published_collection.where("products.is_accessory" => true)
+  #   get_products(criteria)
+  # end
 
   def self.get(id)
-    collection_query = published_collection.where("products._id" => BSON::ObjectId(id))
-    get_products(collection_query).first
+    criteria = published_collection.where("products._id" => BSON::ObjectId(id))
+    get_products(criteria).first
   end
 
   private
@@ -34,7 +34,7 @@ class Product
       Collection.only(:products).published.where("products.published" => true)
     end
 
-    def self.get_products(collection_query)
-      collection_query.map { |collection| collection.products }.flatten
+    def self.get_products(criteria)
+      criteria.map { |collection| collection.products }.flatten
     end
 end

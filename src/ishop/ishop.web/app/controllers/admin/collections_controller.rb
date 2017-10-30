@@ -83,7 +83,7 @@ class Admin::CollectionsController < SecuredController
     end
 
     def collection_params
-      params.require(:collection).permit(:name, :description, :published)
+      params.require(:collection).permit(:name, :description, :published, :has_accessories)
     end
 
     def collection_image_params

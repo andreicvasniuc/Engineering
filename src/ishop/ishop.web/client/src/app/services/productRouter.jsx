@@ -10,8 +10,7 @@ class ProductRouter {
   }
 
   getUrl(product) {
-    let url = product.is_accessory ? this.routeUrls.accessory : this.routeUrls.dress;
-    return '/#' + url.replace(this.paramMasks.id, product._id.$oid)
+    return '/#' + this.routeUrls.dress.replace(this.paramMasks.id, product._id.$oid)
   }
 }
 
