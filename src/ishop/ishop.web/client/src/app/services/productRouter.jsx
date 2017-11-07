@@ -5,12 +5,16 @@ class ProductRouter {
     this.routeUrls = routeUrls;
 
     this.paramMasks = {
-      id: ':id'
+      product: ':product'
     };
   }
 
-  getUrl(product) {
-    return '/#' + this.routeUrls.dress.replace(this.paramMasks.id, product._id.$oid)
+  getUrl(productId) {
+    return '/#' + this.routeUrls.product.replace(this.paramMasks.product, productId)
+  }
+
+  getId() {
+    return this.$routeParams.product;
   }
 }
 

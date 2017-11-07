@@ -31,7 +31,7 @@ class Product
 
   private
     def self.published_collection
-      Collection.only(:products).published.where("products.published" => true)
+      Collection.only(:products, :_slugs).published.where("products.published" => true)
     end
 
     def self.get_products(criteria)

@@ -5,11 +5,9 @@ export default angular
     .constant('routeUrls', { 
         home: '/', 
         collections: '/collections', 
-        collection: '/collection/:id',
-        dresses: '/dresses', 
-        dress: '/dress/:id', 
+        collection: '/:collection',
+        product: '/:collection/:product', 
         accessories: '/accessories', 
-        accessory: '/accessory/:id', 
         contact: '/contact' 
       })
     .constant('languages', { en: 'en', ru: 'ru', ua: 'ua', ro: 'ro' })

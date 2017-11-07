@@ -19,6 +19,7 @@ module ProductConcern
       attrs = super(options)
 
       attrs["slug"] = self.slug;
+      attrs["collection_slug"] = self.collection && self.collection.slug;
 
       self.images.each_with_index do |image, index|
         attrs["cover_image"] = attrs["images"][index] if image.is_cover

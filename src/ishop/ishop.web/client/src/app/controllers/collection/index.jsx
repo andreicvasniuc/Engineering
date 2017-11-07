@@ -1,4 +1,4 @@
-class ProductController {
+class CollectionController {
   constructor($timeout, collectionService, collectionRouter) {
     this.$timeout = $timeout;
     this.collectionService = collectionService;
@@ -11,19 +11,18 @@ class ProductController {
     this.isLoadingSpinner = true;
 
     this.collectionService.get(this.collectionRouter.getId(), (response) => {
-      this.getProduct(response.collection);
+      this.collection = response.collection;
       this.$timeout(() => this.isLoadingSpinner = false, 50);
     });
   }
 
-  getProduct(collection) {
-    console.log('collection', collection);
-    this.product = collection.products.find((product) => product.slug == this.collectionRouter.getProductId());
-    console.log('product', this.product);
-    if(!this.product) {
-      // go to 404
-    }
+  getProductUrl(product) {
+    return this.collectionRouter.getProductUrl(this.collection.slug, product.slug);
+  }
+
+  getCoverProductImageSource(product) {
+    return product.cover_image && product.cover_image.url;
   }
 }
 
-export default ProductController
+export default CollectionController

@@ -8,6 +8,8 @@ class Collection
   embeds_many :products, class_name: "Product"
 
   scope :published, -> { where(published: true) }
+  scope :not_accessories, -> { any_of({has_accessories: false}, {has_accessories: nil}) }
+  scope :accessories, -> { where(has_accessories: true) }
   scope :latest, -> { order(:created_at => :desc) }
 
   def self.search(search, pagination, sorting)
@@ -22,7 +24,7 @@ class Collection
     [query, self.count]
   end
 
-  # def self.get_top_collection
-  #   self.published.latest.only(:name, :description, "products._id", "products.name", "products.description", "products.images").first
-  # end
+  def self.dresses
+    self.published.not_accessories.latest.only(:name, :description, :image, :_slugs)
+  end
 end

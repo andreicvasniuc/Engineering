@@ -1,5 +1,6 @@
 import homeTemplate from './controllers/home/template.html';
 import collectionListTemplate from './controllers/collection-list/template.html';
+import collectionTemplate from './controllers/collection/template.html';
 import productListTemplate from './controllers/product-list/template.html';
 import productTemplate from './controllers/product/template.html';
 
@@ -18,39 +19,44 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
       controllerAs: '$ctrl',
       resolve: {
           collectionResolver: (collectionService) => {
-            return collectionService.list((response) => {
+            return collectionService.dresses((response) => {
               return response.collections;
             });
           },
           titleTranslateId: () => "ALL_COLLECTIONS"
       }
     },
-    dresses: {
-      templateUrl: productListTemplate,
-      controller: 'ProductListController',
-      controllerAs: '$ctrl',
-      resolve: {
-          productResolver: (productService) => {
-            return productService.dresses((response) => {
-              return response.products;
-            });
-          },
-          titleTranslateId: () => "ALL_DRESSES"
-      }
+    collection: {
+      templateUrl: collectionTemplate,
+      controller: 'CollectionController',
+      controllerAs: '$ctrl'
     },
-    accessories: {
-      templateUrl: productListTemplate,
-      controller: 'ProductListController',
-      controllerAs: '$ctrl',
-      resolve: {
-          productResolver: (productService) => {
-            return productService.accessories((response) => {
-              return response.products;
-            });
-          },
-          titleTranslateId: () => "ALL_ACCESSORIES"
-      }
-    },
+    // dresses: {
+    //   templateUrl: productListTemplate,
+    //   controller: 'ProductListController',
+    //   controllerAs: '$ctrl',
+    //   resolve: {
+    //       productResolver: (productService) => {
+    //         return productService.dresses((response) => {
+    //           return response.products;
+    //         });
+    //       },
+    //       titleTranslateId: () => "ALL_DRESSES"
+    //   }
+    // },
+    // accessories: {
+    //   templateUrl: productListTemplate,
+    //   controller: 'ProductListController',
+    //   controllerAs: '$ctrl',
+    //   resolve: {
+    //       productResolver: (productService) => {
+    //         return productService.accessories((response) => {
+    //           return response.products;
+    //         });
+    //       },
+    //       titleTranslateId: () => "ALL_ACCESSORIES"
+    //   }
+    // },
     product: {
       templateUrl: productTemplate,
       controller: 'ProductController',
@@ -66,17 +72,23 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
         routeUrls.collections,
         routes.collections)
     .when(
-        routeUrls.dresses,
-        routes.dresses)
+        routeUrls.collection,
+        routes.collection)
     .when(
-        routeUrls.dress,
+        routeUrls.product,
         routes.product)
-    .when(
-        routeUrls.accessories,
-        routes.accessories)
-    .when(
-        routeUrls.accessory,
-        routes.product)
+    // .when(
+    //     routeUrls.dresses,
+    //     routes.dresses)
+    // .when(
+    //     routeUrls.dress,
+    //     routes.product)
+    // .when(
+    //     routeUrls.accessories,
+    //     routes.accessories)
+    // .when(
+    //     routeUrls.accessory,
+    //     routes.product)
     .otherwise(
         { redirectTo: routeUrls.home });
 

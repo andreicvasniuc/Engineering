@@ -1,0 +1,12 @@
+<main-container>
+
+    <loading-icon ng-show="$ctrl.isLoadingSpinner" />
+
+    <div class="col-md-10 col-md-offset-1 clearfix fh5co-header" ng-hide="$ctrl.isLoadingSpinner">
+        <h1 class="h1 fh5co-heading fh5co-no-margin-bottom">{{ $ctrl.collection.name }}</h1>
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+        <items list="$ctrl.collection.products" get-url-callback="$ctrl.getProductUrl(item)" get-image-source-callback="$ctrl.getCoverProductImageSource(item)"></items>
+    </div>
+
+</main-container>

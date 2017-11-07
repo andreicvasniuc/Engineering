@@ -1,16 +1,28 @@
 class CollectionRouter {
-  constructor($routeParams, router, routeUrls) {
+  constructor($routeParams, productRouter, routeUrls) {
     this.$routeParams = $routeParams;
-    this.router = router;
+    this.productRouter = productRouter;
     this.routeUrls = routeUrls;
 
     this.paramMasks = {
-      id: ':id'
+      collection: ':collection'
     };
   }
 
   getUrl(collection) {
-    return '/#' + this.routeUrls.collection.replace(this.paramMasks.id, collection.slug)
+    return '/#' + this.routeUrls.collection.replace(this.paramMasks.collection, collection.slug)
+  }
+
+  getProductUrl(collectionId, productId) {
+    return this.productRouter.getUrl(productId).replace(this.paramMasks.collection, collectionId);
+  }
+
+  getId() {
+    return this.$routeParams.collection;
+  }
+
+  getProductId() {
+    return this.productRouter.getId();
   }
 }
 

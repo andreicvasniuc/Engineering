@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|ua|ru|ro/ do
 
     scope '/api' do
-      resources :collections, only: [] do
-        post :search, on: :collection
-        get :list, on: :collection
+      resources :collections, only: [:show] do
+        # post :search, on: :collection
+        get :dresses, on: :collection
+        get :accessories, on: :collection
       end
 
       resources :products, only: [:show] do

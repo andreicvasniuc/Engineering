@@ -1,10 +1,10 @@
 import template from './template.html';
 
 class TopProductsController {
-  constructor($timeout, productService, productRouter) {
+  constructor($timeout, productService, collectionRouter) {
     this.$timeout = $timeout;
     this.productService = productService;
-    this.productRouter = productRouter;
+    this.collectionRouter = collectionRouter;
 
     this.loadTopProducts();
   }
@@ -19,7 +19,7 @@ class TopProductsController {
   }
 
   getProductUrl(product) {
-    return this.productRouter.getUrl(product);
+    return this.collectionRouter.getProductUrl(product.collection_slug, product.slug);
   }
 
   getCoverImageSource(product) {

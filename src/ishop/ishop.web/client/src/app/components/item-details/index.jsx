@@ -8,7 +8,8 @@ class ItemDetailsController {
   }
 
   getNoCoverImages() {
-    return _.filter(this.item.images, {is_cover: false});
+    //return _.filter(this.item.images, {is_cover: false});
+    return this.item.images.filter((image) => !image.is_cover);
   }
 
   getColor() {
