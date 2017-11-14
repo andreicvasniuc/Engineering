@@ -13,6 +13,7 @@ class ItemDetailsController {
   }
 
   getColor() {
+    // get color ?????
     return 'color';
   }
 

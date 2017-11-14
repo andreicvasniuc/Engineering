@@ -17,7 +17,6 @@ module CollectionConcern
     slug :name
 
     attr_accessor :products_count
-    # default_scope -> { order(:updated_at => :desc) }
 
     def as_json(options={})
       attrs = super(options)

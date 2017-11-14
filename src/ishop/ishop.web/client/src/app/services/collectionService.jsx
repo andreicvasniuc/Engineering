@@ -4,11 +4,6 @@ class CollectionService {
     this.localeService = localeService;
   }
 
-  // search(request, successCallback, errorCallback){
-  //   request.locale = this.localeService.get();
-  //   this.collectionResource.search(request, successCallback, errorCallback);
-  // }
-
   get(id, successCallback, errorCallback) {
     return this.collectionResource.get({ locale: this.localeService.get(), id: id }, successCallback, errorCallback);
   }

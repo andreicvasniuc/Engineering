@@ -17,9 +17,7 @@ class ProductController {
   }
 
   getProduct(collection) {
-    console.log('collection', collection);
     this.product = collection.products.find((product) => product.slug == this.collectionRouter.getProductId());
-    console.log('product', this.product);
     if(!this.product) {
       // go to 404
     }

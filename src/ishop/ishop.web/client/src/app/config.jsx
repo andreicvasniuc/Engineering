@@ -26,6 +26,19 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
           titleTranslateId: () => "ALL_COLLECTIONS"
       }
     },
+    accessories: {
+      templateUrl: collectionListTemplate,
+      controller: 'CollectionListController',
+      controllerAs: '$ctrl',
+      resolve: {
+          collectionResolver: (collectionService) => {
+            return collectionService.accessories((response) => {
+              return response.collections;
+            });
+          },
+          titleTranslateId: () => "ALL_ACCESSORIES"
+      }
+    },
     collection: {
       templateUrl: collectionTemplate,
       controller: 'CollectionController',
@@ -44,19 +57,6 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
     //       titleTranslateId: () => "ALL_DRESSES"
     //   }
     // },
-    // accessories: {
-    //   templateUrl: productListTemplate,
-    //   controller: 'ProductListController',
-    //   controllerAs: '$ctrl',
-    //   resolve: {
-    //       productResolver: (productService) => {
-    //         return productService.accessories((response) => {
-    //           return response.products;
-    //         });
-    //       },
-    //       titleTranslateId: () => "ALL_ACCESSORIES"
-    //   }
-    // },
     product: {
       templateUrl: productTemplate,
       controller: 'ProductController',
@@ -72,6 +72,9 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
         routeUrls.collections,
         routes.collections)
     .when(
+        routeUrls.accessories,
+        routes.accessories)
+    .when(
         routeUrls.collection,
         routes.collection)
     .when(
@@ -83,9 +86,6 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
     // .when(
     //     routeUrls.dress,
     //     routes.product)
-    // .when(
-    //     routeUrls.accessories,
-    //     routes.accessories)
     // .when(
     //     routeUrls.accessory,
     //     routes.product)

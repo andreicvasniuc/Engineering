@@ -12,6 +12,7 @@ class CollectionController {
 
     this.collectionService.get(this.collectionRouter.getId(), (response) => {
       this.collection = response.collection;
+      this.products = response.collection.products.filter((product) => product.published);
       this.$timeout(() => this.isLoadingSpinner = false, 50);
     });
   }

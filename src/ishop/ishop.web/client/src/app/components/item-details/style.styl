@@ -13,6 +13,12 @@
     top: 15px;
     width: 100%;
     
+    &::after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+    
     img {
       display: block;
       -webkit-box-shadow: 0px 2px 12px -1px rgba(130,86,73,1);
@@ -27,7 +33,7 @@
     
     .no-cover-image {
       float: left;
-      // height: 290px;
+      height: 290px;
       margin: 0 0 15px 15px;
       cursor: pointer;
     }

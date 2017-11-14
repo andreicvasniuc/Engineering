@@ -1,12 +1,4 @@
 class CollectionsController < ApplicationController
-  # POST /api/collections/search
-  # POST /api/collections/search.json
-  # def search
-  #   @collections, @total_count = Collection.search(params[:search], params[:pagination], params[:sorting])
-
-  #   render json: { collections: @collections, totalCount: @total_count }
-  # end
-
   # GET /api/collections/:id
   # GET /api/collections/:id.json
   def show
@@ -16,13 +8,13 @@ class CollectionsController < ApplicationController
   # GET /api/collections/dresses
   # GET /api/collections/dresses.json
   def dresses
-    render json: { collections: Collection.dresses }
+    render json: { collections: Collection.published_dresses }
   end
 
   # GET /api/collections/accessories
   # GET /api/collections/accessories.json
   def accessories
-    render json: { collections: Collection.published.accessories }
+    render json: { collections: Collection.published_accessories }
   end
 
   private

@@ -24,10 +24,10 @@ class Product
   #   get_products(criteria)
   # end
 
-  def self.get(id)
-    criteria = published_collection.where("products._id" => BSON::ObjectId(id))
-    get_products(criteria).first
-  end
+  # def self.get(id)
+  #   criteria = published_collection.where("products._id" => BSON::ObjectId(id))
+  #   get_products(criteria).first
+  # end
 
   private
     def self.published_collection

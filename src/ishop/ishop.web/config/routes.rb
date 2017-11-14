@@ -9,15 +9,14 @@ Rails.application.routes.draw do
 
     scope '/api' do
       resources :collections, only: [:show] do
-        # post :search, on: :collection
         get :dresses, on: :collection
         get :accessories, on: :collection
       end
 
-      resources :products, only: [:show] do
+      resources :products, only: [] do
         get :top_list, on: :collection
-        get :dresses, on: :collection
-        get :accessories, on: :collection
+        # get :dresses, on: :collection
+        # get :accessories, on: :collection
       end
     end
 
