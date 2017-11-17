@@ -18,6 +18,14 @@ Rails.application.routes.draw do
         # get :dresses, on: :collection
         # get :accessories, on: :collection
       end
+
+      resources :sizes, only: [] do
+        get :list, on: :collection
+      end
+
+      resources :colors, only: [] do
+        get :list, on: :collection
+      end
     end
 
     namespace :admin do

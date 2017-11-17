@@ -1,24 +1,24 @@
 <article class="item-details">
     <div>
         <div class="gallery">
-            <a ng-href="{{$ctrl.item.cover_image.url}}">
-                <img class="cover-image" ng-src="{{$ctrl.item.cover_image.url}}">
+            <a ng-href="{{$ctrl.image.url}}">
+                <img class="cover-image" ng-src="{{$ctrl.image.url}}">
             </a>
 
-            <a ng-repeat="image in $ctrl.getNoCoverImages()" ng-href="{{image.url}}">
+            <a ng-repeat="image in $ctrl.item.images" ng-href="{{image.url}}" ng-click="$ctrl.selectImage(image, $event)">
                 <img class="no-cover-image" ng-src="{{image.url}}">
             </a>
         </div>
         <div class="info">
             <h1 ng-bind="$ctrl.item.name"></h1>
             <div class="extra-fields">
-                <div>
+                <div ng-if="$ctrl.item.color">
                     <span translate="COLOR"></span>: 
-                    <span ng-bind="$ctrl.getColor()"></span>
+                    <span ng-bind="$ctrl.item.color.name"></span>
                 </div>
-                <div>
+                <div ng-if="$ctrl.item.size">
                     <span translate="SIZE"></span>: 
-                    <span ng-bind="$ctrl.getSize()"></span>
+                    <span ng-bind="$ctrl.item.size.name"></span>
                 </div>
             </div>
             <div class="description" ng-bind="$ctrl.item.description"></div>

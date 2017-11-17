@@ -4,21 +4,13 @@ import template from './template.html';
 
 class ItemDetailsController {
   constructor() {
-    console.log(this.item);
+    this.image = this.item.cover_image;
   }
 
-  getNoCoverImages() {
-    //return _.filter(this.item.images, {is_cover: false});
-    return this.item.images.filter((image) => !image.is_cover);
-  }
+  selectImage(image, event) {
+    event.preventDefault();
 
-  getColor() {
-    // get color ?????
-    return 'color';
-  }
-
-  getSize() {
-    return 'size';
+    this.image = image;
   }
 }
 
