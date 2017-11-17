@@ -27,6 +27,13 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
+
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor']
     }),
