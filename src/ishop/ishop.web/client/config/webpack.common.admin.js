@@ -27,7 +27,8 @@ module.exports = webpackMerge(commonConfig, {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/admin/index.ejs'
+      template: 'src/admin/index.ejs',
+      filename: 'admin.html'
     })
   ]
 });
