@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get 'admin', to: 'home#admin'
 
   scope '(:locale)', locale: /en|ua|ru|ro/ do
 
