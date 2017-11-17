@@ -3,11 +3,12 @@ var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
-var commonAdminConfig = require('./webpack.common.admin.js');
+//var commonConfig = require('./webpack.common.admin.js');
+var commonConfig = require('./webpack.common.app.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-module.exports = webpackMerge(commonAdminConfig, {
+module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   output: {
