@@ -14,6 +14,10 @@ module.exports = webpackMerge(commonConfig, {
     app: pathToApp('index.jsx')
   },
 
+  output: {
+    publicPath: '/assets/app/'
+  },
+
   resolve: {
       alias: {
           css: helpers.src('assets/app/css'),

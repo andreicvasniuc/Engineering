@@ -14,6 +14,10 @@ module.exports = webpackMerge(commonConfig, {
     admin: pathToAdmin('index.jsx')
   },
 
+  output: {
+    publicPath: '/assets/admin/'
+  },
+
   resolve: {
       alias: {
           css: helpers.src('assets/admin/css'),

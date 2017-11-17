@@ -3,8 +3,8 @@ var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
-//var commonConfig = require('./webpack.common.admin.js');
-var commonConfig = require('./webpack.common.app.js');
+var commonConfig = require('./webpack.common.admin.js');
+//var commonConfig = require('./webpack.common.app.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
@@ -13,7 +13,6 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: helpers.root('dist'),
-    publicPath: '/assets/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
   },
