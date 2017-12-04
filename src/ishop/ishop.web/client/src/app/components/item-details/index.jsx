@@ -3,8 +3,8 @@ import './style.styl';
 import template from './template.html';
 
 class ItemDetailsController {
-  constructor() {
-    this.image = this.item.cover_image;
+  constructor($timeout) {
+    $timeout(() => this.image = this.item.cover_image);
   }
 
   selectImage(image, event) {
