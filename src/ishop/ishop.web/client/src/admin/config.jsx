@@ -4,7 +4,7 @@ import collectionTemplate from './controllers/collection/template.html';
 import collectionProductTemplate from './controllers/collection-product/template.html';
 import productTemplate from './controllers/product/template.html';
 
-export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages, envProvider) => {
+export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $translateProvider, languages, envProvider, $locationProvider) => {
   /* Routing */
 
   let routes = {
@@ -70,6 +70,9 @@ export default ($routeProvider, routeUrls, $httpProvider, jwtOptionsProvider, $t
         routes.collection_products)
     .otherwise(
         { redirectTo: routeUrls.collections });
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 
     /* JWT configuration */
 

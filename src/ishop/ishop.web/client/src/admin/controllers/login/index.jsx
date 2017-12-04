@@ -43,7 +43,7 @@ class LoginController {
 
     this.loginService.signin( this.email, this.password,
       (response) => {
-        sessionStorage.setItem('auth_token', response.jwt);
+        sessionStorage.setItem('auth_token', response.data.jwt);
         this.router.goTo(this.loginService.redirectToUrl);
       },
       (data, status, headers, config) => {
