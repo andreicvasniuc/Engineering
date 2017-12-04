@@ -4,7 +4,7 @@ import collectionTemplate from './controllers/collection/template.html';
 import productListTemplate from './controllers/product-list/template.html';
 import productTemplate from './controllers/product/template.html';
 
-export default ($routeProvider, routeUrls, $translateProvider, languages, envProvider) => {
+export default ($routeProvider, routeUrls, $translateProvider, languages, envProvider, $locationProvider) => {
   /* Routing */
 
   let routes = {
@@ -91,6 +91,9 @@ export default ($routeProvider, routeUrls, $translateProvider, languages, envPro
     //     routes.product)
     .otherwise(
         { redirectTo: routeUrls.home });
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 
     /* i18n and l10n */
 

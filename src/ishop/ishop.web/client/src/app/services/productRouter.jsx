@@ -10,7 +10,7 @@ class ProductRouter {
   }
 
   getUrl(productId) {
-    return '/#' + this.routeUrls.product.replace(this.paramMasks.product, productId)
+    return this.routeUrls.product.replace(this.paramMasks.product, productId)
   }
 
   getId() {

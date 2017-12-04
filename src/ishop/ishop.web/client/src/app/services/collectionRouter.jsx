@@ -11,7 +11,7 @@ class CollectionRouter {
   }
 
   getUrl(collectionId) {
-    return '/#' + this.getCollectionUrl(collectionId);
+    return this.getCollectionUrl(collectionId);
   }
 
   getCollectionUrl(collectionId) {
