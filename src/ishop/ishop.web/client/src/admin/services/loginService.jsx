@@ -9,7 +9,9 @@ class LoginService {
   signin(email, password, successCallback, errorCallback){
     let request = { auth: { email, password } };
 
-    this.$http.post(this.authTokenUrl, request).then(successCallback, errorCallback);
+    this.$http.post(this.authTokenUrl, request)
+      .success(successCallback)
+      .error(errorCallback);
   }
 }
 
